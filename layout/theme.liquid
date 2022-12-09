@@ -887,24 +887,6 @@ $(window).resize(function() {
 updateContainer();
 });
 });
-function update() { 
-if (window.innerWidth < 1009) {
-
-$('.rightSide  .customheaderclick').unbind('mouseenter mouseleave'); 
-$('.menuBlockText').show();
-}
-else {
-$('.rightSide  .customheaderclick').bind("mouseenter", function()  {
-$(this).find('.menuBlockText').slideToggle("slow");
-});
-$('.rightSide  .customheaderclick').bind("mouseleave", function() {
-
-$(this).find('.menuBlockText').slideToggle("slow");
-});
-$('.menuBlockText').hide();
-}
-
-}
  </script>
 <script>
 $(document).ready(function() {
