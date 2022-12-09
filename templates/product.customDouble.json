@@ -7,6 +7,46 @@
     },
     "top": {
       "type": "productTopCustomDouble",
+      "blocks": {
+        "eebc7bd9-4661-4dbd-94fb-8f7615fc557e": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Clear_1_1_1.jpg",
+            "item-title": "Standard Clear",
+            "item-value": "Standard 1\/4\" Clear"
+          }
+        },
+        "1655d591-9237-4e62-86df-47a9d35cc8eb": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Low_Iron_Acid_Etched_-_1_1.jpg",
+            "item-title": "1⁄4” Frosted",
+            "item-value": "1\/4\" frosted"
+          }
+        },
+        "3a10d0e6-8ab1-4b16-91fd-f6d9c50bf7a7": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Reeded_-_1_1.jpg",
+            "item-title": "Reeded Glass",
+            "item-value": "Reeded Glass"
+          }
+        },
+        "239b843a-2a68-4bab-86a8-f3e9227c4ff4": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Thin_Reeded_-_1_1.jpg",
+            "item-title": "Thin Reeded Glass",
+            "item-value": "Thin Reeded Glass"
+          }
+        }
+      },
+      "block_order": [
+        "eebc7bd9-4661-4dbd-94fb-8f7615fc557e",
+        "1655d591-9237-4e62-86df-47a9d35cc8eb",
+        "3a10d0e6-8ab1-4b16-91fd-f6d9c50bf7a7",
+        "239b843a-2a68-4bab-86a8-f3e9227c4ff4"
+      ],
       "settings": {
       }
     },
@@ -15,7 +55,7 @@
       "settings": {
         "titleWidth": "16",
         "titleMargin": "19",
-        "marTop": "",
+        "marTop": "20",
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
@@ -42,7 +82,7 @@
         "titleColorMob": "",
         "titleAlignMob": "left",
         "titleMarBottomMob": "17",
-        "subtext": "The custom pivot hinge Door is a timeless addition to your home. The thin line frame door maintains a room's open appearance while still providing privacy depending on your glass choice.  This custom Quick Ship door is made of steel and hand built with locally sourced materials. \n\nOur thin line frames were intended to maximize natural lighting and create that sense of openness in anyspace.",
+        "subtext": "Create a grand entrance in any setting with the Concealed Pivot hinge, our most premium pivot hinge option. Mounted within the top and bottom of the door, this nearly invisible hinge system rotates in and out seamlessly. This minimalistic yet luxurious door offers both superior design and ease of use.",
         "subtextSize": "16",
         "subtextWeight": "300",
         "subtextLine": "24",
@@ -328,19 +368,22 @@
         "06730b6f-b9d0-4111-bf6e-e1334d8b93bd": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_308.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_308.png",
+            "title": ""
           }
         },
         "9824911a-320f-4270-8d8c-20cb4de618af": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png",
+            "title": ""
           }
         },
         "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Untitled_design-38.png"
+            "image": "shopify:\/\/shop_images\/Untitled_design-38.png",
+            "title": ""
           }
         }
       },

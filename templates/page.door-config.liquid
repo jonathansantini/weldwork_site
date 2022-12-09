@@ -1,156 +1,640 @@
-
 <style>
-      #configurator-container {
-                max-width: 1200px;
-                width: 100%;
-                height: 675px;
-                margin: 0 auto; 
-            } 
 
-/* DOOR CONFIG MODAL */
+ 
+    #configurator-container {
+        max-width: 1200px;
+        width: 100%;
+        height: 675px;
+        margin: 0 auto;
+        position: relative;
+    }
 
-#PageContainer .main-content {
-    position: relative;
+  #configurator-container iframe {
+      z-index: 99;
+}
+  
+.firstpop .dc-modal__close{
+		display:none;
+}
+.product-summary-modal .dc-modal__close{
+		display:block;
+}
+    /* DOOR CONFIG MODAL */
+
+    #PageContainer .main-content {
+        position: relative;
+    }
+
+    .dc-modal {
+        position: fixed;
+        z-index: 99999;
+        left: -100%;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .5);
+        opacity: 0;
+        transition: 0.25s all ease-in-out;
+        font-family: GT Walsheim Pro;
+    }
+
+    .dc-modal--active {
+        opacity: 1;
+        left: 0%;
+        cursor: pointer;
+    }
+
+    .dc-modal__content form {
+        position: relative;
+    }
+
+    .dc-modal__container {
+        cursor: default;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 93%;
+        max-width: 734px;
+        background: #fff;
+        padding: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        max-height: 96%;
+        overflow-y: auto;
+        text-align: center;
+    }
+
+    .product-summary-modal .dc-modal__container {
+        padding: 24px;
+        max-width: 750px;
+    }
+
+    .summary-head {
+        background-color: #F4F0EA;
+        padding: 0.80rem;
+        font-size: 16px;
+        margin: -24px -24px 24px -24px;
+    }
+
+    .dc-modal__heading {
+        position: relative;
+    }
+
+    .dc-modal .top-heading {
+        background-color: #F4F0EA;
+        font-size: 16px;
+        font-family: GT Walsheim Pro;
+        font-weight: 350;
+        padding: 20px 30px;
+        display: block;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .dc-modal .sub-head-section h3 {
+        font-family: GT Walsheim Pro;
+        text-transform: capitalize;
+        font-size: 1.7rem;
+        color: #000;
+        letter-spacing: normal;
+    }
+
+    .dc-modal .sub-head-section span {
+        max-width: 340px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 350;
+        margin-bottom: 30px;
+    }
+
+
+    .form-group-row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    .form-group-row .form-floating {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form-floating {
+        margin-bottom: 20px;
+    }
+
+    .dc-modal__close {
+        position: absolute;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        right: 10px;
+        top: 10px;
+    }
+
+    #dc-modal__popup-submit {
+        margin-top: 4px;
+    }
+
+    .product-summary-modal .contact-form {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+    }
+
+    .dc-modal__image {
+        background-color: #F7F7F7;
+        width: 41%;
+    }
+
+    .dc-modal__params {
+        width: 59%;
+        padding-left: 50px;
+    }
+
+    .dc-modal__param {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .dc-modal__param p {
+        margin: 0;
+        font-size: 15px;
+        color: #5E5E5E;
+        padding: 0.5rem;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        text-align: left;
+    }
+
+    .dc-modal__param p.dc-modal__param-value {
+        color: #232323;
+        font-weight: 600;
+    }
+
+    .product-summary-modal .dc-modal__submit {
+        border-top: 1px solid #C3C3C3;
+        padding-top: 24px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        margin-left: -24px;
+        margin-right: -24px;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-top: 15px;
+    }
+
+    .dc-modal__submit .dc-modal__submit-button {
+        cursor: pointer;
+        font-style: normal;
+        font-weight: 600;
+        border: 1px solid black;
+        background-color: black;
+        color: white;
+        transition: 0.25s all ease-in-out;
+        border-radius: 0;
+        padding: 1rem;
+        font-family: GT Walsheim Pro;
+        font-size: 14px;
+        margin-bottom: 0;
+        min-width: 180px;
+        width: 100%;
+    }
+
+    .product-summary-modal .button-holder-wrap {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .product-summary-modal .button-holder-wrap .cancel-link {
+        font-size: 14px;
+        color: #000;
+        margin-right: 40px;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+
+    .product-summary-modal .dc-modal__submit-button {
+        width: auto;
+    }
+
+    .dc-modal__submit .dc-modal__submit-button:hover {
+        background-color: white;
+        color: black;
+    }
+
+    .dc-modal__heading,
+    .dc-modal__content {
+        max-width: 534px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product-summary-modal .dc-modal__content {
+        max-width: 100%;
+    }
+
+    [form-errors] {
+        text-align: left;
+        color: red;
+        font-style: italic;
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    div#configurator-container {
+        margin-top: 125px;
+        margin-bottom: 125px;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        border: 1px solid #C3C3C3;
+        padding: 1.1rem 0.65rem;
+        font-size: 16px;
+        color: #232323;
+        line-height: normal;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-bottom: 0 !important;
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    form .form-control {
+        font-size: 16px;
+    }
+
+    .required-txt {
+        color: #DC0000;
+    }
+
+    .custom-modal-content-holder p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    div:not([class="custom-modal-header"]) .close-modal {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    body .modal-configuration .modal-title {
+        font-size: 32px;
+    }
+
+    .modal-button-black {
+        background-color: #000;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        border: 1px solid #000;
+        padding: 1rem;
+        min-width: 280px;
+        display: inline-block;
+    }
+
+    .modal-button-black:hover {
+        background-color: transparent;
+        color: #000;
+    }
+
+    .modal-configuration .custom-modal-action {
+        margin-top: 24px;
+        justify-content: center;
+    }
+
+    .custom-modal-content-holder {
+        max-width: 393px;
+    }
+
+    .modal-configuration .custom-modal-dialog {
+        min-height: 40vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .modal-configuration .icon-holder img {
+        max-width: 100px;
+        margin-bottom: 15px;
+    }
+
+    /**********************************/
+
+    .form-floating {
+        position: relative;
+    }
+
+    .form-floating>.form-control,
+    .form-floating>.form-control-plaintext,
+    .form-floating>.form-select {
+        height: calc(3.5rem + 2px);
+        line-height: 1.25;
+    }
+
+    .form-floating>label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        padding: 1rem 0.75rem;
+        pointer-events: none;
+        border: 1px solid transparent;
+        transform-origin: 0 0;
+        transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+        font-style: normal;
+        color: #5E5E5E;
+        font-weight: 350;
+    }
+
+    .form-group-row .form-floating>label {
+        left: 15px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .form-floating>label {
+            transition: none;
+        }
+    }
+
+    .form-floating>.form-control,
+    .form-floating>.form-control-plaintext {
+        padding: 1rem 0.75rem;
+    }
+
+    .form-floating>.form-control::-moz-placeholder,
+    .form-floating>.form-control-plaintext::-moz-placeholder {
+        color: transparent;
+    }
+
+    .form-floating>.form-control::placeholder,
+    .form-floating>.form-control-plaintext::placeholder {
+        color: transparent;
+    }
+
+    .form-floating>.form-control:not(:-moz-placeholder-shown),
+    .form-floating>.form-control-plaintext:not(:-moz-placeholder-shown) {
+        padding-top: 1.625rem;
+        padding-bottom: 0.625rem;
+    }
+
+    .form-floating>.form-control:focus,
+    .form-floating>.form-control:not(:placeholder-shown),
+    .form-floating>.form-control-plaintext:focus,
+    .form-floating>.form-control-plaintext:not(:placeholder-shown) {
+        padding-top: 1.625rem;
+        padding-bottom: 0.625rem;
+    }
+
+    .form-floating>.form-control:-webkit-autofill,
+    .form-floating>.form-control-plaintext:-webkit-autofill {
+        padding-top: 1.625rem;
+        padding-bottom: 0.625rem;
+    }
+
+    .form-floating>.form-select {
+        padding-top: 1.625rem;
+        padding-bottom: 0.625rem;
+    }
+
+    .form-floating>.form-control:not(:-moz-placeholder-shown)~label {
+        opacity: 0.65;
+        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+
+    .form-floating>.form-control:focus~label,
+    .form-floating>.form-control:not(:placeholder-shown)~label,
+    .form-floating>.form-control-plaintext~label,
+    .form-floating>.form-select~label {
+        opacity: 0.65;
+        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+
+    .form-floating>.form-control:-webkit-autofill~label {
+        opacity: 0.65;
+        transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+    }
+
+    .form-floating>.form-control-plaintext~label {
+        border-width: 1px 0;
+    }
+
+
+    /********************************************/
+
+    /* login cart buttons */
+
+    .deskMenuItem {
+        z-index: 10;
+    }
+
+    .dc-modal__submit-button:disabled {
+        background: #C3C3C3;
+        border: none;
+    }
+
+    .dc-modal__submit-button:disabled:hover {
+        color: #fff;
+    }
+
+    #dc-modal__popup-submit:hover {
+        background: #C3C3C3;
+    }
+
+    #emailerror,
+    #lnameerror,
+    #fnameerror,
+    #phoneerror {
+        text-align: left;
+        color: red;
+        font-size: 12px;
+        margin-top: 4px;
+        margin-bottom: 0;
+    }
+
+
+@media(max-width:1366px){
+    .dc-modal__container {
+	padding:40px;
+}  
+.dc-modal .top-heading,
+.dc-modal .top-heading {
+        margin-bottom: 30px;
+    }
 }
 
-.dc-modal {
-    position: absolute;
-    z-index: 99999;
-    left: -100%;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.5);
-    opacity: 0;
-    transition: 0.25s all ease-in-out;
-}
+    @media (max-width:991px) {
+        .dc-modal__param p {
+            font-size: 13px;
+        }
 
-.dc-modal--active {
-    opacity: 1;
-    left: 0%;
-    cursor: pointer;
-}
+    }
 
-.dc-modal__content form {
-    position: relative;
-}
+    @media (max-width:767px) {
+        .dc-modal__image {
+            width: 100%;
+            margin-bottom: 24px;
+        }
 
-.dc-modal__container {
-    cursor: default;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    max-width: 500px;
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,.5);
-    max-height: 80vh;
-    overflow-y: scroll;
-}
+        .dc-modal__image img {
+            max-width: 277px;
+        }
 
-.dc-modal__heading {
-    position: relative;
-    border-bottom: 1px solid #737373;
-}
+        .dc-modal__params {
+            width: 100%;
+            padding-left: 0;
+        }
 
-.dc-modal__close {
-    position: absolute;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    right: 0;
-    top: 0;
-}
+        .dc-modal .top-heading,
+        .summary-head {
+            font-size: 14px;
+        }
 
-.dc-modal__image {
-    margin: 25px 0;
-    background-color: lightgray;
-}
+        .dc-modal .sub-head-section h3 {
+            font-size: 24px;
+        }
 
-.dc-modal__params {
-    margin-bottom: 25px;
-    border-top: 1px solid #737373;
-}
+        .dc-modal .sub-head-section span {
+            margin-bottom: 24px;
+        }
 
-.dc-modal__param {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .dc-modal .top-heading {
+            font-size: 14px;
+            margin-left: -20px;
+            margin-right: -20px;
+            margin-top: -50px;
+            padding-top: 30px;
+            padding-left: 45px;
+            padding-right: 45px;
+        }
 
-.dc-modal__param p {
-    width: 50%;
-    border-bottom: 1px solid #737373;
-    padding: 5px;
-    padding-top: 0;
-    margin: 0;
-}
+        .dc-modal__container {
+            padding: 50px 20px 20px 20px;
+        }
 
-.dc-modal__param p:first-child {
-    border-right: 1px solid #737373;
-}
+        .dc-modal__close {
+            right: 6px;
+            top: 6px;
+        }
 
-.dc-modal__submit {
-    text-align: right;
-    margin-bottom: 25px;
-}
+        .dc-modal__heading,
+        .dc-modal__content {
+            max-width: 100%;
+        }
 
-.dc-modal__submit input {
-    width: 100%;
-    border: 1px solid black;
-}
+        .product-summary-modal .dc-modal__container {
+            padding: 20px;
+        }
 
-.dc-modal__submit .dc-modal__submit-button {
-    cursor: pointer;
-    font-style: normal;
-    font-weight: 800;
-    border: 1px solid black;
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-    padding: 5px 10px;
-    width: 120px;
-    transition: 0.25s all ease-in-out;
-}
-.dc-modal__submit .dc-modal__submit-button:hover{
-    background-color: white;
-    color: black;
-}
+        .product-summary-modal .dc-modal__submit {
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
 
-.dc-modal__submit-info {
-    margin-bottom: 25px;
-}
+    }
 
-[form-errors] {
-    text-align: left;
-    color: red;
-    font-style: italic;
-    font-size: 14px;
-    margin-bottom: 5px;
-}
+    @media (max-width:640px) {
 
-div#configurator-container {
-    margin-top: 125px;
-    margin-bottom: 125px;
-}
+        .form-group-row .form-floating {
+            width: 100%;
+            flex: unset;
+        }
 
-/* login cart buttons */
-
-.deskMenuItem {
-    z-index: 10;
-}
-</style> 
+        .dc-modal__param p {
+            font-size: 14px;
+        }
+    }
+</style>
 
 <div id='judgeme_all_reviews_page' class="page clearfix jdgm-all-reviews-page">
-  <div class="jdgm-all-reviews-page__wrapper">
-<div id="configurator-container"></div>
-</div> 
-</div> 
-<script src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/roomle-configurator-api.es.min.js?v=1646910774" type="module"></script>
-<script src="../assets/roomle-configurator-api.es.min.js" type="module"></script>
+    <div class="jdgm-all-reviews-page__wrapper">
+        <div id="configurator-container">
+
+
+            <div class="toolbar_modal">
+                {% include 'custom_toolbar_modal' %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="custom-modal text-center modal-configuration" id="configuration-modal" data-animation="slideInOutLeft">
+    <div class="custom-modal-dialog arrow-box-left">
+        <div class="custom-modal-dialog-holder">
+            <button class="close-modal config-modal-close" aria-label="close modal" data-close>
+                ✕
+            </button>
+            <div class="custom-modal-content">
+                <div class="custom-modal-content-holder">
+                    <div class="icon-holder"><img
+                            src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/check-circle-icon.svg?v=1658235413">
+                    </div>
+                    <h2 class="modal-title">Configuration Sent</h2>
+                    <p>Thank you for choosing Weldwork. One of our team members will reach out to you within 24 hours to discuss your project.</p>
+                    <div class="custom-modal-action">
+                        <a href="https://www.roomle.com/t/cp/ar.html?id=weldwork%3Adoor_system%3A58E37EF3D84C8AA555D4132D8FC19947C3739B2A865A8EF8F52667F3A4EBCF60&configuratorId=demoConfigurator" target="_blank" class="modal-button-black">Click here to see your door in your space</a>
+                    </div>
+                  <div class="custom-modal-action">
+                        <a href="https://www.weldwork.com/pages/door-configurator" target="_blank" class="modal-link" > Build another door or partition</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/roomle-configurator-api.es.min.js?v=1646910774"
+    type="module"></script>
+{% comment %}
+<script src="../assets/roomle-configurator-api.es.min.js" type="module"></script>{% endcomment %}
 
 <!-- DoorConfig Modal -->
 <!-- {% form 'contact' %}
@@ -176,52 +660,112 @@ div#configurator-container {
     </div>
 {% endform %} -->
 
-<div class="dc-modal" data-modal>
+<div id="design-config" class="dc-modal firstpop  nnn" data-modal>
     <div class="dc-modal__container">
-        <div class="dc-modal__heading">
-            <div class="dc-modal__close" data-modal-close>
-                <svg class="dc-modal__close-icon" viewBox="0 0 24 24">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-                </svg>
-            </div>
-            <h3>Send Params</h3>
+        <div class="dc-modal__close" data-modal-close>
+            <svg class="dc-modal__close-icon" viewBox="0 0 24 24">
+                <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                </path>
+            </svg>
         </div>
 
+
         <div class="dc-modal__content" data-modal-content>
-            {% form 'contact' %}
-                <div class="dc-modal__image">
-                    <img form-image src="" alt="">
-                </div>
-                <div class="dc-modal__params" form-params></div>
+            <div  style="display:none" id="top-heading" class="top-heading">You’re about to build your dream door! Fill in the form to
+                continue.</div>
+            <div class="summary-head" id="summary-head" style="display:none">
+                <span>Door Builder Summary</span>
+            </div>
+            <div class="sub-head-section" id="contact-head">
+                <h3>Build your dream door or partition</h3>
+                <span>In order to help us better assist you, please fill out the contact form below</span>
+            </div>
 
-                <div class="message" style="display:none;">
-                    <label for="message">Message</label>
-                    <textarea name="contact[body]" id="message"></textarea>
-                </div>
 
-                <div class="dc-modal__submit">
-                    <div class="dc-modal__submit-info" form-info>
-                        <input type="text"name="contact[first_name]" placeholder="Full Name*">
-                        <input type="email" name="contact[email]" placeholder="Email*">
-                        <input type="tel" name="contact[phone]" placeholder="Phone*">
-                        <p form-errors></p>
+            {% form 'contact'  %}
+
+            <div id="dc-modal__image" class="dc-modal__image" style="display:none;">
+                <img form-image src="" alt="">
+            </div>
+            <div style="display:none;" id="dc-modal__summary" class="dc-modal__params" form-params></div>
+
+            <div class="message" style="display:none;">
+                <label for="message">Message</label>
+                <textarea name="contact[body]" id="message"></textarea>
+            </div>
+
+            <div class="dc-modal__submit">
+                <div id="dc-modal__contact-info" class="dc-modal__submit-info" form-info>
+                    <div class="form-group-row">
+                        <div class="form-floating">
+                            <input onkeyup="checkData()" id="fname" class="form-control" type="text"
+                                name="contact[first_name]" placeholder="First Name*">
+                            <label for="floatingInput">First Name <span class="required-txt">*</span></label>
+                            <p class="error" id="fnameerror"></p>
+
+                        </div>
+                        <div class="form-floating">
+                            <input onkeyup="checkData()" id="lname" class="form-control" type="text"
+                                name="contact[last_name]" placeholder="Last Name*">
+                            <label for="floatingInput">Last Name <span class="required-txt">*</span></label>
+                            <p class="error" id="lnameerror"></p>
+                        </div>
                     </div>
-                    <input type="submit" class="dc-modal__submit-button" value="Send">
+                    <div class="form-floating">
+                        <input onkeyup="checkData()" id="cemail" class="form-control" type="email" name="contact[email]"
+                            placeholder="Email Address*">
+                        <label for="floatingInput">Email address <span class="required-txt">*</span></label>
+                        <p class="error" id="emailerror"></p>
+                    </div>
+                    <div class="form-floating">
+                        <input onkeyup="checkData()" id="telnum" class="form-control" type="tel" name="contact[phone]"
+                            placeholder="Contact Number*">
+                        <label for="floatingInput">Phone Number <span class="required-txt">*</span></label>
+                        <p class="error" id="phoneerror"></p>
+                    </div>
+
+                        <div class="form-floating">
+                            <input onkeyup="checkData()" id="ProjectAddress" class="form-control" type="text"
+                                name="contact[Project_Address]" placeholder="ProjectAddress Address*">
+                            <label for="floatingInput">Project Address <span class="required-txt">*</span></label>
+                            <p class="error" id="ProjectAddresserror"></p>
+                        </div>
                 </div>
+                <p form-errors></p>
+             
+                <div class="button-holder-wrap">
+                    <a id="psm-cancel" style="display:none;" class="cancel-link">Cancel</a>
+                    <input type="button" disabled id="dc-modal__popup-submit" class="dc-modal__submit-button"
+                        onclick="doValidate()" value="Get Started">
+                    <input type="submit" style="display:none;" id="dc-modal__final-submit"
+                        class="dc-modal__submit-button" value="Continue">
+                </div>
+            </div>
             {% endform %}
         </div>
     </div>
 </div>
 
-<script type="module">
+
+
+
+
+
+
+
+
+<script type="module"> 
     import roomleEmbeddingLib from 'https://cdn.skypack.dev/@roomle/embedding-lib';
     import roomleWebSdk from 'https://cdn.skypack.dev/@roomle/web-sdk';
     // import RoomleConfiguratorApi from './@roomle/RoomleConfiguratorApi';
     import RoomleConfiguratorApi from 'https://cdn.shopify.com/s/files/1/0580/5994/8228/files/roomle-configurator-api.es.min.js?v=1646910774';
 
-    (async ()=> {
+    (async () => {
         const options = {
-            id: 'weldwork_poc:door_system',
+            id: 'weldwork:door_system',
+            unit: 'inchfeet',
+            precisionInch: 'X',
         };
         const configurator = await RoomleConfiguratorApi.create(
             'demoConfigurator',
@@ -243,7 +787,7 @@ div#configurator-container {
         const createForm = (image, partlist, configuration) => {
             imageElement.src = image.image;
             imageElement.alt = configuration.label;
-            
+
             partlist.fullList[0].parameters.forEach(param => {
                 const paraContainer = document.createElement('div');
                 paraContainer.classList.add('dc-modal__param');
@@ -271,16 +815,19 @@ div#configurator-container {
 
         const inputInfoValidator = inputs => {
             const validations = Array.from(inputs).map(input => {
-                if(input.value.length > 2)
-                    if(input.type === 'text') {
+               if (dConfigPopup) {
+                 return true;
+               }
+                if (input.value.length > 2)
+                    if (input.type === 'text') {
                         return input.value.length > 2;
-                    } else if(input.type === 'email') {
+                    } else if (input.type === 'email') {
                         return emailValidation.test(input.value)
-                    } else if(input.type === 'tel') {
+                    } else if (input.type === 'tel') {
                         return phoneValidation.test(input.value)
                     }
-                else
-                    return false;
+                    else
+                        return false;
             });
 
             console.log(validations);
@@ -290,15 +837,47 @@ div#configurator-container {
         configurator.ui.callbacks.onRequestProduct = (configurationId, image, partlist, price, labels, configuration) => {
             modal.classList.add('dc-modal--active');
             createForm(image, partlist, configuration);
+            var element = document.getElementById("design-config");
+            element.classList.add("product-summary-modal");
+            element.classList.remove("firstpop");
+            const targetDiv = document.getElementById("summary-head");
+            const cancelDiv = document.getElementById("psm-cancel");
+            const contactHead = document.getElementById("contact-head");
+            const contactDiv = document.getElementById("top-heading");
+            const modalsummary = document.getElementById("dc-modal__summary");
+            const contactfrminfo = document.getElementById("dc-modal__contact-info");
+            const modalImage = document.getElementById("dc-modal__image");
+            const fnameval = document.getElementById("fname").value;
+            targetDiv.style.display = "block";
+            modalsummary.style.display = "block";
+            cancelDiv.style.display = "block";
+            modalImage.style.display = "block";
+            contactDiv.style.display = "none";
+            contactfrminfo.style.display = "none";
+            contactDiv.style.display = "none";
+            contactHead.style.display = "none";
+            document.getElementById("dc-modal__final-submit").disabled = false;
+            document.getElementById("dc-modal__popup-submit").style.display = "none";
+            document.getElementById("dc-modal__final-submit").style.display = "block";
         };
 
         modal.addEventListener('click', (e) => {
             const target = e.target;
             if (target.closest('[data-modal-close]') || target.classList.contains('dc-modal--active')) {
                 paramsElement.innerHTML = '';
-                inputs.forEach(input => input.value = '');
+                // inputs.forEach(input => input.value = '');
                 errorsElement.innerHTML = '';
                 modal.classList.remove('dc-modal--active');
+
+                var element2 = document.getElementById("design-config");
+                element2.classList.remove("product-summary-modal");
+
+
+            }
+            if (target.closest('[data-modal-close]') && modal.classList.contains('firstpop')) {
+                var element3 = document.getElementById("modal1");
+                element3.classList.add("is-visible");
+
             }
         });
 
@@ -307,7 +886,13 @@ div#configurator-container {
             const validated = inputInfoValidator(inputs);
             errorsElement.innerHTML = '';
 
-            if(validated.every(validation => validation)) {
+            if (validated.every(validation => validation)) {
+                 document.getElementById('cemail').value = readCookie('cemail');
+                 document.getElementById('telnum').value = readCookie('telnum');
+                 document.getElementById("fname").value = readCookie('fname');
+                 document.getElementById("lname").value = readCookie('lname');
+                 document.getElementById("ProjectAddress").value = readCookie('ProjectAddress');
+              
                 const formSplit = $(form).serialize().split('&');
                 let formData = ``;
                 const message = document.querySelector('#message');
@@ -315,98 +900,273 @@ div#configurator-container {
                     const [key, value] = input.split('=');
                     // formData[key] = value.normalize();
                     formData += `${key}: ${value} \n`;
-                })
+                });
                 console.log("🚀 ~ file: page.door-config.liquid ~ line 153 ~ formData", formData)
 
                 message.innerText = formData;
 
-                console.log(message, message.innerText)
+                console.log(message, message.innerText);
 
                 form.submit();
 
             } else {
                 validated.forEach((input, i) => {
-                    if(!input) {
-                        const error = document.createElement('p');
-                        if(i === 0) {
-                            error.innerText = 'Your name is required and larger than 2 characters';
+                    if (!input) {
+
+                        if (i === 0) {
+                            const error = document.createElement('p');
+                            error.innerText = 'Your first name is required and larger than 2 characters';
+                            error.focus();
                             errorsElement.appendChild(error);
-                        } else if(i === 1) {
+                        } else if (i === 1) {
+                            const error = document.getElementById('lnameerror');
+                            error.innerText = 'Your last name is required and larger than 2 characters';
+                            errorsElement.appendChild(error);
+                        } else if (i === 2) {
                             error.innerText = 'Your email is required and valid';
                             errorsElement.appendChild(error);
-                        } else if(i === 2) {
+                        } else if (i === 3) {
                             error.innerText = 'Your phone is required and valid (10 digits)';
+                            errorsElement.appendChild(error);
+                        }
+
+                      else if (i === 4) {
+                            error.innerText = 'Your Project Address is required and valid ';
                             errorsElement.appendChild(error);
                         }
                     }
                 })
             }
-            
+
         })
     })();
 </script>
 
 <script>
-    form.addEventListener('submit', e => {
-            e.preventDefault();
-            const validated = inputInfoValidator(inputs);
-            errorsElement.innerHTML = '';
 
-            if(validated.every(validation => validation)) {
-                const formSplit = $(form).serialize().split('&');
-                let formData = ``;
-                const message = document.querySelector('#message');
-                formSplit.forEach(input => {
-                    const [key, value] = input.split('=');
-                    // formData[key] = value.normalize();
-                    formData += `${key}: ${value} \n`;
-                })
-                console.log("🚀 ~ file: page.door-config.liquid ~ line 153 ~ formData", formData)
+    function validateEmail(email) { //Validates the email address
+        var emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return emailRegex.test(email);
+    }
 
-                message.innerText = formData;
+    function validatePhone(phone) { //Validates the phone number
+        // var phoneRegex = /^(\+91-|\+91|0)?\d{10}$/; // Change this regex based on requirement
+         var phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im; // Change this regex based on 
+        return phoneRegex.test(phone);
+    }
+    function doValidate() {
+        
+        if (!validateEmail(document.getElementById('cemail').value)) {
 
-                console.log(message, message.innerText)
+            const error = document.getElementById('emailerror');
+            error.innerText = 'Invalid email';
 
-                form.submit();
+        } else {
+            document.getElementById('emailerror').innerText = '';
+        }
+        if (!validatePhone(document.getElementById('telnum').value)) {
+            const error = document.getElementById('phoneerror');
+            error.innerText = 'Invalid Phone Number';
+
+        } else {
+            document.getElementById('phoneerror').innerText = '';
+        }
+
+        if (document.getElementById("fname").value.length <= 2) {
+            const error = document.getElementById('fnameerror');
+            error.innerText = 'First name must be larger than 2 characters';
+
+        } else {
+            document.getElementById('fnameerror').innerText = '';
+        }
+        if (document.getElementById("lname").value.length <= 2) {
+            const error = document.getElementById('lnameerror');
+            error.innerText = 'Last name must be larger than 2 characters';
+
+        } else {
+            document.getElementById('lnameerror').innerText = '';
+            //return true;
+        }
+
+       if (document.getElementById("ProjectAddress").value.length <= 2) {
+            const error = document.getElementById('ProjectAddresserror');
+            error.innerText = 'Last name must be larger than 2 characters';
+
+        } else {
+            document.getElementById('ProjectAddresserror').innerText = '';
+            //return true;
+        }
+
+          
+        if ((validateEmail(document.getElementById('cemail').value)) && (validatePhone(document.getElementById('telnum').value)) && (document.getElementById("fname").value.length > 2) && (document.getElementById("lname").value.length > 2) && (document.getElementById("ProjectAddress").value.length > 2))   {
+            //const modal = document.querySelector('[data-modal]');
+            // modal.classList.remove('dc-modal--active');
+            jQuery(".dc-modal__close").trigger("click");
+        }
+      doorConfigPopupCookie();
+
+    }
+    function checkData() {
+        var fname = document.getElementById("fname");
+        var lname = document.getElementById("lname");
+        var email = document.getElementById("cemail");
+        var telnum = document.getElementById("telnum");
+         var ProjectAddress = document.getElementById("ProjectAddress");
+        if (fname.value != "" && lname.value != "" && email.value != "" && telnum.value != "" && ProjectAddress.value != "") {
+            document.getElementById("dc-modal__popup-submit").disabled = false;
+        }
+    }
 
 
-                                
-                // $.ajax({
-                //     url: '/contact#contact_form',
-                //     type: 'POST',
-                //     data: formData,
-                //     success: (response) => {
-                //         console.log('SUCCESS: ');
-                //         console.log(response);
-                //         // modal.classList.remove('dc-modal--active');
-                //     },
-                //     error: (response) => {
-                //         console.log('ERROR: ');
-                //         console.log(response);
-                //         if(response.status === 429) {
-                //             var challengeUrl = window.location.origin +'/challenge#contact_form';
-                //             window.location = challengeUrl;
-                //         }
-                //         errorsElement.innerHTML = response.responseJSON.message;
-                //     }
-                // });
-            } else {
-                validated.forEach((input, i) => {
-                    if(!input) {
-                        const error = document.createElement('p');
-                        if(i === 0) {
-                            error.innerText = 'Your name is required and larger than 2 characters';
-                            errorsElement.appendChild(error);
-                        } else if(i === 1) {
-                            error.innerText = 'Your email is required and valid';
-                            errorsElement.appendChild(error);
-                        } else if(i === 2) {
-                            error.innerText = 'Your phone is required and valid (10 digits)';
-                            errorsElement.appendChild(error);
-                        }
-                    }
-                })
-            }
-            
+    const openEls = document.querySelectorAll("[data-open]");
+    const closeEls = document.querySelectorAll("[data-close]");
+    const isVisible = "is-visible";
+
+    for (const el of openEls) {
+        el.addEventListener("click", function () {
+            const modalId = this.dataset.open;
+            document.getElementById(modalId).classList.add(isVisible);
+            jQuery("body").addClass("modalopned");
+
+        });
+    }
+
+    for (const el of closeEls) {
+        el.addEventListener("click", function () {
+            document.querySelector(".custom-modal.is-visible").classList.remove(isVisible);
+            jQuery("body").removeClass("modalopned");
+        });
+    }
+
+    // document.addEventListener("click", (e) => {
+    //     if (e.target == document.querySelector(".custom-modal.is-visible")) {
+    //         document.querySelector(".custom-modal.is-visible").classList.remove(isVisible);
+    //         jQuery("body").removeClass("modalopned");
+    //     }
+    // });
+
+    document.addEventListener("keyup", (e) => {
+        // if we press the ESC
+        if (e.key == "Escape" && document.querySelector(".custom-modal.is-visible")) {
+            document.querySelector(".custom-modal.is-visible").classList.remove(isVisible);
+            jQuery("body").removeClass("modalopned");
+        }
+    });
+    if (window.matchMedia('(min-width: 1009px)').matches) {
+		
+
+        jQuery(document).on("click", ".custom-modal .button-step-1", function () {
+            jQuery('.bullets a').removeClass("active");
+            jQuery('.bullets a:nth-child(2)').addClass("active");
+            jQuery(this).removeClass("button-step-1").addClass("button-step-2");
+            jQuery(".custom-modal").removeClass("step-1").addClass("step-2");
         })
+        jQuery(document).on("click", ".custom-modal .button-step-2", function () {
+            jQuery('.bullets a').removeClass("active");
+            jQuery('.bullets a:nth-child(3)').addClass("active");
+            jQuery(this).removeClass("button-step-2").addClass("button-step-3").html("Done")
+            jQuery(".custom-modal").removeClass("step-2").addClass("step-3");
+        })
+
+        jQuery(document).on("click", ".custom-modal .button-step-3", function () {
+            document.querySelector(".custom-modal.is-visible").classList.remove(isVisible);
+            jQuery("body").removeClass("modalopned");
+        })
+        jQuery(document).on("click", "#psm-cancel", function () {
+            jQuery('.dc-modal__params').text('');
+            const modal = document.querySelector('[data-modal]');
+            modal.classList.remove('dc-modal--active');
+        })
+
+        jQuery('.bullets a').click(function () {
+            jQuery('.bullets a').removeClass("active");
+            jQuery(this).addClass("active");
+        });
+		
+    }
+jQuery(document).on("click", ".config-modal-close", function () { 
+            window.location.href="/pages/door-configurator";
+        })
+    function parse_query_string(query) {
+        var vars = query.split("&");
+        var query_string = {};
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            var key = decodeURIComponent(pair.shift());
+            var value = decodeURIComponent(pair.join("="));
+            // If first entry with this name
+            if (typeof query_string[key] === "undefined") {
+                query_string[key] = value;
+                // If second entry with this name
+            } else if (typeof query_string[key] === "string") {
+                var arr = [query_string[key], value];
+                query_string[key] = arr;
+                // If third or later entry with this name
+            } else {
+                query_string[key].push(value);
+            }
+        }
+        return query_string;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('contact_posted');
+    if (myParam == 'true') {
+        jQuery("#configuration-modal").addClass("is-visible");
+        const modal = document.querySelector('[data-modal]');
+        modal.classList.remove('dc-modal--active');
+    } else {
+        jQuery("#configuration-modal").removeClass("is-visible");
+        const modal = document.querySelector('[data-modal]');
+        modal.classList.add('dc-modal--active');
+    }
+   window.onclick = function(event) {    
+  if(event.target === document.querySelector('.firstpop')) {   
+ const modal = document.querySelector('[data-modal]');
+        modal.classList.add('dc-modal--active'); 
+      }  };
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+	  doValidate();
+      return false;
+    }
+  });
+});
+
+
+  function doorConfigPopupCookie() {
+   var cemail = document.getElementById('cemail').value
+   var telnum = document.getElementById('telnum').value
+   var fname = document.getElementById("fname").value
+   var lname = document.getElementById("lname").value
+   var ProjectAddress = document.getElementById("ProjectAddress").value
+    
+     var days = 14; //number of days until they must go through the checker again.
+     var date = new Date();
+     date.setTime(date.getTime()+(days*24*60*60*1000));
+     var expires = "; expires="+date.toGMTString();
+      document.cookie = 'dConfigPopup=true;'+expires+"; path=/";
+    document.cookie = "cemail="+cemail+";"+expires+"; path=/";
+    document.cookie = "telnum="+telnum+";"+expires+"; path=/";
+    document.cookie = "fname="+fname+";"+expires+"; path=/";
+    document.cookie = "lname="+lname+";"+expires+"; path=/";
+    document.cookie = "ProjectAddress="+ProjectAddress+";"+expires+"; path=/";
+      
+  };
+  function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  };
+  var dConfigPopup = readCookie('dConfigPopup');
+  if (dConfigPopup) {
+    document.write("<style> #design-config.firstpop  { display: none; }</style>");
+  };   
 </script>

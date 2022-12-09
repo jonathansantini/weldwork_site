@@ -1,0 +1,1554 @@
+<style>
+    #shopify-section- {
+            {
+            section.id
+        }
+    }
+
+        {
+        margin-top: {
+                {
+                section.settings.marTop | times: 100 | divided_by: 1440.0
+            }
+        }
+
+        vw;
+
+        margin-bottom: {
+                {
+                section.settings.marBottom | times: 100 | divided_by: 1440.0
+            }
+        }
+
+        vw;
+
+        padding-top: {
+                {
+                section.settings.padTop | times: 100 | divided_by: 1440.0
+            }
+        }
+
+        vw;
+
+        padding-bottom: {
+                {
+                section.settings.padBottom | times: 100 | divided_by: 1440.0
+            }
+        }
+
+        vw;
+
+        padding-left: {
+                {
+                section.settings.padLeft | times: 100 | divided_by: 1440.0
+            }
+        }
+
+        vw;
+
+        padding-right: {
+                {
+                section.settings.padRight | times: 100 | divided_by: 1440.0
+            }
+        }
+
+        vw;
+
+        background-color: {
+                {
+                section.settings.backgroundColor
+            }
+        }
+
+        ;
+    }
+
+    @media only screen and (max-width: 1009px) {
+        #shopify-section- {
+                {
+                section.id
+            }
+        }
+
+            {
+            margin-top: {
+                    {
+                    section.settings.marTopMob
+                }
+            }
+
+            px;
+
+            margin-bottom: {
+                    {
+                    section.settings.marBottomMob
+                }
+            }
+
+            px;
+
+            padding-top: {
+                    {
+                    section.settings.padTopMob
+                }
+            }
+
+            px;
+
+            padding-bottom: {
+                    {
+                    section.settings.padBottomMob
+                }
+            }
+
+            px;
+
+            padding-left: {
+                    {
+                    section.settings.padLeftMob
+                }
+            }
+
+            px;
+
+            padding-right: {
+                    {
+                    section.settings.padRightMob
+                }
+            }
+
+            px;
+        }
+
+            {
+            % if section.settings.imageMob !=blank %
+        }
+
+        .imageMain- {
+                {
+                section.id
+            }
+        }
+
+            {
+            content: url({{ section.settings.imageMob | img_url: "1600x" }});
+        }
+
+            {
+            % endif %
+        }
+    }
+
+  @media only screen and (max-width: 1008px) {
+  .col-content .sub-title-h{
+            display:none;
+    }
+    }
+  
+
+  .switcher-sec .title-h {
+   
+    letter-spacing: 0px;
+    text-transform: inherit;
+}
+
+
+
+  
+</style>
+<div class="switcher-sec {{ section.settings.sectionAssignClass }}">
+    <div class="containerMainBoth">
+        <div class="feature-row GT-400 applyAnimation {{ section.settings.imagePositionClass }}">
+            <div class="col-content">
+                <h3 class="title-h GT-500 heading2">{{ section.settings.title }}</h2>
+                {% if section.settings.blocktype == 'text' %}
+
+                <div class="switcher-holder">
+                    {% for block in section.blocks %}
+                    <a href="javascript:void(0)" data-imgsrc="{{ block.settings.item-image | img_url: '600x' }}"  data-text="{{ block.settings.item-value2}} "
+                        class="{% if forloop.index == 1 %}active {% endif %}  switch-btn switch-{{ section.id }}-{{ forloop.rindex }} switches-{{ section.id }}">{{
+                        block.settings.item-title | escape }}</a>
+
+                    <script>
+                        $(document).ready(function () {
+                            $(".switch-{{ section.id }}-{{ forloop.rindex }}").click(function () {
+                                $('.switches-{{ section.id }}').removeClass('active');
+
+                                $(this).addClass('active');
+                                // Change src attribute of image
+                                var imgsrc = $(this).attr('data-imgsrc');
+                                $('.card-img-{{ section.id }}').attr("src", imgsrc);
+                             var imgsrnn = $(this).attr('data-text');
+                               $(this).parents(".feature-row").find('.buttontex p').text(imgsrnn);
+                            });
+                        });
+                    </script>
+                    {% endfor %}
+                </div>
+
+                
+                <div class="switch-divider"></div>
+                {% elsif section.settings.blocktype == 'image' %}
+                <div class="holder">
+                    <h5 class="sub-title-h GT-600" style=" font-size: 24px;line-height: 120%;">{{ section.settings.subcolorhead }}</h5>
+
+     <div class="tab">
+  <button class="tablinks" data-type="Standard" id="defaultOpen"> Standard </button>
+  <button class="tablinks" data-type="Custom"> Custom </button>
+
+</div>
+
+
+
+
+
+  
+                    <div class="switcher-holder-color sbc-black">
+                  {% capture my_variable %}<h2>I am being captured.</h2>{% endcapture %}
+    
+                  {% for block in section.blocks %}
+                    
+   <div id="{{ block.settings.colorclass | escape }}" data-imgsrc="{{ block.settings.item-image | img_url: '600x' }}"  class="tabcontent switch-btn-color {{ block.settings.colorclass | escape }} switch-{{ section.id }}-{{ forloop.rindex }} switches-{{ section.id }}">
+                            <input   type="radio" {% if forloop.index==1 %}checked {% endif %} name="flexRadioDefault"
+                                id="box-{{ forloop.rindex }}">
+                            <label class="customdiv" for="box-{{ forloop.rindex }}" style=" background: {{block.settings.optionHoverTextColor}};"></label>
+                           <label for="box-{{ forloop.rindex }}">{{ block.settings.item-title | escape }}</label>
+                        </div>         
+					<script>
+                        $(document).ready(function () {
+                            $(".switch-{{ section.id }}-{{ forloop.rindex }}").click(function () {
+                           
+                                // Change src attribute of image
+                                var imgsrc = $(this).attr('data-imgsrc');
+                                $('.card-img-{{ section.id }}').attr("src", imgsrc);
+                   
+                            });
+                        });
+                    </script>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% elsif section.settings.blocktype == 'doors' %}
+                <div class="switcher-holder">
+                    {% for block in section.blocks %}
+                    <a href="javascript:void(0)" data-imgsrc="{{ block.settings.item-image | img_url: '600x' }}" data-text="{{ block.settings.item-value2}}" class="{% if forloop.index == 1 %}active {% endif %}  switch-btn switch-{{ section.id }}-{{ forloop.rindex }} switches-{{ section.id }}">
+
+                        {{ block.settings.item-icon }}
+                        {{ block.settings.item-title | escape }}
+
+                    </a>
+                      
+                    <script>
+                        $(document).ready(function () {
+                            $(".switch-{{ section.id }}-{{ forloop.rindex }}").click(function () {
+                                $('.switches-{{ section.id }}').removeClass('active');
+
+                                $(this).addClass('active');
+                                // Change src attribute of image
+                                var imgsrc = $(this).attr('data-imgsrc');
+                                $('.card-img-{{ section.id }}').attr("src", imgsrc);
+                               var imgsrnn = $(this).attr('data-text');
+                      $(this).parents(".feature-row").find('.buttontex p').text(imgsrnn);
+                              
+                            });
+                        });
+                    </script>
+                    {% endfor %}
+                </div>
+                <div class="switch-divider"></div>
+                {% endif %}
+            {% if section.settings.descripbelowimg2 != blank %}
+            <div class="buttontex">
+            <p style="color:{{section.settings.titleColor}}">{{ section.settings.descripbelowimg2 }}</p>
+            </div>
+            
+            {% endif %}
+            {% if section.settings.linkText != blank %}
+                <div class="group-btn" onclick="location.href='{{ section.settings.link }}'">
+                    <span class="input-group-icon">
+                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.960938 17.2871L10.9765 7.27158" stroke="white" stroke-width="2" />
+                            <path d="M1.76653 6.98543H11.2608V16.4797" stroke="white" stroke-width="2" />
+                        </svg>
+                    </span>
+                    <span class="input-group-text">{{ section.settings.linkText }}</span>
+                </div>
+   {% endif %}
+            </div>
+            <div class="col-image come-in-1">
+
+                <img class="card-img-{{ section.id }}" src="{{ section.settings.image | img_url: '600x' }}">
+                {% if section.settings.blocktype == 'image' %}
+                <p>{{ section.settings.descripbelowimg }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<style>
+/*   tabcss  */
+
+
+  
+/* Style the tab */
+.tab {
+  overflow: hidden;
+     margin-top: 20px;
+    margin-bottom: 20px;
+  padding-bottom:1px;
+}
+
+/* Style the buttons inside the tab */
+.tab button  {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 22px;
+    font-family: 'GT Walsheim Pro';
+    font-style: normal;
+    font-weight: 400;
+    padding: 6px 24px;
+    font-size: 16px;
+    color: #5E5E5E;
+    margin-right: 14px;
+    border: 1px solid gray;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background: #000000;
+    font-family: 'GT Walsheim Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+}
+
+/* Style the tab content */
+
+  
+    .black-sec {
+        background-color: #000;
+    }
+
+    .cream-sec {
+        background-color: #F4F0EA;
+    }
+
+    .switcher-sec {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .switcher-sec .feature-row {
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        margin-left: -15px;
+        margin-right: -15px;
+        width: auto;
+    }
+
+    .sysytem-sec .feature-row {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .switcher-sec.white-sec {
+        background-color: #fff;
+    }
+
+    .switcher-sec .containerMainBoth {
+        
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* .pain-color-sec .containerMainBoth,
+    .mullion-sec .containerMainBoth {
+        max-width: 1067px;
+    } */
+
+    .col-content {
+        max-width: 418px;
+        padding-left: 15px;
+        padding-right: 15px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .col-image {
+        max-width: 50%;
+{% comment %}         padding-left: 15px;
+        padding-right: 15px; {% endcomment %}
+        position: relative;
+    }
+
+    .switcher-sec .title-h {
+        color: white;
+        font-size: 40px;
+        margin-bottom: 36px;
+    }
+
+    .switcher-sec.white-sec .title-h,
+    .switcher-sec.cream-sec .title-h {
+        color: black;
+    }
+
+    .switcher-holder {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-bottom: auto;
+    }
+
+
+.switcher-holder-color {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+  .switch-btn-color {width:33%;
+  text-align:left;}
+          
+    .switcher-holder a {
+        border: 1px solid #ffffff;
+        color: #fff;
+        font-size: 16px;
+        padding: 9.5px 14px;
+        text-decoration: none;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        transition: all 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .switcher-holder a:hover {
+        background-color: rgba(255, 255, 255, 0.17);
+    }
+
+    .switcher-holder a.active {
+        background-color: white;
+        color: black;
+    }
+
+    .white-sec .switcher-holder a,
+    .cream-sec .switcher-holder a {
+        color:#5e5e5e;
+        border: 1px solid black;
+      line-height:130%;
+    }
+
+    .white-sec .switcher-holder a:hover,
+    .cream-sec .switcher-holder a:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .white-sec .switcher-holder a.active,
+    .cream-sec .switcher-holder a.active {
+        background-color: black;
+        color: white;
+    }
+
+    .switch-divider {
+        height: 1px;
+        background-color: #484848;
+        margin: 36px 0 36px 0;
+    }
+
+ .group-btn {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        border: 1px solid #c3c3c3;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+		cursor:pointer;
+        transition: all ease 0.3s;
+}
+.group-btn:hover{
+    background-color: #fff;
+ }
+
+    .group-btn:hover .input-group-text {
+	color: #000;
+}
+.group-btn path {
+    transition: all ease 0.3s;
+}
+.group-btn:hover path {
+	stroke: black;
+}
+
+.group-btn:hover .input-group-icon{
+    border-color: #000;
+}
+
+
+
+
+.white-sec .group-btn:hover,
+.cream-sec .group-btn:hover{
+    background-color: black;
+    }
+
+.white-sec .group-btn:hover .input-group-text,
+.cream-sec .group-btn:hover .input-group-text  {
+	color: white;
+}
+
+.white-sec .group-btn:hover path,
+.cream-sec .group-btn:hover path {
+	stroke: white;
+}
+
+.white-sec .group-btn:hover .input-group-icon,
+.cream-sec .group-btn:hover .input-group-icon{
+    border-color:white
+}
+
+
+    .white-sec .group-btn,
+    .cream-sec .group-btn {
+        border: 1px solid black;
+    }
+
+    .input-group-text {
+        font-size: 14px;
+        color: #fff;
+        font-weight: 600;
+        padding: 16px 18px;
+        transition: all ease 0.3s;
+    }
+
+
+
+    .white-sec .input-group-text,
+    .cream-sec .input-group-text {
+        color: black;
+    }
+
+    .input-group-icon {
+        padding: 15px;
+        border-right: 1px solid #fff;
+    }
+
+    .white-sec .input-group-icon path,
+    .cream-sec .input-group-icon path {
+        stroke: #000;
+    }
+
+    .white-sec .input-group-icon,
+    .cream-sec .input-group-icon {
+        border-right: 1px solid black;
+    }
+
+    .white-sec .switch-divider,
+    .cream-sec .switch-divider {
+        background-color: black;
+    }
+
+    .switch-sec {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .reverse-row {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    }
+
+    .mullion-sec .switcher-holder {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        max-width: 370px;
+    }
+
+    .mullion-sec .switcher-holder a {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        text-align: center;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+
+    .mullion-sec .switcher-holder a:hover {
+        stroke: black;
+    }
+
+    .mullion-sec .switcher-holder a svg * {
+        stroke: currentColor;
+    }
+
+    .mullion-sec .switcher-holder svg {
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mullion-sec .col-content {
+        width: 100%;
+        max-width: 400px;
+    }
+
+
+  .customdiv {width: 79px;
+    height: 75px;
+    border-radius: 50%;
+    margin: 0 auto;}
+  
+.switcher-holder-color {
+
+    text-align: center;
+}
+  
+    .switch-btn-color input[type="radio"] {
+        display: none;
+    }
+
+    .switch-btn-color input[type="radio"]+label {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        padding: 70px 0 0 0;
+        font-size: 14px;
+        color: #484848;
+        font-style: normal;
+        text-align: center;
+      margin: 0;
+    }
+
+    .switch-btn-color input[type="radio"]+label:last-child {
+        margin-bottom: 0;
+    }
+
+    .switch-btn-color input[type="radio"]+label::before {
+        content: "";
+        display: block;
+        width: 75px;
+        height: 75px;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        -webkit-transition: all 0.12s, border-color 0.08s;
+        -o-transition: all 0.12s, border-color 0.08s;
+        transition: all 0.12s, border-color 0.08s;
+        border-radius: 50%;
+        background-color: #00000000;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+    .switch-btn-color input[type="radio"]:checked+label::before {
+        background-image: url("https://cdn.shopify.com/s/files/1/0580/5994/8228/files/checklist-icon.svg?v=1658384086");
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+/*     .switch-btn-color.sbc-gray input[type="radio"]+label::before {
+        background-color: #4E4E4E;
+    }
+.switch-btn-color.Vintage input[type="radio"]+label::before {
+    background-color: #DDB98F;
+}
+
+    .switch-btn-color.sbc-lightgray input[type="radio"]+label::before {
+        background-color: #C0C0C0;
+    }
+
+
+    .switch-btn-color.sbc-offwhite input[type="radio"]+label::before {
+        background-color: #F0F0F0;
+    }
+
+
+    .switch-btn-color.sbc-green input[type="radio"]+label::before {
+        background-color: #196E40;
+    }
+
+
+    .switch-btn-color.sbc-tealgreen input[type="radio"]+label::before {
+        background-color: #18707C;
+    }
+
+
+    .switch-btn-color.sbc-red input[type="radio"]+label::before {
+        background-color: #B12E2E;
+    }
+
+
+    .switch-btn-color.sbc-maroon input[type="radio"]+label::before {
+        background-color: #761515;
+    }
+
+ 
+.switch-btn-color .Sea_Foam_Green input[type="radio"]+label::before {
+    background-color: #93A090;
+}
+    .switcher-holder-color { */
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: 1fr 25px 1fr 25px 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 25px 25px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    .sub-title-h {
+        font-size: 24px;
+        margin-bottom: 34px;
+        text-transform: capitalize;
+        letter-spacing: normal;
+    }
+
+    .pain-color-sec .col-image p {
+        font-size: 16px;
+        color: #5E5E5E;
+        font-weight: 350;
+        margin-top: 32px;
+        margin-bottom: 0;
+        line-height:150%;
+    }
+
+    .pain-color-sec .col-image {
+        max-width: 470px;
+    }
+
+    .pain-color-sec .col-content {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        max-width: 369px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    .pain-color-sec .group-btn {
+        margin-top: 34px;
+    }
+
+    .dotted-pattren .col-image::before {
+        background-image: url("https://cdn.shopify.com/s/files/1/0580/5994/8228/files/dotted-pattren.png?v=1658469144");
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin-left: 15px;
+        margin-right: 15px;
+        content: "";
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .col-image img {
+        position: relative;
+        z-index: 1;
+    }
+
+    .glass-type-sec .col-image img {
+        mix-blend-mode: darken;
+    }
+
+  @media(min-width:1009px) {
+  
+  
+  }
+
+    @media(max-width:1008px) {
+
+        .switcher-sec .feature-row {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .switcher-sec .col-image {
+            margin-bottom: 0px;
+            max-width: 100%;
+        }
+
+        .switcher-sec .col-content {
+            max-width: 100%;
+        }
+
+        .switcher-holder a {
+            font-size: 15px;
+        }
+
+        .mullion-sec .col-content {
+            max-width: 507px;
+        }
+
+        .mullion-sec .switcher-holder {
+            max-width: 100%;
+        }
+
+        .pain-color-sec .col-image {
+            max-width: 470px;
+        }
+
+      .customizationtemplate .col-image img {
+        width:60%;
+        margin-bottom: 0px;
+      }
+    }
+
+
+          
+ @media(min-width:1009px) {
+   .switcher-sec .containerMainBoth {
+    margin-left:{{ 150 | times: 100 | divided_by: 1440.0 }}vw;
+    margin-right: {{ 150 | times: 100 | divided_by: 1440.0 }}vw;
+}
+          }
+
+
+ @media(min-width:1441px)  {
+   .switcher-sec .containerMainBoth {
+    margin-left:{{ 346 | times: 100 | divided_by: 1920.0 }}vw;
+    margin-right: {{ 346 | times: 100 | divided_by: 1920.0 }}vw;
+}
+  
+    @media(max-width:1008px) {
+
+        .pain-color-sec {
+            text-align: center;
+        }
+      .switcher-sec .title-h {
+        margin-bottom: 49.5px;
+    }
+
+      
+    }
+</style>
+
+</div>
+{% comment %}
+<div class="applyAnimation flexDiv fullWidth">
+
+    <div class="textDiv-{{ section.id }}">
+        <style>
+            {
+                % assign boxDiv=100 | minus: section.settings.textWidth | minus: section.settings.textMargin %
+            }
+
+                {
+                % assign boxDiv2=100 | minus: section.settings.textWidthMob | minus: section.settings.textMarginMob %
+            }
+
+            .textDiv- {
+                    {
+                    section.id
+                }
+            }
+
+                {
+                width: {
+                        {
+                        section.settings.textWidth
+                    }
+                }
+
+                %;
+
+                margin-right: {
+                        {
+                        section.settings.textMargin
+                    }
+                }
+
+                %;
+            }
+
+            .boxDiv- {
+                    {
+                    section.id
+                }
+            }
+
+                {
+                width: {
+                        {
+                        boxDiv
+                    }
+                }
+
+                %;
+            }
+
+            @media only screen and (max-width: 1009px) {
+                .textDiv- {
+                        {
+                        section.id
+                    }
+                }
+
+                    {
+                    width: {
+                            {
+                            section.settings.textWidthMob
+                        }
+                    }
+
+                    %;
+
+                    margin-right: {
+                            {
+                            section.settings.textMarginMob
+                        }
+                    }
+
+                    %;
+                }
+
+                .boxDiv- {
+                        {
+                        section.id
+                    }
+                }
+
+                    {
+                    margin-top: 40px
+                }
+
+                    {
+                    % if boxDiv2 <=0 %
+                }
+
+                .boxDiv- {
+                        {
+                        section.id
+                    }
+                }
+
+                    {
+                    width: 100%;
+                }
+
+                    {
+                    % else %
+                }
+
+                .boxDiv- {
+                        {
+                        section.id
+                    }
+                }
+
+                    {
+                    width: {
+                            {
+                            boxDiv2
+                        }
+                    }
+
+                    %;
+                }
+
+                    {
+                    % endif %
+                }
+            }
+        </style>
+        {% if section.settings.image != blank %}
+        <img class="fullWidth imageMain-{{ section.id }}" src="{{ section.settings.image | img_url: " 1600x" }}">
+        {% endif %}
+    </div>
+    <div class="boxDiv-{{ section.id }}">
+        {% if section.settings.title != blank %}
+        <h2 class="GT-600 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+        <style>
+            h2.heading- {
+                    {
+                    section.id
+                }
+            }
+
+                {
+                margin: 0;
+
+                letter-spacing: {
+                        {
+                        section.settings.titleLetter
+                    }
+                }
+
+                px;
+
+                font-size: {
+                        {
+                        section.settings.titleSize | times: 100 | divided_by: 1440.0
+                    }
+                }
+
+                vw;
+
+                color: {
+                        {
+                        section.settings.titleColor
+                    }
+                }
+
+                ;
+
+                line-height: {
+                        {
+                        section.settings.titleLine | times: 100 | divided_by: 1440.0
+                    }
+                }
+
+                vw;
+
+                text-align: {
+                        {
+                        section.settings.titleAlign
+                    }
+                }
+
+                ;
+
+                margin-bottom: {
+                        {
+                        section.settings.titleMarBottom | times: 100 | divided_by: 1440.0
+                    }
+                }
+
+                vw;
+            }
+
+            @media only screen and (max-width: 1009px) {
+                h2.heading- {
+                        {
+                        section.id
+                    }
+                }
+
+                    {
+                    margin: 0;
+
+                    letter-spacing: {
+                            {
+                            section.settings.titleLetterMob
+                        }
+                    }
+
+                    px;
+
+                    font-size: {
+                            {
+                            section.settings.titleSizeMob
+                        }
+                    }
+
+                    px;
+
+                    color: {
+                            {
+                            section.settings.titleColorMob
+                        }
+                    }
+
+                    ;
+
+                    line-height: {
+                            {
+                            section.settings.titleLineMob
+                        }
+                    }
+
+                    px;
+
+                    text-align: {
+                            {
+                            section.settings.titleAlignMob
+                        }
+                    }
+
+                    ;
+
+                    margin-bottom: {
+                            {
+                            section.settings.titleMarBottomMob
+                        }
+                    }
+
+                    px;
+                }
+            }
+        </style>
+        {% endif %}
+        {% if section.settings.subtext != blank %}
+        <p class="subtext-{{ section.id }} GT-300">
+            {{ section.settings.subtext }}
+        </p>
+        <style>
+            .subtext- {
+                    {
+                    section.id
+                }
+            }
+
+                {
+                margin: 0;
+
+                letter-spacing: {
+                        {
+                        section.settings.subtextLetter
+                    }
+                }
+
+                px;
+
+                font-size: {
+                        {
+                        section.settings.subtextSize | times: 100 | divided_by: 1440.0
+                    }
+                }
+
+                vw;
+
+                color: {
+                        {
+                        section.settings.subtextColor
+                    }
+                }
+
+                ;
+
+                line-height: {
+                        {
+                        section.settings.subtextLine | times: 100 | divided_by: 1440.0
+                    }
+                }
+
+                vw;
+
+                text-align: {
+                        {
+                        section.settings.subtextAlign
+                    }
+                }
+
+                ;
+
+                margin-bottom: {
+                        {
+                        section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0
+                    }
+                }
+
+                vw;
+            }
+
+            @media only screen and (max-width: 1009px) {
+                .subtext- {
+                        {
+                        section.id
+                    }
+                }
+
+                    {
+                    margin: 0;
+
+                    letter-spacing: {
+                            {
+                            section.settings.subtextLetterMob
+                        }
+                    }
+
+                    px;
+
+                    font-size: {
+                            {
+                            section.settings.subtextSizeMob
+                        }
+                    }
+
+                    px;
+
+                    color: {
+                            {
+                            section.settings.subtextColorMob
+                        }
+                    }
+
+                    ;
+
+                    line-height: {
+                            {
+                            section.settings.subtextLineMob
+                        }
+                    }
+
+                    px;
+
+                    text-align: {
+                            {
+                            section.settings.subtextAlignMob
+                        }
+                    }
+
+                    ;
+
+                    margin-bottom: {
+                            {
+                            section.settings.subtextMarBottomMob
+                        }
+                    }
+
+                    px;
+                }
+            }
+        </style>
+        {% endif %}
+        {% if section.settings.link != blank or section.settings.linkText != blank %}
+        <div onclick="location.href='{{ section.settings.link }}'" class="buttonDiv buttonDiv-{{ section.id }}">
+            <style>
+                .buttonDiv- {
+                        {
+                        section.id
+                    }
+                }
+
+                div:after {
+                    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+                }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+                <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}"
+                    stroke-width="2" />
+                <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}"
+                    stroke-width="2" />
+            </svg>
+            <div style="min-height: 52px; color: {{ section.settings.titleColor }};" class="GT-600">{{
+                section.settings.linkText }}</div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endcomment %}
+
+{% schema %}
+{
+"name": "Custom Image and text",
+"settings": [
+{
+"type": "color",
+"id": "backgroundColor",
+"label": "Background color"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Background Image"
+},
+{
+"type": "image_picker",
+"id": "imageMob",
+"label": "Background Image mobile"
+},
+{
+"type": "select",
+"id": "blocktype",
+"label": "Block Type",
+"options": [
+{
+"value": "image",
+"label": "Image"
+},
+{
+"value": "text",
+"label": "Text"
+},
+{
+"value": "doors",
+"label": "Door"
+}
+],
+"default": "text"
+},
+
+{
+"type": "header",
+"content": "Title Desktop"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading"
+},
+{
+"type": "text",
+"id": "subcolorhead",
+"label": "Sub Heading (For color section)"
+},
+{
+"type": "textarea",
+"id": "descripbelowimg",
+"label": "Description (For color section)"
+},
+
+ 
+{
+"type": "color",
+"id": "titleColor",
+"label": "Heading color"
+},
+{
+"type": "select",
+"id": "titleAlign",
+"label": "Title align",
+"options": [
+{
+"value": "left",
+"label": "Left"
+},
+{
+"value": "center",
+"label": "Center"
+},
+{
+"value": "right",
+"label": "Right"
+}
+],
+"default": "center"
+},
+{
+"type": "header",
+"content": "Subtitle"
+},
+{
+"type": "textarea",
+"id": "subtext",
+"label": "Subtitle",
+"default": "Slide title"
+},
+{
+"type": "color",
+"id": "subtextColor",
+"label": "Subtitle color"
+},
+{
+"type": "select",
+"id": "subtextAlign",
+"label": "Subtitle align",
+"options": [
+{
+"value": "left",
+"label": "Left"
+},
+{
+"value": "center",
+"label": "Center"
+},
+{
+"value": "right",
+"label": "Right"
+}
+],
+"default": "center"
+},
+{
+"type": "header",
+"content": "Other Settings"
+},
+{
+"type": "select",
+"id": "imageAlignDes",
+"label": "Option Image align",
+"options": [
+{
+"value": "left",
+"label": "Left"
+},
+{
+"value": "center",
+"label": "Center"
+},
+{
+"value": "right",
+"label": "Right"
+}
+],
+"default": "right"
+},
+{
+"type": "text",
+"id": "sectionAssignClass",
+"label": "Class Name"
+},
+{
+"type": "text",
+"id": "imagePositionClass",
+"label": "Image Position Class"
+},
+{
+"type": "text",
+"id": "sectionAssignId",
+"label": "section Id"
+},
+
+
+
+  
+ {
+"type": "textarea",
+"id": "descripbelowimg2",
+"label": "Information Text"
+},
+
+  
+{
+"type": "url",
+"id": "link",
+"label": "Link"
+},
+{
+"type": "text",
+"id": "linkText",
+"label": "Link text"
+}
+],
+"blocks": [
+{
+"type": "image",
+"name": "items-entry",
+"settings": [
+{
+"type": "image_picker",
+"id": "item-image",
+"label": "Option Image"
+},
+{
+"type": "text",
+"id": "item-title",
+"label": "Option Title",
+"default": "Title"
+},
+{
+"type": "html",
+"id": "item-icon",
+"label": "Option icon (SVG)"
+},
+{
+"type": "text",
+"id": "item-value",
+"label": "Option Value"
+},
+
+  {
+"type": "text",
+"id": "item-value2",
+"label": "Button Text"
+},
+{
+"type": "text",
+"id": "colorclass",
+"label": "Class (for color block only)",
+"default": "Value"
+},
+{
+"type": "color",
+"id": "optionHoverTextColor",
+"label": "your background color"
+},
+{
+"type": "color",
+"id": "optionHoverBkgColor",
+"label": "Option Hover Background color"
+},
+{
+"type": "color",
+"id": "optionBorderColor",
+"label": "Option Border color"
+}
+]
+}
+],
+"presets": [
+{
+"category": "Doors",
+"name": "Custom Image with text",
+"settings": {}
+}
+]
+}
+{% endschema %}
+
+
+
+{% javascript %}
+$( document ).ready(function() {
+
+$(document).ready(function() {
+  $(".tablinks").click(function (e) {
+  $(".tablinks").removeClass("active");
+  $(e.target).addClass("active");
+  });
+  $("#defaultOpen").click();       
+});
+
+$(".tabcontent").hide();
+$(".Standard").show();
+
+$(".tablinks").click(function(){
+  type = "."+$(this).attr("data-type");
+  $(".tabcontent").hide();
+  $(type).show();
+})
+});
+{% endjavascript %}

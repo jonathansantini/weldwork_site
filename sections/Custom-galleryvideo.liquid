@@ -1,0 +1,710 @@
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<style>
+  .grid.video-wrap-m {
+  width: 100%;
+}
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+  }
+</style>
+{% assign padRight =  section.settings.padLeft | minus: section.settings.padRight %}
+<style>
+  .numberOf {
+  	display: none!important;
+  }
+
+  .byFunction {
+	justify-content: center;
+	background-color: #000;
+}
+.galleryImageDiv {
+	position: static !important;
+	max-width: 1260px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.byFunctionWrap .video-filer-title {
+	color: #fff;
+	font-weight: 500;
+	font-size: 1.5vw;
+	text-transform: none;
+	text-align: center;
+	margin-bottom: 32px;
+}
+
+.functionButton {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+}
+.functionButton svg {
+	margin-right: 10px;
+    stroke: white;
+}
+
+.functionButton:hover {
+	background-color: rgba(255, 255, 255, 0.17);
+}
+.functionButton.active {
+	background-color: white;
+	color: black;
+}
+.functionButton.active svg path {
+	stroke: black;
+}
+.shopify-section{
+    overflow: hidden;
+}
+
+.custom-content .browse-all-btn {
+width: 100vw;
+position: relative;
+margin-left: -50vw;
+left: 50%;
+background-color: #232323;
+justify-content: center;
+display: flex;
+padding-bottom: 6.472vw;
+margin-bottom: 0;
+}
+
+.custom-content .custom__item {
+	margin-bottom: 0;
+}
+.grid.video-wrap-m {
+	margin: 0 !important;
+}
+.galleryImageDiv .grid__item {
+	padding-left: 0 !important;
+}
+.buttonDiv:hover div, 
+.buttonDiv:hover svg,
+.buttonDiv svg, 
+.buttonDiv div {
+	animation: none;
+}
+
+@media only screen and (max-width: 1504px) {
+.galleryImageDiv {
+	max-width: 65%;
+}
+}
+
+  @media only screen and (min-width: 1009px) {
+  .byFunction {
+    width: calc(100vw - 12.22vw);
+    margin-left: calc(({{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw - 6.11vw) * (-1));
+    padding: 14px;
+    display: flex;
+    padding-bottom: unset;
+    /* justify-content: center; */
+    margin-bottom: {{ 46 | times: 100 | divided_by: 1440.0 }}vw;
+    /* max-height: 5.77vw; */ 
+   }
+   .functionButton {
+	font-size: 16px;
+	line-height: normal;
+	padding: 12px;
+	border: 1px solid #C3C3C3;
+	margin-right: 16px;
+	cursor: pointer;
+	transition: all .6s ease-out;
+	margin-bottom: 14px;
+    color: #fff;
+}
+  .functionButton .numberOf {
+  	font-size: {{ 10 | times: 100 | divided_by: 1440.0 }}vw;
+    line-height: {{ 12.36 | times: 100 | divided_by: 1440.0 }}vw;
+    bottom: 4px;
+    position: relative;
+  }
+  .cancelFunc {
+    display: none;
+  	margin-left: {{ 14 | times: 100 | divided_by: 1440.0 }}vw;
+  }
+  .functionButton.active {
+  	/* background: #000;
+    color: #fff; */
+    margin-bottom: 14px;
+  }
+  .functionButton:hover {
+  	background: #000;
+    color: #fff;
+  }
+
+  .functionButton.active .cancelFunc {
+  	display: inline-block;
+  }
+  }
+  @media only screen and (max-width: 1009px) {
+  .byFunction {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-y: scroll;
+    /* margin-left: -20px; */
+    border-top: 0px;
+	border-bottom: 0px;
+    padding: 20px;
+    padding-right: 5px;
+    display: flex;
+    margin-bottom: 26px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    position: unset;
+    z-index: 5;
+    /* background: white; */
+    flex-wrap: wrap;
+   }
+   .byFunction::-webkit-scrollbar {
+      display: none;
+    }
+  .functionButton {
+  	font-size: 16px;
+    line-height: 19.68px;
+    padding: 12px 16px;
+    border: 1px solid #C3C3C3;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #fff;
+  }
+  .functionButton .numberOf {
+  	font-size: 10px;
+    line-height: 12.36px;
+    bottom: 4px;
+    position: relative;
+  }
+  .cancelFunc {
+    display: none;
+  	margin-left: 14px;
+  }
+
+  .functionButton.active .cancelFunc {
+  	display: inline-block;
+  }
+  .galleryImageDiv {
+	max-width: 90%;
+}
+.byFunctionWrap .video-filer-title {
+	font-size: 2rem;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+}
+  }
+
+
+  @media only screen and (max-width: 640px) {
+  .byFunction {
+	margin-bottom: 10px;
+}
+  }
+
+</style>
+{% assign string = "" %}
+{% for block in section.blocks %}
+{% assign count = 0 %}
+{% for bl in section.blocks %}
+{% if bl.settings.category == block.settings.category %}
+{% assign count = count | plus: 1 %}
+{% endif %}
+{% endfor %}
+{% unless string contains block.settings.category  %}
+{% capture string %}{{ string }}{{ block.settings.category }}_{{ count }}|{% endcapture string %}
+{% endunless %}
+{% endfor %}
+{% assign array = string | split: "|" %}
+
+<div class="byFunctionWrap">
+<h3 class="video-filer-title">Select a system to install</h3>
+<div class="flexDiv fullWidth byFunction">
+ 
+   {% for str in array %}
+  <div data-filterval="{{ str | split: "_" | first | replace: " ", "-" }}" filter="{{ str | split: "_" | first | replace: " ", "-" }}" class="functionButton otherFunc GT-600 {% if forloop.index == 1 %}active{% endif %}">
+    
+    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.3201 8.28287L15.5 7.59955V8.667V12C15.5 12.8269 14.8269 13.5 14 13.5H2C1.17314 13.5 0.5 12.8269 0.5 12V2C0.5 1.17314 1.17314 0.5 2 0.5H14C14.8269 0.5 15.5 1.17314 15.5 2V5.333V6.40045L16.3201 5.71713L19.5 3.06745V10.9325L16.3201 8.28287Z" stroke="white"/>
+        </svg>
+        
+    {{ str | split: "_" | first }} <span class="numberOf">{{ str | split: "_" | last }}</span>
+  
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+<div style="justify-content: space-between;" class="flexDiv masonryDiv galleryHolder">
+ {% for block in section.blocks %} 
+  <div src="{{ block.settings.image | img_url: "x920" }}" filterBy="{{ block.settings.category | replace: " ", "-" }}" class="galleryImageDiv galleryMainHolder modalImage filt-{{ block.settings.category | replace: " ", "-" }}">
+   <div class="grid video-wrap-m">
+    <div class="grid__item one-whole wrap-no-pad">
+      <div class="video-wrapper">
+        {% if block.settings.video_url != blank %}
+          <iframe src="{{ block.settings.video_url }}?controls=0" allow="autoplay" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+       
+          {% endif %}
+         
+       
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </div>
+ {% endfor %}
+</div>
+<script>
+var activeclas = $('.active').attr('data-filterval');
+$('.galleryImageDiv').hide();
+$('.filt-'+activeclas).show();
+
+  window.addEventListener('load', (event) => {
+  	var elem = document.querySelector('.masonryDiv');
+    var elem2= document.querySelectorAll(".galleryImageDiv")[1];
+    if ($(window).width() > 1009) {
+    var msnry = new Masonry( elem, {
+      // options
+      itemSelector: '.galleryImageDiv',
+      horizontalOrder: true
+    });
+    }
+  let filters = [];
+    $(".functionButton.otherFunc").click(function(){
+      if ($(this).hasClass("active")){
+      $(this).removeClass("active");
+      $(".galleryMainHolder").each(function(){
+          	if ($(this).hasClass("galleryImageDiv")){
+            }else{
+          	$(this).addClass("galleryImageDiv");
+            }
+          	$(this).show();
+        });
+        if ($(window).width() > 1009) {
+    		msnry = new Masonry( elem, {
+              // options
+              itemSelector: '.galleryImageDiv',
+              horizontalOrder: true
+            });
+        }
+        //$(".functionButton").removeClass("active");
+       // $(".functionButton.allFunc").addClass("active");
+      }else{
+      $(".functionButton").removeClass("active");
+      $(this).addClass("active");
+      filters = $(this).attr("filter");
+      $(".galleryMainHolder").each(function(){
+          if($(this).attr("filterBy") == filters){
+          	if ($(this).hasClass("galleryImageDiv")){
+            }else{
+          	$(this).addClass("galleryImageDiv");
+            }
+          	$(this).show();
+          }else{
+            $(this).removeClass("galleryImageDiv");
+          	$(this).hide();
+          }
+        });
+        if ($(window).width() > 1009) {
+            msnry = new Masonry( elem, {
+              // options
+              itemSelector: '.galleryImageDiv',
+              horizontalOrder: true
+            });
+        }
+      }
+      });
+    
+    
+  $(".functionButton.allFunc, .cancelFunc").click(function(){
+  	$(".galleryMainHolder").each(function(){
+          	if ($(this).hasClass("galleryImageDiv")){
+            }else{
+          	$(this).addClass("galleryImageDiv");
+            }
+          	$(this).show();
+        });
+    	if ($(window).width() > 1009) {
+    		msnry = new Masonry( elem, {
+              // options
+              itemSelector: '.galleryImageDiv',
+              horizontalOrder: true
+            });
+        }
+   // $(".functionButton").removeClass("active");
+   // $(".functionButton.allFunc").addClass("active");
+  });
+    }); 
+  /*$(document).ready(function(){
+    $(".functionButton").click(function(){
+      $(".functionButton").removeClass("active");
+      $(this).addClass("active");
+      filters.push($(this).attr("filter"));
+      let hidden = false;
+      $(".galleryMainHolder").each(function(){
+        for (i = 0; i < filters.length; i++) {
+          if($(this).attr("filterBy") == filters[i]){
+          	hidden = true;
+            break;
+          }else{
+          	hidden = false;
+          }
+        }
+        if (hidden){}else{
+        	$(this).removeClass("galleryImageDiv");
+          	$(this).hide();
+            msnry = new Masonry( elem, {
+              // options
+              itemSelector: '.galleryImageDiv',
+              horizontalOrder: true
+            });
+        }
+      });
+    }); 
+  });*/
+</script>
+{% schema %}
+  {
+    "name": "Custom Gallery Video",
+    "settings": [
+        {
+          "type": "text",
+          "id": "sechead",
+          "label": "Section Heading"
+        },
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        }
+	],
+	"blocks": [
+      {
+		"type": "Image",
+      	"name": "Image",
+        "settings": [
+		  {
+            "type": "text",
+            "id": "category",
+            "label": "Category"
+          },
+        
+		  {
+			  "type": "html",
+			  "id": "icon-1",
+			  "label": "Icon"
+		},
+	
+	
+    {
+      "type": "html",
+      "id": "video_url",
+      "label": "Video Link"
+    },
+    {
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "title1Size",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1Line",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1Letter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title1Color",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title1Align",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title1MarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "title1SizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1LineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1LetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title1ColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title1AlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title1MarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Portfolio",
+        "name": "Custom Gallery Video",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

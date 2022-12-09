@@ -184,13 +184,13 @@
   .stickyCart .price-container .product-single__price {
   	color: #fff;
   }
-  }
+  } 
   @media only screen and (max-width: 1009px) {
     .productImageHolder {
     	position: relative!important;
       	top: unset!important;
-      	padding-bottom: 104px;
-      	margin-top: 86px;
+      	padding-bottom: 10px;
+      	margin-top: 50px;
     }
   	.quickShipTitle {
   	font-size: 20px;
@@ -627,37 +627,85 @@ $( ".closePopupGlass" ).click(function() {
   {% if first_3d_model %}data-has-model="true"{% endif %} class="productTop flexDiv">
   <div class="productTopLeft">
     <div style="position: sticky; top: -100px;" class="productImageHolder">
-      <p class="mobileClass quickShipTitle GT-500">Quickship</p>
+      <p class="mobileClass quickShipTitle GT-500">Made-to-Measure</p>
     <p class="mobileClass productTopTitle GT-500">{{ product.title | escape }}</p>
     <div class="mobileClass">
     {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
     </div>
-    	<img class="mainImg fullWidth" src="{{ product.featured_image | img_url: "300x" }}">
-      	<img class="mainImgAn image-zoom" 
-          data-zoom-image="{{ product.featured_image | img_url: "1200x" }}"  
-          src="{{ product.featured_image | img_url: "1200x" }}">
-        <iframe class="iframeVideo iv-one"  src=""></iframe>
-        <iframe class="iframeVideo iv-three"  src="" title="W3Schools Free Online Web Tutorials"></iframe>
-        <iframe class="iframeVideo iv-four"  src="" title="W3Schools Free Online Web Tutorials"></iframe>
+    {% comment %}       <img class="mainImg fullWidth" src="{{ product.featured_image | img_url: "300x" }}">
+      <img  class="mainImgAn" src="{{ product.featured_image | img_url: "1200x" }}" >
+      <img  class="mainImgAn image-zoom  clickonimage" 
+           data-zoom-image="{{ product.featured_image | img_url: "1200x" }}" > {% endcomment %}
 
-        <div class="productThumbnails">
-      	{% for img in product.images %}
-        	<img class="fullWidth productThumbnail {% if forloop.first %}active{% endif %}" 
-          source="{{ img | img_url: '1200x' }}" 
-          src="{{ img | img_url: '400x' }}"
-          data-image="{{ img | img_url: '1200x' }}" 
-          data-zoom-image="{{ img | img_url: '1200x' }}">
-        {% endfor %}
-           <div class="img-thumb-video">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="8" y="7.11108" width="8.88889" height="10.6667" fill="#F4F0EA"/>
-<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="black"/>
-</svg>
+
+
+
    
-          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-One" source="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}">
-          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Two" source="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}">
-          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Three" source="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}">
-        </div>
+      
+       {% for image in product.images %}
+         
+  <a class="fancybox img-{{ image.id }}"  data-fancybox="category2"  href="{{ image | img_url: '1200x' }}">
+ 
+   <img  class=" image-zoom  photo{{forloop.index }} custommainImgAn mainImgAn"  src="{{ image | img_url: '1200x' }}"
+                          data-src="{{ img_url }}"
+                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ image.aspect_ratio }}"
+                          data-sizes="auto"
+                          
+                          data-image-id="{{ image.id }}"
+                          alt="{{ image.alt | escape }}">
+ </a>
+            {% endfor %}
+
+
+
+      <iframe class="iframeVideo iv-one "  src=""></iframe>
+      <iframe class="iframeVideo iv-three"  src="" title=""></iframe>
+      <iframe class="iframeVideo iv-four"  src="" title="{{product.title | escape}}"></iframe>
+      <iframe class="iframeVideo iv-six"  src="" title="{{product.title | escape}}"></iframe>
+
+     <div class="productThumbnails my-slider" id="productThumbnails">
+        {% for img in product.images %}
+          <div>
+            <div class="custom-width-slider">
+             <img class="fullWidth productThumbnail {% if forloop.first %}active{% endif %}" 
+            source="{{ img | img_url: '400x' }}" 
+            src="{{ img | img_url: '400x' }}"
+            data-image="{{ img | img_url: '400x' }}" 
+            data-zoom-image="{{ img | img_url: '400x' }}" data-image-id="img-{{ img.id }}">  
+            
+          </div>
+          </div>
+          
+        {% endfor %}
+      
+           
+     <div class="img-thumb-video">
+      
+   
+          {% if product.metafields.my_fields.product_video_image != blank %}
+            {% include "vedio_play_icon" %}
+              <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-One" source="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}">
+           {% endif %}
+              {% if product.metafields.my_fields.product_video_image_three_lite != blank %} 
+       {% include "vedio_play_icon" %}
+              <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Two" source="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}">
+              
+              {% endif %}
+              
+              {% if product.metafields.my_fields.product_video_image_four_lite != blank %}   
+       {% include "vedio_play_icon" %}
+              <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Three" source="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}">
+              
+              {% endif %}   
+              
+              
+              {% if product.metafields.my_fields.product_video_image_six_lite != blank %}   
+       {% include "vedio_play_icon" %}
+              <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-six" source="{{product.metafields.my_fields.product_video_image_six_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_six_lite | img_url: '1200x'}}">
+              
+              {% endif %}
+     </div>
       </div>
     </div>
 
@@ -721,8 +769,11 @@ $( ".closePopupGlass" ).click(function() {
       setTimeout(function(){ 
         $(".mainImg").attr("src",$(".productThumbnail.active").attr("src"));
         $(".mainImgAn").attr("src",$(".productThumbnail.active").attr("source"));
+         $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
         if($(".productThumbnail.active")[0].tagName === 'IMG' ) {
 //           resetZoom();
+            $(".mainImgAn").fadeIn();
+          /*
           if(window.innerWidth > 1008) {
             $(".mainImgAn").fadeIn();
           } else {
@@ -730,6 +781,7 @@ $( ".closePopupGlass" ).click(function() {
               $(".mainImgAn").css('display', 'unset');
             }, 0);
           }
+          */
         }
       }, 400);
     });
@@ -799,7 +851,7 @@ $( ".closePopupGlass" ).click(function() {
               {% unless settings.disable_autogenerated_payment_terms %}
                 {{ form | payment_terms }}
               {% endunless %}
-    <p class="desktopClass quickShipTitle GT-500">Quick Ship</p>
+    <p class="desktopClass quickShipTitle GT-500">Made-to-Measure</p>
     <p class="desktopClass productTopTitle GT-500">{{ product.title | escape }}</p>
     <div class="desktopClass">
     {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
@@ -808,7 +860,7 @@ $( ".closePopupGlass" ).click(function() {
     <div class="productTopMeta flexDiv">
       {% include 'product-price', variant: current_variant %}
       <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
-                <div class="mainAddToCart flexDiv btn btn--add-to-cart2{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                <div class="mainAddToCart ccc flexDiv btn btn--add-to-cart2{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
                   <div class="btnIcon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none" style="&#10;">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1753 20.9996H33.5003L32.44 26.9785C32.3694 27.3764 32.0236 27.6663 31.6195 27.6663H21.0013C20.5739 27.6663 20.2217 27.3446 20.1736 26.9302L20.168 26.8319V26.8319L20.1753 20.9996Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
@@ -820,7 +872,7 @@ $( ".closePopupGlass" ).click(function() {
                   </svg>
                   </div>
                   <div class="btnText">
-                  <span class="btn__text">
+                  <span class="btn__text">{{ product.selected_variant.id }}
                     {% if current_variant.available %}
                       {{ 'products.product.add_to_cart' | t }}
                     {% else %}
@@ -1006,19 +1058,32 @@ $( ".closePopupGlass" ).click(function() {
       	flex-wrap: wrap;
       }
       .variantsGlass .variantMain {
-      	padding: 0 0 0 24px;
-        width: calc(50% - 5px);
-        flex-grow: unset;
-        margin-bottom: 12px;
-        justify-content: space-between;
-        overflow-x: hidden;
+      	padding: 20px;
+    	width: calc(50% - 5px);
+    	flex-grow: unset;
+    	margin-bottom: 12px;
+    	justify-content: space-between;
+    	overflow-x: hidden;
       }
       .variantsGlass .variantMain:nth-child(2) {
       	margin-right: 0;
       }
       .variantsGlass .variantMain img {
-      	width: 70px;
+           mix-blend-mode: darken;
+           margin-left: 10px;
+           max-width: 47px;
       }
+      @media (max-width:1300px){
+.variantsGlass .variantMain {
+    font-size: 12px;
+    padding: 10px;
+}
+.variantsGlass .variantMain img {
+    mix-blend-mode: darken;
+    margin-left: 10px;
+    max-width: 47px;
+}
+}
     </style>
     <div class="variantPicker">
     	<!--<div sel="" class="productSelector">
@@ -1086,6 +1151,13 @@ Opening width</div>
 <path d="M1 19L21 19" stroke="black" stroke-width="2"/>
 <path d="M1 28L21 28" stroke="black" stroke-width="2"/>
 </svg> 4</div>
+
+              <div thumb="{{ product.metafields.my_fields.six_lite | img_url: '1000x' }}" scene="{{ product.metafields.my_fields.six_lite_scene | img_url: '1000x' }}" value='6' class="variantMain lite-six"><svg width="22" height="38" viewBox="0 0 22 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="20" height="36" stroke="black" stroke-width="2"/>
+              <path d="M11 1L11 36" stroke="black" stroke-width="2"/>
+              <path d="M1 24L21 24" stroke="black" stroke-width="2"/>
+              <path d="M1 12L21 12" stroke="black" stroke-width="2"/>
+              </svg> 6</div>
           </div>
       	</div>
       	<!--<div sel="" class="productSelector">
@@ -1108,20 +1180,24 @@ Opening width</div>
           </div>
       	</div>-->
       <div sel="" class="variantSelector">
+  <div class="hoverimage">
+     <div class="scr-close"></div>
+<img class="imgown" />
+</div>
+
+
+
           <div class="productLabel GT-500" style="display: flex; position: relative; align-items: center;">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
 <rect x="0.5" y="0.5" width="16" height="16" stroke="black"/>
 <path d="M5 11L12 4" stroke="black"/>
 <path d="M9 11.4502L11.4502 9" stroke="black"/>
 </svg>
-Glass {% if product.metafields.my_fields.glass_options_text != blank %} <p class="view-glass-options" style="position: relative;  display:flex; align-items: center;"> 
-  {{product.metafields.my_fields.glass_options_text }} 
-
-     <span class="moreinfo-popup">Click on "{{product.metafields.my_fields.glass_options_text }}"" to view glass options   </span></p>{%endif%}</div>
+Glass </div>
           <div class="variantsFlex variantsGlass">
-            <div value='Standard 1/4" Clear' class="variantMain selected">Standard<br> 1/4" Clear<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
-            <div value='Low Iron 1/4" Acid Etched (Frosted)' class="variantMain">Low Iron 1/4" Acid Etched<br> (Frosted)<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
-            <div value='Low Iron 1/4" Clearvision' class="variantMain">Low Iron 1/4" Clearvision<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
+              {% for block in section.blocks %}
+               <div  imgsrc='{{ block.settings.item-image | img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if forloop.index == 1 %}selected   {% endif %}"><span>{{ block.settings.item-title | escape }}</span><img src="{{ block.settings.item-image | img_url }}"></div>
+             {% endfor %}
           </div>
       	</div>
     </div>
@@ -1135,7 +1211,7 @@ Glass {% if product.metafields.my_fields.glass_options_text != blank %} <p class
       <div class="productMain" title="{{ product.title }}" producthandle="{% for tag in product.tags %}{% if tag contains "height_" %}{{ tag | split: "_" | last }}{% endif %}{% endfor %}">
 		<ul>
           {% for variant in product.variants %}
-          <li variantid="{{ variant.id }}" price="{{ variant.price | money }}" varianthandle='{{ variant.option1 }}_{{ variant.option2 }}_{{ variant.option3 | replace: "  ", " " }}'></li>
+          <li variantid="{{ variant.id }}" variantid="{{ product.id }}" price="{{ variant.price | money }}" varianthandle='{{ variant.option1 }}_{{ variant.option2 }}_{{ variant.option3 | replace: "  ", " " }}'></li>
           {% endfor %}
         </ul>
       </div>
@@ -1161,7 +1237,8 @@ Glass {% if product.metafields.my_fields.glass_options_text != blank %} <p class
       	$(".productThumbnail").last().attr("source",$(this).attr("scene"));
       	$(".mainImg").attr("src",$(".productThumbnail.active").attr("src"));
       	$(".mainImgAn").attr("src",$(".productThumbnail.active").attr("src"));
-      
+       $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
+      	$(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
     });
 
     $(".lite-three").click(function(){
@@ -1284,7 +1361,7 @@ $(".lite-four").click(function(){
     let check = true;
     function checkProduct(){
       product = "";
-      variant = "";
+      variant = ""; 
       $(".productMain.active li").removeClass("active");
       $(".productMain").removeClass("active");
       $(".productSelector").each(function(index){
@@ -1305,7 +1382,7 @@ $(".lite-four").click(function(){
         if ($(this).attr("producthandle")==product){
         	$(this).addClass("active");
         }
-      });
+      }); 
       $(".productMain.active li").each(function(){
         if ($(this).attr("varianthandle")==variant){
         	$(this).addClass("active");
@@ -1322,11 +1399,6 @@ $(".lite-four").click(function(){
       $(".productMain.active li").removeClass("active");
       $(".productMain").removeClass("active");
       $(".productSelector").each(function(index){
-        if ($(this).attr("sel")==""){
-        	alert("Please choose all options");
-          	check = false;
-          	return false;
-        }
         if (index < $(".productSelector").length - 1){
         product+=$(this).attr("sel")+"_";
         }else{
@@ -1337,12 +1409,7 @@ $(".lite-four").click(function(){
       	return false;
       }
       $(".variantSelector").each(function(index){
-        if ($(this).attr("sel")==""){
-        	alert("Please choose all options");
-          	check = false;
-          	return false;
-        }
-        if (index < $(".productSelector").length - 1){
+        if (index < $(".variantSelector").length - 1){
         variant+=$(this).attr("sel")+"_";
         }else{
         variant+=$(this).attr("sel");
@@ -1364,7 +1431,10 @@ $(".lite-four").click(function(){
       $(".product-single__price").text($(".productMain.active li.active").attr("price"));
       data = {
         "id":$(".productMain.active li.active").attr("variantid"),
-        "quantity": 1
+        "quantity": 1,
+        "properties": {
+        	'_Image': $(".productThumbnail").first().attr("src")
+      	}
       } 
       jQuery.ajax({
         type: 'POST',
@@ -1403,10 +1473,35 @@ $(".lite-four").click(function(){
   </script>
 {% endunless %}
 {% schema %}
-  {
-    "name": "Product top",
-    "settings": []
-  }
+
+{
+	"name": "Product top",
+	"blocks": [
+    		{
+    			"type": "image",
+    			"name": "items-entry",
+    			"settings": [
+                  {
+                    "type": "image_picker",
+                    "id": "item-image",
+                    "label": "Glass Icon"
+                  },
+                  {
+                    "type": "text",
+                    "id": "item-title",
+                    "label": "Title",
+                    "default": "Title"
+                  },
+                  {
+                    "type": "text",
+                    "id": "item-value",
+                    "label": "Value",
+                    "default": "Value"
+                  }
+    			]
+    		}
+	]
+}
 {% endschema %}
 
 {% stylesheet %}
@@ -1414,10 +1509,3 @@ $(".lite-four").click(function(){
 
 {% javascript %}
 {% endjavascript %}
-
-
-
-
-
-
-

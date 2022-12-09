@@ -7,6 +7,46 @@
     },
     "top": {
       "type": "productTopPivot",
+      "blocks": {
+        "ea396b7b-27d7-4971-be44-fa2d25a47da5": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Clear_1_1_1.jpg",
+            "item-title": "Standard Clear",
+            "item-value": "Standard 1\/4\" Clear"
+          }
+        },
+        "741633cc-b4f9-4245-ba9b-0046434492bb": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Low_Iron_Acid_Etched_-_1_1.jpg",
+            "item-title": "1⁄4” Frosted",
+            "item-value": "1\/4\" frosted"
+          }
+        },
+        "8ef55864-2cc8-4649-8b29-830219dc24e3": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Reeded_-_1_1.jpg",
+            "item-title": "Reeded Glass",
+            "item-value": "Reeded Glass"
+          }
+        },
+        "ba59d7c0-1a0b-46c8-80e7-ff4cc2f0b2d0": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Thin_Reeded_-_1_1.jpg",
+            "item-title": "Thin Reeded Glass",
+            "item-value": "Thin Reeded Glass"
+          }
+        }
+      },
+      "block_order": [
+        "ea396b7b-27d7-4971-be44-fa2d25a47da5",
+        "741633cc-b4f9-4245-ba9b-0046434492bb",
+        "8ef55864-2cc8-4649-8b29-830219dc24e3",
+        "ba59d7c0-1a0b-46c8-80e7-ff4cc2f0b2d0"
+      ],
       "settings": {
       }
     },
@@ -15,7 +55,7 @@
       "settings": {
         "titleWidth": "16",
         "titleMargin": "19",
-        "marTop": "",
+        "marTop": "20",
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
@@ -42,7 +82,7 @@
         "titleColorMob": "",
         "titleAlignMob": "left",
         "titleMarBottomMob": "17",
-        "subtext": "Our custom Pivot Hinge door system is designed and engineered to give the user the ability to swing the door in either direction. The thin line profile offers a timeless and tasteful design for any style home, including contemporary, transitional and traditional. \n\nThis custom Quick Ship door is made of steel and hand built with locally sourced materials. \nOur thin line frames were intended to maximize natural lighting and create that sense of openness in any space.",
+        "subtext": "Our custom Pivot Hinge door system is designed and engineered to give the user the ability to swing the door in either direction. The thin line profile offers a timeless and tasteful design for any style home, including contemporary, transitional and traditional.",
         "subtextSize": "16",
         "subtextWeight": "300",
         "subtextLine": "24",
@@ -327,19 +367,22 @@
         "06730b6f-b9d0-4111-bf6e-e1334d8b93bd": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_308.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_308.png",
+            "title": ""
           }
         },
         "9824911a-320f-4270-8d8c-20cb4de618af": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png",
+            "title": ""
           }
         },
         "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Untitled_design-38.png"
+            "image": "shopify:\/\/shop_images\/Untitled_design-38.png",
+            "title": ""
           }
         }
       },

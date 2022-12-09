@@ -3,6 +3,9 @@
   a.parentLink.mainLink.GT-500.Weldwork{
     display: none;
 }
+.menuHolder .leftSide {
+  
+}
 </style>
 <div class="mainHeader">
   <div class="mainContainer">
@@ -15,13 +18,18 @@
     <div class="centerPart">
       
     </div>
+
     <div style="pointer-events: none" class="rightPart">
       
     </div>
+              {% comment %}
+    {% endcomment %}
   </div>
 </div>
+{% comment %}
+
+{% endcomment %}
 <div class="logoContainer mobMenu downScroll2 trBG">
-  
 </div>
 <div class="menuHolder">
   <div class="menuRow">
@@ -34,6 +42,10 @@
     <div class="leftSide">
       <div class="topLinks">
       <div class="menuParent">
+        {% comment %}
+        <img onclick="location.href='/';" class="logoMain mobMenu downScroll2 downScroll left" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Logo_White.png" style="mix-blend-mode: overlay;">
+        <img onclick="location.href='/';" class="logoMain mobMenu downScroll2 downScroll left" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Logo_White.png">
+     {% endcomment %}
       {% for link in linklists[section.settings.main_menu_link_list].links %}
           {% if link.links != blank %}
           {% assign parent_index = forloop.index %}
@@ -72,19 +84,38 @@
           {% endif %}
       {% endfor %}
       </div>
-      <div style="visibility: hidden;" class="bottomLinks desktopClass">
-        {% for link in linklists[section.settings.bottom_link_list].links %}
-        	{% if forloop.index == 1 or forloop.index == 3 %}
-        	<div class="twoLinks">
-            {% endif %}
-        	<a class="secondLink GT-400" href="{{ link.url }}">
+
+<div class="Createhrline" style="position: relative;
+    margin-top: 39px;
+clear: both;
+height: 40px;
+">
+  <p class="linecustom2"></p>
+  </div>
+                  
+<h3 style="color: #ffffff;" class="anothemenulink menuBlockTitle GT-400">Weldwork 101</h3>
+ 
+<div class="anohtermenu  ">
+
+ 
+{% for link in linklists[section.settings.main_menu_link_list_forpage].links %}
+          {% if link.links != blank %}
+          {% assign parent_index = forloop.index %}
+			<a parent="{{ parent_index }}" class="parentLink secondLink  GT-500
+                    {{link.title}}  {% unless request.page_type == 'index' %}{% if link.active %}current-page{% endif %}{% endunless%}" 
+               hrefs="{{ link.url }}">
+              {{ link.title | escape }} 
+      		</a>
+      		{% else %}
+      		<a class="secondLink GT-500
+                      {% unless request.page_type == 'index' %}{% if link.active %}currentPage{% endif %}{% endunless%}" 
+               href="{{ link.url }}">
               {{ link.title | escape }}
-          	</a>
-          	{% if forloop.index == 2 or forloop.last %}
-        	</div>
-          	{% endif %}
-        {% endfor %}
-      </div>
+      		</a>
+          {% endif %}
+      {% endfor %}
+
+</div>
     </div>
     <div class="rightSide">
       <div class="menuBackground">
@@ -95,31 +126,36 @@
         <a class="GT-600" href="/account/login">Login</a>
         {% endif %}
       </div>
-      <div class="deskMenuItem cartLink">
-        		<a href="/cart" class="GT-600 site-nav__link--icon cart-link js-drawer-open-button-right" aria-controls="CartDrawer" tabindex="">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.98726 5.99884H21.97L20.6982 13.1702C20.6136 13.6474 20.1988 13.9952 19.714 13.9952H6.97806C6.46546 13.9952 6.04298 13.6093 5.98524 13.1122L5.97852 12.9944V12.9944L5.98726 5.99884Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M3.97656 3.00024H5.96571L5.97565 6.99842" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.4727 18.9929C15.4727 17.8889 16.3677 16.9938 17.4717 16.9938C18.5757 16.9938 19.4708 17.8889 19.4708 18.9929C19.4708 20.097 18.5757 20.992 17.4717 20.992C16.4016 20.992 15.5253 20.05 15.4727 18.9929Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path fill-rule="evenodd" clip-rule="evenodd" d="M8.47561 20.992C7.37157 20.992 6.47656 20.097 6.47656 18.9929C6.47656 17.8889 7.37157 16.9938 8.47561 16.9938C9.57966 16.9938 10.4747 17.8889 10.4747 18.9929C10.4747 20.097 9.57966 20.992 8.47561 20.992Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M8.47438 13.9952V16.9938" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
-                              <path d="M14.9728 18.9929H10.9746" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
-                              </svg> Your Cart 
-                  </a>
+        <div class="deskMenuItem cartLink">
+          <a href="/cart" class="GT-600 site-nav__link--icon cart-link js-drawer-open-button-right" aria-controls="CartDrawer" tabindex="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.98726 5.99884H21.97L20.6982 13.1702C20.6136 13.6474 20.1988 13.9952 19.714 13.9952H6.97806C6.46546 13.9952 6.04298 13.6093 5.98524 13.1122L5.97852 12.9944V12.9944L5.98726 5.99884Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.97656 3.00024H5.96571L5.97565 6.99842" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.4727 18.9929C15.4727 17.8889 16.3677 16.9938 17.4717 16.9938C18.5757 16.9938 19.4708 17.8889 19.4708 18.9929C19.4708 20.097 18.5757 20.992 17.4717 20.992C16.4016 20.992 15.5253 20.05 15.4727 18.9929Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M8.47561 20.992C7.37157 20.992 6.47656 20.097 6.47656 18.9929C6.47656 17.8889 7.37157 16.9938 8.47561 16.9938C9.57966 16.9938 10.4747 17.8889 10.4747 18.9929C10.4747 20.097 9.57966 20.992 8.47561 20.992Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.47438 13.9952V16.9938" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14.9728 18.9929H10.9746" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg> Your Cart 
+          </a>
+        </div>
       </div>
-      </div>
+
       {% for block in section.blocks %}
-      	<div onclick="location.href='{{ block.settings.link }}'" style="background-color: {{ block.settings.background }};" class="menuBlock">
+      	<div onclick="location.href='{{ block.settings.link }}'" style="background-color: {{ block.settings.background }};" class="menuBlock  customheaderclick">
           <div class="textPartBlock">
             {% if block.settings.title != blank %}<h3 style="color: {{ block.settings.titleColor }};" class="menuBlockTitle GT-500">{{ block.settings.title }}</h3>{% endif %}
             {% if block.settings.text != blank %}<p style="color: {{ block.settings.textColor }};" class="menuBlockText GT-400">{{ block.settings.text }}</p>{% endif %}
           </div>
           <div class="iconPartBlock">
            {% if block.settings.icon != blank %}
-            <img class="iconBlock" src="{{ block.settings.icon | img_url: '500x' }}">
+            <img class="iconBlock" src="{{ block.settings.icon | img_url: 'master' }}">
             {% endif %}
           </div>
-          <div style="background-size: cover; background-image: url({{ block.settings.backgroundImage | img_url: '700x' }});" class="menuAbs"></div>
+          <div class="menuAbs">
+<!-- style="background-size: cover; background-image: url({{ block.settings.backgroundImage | img_url: 'master' }});"  -->
+<img class="" style="width: 100%;height: 100%;" src="{{ block.settings.backgroundImage | img_url: 'master' }}">
+            
+          </div>
       	</div>
       {% endfor %}
        <div style="visibility: hidden; display: none;" class="bottomLinks mobileClass">
@@ -135,6 +171,9 @@
           	{% endif %}
         {% endfor %}
       </div>
+
+
+        
       <div style="background-color: #1D1D1D;" class="menuBlock last">
         {% if section.settings.right_link_list != blank %}
         <div class="twoLinks">
@@ -154,7 +193,43 @@
         {% endfor %}
         </div>
         {% endif %}
+<div class="fortab">
+<p class="linecustom2"></p>
+  
+<div class="sTags">
+          
+              <a href="https://www.pinterest.com/weldworkofficial/" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                <path d="M0.714844 9.00014C0.714844 12.6855 2.93095 15.8515 6.10212 17.2435C6.07681 16.6151 6.09762 15.8606 6.25877 15.1768C6.43181 14.4462 7.41682 10.2727 7.41682 10.2727C7.41682 10.2727 7.12931 9.69799 7.12931 8.84869C7.12931 7.51493 7.90233 6.51881 8.86505 6.51881C9.6837 6.51881 10.0792 7.1337 10.0792 7.87001C10.0792 8.69295 9.55432 9.92391 9.28439 11.064C9.0589 12.0187 9.76308 12.7974 10.7049 12.7974C12.4101 12.7974 13.5586 10.6073 13.5586 8.01232C13.5586 6.03977 12.2301 4.56335 9.81363 4.56335C7.08354 4.56335 5.38275 6.59932 5.38275 8.87351C5.38275 9.65763 5.61394 10.2106 5.97605 10.6388C6.14255 10.8354 6.16568 10.9145 6.10542 11.1404C6.06225 11.306 5.96311 11.7046 5.92205 11.8626C5.86214 12.0906 5.67743 12.1721 5.47141 12.0879C4.21395 11.5746 3.62831 10.1975 3.62831 8.64949C3.62831 6.09286 5.78452 3.02723 10.0606 3.02723C13.4968 3.02723 15.7584 5.51377 15.7584 8.1829C15.7584 11.7135 13.7956 14.3511 10.9022 14.3511C9.93056 14.3511 9.01657 13.8259 8.70347 13.2293C8.70347 13.2293 8.18098 15.303 8.0703 15.7034C7.87948 16.3973 7.50598 17.0909 7.16447 17.6314C7.97391 17.8703 8.82898 18.0005 9.7152 18.0005C14.6852 18.0005 18.7149 13.971 18.7149 9.00014C18.7149 4.02954 14.6852 0 9.7152 0C4.74473 0 0.714844 4.02954 0.714844 9.00014Z" fill="#F4F0EA"></path>
+               </svg> 
+              </a>
+          
+          
+              <a href="https://www.instagram.com/weldworkofficial/" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+              <path d="M9.71484 1.76731C12.1148 1.76731 12.4148 1.76731 13.3898 1.84231C15.8648 1.91731 16.9898 3.11731 17.0648 5.51731C17.1398 6.49231 17.1398 6.71731 17.1398 9.11731C17.1398 11.5173 17.1398 11.8173 17.0648 12.7173C16.9898 15.1173 15.7898 16.3173 13.3898 16.3923C12.4148 16.4673 12.1898 16.4673 9.71484 16.4673C7.31484 16.4673 7.01484 16.4673 6.11484 16.3923C3.63984 16.3173 2.51484 15.1173 2.43984 12.7173C2.36484 11.7423 2.36484 11.5173 2.36484 9.11731C2.36484 6.71731 2.36484 6.41731 2.43984 5.51731C2.51484 3.11731 3.71484 1.91731 6.11484 1.84231C7.01484 1.76731 7.31484 1.76731 9.71484 1.76731ZM9.71484 0.11731C7.23984 0.11731 6.93984 0.11731 6.03984 0.19231C2.73984 0.34231 0.939844 2.14231 0.789844 5.44231C0.714844 6.34231 0.714844 6.64231 0.714844 9.11731C0.714844 11.5923 0.714844 11.8923 0.789844 12.7923C0.939844 16.0923 2.73984 17.8923 6.03984 18.0423C6.93984 18.1173 7.23984 18.1173 9.71484 18.1173C12.1898 18.1173 12.4898 18.1173 13.3898 18.0423C16.6898 17.8923 18.4898 16.0923 18.6398 12.7923C18.7148 11.8923 18.7148 11.5923 18.7148 9.11731C18.7148 6.64231 18.7148 6.34231 18.6398 5.44231C18.4898 2.14231 16.6898 0.34231 13.3898 0.19231C12.4898 0.11731 12.1898 0.11731 9.71484 0.11731ZM9.71484 4.46731C7.16484 4.46731 5.06484 6.56731 5.06484 9.11731C5.06484 11.6673 7.16484 13.7673 9.71484 13.7673C12.2648 13.7673 14.3648 11.6673 14.3648 9.11731C14.3648 6.56731 12.2648 4.46731 9.71484 4.46731ZM9.71484 12.1173C8.06484 12.1173 6.71484 10.7673 6.71484 9.11731C6.71484 7.46731 8.06484 6.11731 9.71484 6.11731C11.3648 6.11731 12.7148 7.46731 12.7148 9.11731C12.7148 10.7673 11.3648 12.1173 9.71484 12.1173ZM14.5148 3.26731C13.9148 3.26731 13.4648 3.71731 13.4648 4.31731C13.4648 4.91731 13.9148 5.36731 14.5148 5.36731C15.1148 5.36731 15.5648 4.91731 15.5648 4.31731C15.5648 3.71731 15.1148 3.26731 14.5148 3.26731Z" fill="#F4F0EA"></path>
+              </svg>
+              </a>
+          
+          
+              <a href="https://www.facebook.com/weldworkofficial/" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="19" viewBox="0 0 11 19" fill="none">
+                <path d="M3.21484 6.2345H0.714844V9.2345H3.21484V18.2345H7.38151V9.2345H10.3815L10.7148 6.2345H7.38151V4.9595C7.38151 4.2845 7.54818 3.9845 8.29818 3.9845H10.7148V0.234497H7.54818C4.54818 0.234497 3.21484 1.4345 3.21484 3.6845V6.2345Z" fill="#F4F0EA"></path>
+                </svg> 
+              </a>
+          
+          
+              <a style="margin-bottom: 0;" href="https://www.houzz.com/professionals/door-sales-and-installation/weldwork-pfvwus-pf~724715466" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" viewBox="0 0 17 19" fill="none">
+                <path d="M10.8025 18.3518H16.7674V8.00181L4.83755 4.55181V0.351807H0.662109V18.3518H6.62702V12.3518H10.8025V18.3518Z" fill="#F4F0EA"></path>
+                </svg> 
+              </a>
+          
+        </div>
       </div>
+      </div>
+
+                
     </div>
     <div class="rightrightSide">
       <div class="socialTags">
@@ -195,15 +270,24 @@
 <script>
   $(".hambMenu").click(function(){
     if ($(".hambMenu").hasClass("active")){
+      $(".logoMain.left").removeClass("active");
       $(".hambMenu").removeClass("active");
       $(".menuHolder").removeClass("active");
       $(".menuHolder").addClass("unactive");
+      $(".mobMenu").removeClass("stylecss");
+       $(".mobMenu").addClass("trBG");
+       $(".mobMenu").css("border-bottom","0px solid rgb(195, 195, 195)");
+     
       $("body").css("overflow","visible");
 	}  
     else{
+      $(".logoMain.left").addClass("active");
       $(".hambMenu").addClass("active");
       $(".menuHolder").removeClass("unactive");
       $(".menuHolder").addClass("active");
+      $(".mobMenu").addClass("stylecss");
+       $(".mobMenu").removeClass("trBG");
+       $(".mobMenu").css("border-bottom","1px solid rgb(195, 195, 195)");
       $("body").css("overflow","hidden");
     }
   });
@@ -654,6 +738,61 @@
         "zh-TW": "如果連結太長，選單會收合為選單按鈕。[深入瞭解](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)"
       }
     },
+
+
+  {
+      "type": "link_list",
+      "id": "main_menu_link_list_forpage",
+      "label": {
+        "cs": "Nabídka",
+        "da": "Menu",
+        "de": "Menü",
+        "en": "another main menu",
+        "es": "Menú",
+        "fi": "Valikko",
+        "fr": "Menu",
+        "it": "Menu",
+        "ja": "メニュー",
+        "ko": "메뉴",
+        "nb": "Meny",
+        "nl": "Menu",
+        "pl": "Menu",
+        "pt-BR": "Menu",
+        "pt-PT": "Menu",
+        "sv": "Meny",
+        "th": "เมนู",
+        "tr": "Menü",
+        "vi": "Menu",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      },
+      "default": "main-menu",
+      "info": {
+        "cs": "Nabídka se sbalí do nabídkového tlačítka v případě, že odkazy jsou příliš dlouhé. [Další informace](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "da": "Menuen komprimeres til en menuknap, hvis linkene er for lange. [Få mere at vide](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "de": "Wenn Links zu lang sind, wird das Menü eingeklappt und als Menü-Schaltfläche angezeigt. [Mehr Informationen](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "en": "The menu will collapse into a menu button if links are too long. [Learn more](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "es": "El menú se contraerá en un botón de menú si los enlaces son demasiado largos. [Más información](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "fi": "Valikko kutistuu valikkopainikkeeksi, jos linkit ovat liian pitkiä. [Lisätietoja](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "fr": "Le menu sera réduit à un bouton de menu si les liens sont trop longs. [En savoir plus](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "it": "Il menu si ridurrà a un pulsante menu se i link sono troppo lunghi. [Maggiori informazioni](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "ja": "リンクが長すぎる場合、メニューがメニューボタンに折りたたまれます。[詳しくはこちら](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "ko": "링크가 너무 길면 메뉴가 메뉴 버튼으로 축소됩니다. [자세히 알아보기](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "nb": "Menyen slås sammen til en menyknapp hvis koblingene er for lange. [Finn ut mer](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "nl": "Het menu zal inklappen tot een menuknop als de links te lang zijn. [Meer informatie](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "pl": "Menu zwinie się do postaci przycisku Menu, jeśli linki będą zbyt długie. [Dowiedz się więcej](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "pt-BR": "O menu ficará oculto em um botão de menu se os links forem longos demais. [Saiba mais](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "pt-PT": "O menu será fechado num botão de menu se as ligações forem demasiado compridas. [Saiba mais](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "sv": "Menyn kommer att kollapsa till en menyknapp om länkarna är för långa. [Läs mer](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "th": "เมนูนี้จะย่อลงเป็นปุ่มเมนูในกรณีที่ลิงก์ยาวเกินไป [ดูข้อมูลเพิ่มเติม](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "tr": "Bağlantılar çok uzun olduğunda menü daralarak menü düğmesine dönüşür. [Daha fazla bilgi edinin](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "vi": "Menu sẽ được thu nhỏ thành nút menu nếu liên kết quá dài. [Tìm hiểu thêm](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "zh-CN": "如果链接过长，菜单将折叠成菜单按钮。[了解详细信息](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "zh-TW": "如果連結太長，選單會收合為選單按鈕。[深入瞭解](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)"
+      }
+    },
+
+  
     {
       "type": "link_list",
       "id": "bottom_link_list",

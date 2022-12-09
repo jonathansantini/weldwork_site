@@ -1,27 +1,114 @@
+{% assign heading_max_width = 1072 %}
+<script>
+
+
+$(document).ready(function () {
+    updateContainer();
+    $(window).resize(function() {
+        updateContainer();
+    });
+});
+function updateContainer() { 
+        if (window.innerWidth < 1009) {
+  
+     $('.xsPadded').unbind('mouseenter mouseleave'); 
+           $('.herotext').show();
+}
+else {
+ //     $('.xsPadded').bind("mouseenter", function()  {
+ //     $(this).find('.herotext').slideToggle("slow");
+ //  });
+ //  $('.xsPadded').bind("mouseleave", function() {
+    
+ //     $(this).find('.herotext').slideToggle("slow");
+ // });
+ // $('.herotext').hide();
+  {% comment %}
+    $(".xsPadded").unbind().hover(function(){
+      $(this).find('.herotext').slideToggle("slow");
+     // $(this).toggleClass("herotext",1000);
+    // $(this).find('.herotext').show(1000)
+  }, function () { console.log("leave");
+      $(this).find('.herotext').slideToggle("slow");
+  });
+ {% endcomment %}
+  
+}
+
+}
+
+  
+  </script>
+
 <style>
+
+ 
+ 
+  
+.is-open {display:none;
+          opacity: 1;}
+
   #shopify-section-{{ section.id }} {
-    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  .img-1-{{ section.id }} .visibilityDiv, .img-2-{{ section.id }} .visibilityDiv {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+   @media only screen and (min-width:1920px) {
+     #shopify-section-{{ section.id }}{
+       
+         margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1920.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1920.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1920.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1920.0 }}vw;
+   }
+   #shopify-section-{{ section.id }} .evenContainer {
+  	 padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1920.0 }}vw;
+     padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1920.0 }}vw;
+  }
+  .img-1-{{ section.id }} .visibilityDiv {
+  	padding-left: {{ section.settings.img1PadLeft | times: 100 | divided_by: 1920.0 }}vw;
+    padding-right: {{ section.settings.img1PadRight | times: 100 | divided_by: 1920.0 }}vw;
+    padding-bottom: {{ section.settings.img1PadBottom | times: 100 | divided_by: 1920.0 }}vw;
+  }
+  .img-2-{{ section.id }} .visibilityDiv {
+  	padding-left: {{ section.settings.img2PadLeft | times: 100 | divided_by: 1920.0 }}vw;
+    padding-right: {{ section.settings.img2PadRight | times: 100 | divided_by: 1920.0 }}vw;
+    padding-bottom: {{ section.settings.img2PadBottom | times: 100 | divided_by: 1920.0 }}vw;
+  }
+  }
+   @media only screen and (min-width:1009px)  {
+    #shopify-section-{{ section.id }}{
+
+padding-left: {{ 145| times: 100 | divided_by: 1440.0 }}vw;
+     padding-right: {{ 145 | times: 100 | divided_by: 1440.0 }}vw;
+      
+         margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
     margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
     padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
     padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
-    background-color: {{ section.settings.backgroundColor }};
-  }
-  #shopify-section-{{ section.id }} .evenContainer {
+   }
+    #shopify-section-{{ section.id }} .evenContainer {
   	 padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
      padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
   }
-  .img-1-{{ section.id }} .visibilityDiv {
+     .img-1-{{ section.id }} .visibilityDiv {
   	padding-left: {{ section.settings.img1PadLeft | times: 100 | divided_by: 1440.0 }}vw;
     padding-right: {{ section.settings.img1PadRight | times: 100 | divided_by: 1440.0 }}vw;
-    background: rgba(0, 0, 0, 0.5);
+    padding-bottom: {{ section.settings.img1PadBottom | times: 100 | divided_by: 1440.0 }}vw;
   }
   .img-2-{{ section.id }} .visibilityDiv {
   	padding-left: {{ section.settings.img2PadLeft | times: 100 | divided_by: 1440.0 }}vw;
     padding-right: {{ section.settings.img2PadRight | times: 100 | divided_by: 1440.0 }}vw;
-    background: rgba(0, 0, 0, 0.5);
+    padding-bottom: {{ section.settings.img2PadBottom | times: 100 | divided_by: 1440.0 }}vw;
   }
-  @media only screen and (max-width: 1009px) {
-    #shopify-section-{{ section.id }} {
+   }
+  
+ 
+  
+   @media only screen and (max-width: 1008px) {
+      #shopify-section-{{ section.id }} {
       margin-top: {{ section.settings.marTopMob }}px;
       margin-bottom: {{ section.settings.marBottomMob }}px;
       padding-top: {{ section.settings.padTopMob }}px;
@@ -40,16 +127,58 @@
     .img-1-{{ section.id }} .visibilityDiv {
       	padding-left: {{ section.settings.img1PadLeftMob }}px;
         padding-right: {{ section.settings.img1PadRightMob }}px;
+        padding-bottom: {{ section.settings.img1PadBottomMob }}px;
     }
     .img-2-{{ section.id }} .visibilityDiv {
       	padding-left: {{ section.settings.img2PadLeftMob }}px;
         padding-right: {{ section.settings.img2PadRightMob }}px;
+        padding-bottom:{{ section.settings.img2PadBottomMob }}px;
     }
-  }
+   }
+
 </style>
-<div class="evenContainer twoBoxesSection">
-  <div class="evenRow">
-  	<div onclick="location.href='{{ section.settings.link1 }}'" style="cursor: pointer;" class="evenCol">
+<div class="evenContainer twoBoxesSection customtwoBoxesSection two-background-images">
+
+{% if section.settings.title != blank %}
+            <h2 class="come-in-2 GT-400 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+            h2.heading-{{ section.id }} {
+            margin: 0 auto; 
+            letter-spacing: {{ section.settings.titleLetter }}em; 
+            color: {{ section.settings.titleColor }}; 
+            text-align: {{ section.settings.titleAlign }};
+         max-width:{{ heading_max_width | times: 100 | divided_by: 1920.0 }}vw;
+            }
+            @media only screen and (min-width:1009px) {
+            h2.heading-{{ section.id }} {
+            font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+            line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+            margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              max-width:{{ heading_max_width | times: 100 | divided_by: 1440.0 }}vw;
+  
+            }
+             
+            }
+            
+           
+            
+            @media only screen and (max-width: 1008px) {
+            h2.heading-{{ section.id }} {
+            margin: 0; 
+            letter-spacing: {{ section.settings.titleLetterMob }}em; 
+            font-size: {{ section.settings.titleSizeMob }}px; 
+            color: {{ section.settings.titleColorMob }}; 
+            line-height: {{ section.settings.titleLineMob }}px;
+            text-align: {{ section.settings.titleAlignMob }};
+            margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+   max-width:{{ heading_max_width | times: 100 | divided_by: 1008.0 }}vw;
+            }
+            }
+            </style>
+        {% endif %}
+  
+  <div class="evenRow custompaddingtwo">
+  	<div onclick="location.href='{{ section.settings.link1 }}'" style="cursor: pointer;" class="evenCol  customhover">
     	<div style="background-image: url({{ section.settings.image-1 | img_url: "1000x" }});" class="applyAnimation imageContainer img-1-{{ section.id }}">
           <img style="visibility: hidden;" src="{{ section.settings.image-1 | img_url: "1000x" }}" class="fullWidth">
           <div class="visibilityDiv verticalCenter xsPadded">
@@ -69,32 +198,91 @@
             </div>
         {% endif %}
             {% if section.settings.title1 != blank %}
-            <div class="fullWidth come-in-2">
+            <div class="fullWidth come-in-1">
             <h3 class="customHeading heading1-{{ section.id }} GT-500">{{ section.settings.title1 }}</h3>
             <style>
-              h3.heading1-{{ section.id }} {
-                margin: 0; 
-                letter-spacing: {{ section.settings.title1Letter }}px; 
-                font-size: {{ section.settings.title1Size | times: 100 | divided_by: 1366.0 }}vw; 
-                color: {{ section.settings.title1Color }}; 
-                line-height: {{ section.settings.title1Line | times: 100 | divided_by: 1366.0 }}vw;
-                text-align: {{ section.settings.title1Align }};
-                margin-bottom: {{ section.settings.title1MarBottom | times: 100 | divided_by: 1366.0 }}vw;
-              }
-              @media only screen and (max-width: 1009px) {
-                h3.heading1-{{ section.id }} {
-                  margin: 0; 
-                  letter-spacing: {{ section.settings.title1LetterMob }}px; 
-                  font-size: {{ section.settings.title1SizeMob }}px; 
-                  color: {{ section.settings.title1ColorMob }}; 
-                  line-height: {{ section.settings.title1LineMob }}px;
-                  text-align: {{ section.settings.title1AlignMob }};
-                  margin-bottom: {{ section.settings.title1MarBottomMob }}px;
-                }
-              }
+            h3.heading1-{{ section.id }} {
+            margin: 0; 
+            letter-spacing: {{ section.settings.title1Letter }}px; 
+            color: {{ section.settings.title1Color }}; 
+            text-align: {{ section.settings.title1Align }};
+             
+            }
+
+@media only screen and (min-width:1920px) {
+h3.heading1-{{ section.id }} {
+font-size: {{ section.settings.title1Size | times: 100 | divided_by: 1920.0 }}vw;
+line-height: {{ section.settings.title1Line | times: 100 | divided_by: 1920.0 }}vw;
+margin-bottom: {{ section.settings.title1MarBottom | times: 100 | divided_by: 1920.0 }}vw;
+}
+}
+@media only screen and (min-width:1009px) {
+  h3.heading1-{{ section.id }} {
+font-size: {{ section.settings.title1Size | times: 100 | divided_by: 1440.0 }}vw;
+line-height: {{ section.settings.title1Line | times: 100 | divided_by: 1440.0 }}vw;
+margin-bottom: {{ section.settings.title1MarBottom | times: 100 | divided_by: 1440.0 }}vw;
+}
+}
+
+@media only screen and (max-width: 1008px) {
+  h3.heading1-{{ section.id }} {
+  margin: 0; 
+  letter-spacing: {{ section.settings.title1LetterMob }}px; 
+  font-size: {{ section.settings.title1SizeMob }}px; 
+  color: {{ section.settings.title1ColorMob }}; 
+  line-height: {{ section.settings.title1LineMob }}px;
+  text-align: {{ section.settings.title1AlignMob }};
+  margin-bottom: {{ section.settings.title1MarBottomMob }}px;
+  }
+}  
             </style>
             </div>
         {% endif %}
+
+
+        {% if section.settings.subtext != blank %}
+            <p class="herotext  {% if template contains 'reviews' %}{% else %}{% endif %} subtext-{{ section.id }} GT-{{ section.settings.subtextWeight }}">
+              {{ section.settings.subtext }}
+      		</p>
+            <style>
+               .subtext-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.subtextLetter }}px; 
+                color: {{ section.settings.subtextColor }}; 
+                text-align: {{ section.settings.subtextAlign }};
+              }
+
+
+ @media only screen and (min-width:1920px) {
+                  .subtext-{{ section.id }} {
+          font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1920.0 }}vw; 
+          line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1920.0 }}vw;
+          margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1920.0 }}vw;
+                  }
+}
+ @media only screen and (min-width:1009px)  {
+    .subtext-{{ section.id }} {
+          font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+          line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+          margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+                  }
+}
+
+@media only screen and (max-width: 1008px) {
+  .subtext-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.subtextLetterMob }}px; 
+                  font-size: {{ section.settings.subtextSizeMob }}px; 
+                  color: {{ section.settings.subtextColorMob }}; 
+                  line-height: {{ section.settings.subtextLineMob }}px;
+                  text-align: {{ section.settings.subtextAlignMob }};
+                  margin-bottom: {{ section.settings.subtextMarBottomMob }}px;
+                }
+}
+            </style>
+        {% endif %}
+
+        
             {% if section.settings.link1 != blank and section.settings.linkText1 == blank %}
             <div class="fullWidth come-in-3">
             	<a onclick="location.href='{{ section.settings.link1 }}'" class="imageLink" href="{{ section.settings.link1 }}">
@@ -122,7 +310,7 @@
           </div>
       	</div>
   	</div>
-    <div onclick="location.href='{{ section.settings.link2 }}'" style="cursor: pointer;" class="evenCol">
+    <div onclick="location.href='{{ section.settings.link2 }}'" style="cursor: pointer;" class="evenCol customhover">
     	<div style="background-image: url({{ section.settings.image-2 | img_url: "1000x" }});" class="applyAnimation imageContainer img-2-{{ section.id }}">
           <img style="visibility: hidden;" src="{{ section.settings.image-2 | img_url: "1000x" }}" class="fullWidth">
           <div class="visibilityDiv verticalCenter xsPadded">
@@ -142,18 +330,43 @@
             </div>
         {% endif %}
             {% if section.settings.title2 != blank %}
-            <div class="fullWidth come-in-2">
+            <div class="fullWidth come-in-1 headingtrans">
             <h3 class="customHeading heading2-{{ section.id }} GT-500">{{ section.settings.title2 }}</h3>
             <style>
               h3.heading2-{{ section.id }} {
                 margin: 0; 
                 letter-spacing: {{ section.settings.title2Letter }}px; 
-                font-size: {{ section.settings.title2Size | times: 100 | divided_by: 1366.0 }}vw; 
                 color: {{ section.settings.title2Color }}; 
-                line-height: {{ section.settings.title2Line | times: 100 | divided_by: 1366.0 }}vw;
                 text-align: {{ section.settings.title2Align }};
-                margin-bottom: {{ section.settings.title2MarBottom | times: 100 | divided_by: 1366.0 }}vw;
+                
               }
+@media only screen and (min-width:1920px) {
+h3.heading2-{{ section.id }} {
+font-size: {{ section.settings.title2Size | times: 100 | divided_by: 1920.0 }}vw;
+line-height: {{ section.settings.title2Line | times: 100 | divided_by: 1920.0 }}vw;
+margin-bottom: {{ section.settings.title2MarBottom | times: 100 | divided_by: 1920.0 }}vw;
+}
+}
+@media only screen and (min-width:1009px)  {
+  h3.heading2-{{ section.id }} {
+font-size: {{ section.settings.title2Size | times: 100 | divided_by: 1440.0 }}vw;
+line-height: {{ section.settings.title2Line | times: 100 | divided_by: 1440.0 }}vw;
+margin-bottom: {{ section.settings.title2MarBottom | times: 100 | divided_by: 1440.0 }}vw;
+}
+}
+
+@media only screen and (max-width: 1008px) {
+  h3.heading2-{{ section.id }} {
+  margin: 0; 
+  letter-spacing: {{ section.settings.title2LetterMob }}px; 
+  font-size: {{ section.settings.title2SizeMob }}px; 
+  color: {{ section.settings.title2ColorMob }}; 
+  line-height: {{ section.settings.title2LineMob }}px;
+  text-align: {{ section.settings.title2AlignMob }};
+  margin-bottom: {{ section.settings.title2MarBottomMob }}px;
+  }
+}  
+                
               @media only screen and (max-width: 1009px) {
                 h3.heading2-{{ section.id }} {
                   margin: 0; 
@@ -168,6 +381,50 @@
             </style>
             </div>
         {% endif %}
+
+
+           {% if section.settings.subtext2 != blank %}
+            <p class="herotext {% if template contains 'reviews' %}{% else %}{% endif %} subtext-{{ section.id }} GT-{{ section.settings.subtextWeight2 }}">
+              {{ section.settings.subtext2 }}
+      		</p>
+  
+            <style>
+              .subtext2-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.subtextLetter2 }}px; 
+                color: {{ section.settings.subtextColor2 }}; 
+                text-align: {{ section.settings.subtextAlign2 }};
+              }
+
+              @media only screen and (min-width:1920px) {
+                  .subtext2-{{ section.id }} {
+          font-size: {{ section.settings.subtextSize2 | times: 100 | divided_by: 1920.0 }}vw; 
+          line-height: {{ section.settings.subtextLine2 | times: 100 | divided_by: 1920.0 }}vw;
+          margin-bottom: {{ section.settings.subtextMarBottom2 | times: 100 | divided_by: 1920.0 }}vw;
+                  }
+}
+ @media only screen and (min-width:1009px)  {
+    .subtext2-{{ section.id }} {
+          font-size: {{ section.settings.subtextSize2 | times: 100 | divided_by: 1440.0 }}vw; 
+          line-height: {{ section.settings.subtextLine2 | times: 100 | divided_by: 1440.0 }}vw;
+          margin-bottom: {{ section.settings.subtextMarBottom2 | times: 100 | divided_by: 1440.0 }}vw;
+                  }
+}
+
+@media only screen and (max-width:1008px) {
+  .subtext2-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.subtextLetterMob2 }}px; 
+                  font-size: {{ section.settings.subtextSizeMob2 }}px; 
+                  color: {{ section.settings.subtextColorMob2 }}; 
+                  line-height: {{ section.settings.subtextLineMob2 }}px;
+                  text-align: {{ section.settings.subtextAlignMob2 }};
+                  margin-bottom: {{ section.settings.subtextMarBottomMob2 }}px;
+                }
+}
+            </style>
+        {% endif %}
+            
             {% if section.settings.link2 != blank and section.settings.linkText2 == blank %}
             <div class="fullWidth come-in-3">
             	<a onclick="location.href='{{ section.settings.link2 }}'" class="imageLink" href="{{ section.settings.link2 }}">
@@ -269,11 +526,120 @@
           "id": "backgroundColor",
           "label": "Background color"
         },
+      {
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
     {
       "type": "image_picker",
       "id": "image-1",
 	  "label": "First image"
     },
+      {
+          "type": "text",
+          "id": "img1PadBottom",
+          "label": "Bottom image padding (numbers only)",
+		  "default": "145"
+        },
 	{
           "type": "text",
           "id": "img1PadLeft",
@@ -286,6 +652,11 @@
           "id": "img1PadRight",
           "label": "Right image padding (numbers only)",
 	      "default": "145"
+        },
+      {
+          "type": "text",
+          "id": "img1PadBottomMob",
+          "label": "Bottom image padding mobile (numbers only)"
         },
 		{
           "type": "text",
@@ -435,11 +806,132 @@
           "id": "title1MarBottomMob",
           "label": "Title bottom margin mobile (numbers only)"
         },
+
+       {
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextWeight",
+          "label": "Subtitle weight (100-900)",
+		  "default": "400"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        },
+
+
+
+      
 	{
       "type": "image_picker",
       "id": "image-2",
 	  "label": "Second image"
     },
+      {
+          "type": "text",
+          "id": "img2PadBottom",
+          "label": "Bottom image padding (numbers only)",
+		  "default": "145"
+        },
 	{
           "type": "text",
           "id": "img2PadLeft",
@@ -452,6 +944,12 @@
           "id": "img2PadRight",
           "label": "Right image padding (numbers only)",
 	      "default": "145"
+        },
+       {
+          "type": "text",
+          "id": "img2PadBottomMob",
+          "label": "Bottom image padding mobile(numbers only)",
+		  "default": "145"
         },
 		{
           "type": "text",
@@ -507,6 +1005,123 @@
           "id": "title2",
           "label": "Heading"
         },
+
+
+
+              {
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext2",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize2",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextWeight2",
+          "label": "Subtitle weight (100-900)",
+		  "default": "400"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine2",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter2",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor2",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign2",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom2",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob2",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob2",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob2",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob2",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob2",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob2",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        },
+
+
+
+      
 		{
           "type": "text",
           "id": "title2Size",

@@ -10,24 +10,28 @@
       "blocks": {
         "656d2ab6-112d-4af4-ba5e-f41b7761fdfe": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/82_Double_Doors_3Lite_Porta_Pivot_Hinge_SceneView.jpg"
           }
         },
         "d9ce670b-270d-40f2-885f-27b429a5d1c5": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/77_Double_Doors_FullView_Porta_Pivot_Hinge_SceneView_1.jpg"
           }
         },
         "51548350-8d3b-4ba6-baaf-3153239de86f": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/67_Double_Doors_3Lite_Standard_Pivot_Hinge_SceneView.jpg"
           }
         },
         "67021f93-410e-4e16-910f-ff807157a217": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/47_Double_Doors_FullView_BulletHinge_SceneView.jpg"
           }
@@ -35,13 +39,19 @@
         "50b466d8-3555-4003-b790-822f85f68132": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/66_Single_Door_3Lite_Standard_Pivot_Hinge_SceneView.jpg"
+            "image": "shopify:\/\/shop_images\/Weldwork_-_Zana_-_10-13-22-00009_1.jpg"
           }
         },
         "63bfb1fc-35b6-4021-af33-b11aa951c7b8": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/61_Single_Door_FullView_Standard_Pivot_Hinge_SceneView.jpg"
+            "image": "shopify:\/\/shop_images\/Weldwork_-_Glass_Fridge_-_08-15-22-0079.jpg"
+          }
+        },
+        "31a87452-5346-4afb-a9e2-4aad0ff96ab1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Weldwork_-_Zana_-_10-13-22-00180.jpg"
           }
         }
       },
@@ -51,38 +61,39 @@
         "51548350-8d3b-4ba6-baaf-3153239de86f",
         "67021f93-410e-4e16-910f-ff807157a217",
         "50b466d8-3555-4003-b790-822f85f68132",
-        "63bfb1fc-35b6-4021-af33-b11aa951c7b8"
+        "63bfb1fc-35b6-4021-af33-b11aa951c7b8",
+        "31a87452-5346-4afb-a9e2-4aad0ff96ab1"
       ],
       "settings": {
         "dark": false,
-        "marTop": "",
+        "marTop": "80",
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
         "backgroundColor": "#ffffff",
-        "subtext": "Quick Ship doors are fitted to standard sized door openings and are in stock ready-to-ship.  Now you can get your your dream door, quicker.  Let us help you transform your space.",
+        "subtext": "Made-to-Measure doors are fitted to standard sized door openings and are ready to ship within 6 - 8 weeks. Now you can get your your dream door, quicker.  Let us help you transform your space.",
         "subtextSize": "24",
         "subtextLine": "31.2",
         "subtextLetter": "",
         "subtextColor": "#848484",
         "subtextAlign": "left",
-        "subtextMarBottom": "17",
+        "subtextMarBottom": "35",
         "subtextSizeMob": "19",
         "subtextLineMob": "20",
         "subtextLetterMob": "",
         "subtextColorMob": "",
         "subtextAlignMob": "left",
-        "subtextMarBottomMob": "16",
-        "title": "Order the perfect door in one click",
+        "subtextMarBottomMob": "35",
+        "title": "Made-to-Measure Doors",
         "titleSize": "100",
         "titleLine": "100",
-        "titleLetter": "-7.2",
+        "titleLetter": "0",
         "titleColor": "#000000",
         "titleAlign": "left",
         "titleMarBottom": "34",
         "titleSizeMob": "60",
         "titleLineMob": "54",
-        "titleLetterMob": "-4",
+        "titleLetterMob": "0",
         "titleColorMob": "",
         "titleAlignMob": "left",
         "titleMarBottomMob": "48",
@@ -316,10 +327,9 @@
         "boxPadBottomMob": "48",
         "boxPadLeftMob": "50",
         "boxPadRightMob": "30",
-        "boxIcon": "shopify:\/\/shop_images\/Group_257_3.png",
         "boxIconWidth": "",
         "boxIconWidthMob": "",
-        "boxLink": "shopify:\/\/pages\/contact",
+        "boxLink": "https:\/\/www.weldwork.com\/pages\/door-configurator",
         "boxLinkText": "Build your custom door",
         "boxTitle": "",
         "boxTitleSize": "",

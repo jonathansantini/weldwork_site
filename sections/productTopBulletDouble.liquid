@@ -1,5 +1,30 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 <style>
+.custommainImgAn1   {display:block!important;}
+  
+ .template-product .slick-dots {
+    margin: 0;
+    bottom: -20px;
+}
+
+ 
+  .template-product .slick-dots li.slick-active button:before {
+    background-color: black;}
+
+   .template-product .slick-dots li button:before {border: 2px solid black;}
+.custommainImgAn {
+               position: static!important; }
+  
+    .productThumbnailVideo.active {
+  	border: 2px solid #000;
+  }
+
+ 
+  
+    .productThumbnailVideo.active {
+  	border: 2px solid #000;
+  }
+  
     .productThumbnailVideo.active {
   	border: 2px solid #000;
   }
@@ -418,7 +443,7 @@
 max-height: 480px;  }
   .iframeVideoShow{
     visibility: unset;
-    display: block !important;
+    display: block;
     z-index: 99999;
   }
   @media(max-width:1008px){
@@ -633,54 +658,102 @@ $( ".closePopupGlass" ).click(function() {
   {% if first_3d_model %}data-has-model="true"{% endif %} class="productTop flexDiv">
   <div class="productTopLeft">
     <div style="position: sticky; top: -100px;" class="productImageHolder">
-      <p class="mobileClass quickShipTitle GT-500">Quickship</p>
+      <p class="mobileClass quickShipTitle GT-500">Made-to-Measure</p>
     <p class="mobileClass productTopTitle GT-500">{{ product.title | escape }}</p>
     <div class="mobileClass">
     {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
     </div>
-    	  <img class="mainImg fullWidth" src="{{ product.featured_image | img_url: "300x" }}">
-      	<!-- <img class="mainImgAn" src="{{ product.featured_image | img_url: "1200x" }}" > -->
-      	<img class="mainImgAn image-zoom" 
-          data-zoom-image="{{ product.featured_image | img_url: "1200x" }}" 
-          src="{{ product.featured_image | img_url: "1200x" }}" >
-        <iframe class="iframeVideo iv-one"  src=""></iframe>
-        <iframe class="iframeVideo iv-three"  src="" title="W3Schools Free Online Web Tutorials"></iframe>
-        <iframe class="iframeVideo iv-four"  src="" title="W3Schools Free Online Web Tutorials"></iframe>
-        <!-- Second Video Frame -->
-        <iframe class="iframeVideo iv-one-ex"  src=""></iframe>
-        <iframe class="iframeVideo iv-three-ex"  src="" title="W3Schools Free Online Web Tutorials"></iframe>
-        <iframe class="iframeVideo iv-four-ex"  src="" title="W3Schools Free Online Web Tutorials"></iframe>
+     {% comment %}       <img class="mainImg fullWidth" src="{{ product.featured_image | img_url: "300x" }}">
+      <img  class="mainImgAn" src="{{ product.featured_image | img_url: "1200x" }}" >
+      <img  class="mainImgAn image-zoom  clickonimage" 
+           data-zoom-image="{{ product.featured_image | img_url: "1200x" }}" > {% endcomment %}
 
-      <div class="productThumbnails" id="productThumbnails">
+
+      {% for image in product.images %}
+         
+  <a class="fancybox img-{{ image.id }}"  data-fancybox="category2"  href="{{ image | img_url: '1200x' }}">
+ 
+   <img  class=" mainImgAn image-zoom   custommainImgAn "  src="{{ image | img_url: '1200x' }}"
+                          data-src="{{ img_url }}"
+                          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                          data-aspectratio="{{ image.aspect_ratio }}"
+                          data-sizes="auto"
+                          
+                          data-image-id="{{ image.id }}"
+                          alt="{{ image.alt | escape }}">
+ </a>
+            {% endfor %}
+ <iframe class="fancybox iframeVideo iv-one custommainImgAn1 "></iframe>
+      <!-- Second Video Frame -->
+      <iframe class="iframeVideo iv-one-ex"  src=""></iframe>
+      <iframe class="iframeVideo iv-three-ex"  src="" title="{{product.title | escape}}"></iframe>
+      <iframe class="iframeVideo iv-four-ex"  src="" title="{{product.title | escape}}"></iframe>
+      <iframe class="iframeVideo iv-six-ex"  src="" title="{{product.title | escape}}"></iframe>
+
+      <div class="productThumbnails my-slider" id="productThumbnails">
         {% for img in product.images %}
-          <img class="fullWidth productThumbnail {% if forloop.first %}active{% endif %}" 
-            source="{{ img | img_url: '1200x' }}" 
+          <div >
+            <div class="custom-width-slider">
+             <img class="fullWidth productThumbnail {% if forloop.first %}active{% endif %}" 
+            source="{{ img | img_url: '400x' }}" 
             src="{{ img | img_url: '400x' }}"
-            data-image="{{ img | img_url: '1200x' }}" 
-            data-zoom-image="{{ img | img_url: '1200x' }}">
+            data-image="{{ img | img_url: '400x' }}" 
+            data-zoom-image="{{ img | img_url: '400x' }}" data-image-id="img-{{ img.id }}">  
+            
+          </div>
+          </div>
+          
         {% endfor %}
         <div class="img-thumb-video">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="8" y="7.11108" width="8.88889" height="10.6667" fill="#F4F0EA"/>
-          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="black"/>
-        </svg>
+        
    
-          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-One" source="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}">
-          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Two" source="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}">
-          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Three" source="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}">
-       
-          
+          {% if product.metafields.my_fields.product_video_image != blank %}
+              {% include "vedio_play_icon" %}
+              <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-One" source="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}">
+           {% endif %}
+              {% if product.metafields.my_fields.product_video_image_three_lite != blank %}   
+            {% include "vedio_play_icon" %}
+              <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Two" source="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}">
+              
+              {% endif %}
+              
+              {% if product.metafields.my_fields.product_video_image_four_lite != blank %}   
+                  {% include "vedio_play_icon" %}
+              <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Three" source="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}">
+              
+              {% endif %}   
+              
+              
+              {% if product.metafields.my_fields.product_video_image_six_lite != blank %} 
+                  {% include "vedio_play_icon" %}
+              <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-six" source="{{product.metafields.my_fields.product_video_image_six_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_six_lite | img_url: '1200x'}}">
+              
+              {% endif %}
+            
           <!-- Second Video Thumbnails -->
         
         </div>
         <div class="img-thumb-video">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="7.11108" width="8.88889" height="10.6667" fill="#F4F0EA"/>
-            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="black"/>
-            </svg>
+                
+            {% if product.metafields.my_fields.extra_video_thumnail_full != blank %}
+                {% include "vedio_play_icon" %}
             <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-One-ex" source="{{product.metafields.my_fields.extra_video_thumnail_full  | img_url: '1200x'}}" src="{{product.metafields.my_fields.extra_video_thumnail_full | img_url: '1200x'}}">
+            {% endif %}
+            
+            {% if product.metafields.my_fields.extra_video_thumbnail_three != blank %}
+                {% include "vedio_play_icon" %}
             <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Two-ex" source="{{product.metafields.my_fields.extra_video_thumbnail_three | img_url: '1200x'}}" src="{{product.metafields.my_fields.extra_video_thumbnail_three  | img_url: '1200x'}}">
+            {% endif %}
+            
+            {% if product.metafields.my_fields.extra_video_thumbnail_four != blank %}
+                {% include "vedio_play_icon" %}
             <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Three-ex" source="{{product.metafields.my_fields.extra_video_thumbnail_four | img_url: '1200x'}}" src="{{product.metafields.my_fields.extra_video_thumbnail_four  | img_url: '1200x'}}">
+            {% endif %}
+            
+            {% if product.metafields.my_fields.extra_video_thumbnail_six != blank %}
+                {% include "vedio_play_icon" %}
+            <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-six" source="{{product.metafields.my_fields.extra_video_thumbnail_six | img_url: '1200x'}}" src="{{product.metafields.my_fields.extra_video_thumbnail_six | img_url: '1200x'}}">
+            {% endif %}
       <!-- VIDEOS -->
   
         </div>
@@ -715,22 +788,47 @@ $( ".closePopupGlass" ).click(function() {
 //             $(".image-zoom").removeData('elevateZoom');
 //           }
 //         }
+        
+        function get_index(elem){
+          var parent = $(this).parent(),
+              index="",
+              element = this;
+          console.log(parent,element);
+    
+          parent.children(elem).each( function () {
+            if(this === element){
+              index = $(this).index();
+              console.log(this,index);
+              return index;
+            }
+          });
+          
+        }
+         
   
         $(".productThumbnail").click(function(e){
 //           removeZoom();
           $(".productThumbnail").removeClass("active");
           $(".productThumbnailVideo").removeClass("active");
-          $(".iv-three").attr("src", "");
+          /*$(".iv-three").attr("src", "");
           $(".iv-four").attr("src", "");
           $(".iv-one").attr("src", "");
   
           $(".iv-three-ex").attr("src", "");
           $(".iv-four-ex").attr("src", "");
-          $(".iv-one-ex").attr("src", "");
+          $(".iv-one-ex").attr("src", "");*/
+          
+          $(this).parent().siblings(".iframeVideo").each( function () {
+            //console.log(this);
+            if($(this).hasClass('active')||$(this).hasClass('iframeVideoShow')){
+              $(this).fadeOut();
+              $(this).removeClass('iframeVideoShow'); 
+            }
+          });
   
           $(this).addClass("active");
   
-          if($( ".lite-full" ).hasClass( "selected" )){
+          /*if($( ".lite-full" ).hasClass( "selected" )){
             $(".iv-one").fadeOut();; 
           $(".iv-one").removeClass('iframeVideoShow'); 
   
@@ -769,13 +867,13 @@ $( ".closePopupGlass" ).click(function() {
             $(".iv-four-ex").fadeOut();; 
           $(".iv-four-ex").removeClass('iframeVideoShow'); 
   
-          }
+          }*/
 
-          $(".mainImgAn").fadeOut();
+{% comment %}           $(".mainImgAn").fadeOut(); {% endcomment %}
           setTimeout(function() { 
             $(".mainImg").attr("src",$(".productThumbnail.active").attr("src"));
             $(".mainImgAn").attr("src",$(".productThumbnail.active").attr("source"));
-
+$(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
             if($(".productThumbnail.active")[0].tagName === 'IMG' ) {
 //               resetZoom();
               if(window.innerWidth > 1008) {
@@ -790,9 +888,9 @@ $( ".closePopupGlass" ).click(function() {
         });
       
         $(".Image-V-One").click(function(){
+          $(this).parent("div").siblings().removeClass("active");
+          
 //           removeZoom();
-          $(".productThumbnail").removeClass("active");
-          $(".Image-V-One-ex").removeClass("active");
           $(this).addClass("active");
           $(".mainImgAn").fadeOut();
           setTimeout(function(){ 
@@ -916,6 +1014,48 @@ $( ".closePopupGlass" ).click(function() {
           $(".iv-four-ex").fadeIn(); 
           }, 400);
         });
+        
+        $(".Image-V-six").click(function(){
+          //           removeZoom();
+          $(".productThumbnail").removeClass("active");
+          $(".Image-V-six-ex").removeClass("active");
+          $(this).addClass("active");
+          $(".mainImgAn").fadeOut();
+          setTimeout(function(){ 
+            // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+            $(".iv-six-ex").removeClass("iframeVideoShow");
+
+            $(".iv-six").addClass('iframeVideoShow'); 
+            $(".iv-six-ex").attr("src", "");
+
+            $(".iv-six").attr("src", "{{product.metafields.my_fields.product_video_url_six_lite}}");
+
+                              // $(".iframeVideo").addClass('mainImgAn'); 
+                              $(".iv-six").fadeIn(); 
+          }, 400);
+        });
+
+        // Extra Video Three
+
+        $(".Image-V-six-ex").click(function(){
+          //           removeZoom();
+          $(".Image-V-six").removeClass("active");
+
+          $(".productThumbnail").removeClass("active");
+          $(this).addClass("active");
+          $(".mainImgAn").fadeOut();
+          setTimeout(function(){ 
+            // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+            $(".iv-six").removeClass("iframeVideoShow");
+
+            $(".iv-six-ex").addClass('iframeVideoShow'); 
+            $(".iv-six-ex").attr("src", "");
+            $(".iv-six-ex").attr("src", "{{product.metafields.my_fields.extra_video_lite_options_six}}");
+
+                                  // $(".iframeVideo").addClass('mainImgAn'); 
+                                  $(".iv-six-ex").fadeIn(); 
+          }, 400);
+        });
 
       });
       
@@ -936,7 +1076,7 @@ $( ".closePopupGlass" ).click(function() {
               {% unless settings.disable_autogenerated_payment_terms %}
                 {{ form | payment_terms }}
               {% endunless %}
-    <p class="desktopClass quickShipTitle GT-500">Quick Ship</p>
+    <p class="desktopClass quickShipTitle GT-500">Made-to-Measure</p>
     <p class="desktopClass productTopTitle GT-500">{{ product.title | escape }}</p>
     <div class="desktopClass">
     {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
@@ -1146,19 +1286,32 @@ $( ".closePopupGlass" ).click(function() {
       	flex-wrap: wrap;
       }
       .variantsGlass .variantMain {
-      	padding: 0 0 0 24px;
-        width: calc(50% - 5px);
-        flex-grow: unset;
-        margin-bottom: 12px;
-        justify-content: space-between;
-        overflow-x: hidden;
+      	padding: 20px;
+    	width: calc(50% - 5px);
+    	flex-grow: unset;
+    	margin-bottom: 12px;
+    	justify-content: space-between;
+    	overflow-x: hidden;
       }
       .variantsGlass .variantMain:nth-child(2) {
       	margin-right: 0;
       }
       .variantsGlass .variantMain img {
-      	width: 70px;
+           mix-blend-mode: darken;
+           margin-left: 10px;
+           max-width: 47px;
       }
+      @media (max-width:1300px){
+.variantsGlass .variantMain {
+    font-size: 12px;
+    padding: 10px;
+}
+.variantsGlass .variantMain img {
+    mix-blend-mode: darken;
+    margin-left: 10px;
+    max-width: 47px;
+}
+}
     </style>
 <!--  Spec Sheet stylings and Html Container    -->
     <style>
@@ -1303,6 +1456,12 @@ $( ".closePopupGlass" ).click(function() {
 <path d="M1 19L21 19" stroke="black" stroke-width="2"/>
 <path d="M1 28L21 28" stroke="black" stroke-width="2"/>
 </svg> 4</div>
+            <div thumb="{{ product.metafields.my_fields.six_lite | img_url: '1000x' }}" scene="{{ product.metafields.my_fields.six_lite_scene | img_url: '1000x' }}" value='6' class="variantMain lite-six"><svg width="22" height="38" viewBox="0 0 22 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="20" height="36" stroke="black" stroke-width="2"/>
+              <path d="M11 1L11 36" stroke="black" stroke-width="2"/>
+              <path d="M1 24L21 24" stroke="black" stroke-width="2"/>
+              <path d="M1 12L21 12" stroke="black" stroke-width="2"/>
+              </svg> 6</div>
           </div>
       	</div>
       	<!--<div sel="" class="productSelector">
@@ -1325,23 +1484,26 @@ $( ".closePopupGlass" ).click(function() {
           </div>
       	</div>-->
       <div sel="" class="variantSelector">
+        
+   
+<div class="hoverimage">
+   <div class="scr-close"></div>
+<img class="imgown" />
+</div>
+
+
+
           <div class="productLabel GT-500" style="display: flex; position: relative; align-items: center;">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
 <rect x="0.5" y="0.5" width="16" height="16" stroke="black"/>
 <path d="M5 11L12 4" stroke="black"/>
 <path d="M9 11.4502L11.4502 9" stroke="black"/>
 </svg>
-            Glass {% if product.metafields.my_fields.glass_options_text != blank %} <p class="view-glass-options" style="position: relative;  display:flex; align-items: center;"> 
-             {{product.metafields.my_fields.glass_options_text }} 
-          
-                <span class="moreinfo-popup">Click on "{{product.metafields.my_fields.glass_options_text }}"" to view glass options   </span></p>{%endif%}
-                            </div>
-            </p>
-          
+Glass </div>
           <div class="variantsFlex variantsGlass">
-            <div value='Standard 1/4" Clear' class="variantMain selected">Standard<br> 1/4" Clear<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
-            <div value='Low Iron 1/4" Acid Etched (Frosted)' class="variantMain">Low Iron 1/4" Acid Etched<br> (Frosted)<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
-            <div value='Low Iron 1/4" Clearvision' class="variantMain">Low Iron 1/4" Clearvision<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
+              {% for block in section.blocks %}
+               <div  imgsrc='{{ block.settings.item-image |img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if forloop.index == 1 %}selected   {% endif %}"><span>{{ block.settings.item-title | escape }}</span><img src="{{ block.settings.item-image | img_url }}"></div>
+             {% endfor %}
           </div>
       	</div>
     </div>
@@ -1372,6 +1534,37 @@ $( ".closePopupGlass" ).click(function() {
 </style>
 <script>
   $(document).ready(function(){
+    
+    function thumb_show_elem(){
+      //console.log(this);
+      $(this).addClass('showCorrectimage');
+      if($(this).siblings('.productThumbnailVideo').hasClass('active')){
+        $(this).siblings('.productThumbnailVideo').removeClass('active')
+        $(this).addClass('active');
+      }
+        
+      $(this).removeClass('hideThumbnailImage');
+      /*$(this).siblings('.productThumbnailVideo').removeClass('showCorrectimage active');
+      $(this).siblings('.productThumbnailVideo').addClass('hideThumbnailImage');*/
+    }
+    
+    function thumb_video_load_elem(src){
+      $(this).attr("src", src);
+    }
+    
+    function thumb_hideall(){
+      //console.log(this);
+      $(".productThumbnailVideo").addClass('hideThumbnailImage');
+      $(".productThumbnailVideo").removeClass('showCorrectimage');
+
+    }
+    
+    function iframe_show_elem(){
+      //console.log(this);
+      $(this).addClass('iframeVideoShow');
+      $(this).siblings().removeClass('iframeVideoShow');
+    }
+    
 
 
     $(".varitantsLite .variantMain").click(function(){
@@ -1381,22 +1574,69 @@ $( ".closePopupGlass" ).click(function() {
       	$(".productThumbnail").last().attr("source",$(this).attr("scene"));
       	$(".mainImg").attr("src",$(".productThumbnail.active").attr("src"));
       	$(".mainImgAn").attr("src",$(".productThumbnail.active").attr("src"));
-      
+      $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
+      	$(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
     });
+    
+    $(".lite-full").click(function(){
+      thumb_hideall();
+      thumb_show_elem.call($(".Image-V-One"));
+      thumb_show_elem.call($(".Image-V-One-ex"));
+      thumb_video_load_elem.call($(".iv-one"),"{{product.metafields.my_fields.product_video_url_four_lite}}");
+      thumb_video_load_elem.call($(".iv-one-ex"),"{{product.metafields.my_fields.extra_video_lite_options_four}}");
+
+
+      $(".iv-one").siblings(".iframeVideo").each( function () {
+        //console.log(this);
+        if($(this).hasClass('active')||$(this).hasClass('iframeVideoShow'))
+          iframe_show_elem.call($(".iv-one"));
+      });
+    }); 
 
     $(".lite-three").click(function(){
-    $('.Image-V-One').removeClass('showCorrectimage');
-    $('.Image-V-One').addClass('hideThumbnailImage');
-    $(".iv-three").attr("src", "{{product.metafields.my_fields.product_video_url_three_lite}}");
-    $(".iv-four").attr("src", "");
+      thumb_hideall();
+      thumb_show_elem.call($(".Image-V-Two"));
+      thumb_show_elem.call($(".Image-V-Two-ex"));
+      thumb_video_load_elem.call($(".iv-three"),"{{product.metafields.my_fields.product_video_url_three_lite}}");
+      thumb_video_load_elem.call($(".iv-three-ex"),"{{product.metafields.my_fields.extra_video_lite_options_three}}");
+                           
+
+      $(".iv-three").siblings(".iframeVideo ").each( function () {
+        //console.log(this);
+        if($(this).hasClass('active')||$(this).hasClass('iframeVideoShow'))
+          iframe_show_elem.call($(".iv-three"));
+      });
+    }); 
+      
+    $(".lite-four").click(function(){
+      thumb_hideall();
+      thumb_show_elem.call($(".Image-V-Three"));
+      thumb_show_elem.call($(".Image-V-Three-ex"));
+      thumb_video_load_elem.call($(".iv-four"),"{{product.metafields.my_fields.product_video_url_four_lite}}");
+      thumb_video_load_elem.call($(".iv-four-ex"),"{{product.metafields.my_fields.extra_video_lite_options_four}}");
+
+
+      $(".iv-four").siblings(".iframeVideo ").each( function () {
+        //console.log(this);
+        if($(this).hasClass('active')||$(this).hasClass('iframeVideoShow'))
+          iframe_show_elem.call($(".iv-four"));
+      });
+    }); 
+// Extra Video Three
+      
+      
+      
+    /*$('.Image-V-One').removeClass('showCorrectimage');
+    $('.Image-V-One').addClass('hideThumbnailImage');*/
+    /*$(".iv-four").attr("src", "");
     $(".iv-one").attr("src", "");
-    $('.Image-V-Three').removeClass('showCorrectimage');
+    /*$('.Image-V-Three').removeClass('showCorrectimage');
     $('.Image-V-Three').addClass('hideThumbnailImage');
 
     $('.Image-V-Two').removeClass('hideThumbnailImage');
     $('.Image-V-Two').addClass('showCorrectimage');
 
-    if($('.Image-V-One').hasClass('active')){
+    /*if($('.Image-V-One').hasClass('active')){
     $('.iv-four').removeClass('iframeVideoShow');
     $('.iv-three').addClass('iframeVideoShow');
     $('.iv-one').removeClass('iframeVideoShow');
@@ -1407,23 +1647,22 @@ $( ".closePopupGlass" ).click(function() {
     $('.iv-three').addClass('iframeVideoShow');
     $('.iv-one').removeClass('iframeVideoShow');
     $('.Image-V-Two').addClass('active')
-    }
-}); 
+    }*/
 
 // Extra Video Three
-$(".lite-three").click(function(){
-    $('.Image-V-One-ex').removeClass('showCorrectimage');
-    $('.Image-V-One-ex').addClass('hideThumbnailImage');
-    $(".iv-three-ex").attr("src", "{{product.metafields.my_fields.extra_video_lite_options_three}}");
-    $(".iv-four-ex").attr("src", "");
+//$(".lite-three").click(function(){
+    //$('.Image-V-One-ex').removeClass('showCorrectimage');
+    //$('.Image-V-One-ex').addClass('hideThumbnailImage');
+    //$(".iv-three-ex").attr("src", "{{product.metafields.my_fields.extra_video_lite_options_three}}");
+    /*$(".iv-four-ex").attr("src", "");
     $(".iv-one-ex").attr("src", "");
     $('.Image-V-Three-ex').removeClass('showCorrectimage');
     $('.Image-V-Three-ex').addClass('hideThumbnailImage');
 
     $('.Image-V-Two-ex').removeClass('hideThumbnailImage');
-    $('.Image-V-Two-ex').addClass('showCorrectimage');
+    $('.Image-V-Two-ex').addClass('showCorrectimage');*/
 
-    if($('.Image-V-One-ex').hasClass('active')){
+    /*if($('.Image-V-One-ex').hasClass('active')){
     $('.iv-four-ex').removeClass('iframeVideoShow');
     $('.iv-three-ex').addClass('iframeVideoShow');
     $('.iv-one-ex').removeClass('iframeVideoShow');
@@ -1438,9 +1677,9 @@ $(".lite-three").click(function(){
     $('.Image-V-Two').removeClass('active')
 
     $('.Image-V-Two-ex').addClass('active')
-    }
-}); 
+    }*/
 
+/*
 
 $(".lite-full").click(function(){
   $('.Image-V-Three').removeClass('showCorrectimage');
@@ -1504,8 +1743,8 @@ $(".lite-full").click(function(){
     $('.Image-V-One-ex').addClass('active');
     }
 
-});
-
+});*/
+/*
 $(".lite-four").click(function(){
   $('.Image-V-Three').removeClass('hideThumbnailImage');
     $('.Image-V-Three').addClass('showCorrectimage');
@@ -1566,7 +1805,7 @@ $(".lite-four").click(function(){
     $('.Image-V-Three-ex').addClass('active')
     }
    
-});
+});*/
 
   });
 
@@ -1606,7 +1845,7 @@ $(".lite-four").click(function(){
     let check = true;
     function checkProduct(){
       product = "";
-      variant = "";
+      variant = ""; 
       $(".productMain.active li").removeClass("active");
       $(".productMain").removeClass("active");
       $(".productSelector").each(function(index){
@@ -1627,7 +1866,7 @@ $(".lite-four").click(function(){
         if ($(this).attr("producthandle")==product){
         	$(this).addClass("active");
         }
-      });
+      }); 
       $(".productMain.active li").each(function(){
         if ($(this).attr("varianthandle")==variant){
         	$(this).addClass("active");
@@ -1707,6 +1946,9 @@ $(".lite-four").click(function(){
     $(".variantMain.selected").each(function(index){
     	$(this).click();
     });
+
+
+  
    });
 </script>
 {% unless product == empty %}
@@ -1718,10 +1960,35 @@ $(".lite-four").click(function(){
   </script>
 {% endunless %}
 {% schema %}
-  {
-    "name": "Product top",
-    "settings": []
-  }
+
+{
+	"name": "Product top",
+	"blocks": [
+    		{
+    			"type": "image",
+    			"name": "items-entry",
+    			"settings": [
+                  {
+                    "type": "image_picker",
+                    "id": "item-image",
+                    "label": "Glass Icon"
+                  },
+                  {
+                    "type": "text",
+                    "id": "item-title",
+                    "label": "Title",
+                    "default": "Title"
+                  },
+                  {
+                    "type": "text",
+                    "id": "item-value",
+                    "label": "Value",
+                    "default": "Value"
+                  }
+    			]
+    		}
+	]
+}
 {% endschema %}
 
 {% stylesheet %}

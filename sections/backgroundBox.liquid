@@ -1,4 +1,12 @@
 <style>
+
+  .customhovereffect { transition: all .6s}
+
+  .customhovereffect:hover {transition: all .6s ease-out;
+    background: white!important;
+    }
+.customhovereffect:hover path {stroke: black!important;}
+  
   #shopify-section-{{ section.id }} {
     margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
     margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
@@ -142,9 +150,11 @@
         {% endif %}
       {% unless template contains 'doors' %}
       	{% if section.settings.icon != blank or section.settings.iconSVG != blank %}
-            <div class="fullWidth come-in-1">
+            <div class="fullWidth come-in-1  imglogo">
             <img onclick="location.href='{{ section.settings.link }}'" style="cursor: pointer;" class="icon1-{{ section.id }} iconImage" src="{% if section.settings.iconSVG != blank %}{{ section.settings.iconSVG }}{% else %}{{ section.settings.icon | img_url: "400x" }}{% endif %}">
-            <style>
+           
+          
+          <style>
               .icon1-{{ section.id }} {
                	width: {{ section.settings.iconWidth | times: 100 | divided_by: 1366.0 }}vw;
                 transition: all .6s ease-out;
@@ -162,7 +172,7 @@
             </style>
             </div>
       	{% elsif section.settings.link != blank and section.settings.linkText == blank %}
-      	<svg class="come-in-1" onclick="location.href='{{ section.settings.link }}'" class="icon1-{{ section.id }}" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 92 92" fill="none">
+      	<svg class="come-in-1  customhovereffect" onclick="location.href='{{ section.settings.link }}'" class="icon1-{{ section.id }}" style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 92 92" fill="none">
         <rect opacity="0.5" x="0.5" y="0.5" width="91" height="91" stroke="white"/>
         <path d="M37.4141 55.4639L54.4776 38.4004" stroke="white" stroke-width="2"/>
         <path d="M38.7873 37.9134H54.9627V54.0889" stroke="white" stroke-width="2"/>

@@ -26,8 +26,8 @@ $(document).ready(function(){
   	let cl = "scrollTo"+$(this).attr("number");
     var parentElementz = document.querySelector('.divCol-41');
     var childElementz = document.querySelector('#'+cl);
-    let offz = childElementz.offsetTop - parentElementz.offsetTop - 100;
-    $('.divCol-41').animate({scrollTop: offz}, 500);
+    let offz = childElementz.offsetTop - parentElementz.offsetTop - 40;
+    $('.divCol-41').animate({scrollTop: offz}, 40);
     //parentElementz.scrollTop = childElementz.offsetTop - parentElementz.offsetTop - 100;
   });
 });

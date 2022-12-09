@@ -1217,7 +1217,9 @@ var ajaxCart = (function(module, $) {
 
     // Add or remove from the quantity
     $body.on('click', '.ajaxcart__qty-adjust', function() {
+     
       if (isUpdating) {
+       
         return;
       }
       var $el = $(this),
@@ -1238,7 +1240,10 @@ var ajaxCart = (function(module, $) {
       // If it has a data-line, update the cart.
       // Otherwise, just update the input's number
       if (line) {
-        updateQuantity(line, qty);
+        
+          
+      updateQuantity(line, qty);
+     
       } else {
         $qtySelector.val(qty);
       }

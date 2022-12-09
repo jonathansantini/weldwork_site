@@ -1,0 +1,1117 @@
+<style>
+
+.customfourbox .imageContainer {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+  margin-top: 17px;
+}
+
+  .customfourbox .imageContainer img  {display:block!important;}
+  .customfourbox .xsPadded {display:none;}
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  #shopify-section-{{ section.id }} .evenContainer {
+  	 padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+     padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+  }
+  .img-1-{{ section.id }} .visibilityDiv {
+  	padding-left: {{ section.settings.img1PadLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.img1PadRight | times: 100 | divided_by: 1440.0 }}vw;
+{% comment %}       {% endcomment %}
+  }
+  .img-2-{{ section.id }} .visibilityDiv {
+  	padding-left: {{ section.settings.img2PadLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.img2PadRight | times: 100 | divided_by: 1440.0 }}vw;
+{% comment %}       {% endcomment %}
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+    }
+    #shopify-section-{{ section.id }} .evenContainer {
+       padding-left: {{ section.settings.padLeftMob }}px;
+       padding-right: {{ section.settings.padRightMob }}px;
+  	}
+    .img-1-{{ section.id }} {
+    	margin-bottom: {{ section.settings.imgMobMarBottom }}px;
+    }
+    .img-2-{{ section.id }} {
+    	margin-bottom: {{ section.settings.imgMobMarBottom2 }}px;
+    }
+    .img-1-{{ section.id }} .visibilityDiv {
+      	padding-left: {{ section.settings.img1PadLeftMob }}px;
+        padding-right: {{ section.settings.img1PadRightMob }}px;
+    }
+    .img-2-{{ section.id }} .visibilityDiv {
+      	padding-left: {{ section.settings.img2PadLeftMob }}px;
+        padding-right: {{ section.settings.img2PadRightMob }}px;
+    }
+  }
+</style>
+<div class="evenContainer twoBoxesSection customfourbox">
+  <div class="evenRow">
+  	<div onclick="location.href='{{ section.settings.link1 }}'" style="cursor: pointer;" class="">
+    	<div  class="applyAnimation imageContainer img-1-{{ section.id }}">
+          <img style="" src="{{ section.settings.image-1 | img_url: "1000x" }}" class="fullWidth">
+          <div class="visibilityDiv verticalCenter xsPadded">
+            {% if section.settings.icon-1 != blank or section.settings.icon-1-SVG != blank %}
+            <div class="fullWidth come-in-1">
+            <img class="icon1-{{ section.id }} iconImage" src="{% if section.settings.icon-1-SVG != blank %}{{ section.settings.icon-1-SVG }}{% else %}{{ section.settings.icon-1 | img_url: "400x" }}{% endif %}">
+            <style>
+              .icon1-{{ section.id }} {
+                margin-bottom: {{ section.settings.iconMarBottom1 | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .icon1-{{ section.id }} {
+                  margin-bottom: {{ section.settings.iconMarBottomMob1 }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if section.settings.title1 != blank %}
+            <div class="fullWidth come-in-2">
+            <h3 class="customHeading heading1-{{ section.id }} GT-500">{{ section.settings.title1 }}</h3>
+            <style>
+              h3.heading1-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.title1Letter }}px; 
+                font-size: {{ section.settings.title1Size | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ section.settings.title1Color }}; 
+                line-height: {{ section.settings.title1Line | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ section.settings.title1Align }};
+                margin-bottom: {{ section.settings.title1MarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h3.heading1-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.title1LetterMob }}px; 
+                  font-size: {{ section.settings.title1SizeMob }}px; 
+                  color: {{ section.settings.title1ColorMob }}; 
+                  line-height: {{ section.settings.title1LineMob }}px;
+                  text-align: {{ section.settings.title1AlignMob }};
+                  margin-bottom: {{ section.settings.title1MarBottomMob }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if section.settings.link1 != blank and section.settings.linkText1 == blank %}
+            <div class="fullWidth come-in-3">
+            	<a onclick="location.href='{{ section.settings.link1 }}'" class="imageLink" href="{{ section.settings.link1 }}">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none" style="&#10;">
+                <rect opacity="0.5" x="0.5" y="0.5" width="53" height="53" stroke="white"/>
+                <path d="M21.9609 32.5549L31.9765 22.5394" stroke="white" stroke-width="2"/>
+                <path d="M22.7665 22.2535H32.2608V31.7478" stroke="white" stroke-width="2"/>
+                </svg> 
+            	</a>
+            </div>
+            {% elsif section.settings.linkText1 != blank %}
+            <div onclick="location.href='{{ section.settings.link1 }}'" class="buttonDiv noHoverButton buttonDiv1-{{ section.id }} come-in-3">
+            <style>
+              .buttonDiv1-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.title1Color }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.title1Color }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.title1Color }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.title1Color }}" stroke-width="2"/>
+            </svg>
+            <div style="min-height: 52px; color: {{ section.settings.title1Color }};" class="GT-600">{{ section.settings.linkText1 }}</div>
+          </div>
+            {% endif %}
+          </div>
+      	</div>
+  	</div>
+   <div class="twoimage">
+    <div onclick="location.href='{{ section.settings.link2 }}'" style="cursor: pointer;" class="">
+    	<div  class="applyAnimation imageContainer img-2-{{ section.id }}">
+          <img style="" src="{{ section.settings.image-2 | img_url: "1000x" }}" class="fullWidth">
+          <div class="visibilityDiv verticalCenter xsPadded">
+            {% if section.settings.icon-2 != blank or section.settings.icon-2-SVG != blank %}
+            <div class="fullWidth ">
+            <img class="icon2-{{ section.id }} iconImage" src="{% if section.settings.icon-2-SVG != blank %}{{ section.settings.icon-2-SVG }}{% else %}{{ section.settings.icon-2 | img_url: "400x" }}{% endif %}">
+            <style>
+              .icon2-{{ section.id }} {
+                margin-bottom: {{ section.settings.iconMarBottom2 | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .icon2-{{ section.id }} {
+                  margin-bottom: {{ section.settings.iconMarBottomMob2 }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if section.settings.title2 != blank %}
+            <div class="fullWidth ">
+            <h3 class="customHeading heading2-{{ section.id }} GT-500">{{ section.settings.title2 }}</h3>
+            <style>
+              h3.heading2-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.title2Letter }}px; 
+                font-size: {{ section.settings.title2Size | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ section.settings.title2Color }}; 
+                line-height: {{ section.settings.title2Line | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ section.settings.title2Align }};
+                margin-bottom: {{ section.settings.title2MarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h3.heading2-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.title2LetterMob }}px; 
+                  font-size: {{ section.settings.title2SizeMob }}px; 
+                  color: {{ section.settings.title2ColorMob }}; 
+                  line-height: {{ section.settings.title2LineMob }}px;
+                  text-align: {{ section.settings.title2AlignMob }};
+                  margin-bottom: {{ section.settings.title2MarBottomMob }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if section.settings.link2 != blank and section.settings.linkText2 == blank %}
+            <div class="fullWidth come-in-3">
+            	<a onclick="location.href='{{ section.settings.link2 }}'" class="imageLink" href="{{ section.settings.link2 }}">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none" style="&#10;">
+                <rect opacity="0.5" x="0.5" y="0.5" width="53" height="53" stroke="white"/>
+                <path d="M21.9609 32.5549L31.9765 22.5394" stroke="white" stroke-width="2"/>
+                <path d="M22.7665 22.2535H32.2608V31.7478" stroke="white" stroke-width="2"/>
+                </svg> 
+            	</a>
+            </div>
+            {% elsif section.settings.linkText2 != blank %}
+            <div onclick="location.href='{{ section.settings.link2 }}'" class="buttonDiv noHoverButton buttonDiv2-{{ section.id }} come-in-3">
+            <style>
+              .buttonDiv2-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.title2Color }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.title2Color }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.title2Color }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.title2Color }}" stroke-width="2"/>
+            </svg>
+            <div style="min-height: 52px; color: {{ section.settings.title2Color }};" class="GT-600">{{ section.settings.linkText2 }}</div>
+          </div>
+            {% endif %}
+          </div>
+      	</div>
+  	</div>
+
+<div  onclick="location.href='{{ section.settings.link3 }}'" style="cursor: pointer;" class="">
+    	<div class=" imageContainer img-3-{{ section.id }}">
+          <img style="" src="{{ section.settings.image-3 | img_url: "1000x" }}" class="fullWidth">
+          <div class="visibilityDiv verticalCenter xsPadded">
+            {% if section.settings.icon-3 != blank or section.settings.icon-3-SVG != blank %}
+            <div class="fullWidth come-in-1">
+            <img class="icon3-{{ section.id }} iconImage" src="{% if section.settings.icon-3-SVG != blank %}{{ section.settings.icon-3-SVG }}{% else %}{{ section.settings.icon-3 | img_url: "400x" }}{% endif %}">
+            <style>
+              .icon3-{{ section.id }} {
+                margin-bottom: {{ section.settings.iconMarBottom3 | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .icon3-{{ section.id }} {
+                  margin-bottom: {{ section.settings.iconMarBottomMob3 }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if section.settings.title3 != blank %}
+            <div class="fullWidth come-in-3">
+            <h3 class="customHeading heading3-{{ section.id }} GT-500">{{ section.settings.title3 }}</h3>
+            <style>
+              h3.heading3-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.title3Letter }}px; 
+                font-size: {{ section.settings.title3Size | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ section.settings.title3Color }}; 
+                line-height: {{ section.settings.title3Line | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ section.settings.title3Align }};
+                margin-bottom: {{ section.settings.title3MarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h3.heading3-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.title3LetterMob }}px; 
+                  font-size: {{ section.settings.title3SizeMob }}px; 
+                  color: {{ section.settings.title3ColorMob }}; 
+                  line-height: {{ section.settings.title3LineMob }}px;
+                  text-align: {{ section.settings.title3AlignMob }};
+                  margin-bottom: {{ section.settings.title3MarBottomMob }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if section.settings.link3 != blank and section.settings.linkText3 == blank %}
+            <div class="fullWidth come-in-3">
+            	<a onclick="location.href='{{ section.settings.link3 }}'" class="imageLink" href="{{ section.settings.link3 }}">
+                 <svg xmlns="http://www.w3.org/3000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none" style="&#10;">
+                <rect opacity="0.5" x="0.5" y="0.5" width="53" height="53" stroke="white"/>
+                <path d="M31.9609 33.5549L31.9765 33.5394" stroke="white" stroke-width="3"/>
+                <path d="M33.7665 33.3535H33.3608V31.7478" stroke="white" stroke-width="3"/>
+                </svg> 
+            	</a>
+            </div>
+            {% elsif section.settings.linkText3 != blank %}
+            <div onclick="location.href='{{ section.settings.link3 }}'" class="buttonDiv noHoverButton buttonDiv3-{{ section.id }} come-in-3">
+            <style>
+              .buttonDiv3-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/3000/svg' width='51' height='53' viewBox='0 0 51 53' fill='none'%3E%3Cpath d='M30.9609 33.5547L30.9765 33.5393' stroke='{{ section.settings.title3Color }}' stroke-width='3'%3E%3C/path%3E%3Cpath d='M31.7665 33.3535H31.3608V31.7478' stroke='{{ section.settings.title3Color }}' stroke-width='3'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+            <svg xmlns="http://www.w3.org/3000/svg" width="51" height="53" viewBox="0 0 51 53" fill="none">
+            <path d="M30.9609 33.5547L30.9765 33.5393" stroke="{{ section.settings.title3Color }}" stroke-width="3"/>
+            <path d="M31.7665 33.3535H31.3608V31.7478" stroke="{{ section.settings.title3Color }}" stroke-width="3"/>
+            </svg>
+            <div style="min-height: 53px; color: {{ section.settings.title3Color }};" class="GT-600">{{ section.settings.linkText3 }}</div>
+          </div>
+            {% endif %}
+          </div>
+      	</div>
+  	</div>
+
+            </div>
+
+
+                  <div onclick="location.href='{{ section.settings.link4 }}'" style="cursor: pointer;" class="">
+    	<div  class="applyAnimation imageContainer img-4-{{ section.id }}">
+          <img style="" src="{{ section.settings.image-4 | img_url: "1000x" }}" class="fullWidth">
+          <div class="visibilityDiv verticalCenter xsPadded">
+            {% if section.settings.icon-4 != blank or section.settings.icon-4-SVG != blank %}
+            <div class="fullWidth come-in-1">
+            <img class="icon4-{{ section.id }} iconImage" src="{% if section.settings.icon-4-SVG != blank %}{{ section.settings.icon-4-SVG }}{% else %}{{ section.settings.icon-4 | img_url: "400x" }}{% endif %}">
+            <style>
+              .icon4-{{ section.id }} {
+                margin-bottom: {{ section.settings.iconMarBottom4 | times: 100 | divided_by: 1466.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .icon4-{{ section.id }} {
+                  margin-bottom: {{ section.settings.iconMarBottomMob4 }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if section.settings.title4 != blank %}
+            <div class="fullWidth come-in-4">
+            <h4 class="customHeading heading4-{{ section.id }} GT-500">{{ section.settings.title4 }}</h4>
+            <style>
+              h4.heading4-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.title4Letter }}px; 
+                font-size: {{ section.settings.title4Size | times: 100 | divided_by: 1466.0 }}vw; 
+                color: {{ section.settings.title4Color }}; 
+                line-height: {{ section.settings.title4Line | times: 100 | divided_by: 1466.0 }}vw;
+                text-align: {{ section.settings.title4Align }};
+                margin-bottom: {{ section.settings.title4MarBottom | times: 100 | divided_by: 1466.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h4.heading4-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.title4LetterMob }}px; 
+                  font-size: {{ section.settings.title4SizeMob }}px; 
+                  color: {{ section.settings.title4ColorMob }}; 
+                  line-height: {{ section.settings.title4LineMob }}px;
+                  text-align: {{ section.settings.title4AlignMob }};
+                  margin-bottom: {{ section.settings.title4MarBottomMob }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if section.settings.link4 != blank and section.settings.linkText4 == blank %}
+            <div class="fullWidth come-in-4">
+            	<a onclick="location.href='{{ section.settings.link4 }}'" class="imageLink" href="{{ section.settings.link4 }}">
+                 <svg xmlns="http://www.w4.org/4000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none" style="&#10;">
+                <rect opacity="0.5" x="0.5" y="0.5" width="54" height="54" stroke="white"/>
+                <path d="M41.9609 44.5549L41.9765 44.5494" stroke="white" stroke-width="4"/>
+                <path d="M44.7665 44.4545H44.4608V41.7478" stroke="white" stroke-width="4"/>
+                </svg> 
+            	</a>
+            </div>
+            {% elsif section.settings.linkText4 != blank %}
+            <div onclick="location.href='{{ section.settings.link4 }}'" class="buttonDiv noHoverButton buttonDiv4-{{ section.id }} come-in-4">
+            <style>
+              .buttonDiv4-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%4Csvg xmlns='http://www.w4.org/4000/svg' width='51' height='54' viewBox='0 0 51 54' fill='none'%4E%4Cpath d='M40.9609 44.5547L40.9765 44.5494' stroke='{{ section.settings.title4Color }}' stroke-width='4'%4E%4C/path%4E%4Cpath d='M41.7665 44.4545H41.4608V41.7478' stroke='{{ section.settings.title4Color }}' stroke-width='4'%4E%4C/path%4E%4C/svg%4E");
+              }
+            </style>
+            <svg xmlns="http://www.w4.org/4000/svg" width="51" height="54" viewBox="0 0 51 54" fill="none">
+            <path d="M40.9609 44.5547L40.9765 44.5494" stroke="{{ section.settings.title4Color }}" stroke-width="4"/>
+            <path d="M41.7665 44.4545H41.4608V41.7478" stroke="{{ section.settings.title4Color }}" stroke-width="4"/>
+            </svg>
+            <div style="min-height: 54px; color: {{ section.settings.title4Color }};" class="GT-600">{{ section.settings.linkText4 }}</div>
+          </div>
+            {% endif %}
+          </div>
+      	</div>
+  	</div>
+
+              
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "custom_Image_section",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+    {
+      "type": "image_picker",
+      "id": "image-1",
+	  "label": "First image"
+    },
+	{
+          "type": "text",
+          "id": "img1PadLeft",
+          "label": "Left image padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "img1PadRight",
+          "label": "Right image padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "img1PadLeftMob",
+          "label": "Left image padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "img1PadRightMob",
+          "label": "Right image padding mobile (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "imgMobMarBottom",
+          "label": "Image bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "image_picker",
+      "id": "icon-1",
+	  "label": "First icon"
+    },
+	{
+          "type": "text",
+          "id": "icon-1-SVG",
+          "label": "First icon SVG"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottom1",
+          "label": "Icon 1 bottom margin (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottomMob1",
+          "label": "Icon 1 bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "url",
+      "id": "link1",
+      "label": "Link 1"
+    },
+	{
+          "type": "text",
+          "id": "linkText1",
+          "label": "Link text 1"
+        },
+    {
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "title1Size",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1Line",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1Letter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title1Color",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title1Align",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title1MarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "title1SizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1LineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1LetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title1ColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title1AlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title1MarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "image_picker",
+      "id": "image-2",
+	  "label": "Second image"
+    },
+	{
+          "type": "text",
+          "id": "img2PadLeft",
+          "label": "Left image padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "img2PadRight",
+          "label": "Right image padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "img2PadLeftMob",
+          "label": "Left image padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "img2PadRightMob",
+          "label": "Right image padding mobile (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "imgMobMarBottom2",
+          "label": "Image 2 bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "image_picker",
+      "id": "icon-2",
+	  "label": "Second icon"
+    },
+{
+          "type": "text",
+          "id": "icon-2-SVG",
+          "label": "Second icon SVG"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottom2",
+          "label": "Icon 2 bottom margin (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottomMob2",
+          "label": "Icon 2 bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "url",
+      "id": "link2",
+      "label": "Link 1"
+    },
+	{
+          "type": "text",
+          "id": "linkText2",
+          "label": "Link text 2"
+        },
+    {
+          "type": "header",
+          "content": "Title 2 Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title2",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "title2Size",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title2Line",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title2Letter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title2Color",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title2Align",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title2MarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title 2 Mobile"
+        },
+		{
+          "type": "text",
+          "id": "title2SizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title2LineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title2LetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title2ColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title2AlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title2MarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+
+      {
+      "type": "image_picker",
+      "id": "image-3",
+	  "label": "Third image"
+    },
+	{
+          "type": "text",
+          "id": "img3PadLeft",
+          "label": "Left image padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "img3PadRight",
+          "label": "Right image padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "img3PadLeftMob",
+          "label": "Left image padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "img3PadRightMob",
+          "label": "Right image padding mobile (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "imgMobMarBottom3",
+          "label": "Image 3 bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "image_picker",
+      "id": "icon-3",
+	  "label": "Third icon"
+    },
+{
+          "type": "text",
+          "id": "icon-3-SVG",
+          "label": "Third icon SVG"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottom3",
+          "label": "Icon 3 bottom margin (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottomMob3",
+          "label": "Icon 3 bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "url",
+      "id": "link3",
+      "label": "Link 1"
+    },
+	{
+          "type": "text",
+          "id": "linkText3",
+          "label": "Link text 3"
+        },
+    {
+          "type": "header",
+          "content": "Title 3 Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title3",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "title3Size",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title3Line",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title3Letter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title3Color",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title3Align",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title3MarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title 3 Mobile"
+        },
+		{
+          "type": "text",
+          "id": "title3SizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title3LineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title3LetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title3ColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title3AlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title3MarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+  
+      {
+      "type": "image_picker",
+      "id": "image-4",
+	  "label": "Fourth image"
+    },
+	{
+          "type": "text",
+          "id": "img4PadLeft",
+          "label": "Left image padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "img4PadRight",
+          "label": "Right image padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "img4PadLeftMob",
+          "label": "Left image padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "img4PadRightMob",
+          "label": "Right image padding mobile (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "imgMobMarBottom4",
+          "label": "Image 4 bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "image_picker",
+      "id": "icon-4",
+	  "label": "Fourth icon"
+    },
+{
+          "type": "text",
+          "id": "icon-4-SVG",
+          "label": "Fourth icon SVG"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottom4",
+          "label": "Icon 4 bottom margin (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottomMob4",
+          "label": "Icon 4 bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "url",
+      "id": "link4",
+      "label": "Link 1"
+    },
+	{
+          "type": "text",
+          "id": "linkText4",
+          "label": "Link text 4"
+        },
+    {
+          "type": "header",
+          "content": "Title 4 Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title4",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "title4Size",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title4Line",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title4Letter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title4Color",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title4Align",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title4MarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title 4 Mobile"
+        },
+		{
+          "type": "text",
+          "id": "title4SizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title4LineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title4LetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title4ColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title4AlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title4MarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        }
+  ],
+  "presets": [
+    {
+      "category": "Homepage",
+      "name": "Home_page_Image_section",
+      "settings": {}
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

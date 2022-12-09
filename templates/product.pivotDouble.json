@@ -6,7 +6,47 @@
       }
     },
     "top": {
-      "type": "productTopPivotDouble",
+      "type": "productTopPivot",
+      "blocks": {
+        "1c695f5a-44de-4938-a01a-6fa8b8e584a4": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Clear_1_1_1.jpg",
+            "item-title": "Standard Clear",
+            "item-value": "Standard 1\/4\" Clear"
+          }
+        },
+        "3168a0c0-ec55-404b-8ffc-c1f209db9511": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Low_Iron_Acid_Etched_-_1_1.jpg",
+            "item-title": "1⁄4” Frosted",
+            "item-value": "1\/4\" frosted"
+          }
+        },
+        "4dc19679-434d-4fec-a6d5-847fd9d21b76": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Reeded_-_1_1.jpg",
+            "item-title": "Reeded Glass",
+            "item-value": "Reeded Glass"
+          }
+        },
+        "4f86e264-a7b6-443e-adaa-e79ef15ba44e": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Thin_Reeded_-_1_1.jpg",
+            "item-title": "Thin Reeded Glass",
+            "item-value": "Thin Reeded Glass"
+          }
+        }
+      },
+      "block_order": [
+        "1c695f5a-44de-4938-a01a-6fa8b8e584a4",
+        "3168a0c0-ec55-404b-8ffc-c1f209db9511",
+        "4dc19679-434d-4fec-a6d5-847fd9d21b76",
+        "4f86e264-a7b6-443e-adaa-e79ef15ba44e"
+      ],
       "settings": {
       }
     },
@@ -15,7 +55,7 @@
       "settings": {
         "titleWidth": "16",
         "titleMargin": "19",
-        "marTop": "",
+        "marTop": "20",
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
@@ -42,7 +82,7 @@
         "titleColorMob": "",
         "titleAlignMob": "left",
         "titleMarBottomMob": "17",
-        "subtext": "Our custom Pivot Hinge door system is designed and engineered to give the user the ability to swing the door in either direction. The thin line profile offers a timeless and tasteful design for any style home, including contemporary, transitional and traditional. \nThis custom quickship door is made of steel and hand built with locally sourced materials. \nOur thin line frames were intended to maximize natural lighting and create that sense of openness in any space.",
+        "subtext": "Add an element of modern elegance to your room with the Surface\nMounted Pivot. Equipped with a visible pivot hinge mounted to the\ntop and bottom of the frame, this exceptional design pivots open\nand closed with beautiful ease. This style features a bold and\ncontemporary appearance.",
         "subtextSize": "16",
         "subtextWeight": "300",
         "subtextLine": "24",
@@ -328,19 +368,22 @@
         "06730b6f-b9d0-4111-bf6e-e1334d8b93bd": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_308.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_308.png",
+            "title": ""
           }
         },
         "9824911a-320f-4270-8d8c-20cb4de618af": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png",
+            "title": ""
           }
         },
         "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Untitled_design-38.png"
+            "image": "shopify:\/\/shop_images\/Untitled_design-38.png",
+            "title": ""
           }
         }
       },
@@ -365,7 +408,7 @@
       "type": "titleText",
       "settings": {
         "titleWidth": "13",
-        "titleMargin": "39",
+        "titleMargin": "22",
         "marTop": "",
         "marBottom": "",
         "marTopMob": "",

@@ -1,4 +1,10 @@
 <style>
+  .divaftercss .selectDiv:after {
+
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;}
+
+  .tabTitle-template--15742933369028__1638363598daf9a386 {font-weight: 350!important;}
   #shopify-section-{{ section.id }} {
     margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
     margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
@@ -28,7 +34,7 @@
   }
 </style>
 
-<div style="position: relative;" class="visibilityDiv visibilityDivMob flexDiv">
+<div style="position: relative;" class="visibilityDiv visibilityDivMob flexDiv  divaftercss">
   <div style="min-height: 100%; position: relative;" class="flexDiv fullWidth fullHeight disableAbs applyAnimation">
     <div class="textDiv-{{ section.id }}">
     <style>
@@ -36,7 +42,7 @@
       {% assign boxDiv2 = 100 | minus: section.settings.textWidthMob | minus: section.settings.textMarginMob %}
       .textDiv-{{ section.id }} {
         width: {{ section.settings.textWidth }}%;
-        margin-right: {{ section.settings.textMargin }}%;
+        margin-right: {{ section.settings.textMargin| times: 100 | divided_by: 1440.0 }}%;
       }
       .boxDiv-{{ section.id }} {
         width: {{ boxDiv }}%;
@@ -190,7 +196,7 @@
     <div class="boxDiv-{{ section.id }}">
       <style>
        .boxDiv-{{ section.id }} {
-          height: 100%;
+/*           height: 100%; */
           padding-top: {{ section.settings.boxPadTop | times: 100 | divided_by: 1440.0 }}vw;
           padding-bottom: {{ section.settings.boxPadBottom | times: 100 | divided_by: 1440.0 }}vw;
           padding-left: {{ section.settings.boxPadLeft | times: 100 | divided_by: 1440.0 }}vw;

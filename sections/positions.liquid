@@ -80,13 +80,13 @@
 <a anch="{{ section.settings.anchor }}" id="{{ section.settings.anchor }}-anch" class="allAnchors"></a>
 <div class="applyAnimation">
 {% if section.settings.subtext != blank %}
-            <p class="subtext-{{ section.id }} come-in-1 GT-400">
+            <h2 class="subtext-{{ section.id }} come-in-1 GT-400">
               {{ section.settings.subtext }}
-      		</p>
+      		</h2>
             <style>
               .subtext-{{ section.id }} {
                 margin: 0; 
-                letter-spacing: {{ section.settings.subtextLetter }}px; 
+                letter-spacing: {{ section.settings.subtextLetter }}em; 
                 font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
                 color: {{ section.settings.subtextColor }}; 
                 line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;

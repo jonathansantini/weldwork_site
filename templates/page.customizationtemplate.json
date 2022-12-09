@@ -1,0 +1,927 @@
+{
+  "sections": {
+    "main": {
+      "type": "facilityPage",
+      "settings": {
+      }
+    },
+    "1661494495a0aab569": {
+      "type": "Homepage_main_section",
+      "settings": {
+        "dark": false,
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "182",
+        "padBottom": "50",
+        "padLeft": "144",
+        "padRight": "0",
+        "padTopMob": "184",
+        "padBottomMob": "100",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundImage": "shopify:\/\/shop_images\/image_162_4.png",
+        "backgroundImageMob": "shopify:\/\/shop_images\/Weldwork_-_Glass_Fridge_-_08-15-22-0079.jpg",
+        "title": "Door & Partition Components",
+        "titleSize": "100",
+        "titleLine": "95",
+        "titleLetter": "-0.04",
+        "titleColor": "#ffffff",
+        "titleAlign": "left",
+        "titleMarBottom": "35",
+        "titleSizeMob": "60",
+        "titleLineMob": "90",
+        "titleLetterMob": "-0.03",
+        "titleColorMob": "#ffffff",
+        "titleAlignMob": "left",
+        "titleMarBottomMob": "20",
+        "subtext": "Weldwork offers a variety of grid patterns, glass, hardware,\nand a full spectrum of powder coated finishes",
+        "subtextSize": "16",
+        "subtextLine": "150",
+        "subtextLetter": "0",
+        "subtextColor": "#ffffff",
+        "subtextAlign": "left",
+        "subtextMarBottom": "45",
+        "subtextSizeMob": "16",
+        "subtextLineMob": "150",
+        "subtextLetterMob": "0",
+        "subtextColorMob": "#ffffff",
+        "subtextAlignMob": "left",
+        "subtextMarBottomMob": "20",
+        "buttonText": "",
+        "buttonLink": "#shopify-section-template--15694629372100__1657864303fca4d3fd",
+        "buttonText2": "",
+        "buttonLink2": ""
+      }
+    },
+    "1657863742a31a264e": {
+      "type": "facilityMainSection",
+      "disabled": true,
+      "settings": {
+        "dark": true,
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "240",
+        "padBottom": "240",
+        "padLeft": "205",
+        "padRight": "205",
+        "padTopMob": "126",
+        "padBottomMob": "163",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundImage": "shopify:\/\/shop_images\/image_24.jpg",
+        "backgroundImageMob": "shopify:\/\/shop_images\/image_24.jpg",
+        "subtext": "Weldwork offers a variety of grid patterns, glass, hardware, \nand a full spectrum of powder coated finishes",
+        "subtextSize": "18",
+        "subtextLine": "28",
+        "subtextLetter": "",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "subtextMarBottom": "",
+        "subtextSizeMob": "",
+        "subtextLineMob": "",
+        "subtextLetterMob": "",
+        "subtextColorMob": "",
+        "subtextAlignMob": "center",
+        "subtextMarBottomMob": "",
+        "title": "Door & Partition <br> Components",
+        "titleSize": "64",
+        "titleLine": "60.8",
+        "titleLetter": "-3",
+        "titleColor": "#ffffff",
+        "titleAlign": "left",
+        "titleMarBottom": "50",
+        "titleSizeMob": "32",
+        "titleLineMob": "33",
+        "titleLetterMob": "",
+        "titleColorMob": "",
+        "titleAlignMob": "left",
+        "titleMarBottomMob": "30",
+        "buttonText": "",
+        "buttonLink": ""
+      }
+    },
+    "1657864303fca4d3fd": {
+      "type": "customImageText",
+      "blocks": {
+        "cdfd677a-b27a-459e-b6de-900446feeaae": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-3.webp",
+            "item-title": "Surface Pivot",
+            "item-icon": "",
+            "item-value": "bullet-hinge",
+            "item-value2": "Description",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "9fd66f03-a309-4e94-a042-e3c48efa23b0": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-8.webp",
+            "item-title": "Bullet Hinge",
+            "item-icon": "SVG Text",
+            "item-value": "pivot-hinge",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "0fe14435-c2ff-43c1-8c53-19df2b35b250": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-9.webp",
+            "item-title": "Sliding Barn",
+            "item-icon": "SVG Text",
+            "item-value": "panel",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "44a41f1d-ef69-425f-9c8b-66cbfd6c3007": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-7.webp",
+            "item-title": "Concealed Pivot",
+            "item-icon": "SVG Text",
+            "item-value": "barn",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "8f81e632-f09f-42fd-9fb4-99a2c3b5b23a": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-10.webp",
+            "item-title": "Sliding Pocket",
+            "item-icon": "SVG Text",
+            "item-value": "track",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "9fa247e2-7ed0-42c3-8395-24b0fe3723aa": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-10.webp",
+            "item-title": "Sliding Track",
+            "item-icon": "SVG Text",
+            "item-value": "slide",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        }
+      },
+      "block_order": [
+        "cdfd677a-b27a-459e-b6de-900446feeaae",
+        "9fd66f03-a309-4e94-a042-e3c48efa23b0",
+        "0fe14435-c2ff-43c1-8c53-19df2b35b250",
+        "44a41f1d-ef69-425f-9c8b-66cbfd6c3007",
+        "8f81e632-f09f-42fd-9fb4-99a2c3b5b23a",
+        "9fa247e2-7ed0-42c3-8395-24b0fe3723aa"
+      ],
+      "settings": {
+        "backgroundColor": "#000000",
+        "image": "shopify:\/\/shop_images\/Illustration-3.webp",
+        "blocktype": "text",
+        "title": "Door Functionality",
+        "subcolorhead": "",
+        "descripbelowimg": "",
+        "titleColor": "#ffffff",
+        "titleAlign": "center",
+        "subtext": "Weldwork Web design – Figma - 31 August 2022",
+        "subtextColor": "#ffffff",
+        "subtextAlign": "center",
+        "imageAlignDes": "center",
+        "sectionAssignClass": "black-sec sysytem-sec dotted-pattren",
+        "imagePositionClass": "",
+        "sectionAssignId": "",
+        "descripbelowimg2": "Description",
+        "link": "\/pages\/door-configurator",
+        "linkText": ""
+      }
+    },
+    "1658403913f7cab66d": {
+      "type": "customImageText",
+      "blocks": {
+        "60dc366e-82de-4d6f-acf1-f5fd701ef2c1": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/clear.png",
+            "item-title": "Clear",
+            "item-icon": "SVG Text",
+            "item-value": "Clear",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "0ce997c0-5110-4388-a888-7ffa602fd9ac": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Reeded.png",
+            "item-title": "Reeded Glass",
+            "item-icon": "SVG Text",
+            "item-value": "Reeded Glass",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "dd53497b-2156-4a45-8552-b53290aeba93": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/thin.png",
+            "item-title": "Thin Reeded Glass",
+            "item-icon": "SVG Text",
+            "item-value": "Thin Reeded Glass",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "fe6d7bf9-c418-4359-9e6c-fbaf91cf240a": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Low-iron.png",
+            "item-title": "1\/4\" Frosted",
+            "item-icon": "SVG Text",
+            "item-value": "Low Iron Acid Etch",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        }
+      },
+      "block_order": [
+        "60dc366e-82de-4d6f-acf1-f5fd701ef2c1",
+        "0ce997c0-5110-4388-a888-7ffa602fd9ac",
+        "dd53497b-2156-4a45-8552-b53290aeba93",
+        "fe6d7bf9-c418-4359-9e6c-fbaf91cf240a"
+      ],
+      "settings": {
+        "backgroundColor": "",
+        "image": "shopify:\/\/shop_images\/clear_d5a27c5e-ba4e-4b43-8060-bb8e89c8a2d5.png",
+        "blocktype": "text",
+        "title": "Glass types",
+        "subcolorhead": "",
+        "descripbelowimg": "",
+        "titleColor": "",
+        "titleAlign": "center",
+        "subtext": "Slide title",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "imageAlignDes": "right",
+        "sectionAssignClass": "white-sec glass-type-sec dotted-pattren",
+        "imagePositionClass": "reverse-row",
+        "sectionAssignId": "",
+        "descripbelowimg2": "",
+        "link": "\/pages\/door-configurator",
+        "linkText": ""
+      }
+    },
+    "1658404141e4b267fe": {
+      "type": "customImageText",
+      "blocks": {
+        "046008e5-d81e-4525-a877-2a919976cdbe": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Copy_of_1_Single_Door_FullView_BulletHinge_ThumbnailView.png",
+            "item-title": "Full",
+            "item-icon": "<svg width=\"22\" height=\"38\" viewbox=\"0 0 22 38\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n                            <rect x=\"1\" y=\"1\" width=\"20\" height=\"36\" stroke=\"white\" stroke-width=\"2\"><\/rect>\n                        <\/svg>",
+            "item-value": "Full",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "0d04db21-4ddf-4adb-b669-845d0849d220": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Copy_of_6_Single-Door_3Lite_BulletHinge_ThumbnailView.png",
+            "item-title": "3",
+            "item-icon": "<svg width=\"22\" height=\"38\" viewbox=\"0 0 22 38\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<rect x=\"1\" y=\"1\" width=\"20\" height=\"36\" stroke=\"white\" stroke-width=\"2\"><\/rect>\n<path d=\"M1 13L21 13\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<path d=\"M1 25L21 25\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<\/svg>",
+            "item-value": "3",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "5d1fcb9e-0b5f-4197-a22d-f53f5c65ab66": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Copy_of_11_Single-Door_4Lite_BulletHinge_ThumbnailView.png",
+            "item-title": "4",
+            "item-icon": "<svg width=\"22\" height=\"38\" viewbox=\"0 0 22 38\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<rect x=\"1\" y=\"1\" width=\"20\" height=\"36\" stroke=\"white\" stroke-width=\"2\"><\/rect>\n<path d=\"M1 10L21 10\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<path d=\"M1 19L21 19\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<path d=\"M1 28L21 28\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<\/svg>",
+            "item-value": "4",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "ee3cfb6c-4b3f-4b47-a742-11fbc76a7054": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Copy_of_47_Single_Bullet_Hinge_Door_6-Lite_Hinge_ThumbnailView.png",
+            "item-title": "6",
+            "item-icon": "<svg width=\"22\" height=\"38\" viewbox=\"0 0 22 38\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<rect x=\"1\" y=\"1\" width=\"20\" height=\"36\" stroke=\"white\" stroke-width=\"2\"><\/rect>\n<path d=\"M11 2L11 36\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<path d=\"M1 13L21 13\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<path d=\"M1 25L21 25\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<\/svg>",
+            "item-value": "6",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "4026b271-bb8d-46b4-ab86-9b6b420ab72c": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/image_2022_08_31T06_19_26_538Z_1.png",
+            "item-title": "8",
+            "item-icon": "<svg width=\"22\" height=\"38\" viewbox=\"0 0 22 38\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<rect x=\"1\" y=\"1\" width=\"20\" height=\"36\" stroke=\"white\" stroke-width=\"2\"><\/rect>\n<path d=\"M11 2L11 36\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<path d=\"M1 10L21 10\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<path d=\"M1 19L21 19\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<path d=\"M1 28L21 28\" stroke=\"white\" stroke-width=\"2\"><\/path>\n<\/svg>",
+            "item-value": "8",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        }
+      },
+      "block_order": [
+        "046008e5-d81e-4525-a877-2a919976cdbe",
+        "0d04db21-4ddf-4adb-b669-845d0849d220",
+        "5d1fcb9e-0b5f-4197-a22d-f53f5c65ab66",
+        "ee3cfb6c-4b3f-4b47-a742-11fbc76a7054",
+        "4026b271-bb8d-46b4-ab86-9b6b420ab72c"
+      ],
+      "settings": {
+        "backgroundColor": "",
+        "image": "shopify:\/\/shop_images\/Copy_of_1_Single_Door_FullView_BulletHinge_ThumbnailView.png",
+        "blocktype": "doors",
+        "title": "Mullion Options",
+        "subcolorhead": "",
+        "descripbelowimg": "",
+        "titleColor": "#ffffff",
+        "titleAlign": "center",
+        "subtext": "Slide title",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "imageAlignDes": "right",
+        "sectionAssignClass": "black-sec mullion-sec",
+        "imagePositionClass": "",
+        "sectionAssignId": "",
+        "descripbelowimg2": "",
+        "link": "\/pages\/door-configurator",
+        "linkText": ""
+      }
+    },
+    "16584042651a406645": {
+      "type": "customImageText",
+      "blocks": {
+        "d980f0be-8359-4927-a92f-c3077cec8acd": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-12_e4aa140a-602b-40f0-8deb-2c3a880208ac.webp",
+            "item-title": "Flush Pull",
+            "item-icon": "SVG Text",
+            "item-value": "2” Mortis",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "7e2e002b-00c6-4b46-b72b-c339b1da58f6": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-6_600x_f8a503da-107a-4854-afdb-fc5b0fef63e8.webp",
+            "item-title": "JNF Handle",
+            "item-icon": "SVG Text",
+            "item-value": "Pull handle",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "a9a53899-9041-413e-ba19-f26221a93340": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-11.webp",
+            "item-title": "16” Offset",
+            "item-icon": "SVG Text",
+            "item-value": "Offset",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "faa82d2d-e85d-452a-a0be-425fe3af8cda": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration_2_f38ef633-3045-4b93-8c15-5463e9f3c1fa.webp",
+            "item-title": "Emtek Handle",
+            "item-icon": "SVG Text",
+            "item-value": "Lockbox",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "e4ab45f6-f87c-4007-911f-6229b6519523": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration_1_6bdd9401-c85b-4ed2-93ec-bf81ce54bd8a.webp",
+            "item-title": "Emtek Custom",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "cdfd1995-4fb4-44da-9a89-e51dc2df6e44": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Illustration-5.webp",
+            "item-title": "Integrated Handle",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        }
+      },
+      "block_order": [
+        "d980f0be-8359-4927-a92f-c3077cec8acd",
+        "7e2e002b-00c6-4b46-b72b-c339b1da58f6",
+        "a9a53899-9041-413e-ba19-f26221a93340",
+        "faa82d2d-e85d-452a-a0be-425fe3af8cda",
+        "e4ab45f6-f87c-4007-911f-6229b6519523",
+        "cdfd1995-4fb4-44da-9a89-e51dc2df6e44"
+      ],
+      "settings": {
+        "backgroundColor": "",
+        "image": "shopify:\/\/shop_images\/Illustration-12_e4aa140a-602b-40f0-8deb-2c3a880208ac.webp",
+        "blocktype": "text",
+        "title": "Handles & locks",
+        "subcolorhead": "",
+        "descripbelowimg": "",
+        "titleColor": "",
+        "titleAlign": "center",
+        "subtext": "Slide title",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "imageAlignDes": "center",
+        "sectionAssignClass": "cream-sec handle-lock-sec",
+        "imagePositionClass": "reverse-row",
+        "sectionAssignId": "",
+        "descripbelowimg2": "",
+        "link": "\/pages\/door-configurator",
+        "linkText": ""
+      }
+    },
+    "16584043986a1683e1": {
+      "type": "customImageText",
+      "blocks": {
+        "d93752e2-0a52-4b6e-8a48-dd4d9c876867": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/12.png",
+            "item-title": "Flat Matte Black",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Standard",
+            "optionHoverTextColor": "#787873",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "2cfbf2eb-1623-4871-bad7-8763fcd49b2b": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/13.png",
+            "item-title": "Textured Black",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Standard",
+            "optionHoverTextColor": "#474848",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "89b746f8-d07d-4e7a-adb1-f2f87d9ef1de": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/14.png",
+            "item-title": "Mineral Bronze",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Standard",
+            "optionHoverTextColor": "#666058",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "599b35b5-eaec-4a40-8a1c-f93fc5f59998": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/16.png",
+            "item-title": "Textured Gray",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Standard",
+            "optionHoverTextColor": "#727063",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "668e542d-cb41-495f-a5ab-3b256521d40d": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/2.png",
+            "item-title": "Champagne Bubbles",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#bab099",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "b2bb1f1e-88ea-432f-9fec-bf291b539eb4": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/3.png",
+            "item-title": "China Mint",
+            "item-icon": "",
+            "item-value": "China Mint",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#93a090",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "3104368a-846f-4466-815b-a7f0ee801826": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/4_08df01c7-3c53-4869-a73d-4ce34046de5f.png",
+            "item-title": "Sea Foam Green",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#bdc79c",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "8ef4566b-403d-40fa-b9fb-944340a3e089": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/5.png",
+            "item-title": "Pink Chalk",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#e2bfba",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "1fb3b379-107e-48fa-807a-f8599d34cbf5": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/6.png",
+            "item-title": "Flat Troll Blue",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "#89b7d3",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "3b81664e-61dd-4a1e-af6e-7deb00043b10": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/8_4871f5fb-fd1b-4dbb-9ddf-aa63c706d937.png",
+            "item-title": "Vintage Peach",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#ddb98f",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "83bd457a-0790-478b-aec9-9bcc7e594f6c": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/9_de466ec0-040a-4a20-8d90-d49f1a55ea5d.png",
+            "item-title": "Matte Cas Peach",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#e8aa65",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "7a94b3f8-6c4c-4e73-af61-3e83028e7989": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/10_9b8f0152-4336-4f8c-93c2-2fa61fb298d0.png",
+            "item-title": "Wild Gray Flat",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#9aa49f",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "1bc26f47-727c-4f83-aef8-cd863605dda9": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/11.png",
+            "item-title": "Soft White",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#e0e1c9",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "dca218df-f6c0-44bb-9e7a-bf618868fca5": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/71_Single_Door_4Lite_Standard_Pivot_Hinge_SceneView.png",
+            "item-title": "Silver Metallic",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Custom",
+            "optionHoverTextColor": "#b5bcb5",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        },
+        "f1488cf8-18b5-4b6a-9e8a-c1a768353827": {
+          "type": "image",
+          "settings": {
+            "item-title": "Title",
+            "item-icon": "",
+            "item-value": "",
+            "item-value2": "",
+            "colorclass": "Value",
+            "optionHoverTextColor": "",
+            "optionHoverBkgColor": "",
+            "optionBorderColor": ""
+          }
+        }
+      },
+      "block_order": [
+        "d93752e2-0a52-4b6e-8a48-dd4d9c876867",
+        "2cfbf2eb-1623-4871-bad7-8763fcd49b2b",
+        "89b746f8-d07d-4e7a-adb1-f2f87d9ef1de",
+        "599b35b5-eaec-4a40-8a1c-f93fc5f59998",
+        "668e542d-cb41-495f-a5ab-3b256521d40d",
+        "b2bb1f1e-88ea-432f-9fec-bf291b539eb4",
+        "3104368a-846f-4466-815b-a7f0ee801826",
+        "8ef4566b-403d-40fa-b9fb-944340a3e089",
+        "1fb3b379-107e-48fa-807a-f8599d34cbf5",
+        "3b81664e-61dd-4a1e-af6e-7deb00043b10",
+        "83bd457a-0790-478b-aec9-9bcc7e594f6c",
+        "7a94b3f8-6c4c-4e73-af61-3e83028e7989",
+        "1bc26f47-727c-4f83-aef8-cd863605dda9",
+        "dca218df-f6c0-44bb-9e7a-bf618868fca5",
+        "f1488cf8-18b5-4b6a-9e8a-c1a768353827"
+      ],
+      "settings": {
+        "backgroundColor": "",
+        "image": "shopify:\/\/shop_images\/12.png",
+        "blocktype": "image",
+        "title": "Paint Colors",
+        "subcolorhead": "Our Color Pallete",
+        "descripbelowimg": "Custom powder coat colors available. Charges may apply if color is not in inventory. Custom colors available upon request. Please see  <a class=\"link\" href=\"https:\/\/www.prismaticpowders.com\/asia\" target=\"_blank\">Prismatic Powders.<\/a> for more",
+        "titleColor": "",
+        "titleAlign": "center",
+        "subtext": "Slide title",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "imageAlignDes": "right",
+        "sectionAssignClass": "white-sec pain-color-sec",
+        "imagePositionClass": "",
+        "sectionAssignId": "",
+        "descripbelowimg2": "",
+        "link": "\/pages\/door-configurator",
+        "linkText": ""
+      }
+    },
+    "1658396349b02a8e61": {
+      "type": "customtwoBoxes",
+      "disabled": true,
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "60",
+        "padBottom": "60",
+        "padLeft": "145",
+        "padRight": "145",
+        "padTopMob": "",
+        "padBottomMob": "",
+        "padLeftMob": "",
+        "padRightMob": "",
+        "secmainhead": "Sealings",
+        "backgroundColor": "#000000",
+        "image-1": "shopify:\/\/shop_images\/wine-rooms-img.jpg",
+        "img1PadLeft": "145",
+        "img1PadRight": "145",
+        "img1PadLeftMob": "",
+        "img1PadRightMob": "",
+        "imgMobMarBottom": "",
+        "icon-1-SVG": "",
+        "iconMarBottom1": "",
+        "iconMarBottomMob1": "",
+        "link1": "https:\/\/www.weldwork.com\/pages\/door-configurator",
+        "linkText1": "Build your door",
+        "title1": "Wine Rooms",
+        "subhead1": "Custom powder coat colors available. Charges may apply if color is not in inventory. Custom colors available upon request. Please see RAL booklet",
+        "title1Size": "24",
+        "title1Line": "",
+        "title1Letter": "",
+        "title1Color": "#ffffff",
+        "title1Align": "left",
+        "title1MarBottom": "",
+        "title1SizeMob": "",
+        "title1LineMob": "",
+        "title1LetterMob": "",
+        "title1ColorMob": "#ffffff",
+        "title1AlignMob": "center",
+        "title1MarBottomMob": "",
+        "image-2": "shopify:\/\/shop_images\/cigar-rooms-img.jpg",
+        "img2PadLeft": "145",
+        "img2PadRight": "145",
+        "img2PadLeftMob": "",
+        "img2PadRightMob": "",
+        "imgMobMarBottom2": "",
+        "icon-2-SVG": "",
+        "iconMarBottom2": "",
+        "iconMarBottomMob2": "",
+        "link2": "https:\/\/www.weldwork.com\/pages\/door-configurator",
+        "linkText2": "Build your door",
+        "title2": "Cigar Rooms",
+        "subhead2": "Custom powder coat colors available. Charges may apply if color is not in inventory. Custom colors available upon request. Please see RAL booklet",
+        "title2Size": "24",
+        "title2Line": "",
+        "title2Letter": "",
+        "title2Color": "#ffffff",
+        "title2Align": "left",
+        "title2MarBottom": "",
+        "title2SizeMob": "",
+        "title2LineMob": "",
+        "title2LetterMob": "",
+        "title2ColorMob": "#ffffff",
+        "title2AlignMob": "center",
+        "title2MarBottomMob": ""
+      }
+    },
+    "166366900518373184": {
+      "type": "SecondImagetext",
+      "blocks": {
+        "fd669ff3-6ddb-414b-b71c-fc9f66ba3844": {
+          "type": "Block",
+          "settings": {
+            "heading": "Custom Door Builder",
+            "headtextSize": "56",
+            "headtextSizeMobile": "40",
+            "heading-weight": "400",
+            "heading-weight-mobile": "500",
+            "heading-line-height": "105",
+            "heading-line-height-mobile": "110",
+            "heading-letter-spacing": "-0.02",
+            "heading-letter-spacing-mobile": "",
+            "headtextColor": "#ffffff",
+            "headtextColorMob": "#ffffff",
+            "heaindsubtextAlign": "left",
+            "heaindsubtextAlign_mobile": "left",
+            "subtext": "We’ll collaborate with you from start to finish to craft a one-of-a-kind door that’s made for you and your space.\n\nCustom-designed doors include your choice of grid patterns, glass, hardware, and a full spectrum of powder-coated finishes.",
+            "weight": "350",
+            "subtextSize": "24",
+            "subtextLine": "130",
+            "subtextLetter": "-2",
+            "subtextColor": "#c3c3c3",
+            "subtextAlign": "left",
+            "subtextMarBottom": "34",
+            "subtextSizeMob": "20",
+            "subtextLineMob": "130",
+            "subtextLetterMob": "",
+            "subtextColorMob": "#c3c3c3",
+            "subtextAlignMob": "left",
+            "subtextMarBottomMob": "21"
+          }
+        }
+      },
+      "block_order": [
+        "fd669ff3-6ddb-414b-b71c-fc9f66ba3844"
+      ],
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "100",
+        "padBottom": "100",
+        "padLeft": "144",
+        "padRight": "144",
+        "padTopMob": "37",
+        "padBottomMob": "37",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundColor": "#000000",
+        "image": "shopify:\/\/shop_images\/Weldwork_-_Zana_-_10-13-22-00180.jpg",
+        "textWidth": "50",
+        "textMargin": "5",
+        "textWidthMob": "100",
+        "textMarginMob": "0",
+        "link": "https:\/\/www.weldwork.com\/pages\/door-configurator",
+        "linkText": "Build Now"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1661494495a0aab569",
+    "1657863742a31a264e",
+    "1657864303fca4d3fd",
+    "1658403913f7cab66d",
+    "1658404141e4b267fe",
+    "16584042651a406645",
+    "16584043986a1683e1",
+    "1658396349b02a8e61",
+    "166366900518373184"
+  ]
+}

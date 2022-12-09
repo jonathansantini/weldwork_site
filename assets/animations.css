@@ -1,4 +1,9 @@
-.fade-in-bottom {
+
+
+
+
+@media only screen and (min-width: 1008px) {
+  .fade-in-bottom {
 	-webkit-animation: fade-in-bottom2 0.6s ease-out both;
 	        animation: fade-in-bottom2 0.6s ease-out both;
 }
@@ -14,6 +19,7 @@
 	-webkit-animation: fade-in-bottom 0.6s ease-out .5s both;
 	        animation: fade-in-bottom 0.6s ease-out .5s both;
 }
+
 .applyAnimation {
 	opacity: 0;
 }
@@ -101,6 +107,11 @@
   animation-delay: 2.6s;
   opacity: 0;
 }
+
+
+  
+}
+
 
 .already-visible {
   transform: translateY(0);

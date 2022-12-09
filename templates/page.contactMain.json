@@ -223,7 +223,7 @@
     "1638707941bbbe04d1": {
       "type": "imageBlockText",
       "blocks": {
-        "1811d844-a523-4bcd-a1d5-6264844ca786": {
+        "7ea65b1a-0799-45cc-a8e9-162f93e7682d": {
           "type": "Block",
           "settings": {
             "subtext": "The premier name in luxury interior steel doors",
@@ -242,7 +242,7 @@
             "subtextMarBottomMob": "32"
           }
         },
-        "416f9050-6413-479e-9c89-502aa3f0fa2e": {
+        "30b8f452-2675-4b3a-936f-b2dce0be103c": {
           "type": "Block",
           "settings": {
             "subtext": "Weldwork is home to the nation’s finest luxury steel doors, completely hand-crafted in the USA.",
@@ -256,15 +256,15 @@
             "subtextSizeMob": "16",
             "subtextLineMob": "24",
             "subtextLetterMob": "",
-            "subtextColorMob": "",
+            "subtextColorMob": "#c3c3c3",
             "subtextAlignMob": "left",
             "subtextMarBottomMob": "32"
           }
         }
       },
       "block_order": [
-        "1811d844-a523-4bcd-a1d5-6264844ca786",
-        "416f9050-6413-479e-9c89-502aa3f0fa2e"
+        "7ea65b1a-0799-45cc-a8e9-162f93e7682d",
+        "30b8f452-2675-4b3a-936f-b2dce0be103c"
       ],
       "settings": {
         "marTop": "",

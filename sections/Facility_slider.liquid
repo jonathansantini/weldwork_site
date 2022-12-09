@@ -1,0 +1,206 @@
+<style>
+ .fullWidth  .custom-fullwidth  {
+  width: {{ 1230 | times: 100 | divided_by: 1440.0 }}vw;
+    
+    height: {{ 450| times: 100 | divided_by: 1440.0 }}vw;
+   visibility: hidden;
+}
+
+
+  
+.fullImageSlider .colRight {
+   
+    right: 40px!important;}
+  
+.borderDivMain {display:none;}
+  
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+ @media only screen and (min-width: 1008px) {
+.noCursor .custompadding {  padding-left: {{ 90 | times: 100 | divided_by: 1440.0 }}vw;}
+.slick-list{padding:0 30px 0 0 !important;}
+   .backgroundwidth { width: 92%!important;}
+ }
+  @media only screen and (max-width: 1009px) {
+    .slick-list{padding:0 10px 0 0 !important;}
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: 20px;
+    }
+    #shopify-section-{{ section.id }} .sliderColumn {
+    	margin-right: 20px;
+    }
+    #shopify-section-{{ section.id }} .lineWithNumbers2 {
+    	width: 35px!important;
+margin-bottom: 12px;
+    margin-left: inherit;
+    margin-right: inherit;
+    position: inherit;
+    left: -30px;
+    }
+/*     #shopify-section-{{ section.id }} .subSlick2 {
+    	margin-left: auto;
+      	margin-right: auto;
+    } */
+    #shopify-section-{{ section.id }} .lottieDiv {
+    	display: none;
+    }
+  }
+</style>
+<div class="downLottie lottieDiv">
+    <lottie-player src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/data_43e1281e-7697-4957-af84-bb9a77b82a3e.json?v=1640090445" background="transparent"  speed="1"  style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+  </div>
+<div class="boxContainer fullImageSlider custompadding">
+  <div class="sliderMain sliderMain-{{ section.id }}">
+    {% for block in section.blocks %}
+    <div class="sliderColumn fullWidth {% if forloop.last %}lastOf{% endif %}">
+      	{% if block.settings.image != blank %}
+            <div class="fullWidth backgroundwidth" style='background: url("{{block.settings.image | img_url: "master"}}") no-repeat ;  background-size:cover; padding: 50px 0px 90px 0px;background-position: center;'>
+            <img class="fullWidth custom-fullwidth image-{{ block.id }}" src="{{ block.settings.image | img_url: "master" }}">
+            <style>
+              .image-{{ block.id }} {
+                margin-bottom: {{ block.settings.imgMarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .image-{{ block.id }} {
+                  margin-right: 0px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="colRight">
+    <div class="subSlickHolder2 verticalCenter">
+        <div class="lineWithNumbers2" style="display: flex; align-items: center; width: 100%;">
+          <div style="height: 1px; width: 50%; background: #C3C3C3;"></div>
+          <div style="height: 3px; width: 50%; background: #000000;"></div>
+        </div>
+    <div blocklimit="{{ section.blocks.size }}" class="subSlick2 subSlick-{{ section.id }}">
+            {% for block in section.blocks %}
+          		<p number="{% if forloop.last %}{{ forloop.index | minus: 1 }}{% else %}{{ forloop.index | minus: 1 }}{% endif %}" class="slickNumber2 GT-400 {% if forloop.first %}active{% endif %}">0{{ forloop.index }}</p>
+          	{% endfor %}
+        </div>
+    </div>
+  </div>
+  
+  <script>
+    $(document).ready(function(){
+      $('.sliderMain-{{ section.id }}').slick({
+        dots: false,
+        speed: 500,
+        slidesToShow: 1,
+        initialSlide: 0,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: false,
+        infinite: false,
+        adaptiveHeight: true,
+        responsive: [
+          {
+            breakpoint: 1009,
+            settings: {
+              slidesToShow: 1.1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+      $(".slickNumber2").click(function(){
+        $(".slickNumber2").removeClass("active");
+        $(this).addClass("active");
+        let num = Number($(this).attr("number"));
+		$('.sliderMain-{{ section.id }}').slick('slickGoTo', num);
+	  });
+    });
+  </script>
+</div>
+{% schema %}
+  {
+    "name": "Facility_slider",
+	"class": "noCursor",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        }
+	],
+	"blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Facility_slider",
+        "name": "Facility_slider",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

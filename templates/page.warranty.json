@@ -52,14 +52,64 @@
         "buttonLink": ""
       }
     },
+    "2d98debf-1a10-475c-a1ec-c4438bd207b0": {
+      "type": "portfolioMainSection",
+      "settings": {
+        "dark": true,
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "182",
+        "padBottom": "0",
+        "padLeft": "144",
+        "padRight": "144",
+        "padTopMob": "198",
+        "padBottomMob": "195",
+        "padLeftMob": "25",
+        "padRightMob": "25",
+        "backgroundImage": "shopify:\/\/shop_images\/Weldwork_-_Zana_-_10-13-22-00156_58576944-6774-4cac-9582-0129443a1fbe.jpg",
+        "backgroundImageMob": "shopify:\/\/shop_images\/Weldwork_-_Zana_-_10-13-22-00156_mobile_b4e3502f-df6c-4840-9243-cf9d13578360.jpg",
+        "subtext": "We confidently stand behind the quality of our product",
+        "subtextSize": "16",
+        "subtextLine": "20.8",
+        "subtextLetter": "1",
+        "subtextColor": "#ffffff",
+        "subtextAlign": "left",
+        "subtextMarBottom": "35",
+        "subtextSizeMob": "12",
+        "subtextLineMob": "21.6",
+        "subtextLetterMob": "",
+        "subtextColorMob": "",
+        "subtextAlignMob": "left",
+        "subtextMarBottomMob": "20",
+        "title": "The Weldwork Warranty",
+        "titleSize": "100",
+        "titleLine": "95",
+        "titleLetter": "-0.04",
+        "titleColor": "#ffffff",
+        "titleAlign": "left",
+        "titleMarBottom": "37",
+        "titleSizeMob": "60",
+        "titleLineMob": "60",
+        "titleLetterMob": "-0.03",
+        "titleColorMob": "",
+        "titleAlignMob": "left",
+        "titleMarBottomMob": "20",
+        "buttonText": "",
+        "buttonLink": ""
+      }
+    },
     "16377595427c9c2aa9": {
       "type": "emptyDiv",
+      "disabled": true,
       "settings": {
         "height": "37.7777778"
       }
     },
     "16382742406d315737": {
       "type": "backgroundBox",
+      "disabled": true,
       "settings": {
         "marTop": "",
         "flip-section-content": false,
@@ -220,6 +270,7 @@
     },
     "163750534874a967ab": {
       "type": "backgroundBox",
+      "disabled": true,
       "settings": {
         "marTop": "0",
         "flip-section-content": false,
@@ -304,6 +355,7 @@
   "order": [
     "main",
     "1637759478272e02f7",
+    "2d98debf-1a10-475c-a1ec-c4438bd207b0",
     "16377595427c9c2aa9",
     "16382742406d315737",
     "1638279126f1bb1180",

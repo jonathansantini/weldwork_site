@@ -1423,7 +1423,7 @@ iframe {
   position: relative;
   overflow: hidden;
   max-width: 100%;
-  padding-bottom: 56.25%;
+  padding-bottom:69.25%;
   height: 0;
   height: auto;
 
@@ -1780,9 +1780,9 @@ $socialIconFontStack: 'icons';
 }
 
 /*================ Partials | Drawers ================*/
-.js-drawer-open {
+/* .js-drawer-open {
   overflow: hidden;
-}
+} */
 
 .drawer {
   display: none;
@@ -1794,7 +1794,7 @@ $socialIconFontStack: 'icons';
   bottom: 0;
   padding: 0 ($gutter / 2) ($gutter / 2);
   max-width: 95%;
-  z-index: $zindexDrawer;
+     z-index: 9999999999999999999999;
   color: $colorDrawerText;
   background-color: $colorDrawers;
   @include transition($drawerTransition);
@@ -3468,3 +3468,7 @@ shopify-payment-terms {
   display: block;
 }
 
+
+.flexDiv.fullWidth.custom-size-New.applyAnimation.already-visible div, .boxDiv-template--15694629208260__163785258867b6d8a5, .textDiv-template--15694629208260__163785258867b6d8a5 {
+    width: unset!important;
+}

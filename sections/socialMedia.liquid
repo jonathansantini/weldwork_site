@@ -1,14 +1,19 @@
 <style>
+ #shopify-section-{{ section.id }} {
+   background-color: {{ section.settings.backgroundColor }};
+    position: relative;
+     z-index: 3;
+ }
+@media only screen and (min-width:1009px) {
   #shopify-section-{{ section.id }} {
     margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
     margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
     padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
     padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
-    position: relative;
-    background-color: {{ section.settings.backgroundColor }};
-    z-index: 3;
   }
-  @media only screen and (max-width: 1009px) {
+}
+
+ @media only screen and (max-width: 1008px) {
     #shopify-section-{{ section.id }} {
       margin-top: {{ section.settings.marTopMob }}px;
       margin-bottom: {{ section.settings.marBottomMob }}px;
@@ -33,7 +38,7 @@
         width: {{ block.settings.width | times: 100 | divided_by: 1440.0 }}vw;
       }
       }
-      @media only screen and (max-width: 1009px) {
+      @media only screen and (max-width: 1008px) {
       	.image-{{ block.id }} {
         position: absolute;
         {% if block.settings.topMob != blank %}top: {{ block.settings.topMob }}px;{% endif %}
@@ -52,16 +57,21 @@
   {% if section.settings.title != blank %}
             <h2 class="come-in-1 GT-400 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
             <style>
-              h2.heading-{{ section.id }} {
-                margin: 0; 
-                letter-spacing: {{ section.settings.titleLetter }}px; 
-                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
-                color: {{ section.settings.titleColor }}; 
-                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
-                text-align: {{ section.settings.titleAlign }};
-                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
-              }
-              @media only screen and (max-width: 1009px) {
+     
+        
+         @media only screen and (min-width: 1009px) {
+          h2.heading-{{ section.id }} {
+            margin: 0; 
+            letter-spacing: {{ section.settings.titleLetter }}em; 
+            font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+            color: {{ section.settings.titleColor }}; 
+            line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+            text-align: {{ section.settings.titleAlign }};
+            margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+          }
+        }
+        
+        @media only screen and (max-width:1008px) {
                 h2.heading-{{ section.id }} {
                   margin: 0; 
                   letter-spacing: {{ section.settings.titleLetterMob }}px; 
@@ -76,11 +86,12 @@
         {% endif %}
         
   {% if section.settings.subtext != blank %}
-            <p class="come-in-2 applyAnimation subtext-{{ section.id }} GT-300">
+            <h5 class="come-in-2 applyAnimation subtext-{{ section.id }} GT-600">
               {{ section.settings.subtext }}
-      		</p>
+      		</h5>
             <style>
-              .subtext-{{ section.id }} {
+  @media only screen and (min-width: 1009px) {
+             h5.subtext-{{ section.id }} {
                 margin: 0; 
                 letter-spacing: {{ section.settings.subtextLetter }}px; 
                 font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
@@ -88,9 +99,10 @@
                 line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
                 text-align: {{ section.settings.subtextAlign }};
                 margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
-              }
-              @media only screen and (max-width: 1009px) {
-                .subtext-{{ section.id }} {
+              }        
+  }
+              @media only screen and (max-width:1008px) {
+                h5.subtext-{{ section.id }} {
                   margin: 0; 
                   letter-spacing: {{ section.settings.subtextLetterMob }}px; 
                   font-size: {{ section.settings.subtextSizeMob }}px; 
@@ -107,16 +119,19 @@
             <p class="GT-300 text-{{ section.id }}">{{ section.settings.text }}</p>
           </div>
             <style>
+     @media only screen and (min-width: 1009px) {
               .text-{{ section.id }} {
                 margin: 0; 
                 letter-spacing: {{ section.settings.textLetter }}px; 
-                font-size: {{ section.settings.textSize | times: 100 | divided_by: 1366.0 }}vw; 
+                font-size: {{ section.settings.textSize | times: 100 | divided_by: 1440.0 }}vw; 
                 color: {{ section.settings.textColor }}; 
-                line-height: {{ section.settings.textLine | times: 100 | divided_by: 1366.0 }}vw;
+                line-height: {{ section.settings.textLine | times: 100 | divided_by: 1440.0 }}vw;
                 text-align: {{ section.settings.textAlign }};
-                margin-bottom: {{ section.settings.textMarBottom | times: 100 | divided_by: 1366.0 }}vw!important;
+                margin-bottom: {{ section.settings.textMarBottom | times: 100 | divided_by: 1440.0 }}vw!important;
               }
-              @media only screen and (max-width: 1009px) {
+     }
+              
+             @media only screen and (max-width:1008px) {
                 .text-{{ section.id }} {
                   margin: 0; 
                   letter-spacing: {{ section.settings.textLetterMob }}px; 
@@ -124,7 +139,8 @@
                   color: {{ section.settings.textColorMob }}; 
                   line-height: {{ section.settings.textLineMob }}px;
                   text-align: {{ section.settings.textAlignMob }};
-                  margin-bottom: {{ section.settings.textMarBottomMob }}px!important;
+                  margin:0 auto {{ section.settings.textMarBottomMob }}px!important;
+                  max-width:299px;
                 }
               }
             </style>
@@ -161,7 +177,7 @@
 	</svg>
     </a>
   </div>
-  <div class="applyAnimation come-in" id="insta-feed"></div> 
+  <div class="applyAnimation come-in" id="insta-feed" style="display:none"></div> 
  
 </div>
 {% schema %}

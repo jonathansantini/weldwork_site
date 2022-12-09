@@ -124,7 +124,7 @@ div#small-lottie-mobile lottie-player {
         {% endif %}
   {% if template contains 'reviews' %}
   <div style="display: flex; justify-content: center;" class="fullWidth come-in-3">
-  {% if section.settings.buttonText != blank or section.settings.buttonLink != blank %}
+  {% if section.settings.buttonText != blank  %}
       	<div style="margin-bottom: 48px;" onclick="location.href='{{ section.settings.buttonLink }}'" class="homepageFirstButton buttonDiv buttonDiv-{{ section.id }} facilityButtonMain">
             <style>
               .buttonDiv-{{ section.id }} div:after {

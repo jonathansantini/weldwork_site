@@ -1,4 +1,12 @@
 <style>
+
+ .xsPadded2 {
+   
+    display: none;
+}
+
+  .horizontalSlide .visSlide {
+background: rgb(0 0 0 / 0%);}
   #shopify-section-{{ section.id }} {
     margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
     margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
@@ -110,7 +118,8 @@
         	<div style="height: 100%; width: {{ width }}vw; background-size: cover; background-image: url({{ block.settings.image-1 | img_url: "1000x" }});" class="imageContainer imgCont-1-{{ block.id }} img-1-{{ block.id }} ">
           <img style="visibility: hidden;" src="{{ block.settings.image-1 | img_url: "1000x" }}">
           <div class="visibilityDiv visSlide">
-            <div onclick="location.href='{{ block.settings.link1 }}'" style="cursor: pointer;" class="xsPadded2">
+<!--       onclick="location.href='{{ block.settings.link1 }}'" -->
+            <div  style="cursor: pointer;" class="xsPadded2">
             {% if block.settings.icon-1 != blank %}
             <div class="fullWidth">
             <img class="icon1-{{ block.id }} iconImage" src="{{ block.settings.icon-1 | img_url: "400x" }}">

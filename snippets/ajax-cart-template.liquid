@@ -6,31 +6,25 @@
   handlebar.js template tags as available hooks.
 {% if settings.disable_questionaire == true %}
 <style>
-  .checkoutQuest{
-    display:none;
+.checkoutQuest.btn--secondary.btn--full.cart__checkout {
+    display: none;
+}    
+   .checkoutMain{
+    display:block;
   }
 </style>
 {%else%} 
 <style>
-  .checkoutQuest{
-    display:block;
+  .checkoutMain{
+    display:none;
   }
+  .checkoutQuest.btn--secondary.btn--full.cart__checkout {
+    display: block;
+	}  
 </style>
 {%endif%}
 
-{% if settings.disable_questionaire == true %}
-<style>
-  .checkoutMain{
-    display:block;
-  }
-</style>
-{%else%} 
-<style>
-  .checkoutMain{
-    display:none;
-  }
-</style>
-{%endif%}
+
 {% endcomment %}
   <script id="CartTemplate" type="text/template">
   {% raw %}
@@ -158,10 +152,12 @@
           {%- endcapture -%}
           {{ taxes_shipping_checkout }}
         {% raw %}</p>
-        <div class="checkoutQuest btn--secondary btn--full cart__checkout">
+        <div {% if settings.disable_questionaire == true %} style="display:none;" {%endif%} class="checkoutQuest btn--secondary btn--full cart__checkout">
         Go to checkout
         </div>
-        <button style="display: none;" type="submit" class="checkoutMain btn--secondary btn--full cart__checkout" name="checkout">
+        <button   type="submit" class="checkoutMain btn--secondary btn--full cart__checkout" name="checkout"
+        
+        >
           Go to checkout
         </button>
       </div>

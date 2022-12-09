@@ -6,6 +6,15 @@
     padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
     background-color: {{ section.settings.backgroundColor }};
   }
+
+  .template-index .homepagefullImageSlider .slick-track{
+    max-height:100%;
+  }
+  
+ @media only screen and (min-width: 1009px) {
+{% comment %}   .fullheightvh  {height: 100vh;} {% endcomment %}
+   .fullImageSlider .sliderMain {margin: 0px;}
+ }
   @media only screen and (max-width: 1009px) {
     #shopify-section-{{ section.id }} {
       margin-top: {{ section.settings.marTopMob }}px;
@@ -28,20 +37,26 @@
       	margin-right: auto;
     }
     #shopify-section-{{ section.id }} .lottieDiv {
-    	display: none;
+    	display: none!important;
     }
   }
+
+  #shopify-section-{{ section.id }} .lottieDiv {
+    	display: none!important;
+    }
+  
 </style>
 <div class="downLottie lottieDiv">
     <lottie-player src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/data_43e1281e-7697-4957-af84-bb9a77b82a3e.json?v=1640090445" background="transparent"  speed="1"  style="width: 100px; height: 100px;" loop autoplay></lottie-player>
   </div>
-<div class="boxContainer fullImageSlider">
+<div class="boxContainer fullImageSlider fullheightvh homepagefullImageSlider">
   <div class="sliderMain sliderMain-{{ section.id }}">
     {% for block in section.blocks %}
-    <div class="sliderColumn fullWidth {% if forloop.last %}lastOf{% endif %}">
+    <div class="sliderColumn fullWidth  {% if forloop.last %}lastOf{% endif %}">
       	{% if block.settings.image != blank %}
             <div class="fullWidth">
             <img class="fullWidth image-{{ block.id }}" src="{{ block.settings.image | img_url: "1500x" }}">
+           <h5 class="clientnameinslider text_information text-1661411292794b3728 come-in-3 GT-300">{{ block.settings.title }}</h5>
             <style>
               .image-{{ block.id }} {
                 margin-bottom: {{ block.settings.imgMarBottom | times: 100 | divided_by: 1366.0 }}vw;
@@ -55,7 +70,9 @@
             </div>
         {% endif %}
     </div>
+   
     {% endfor %}
+    
   </div>
   <div class="colRight">
     <div class="subSlickHolder2 verticalCenter">
@@ -75,12 +92,15 @@
     $(document).ready(function(){
       $('.sliderMain-{{ section.id }}').slick({
         dots: false,
-        speed: 500,
-        slidesToShow: 1,
+     
+  autoplay: true,
+       autoplaySpeed:5000,
+
+        slidesToShow:1.4,
         initialSlide: 0,
         slidesToScroll: 1,
         arrows: false,
-        centerMode: false,
+        
         infinite: false,
         adaptiveHeight: true,
         responsive: [
@@ -162,7 +182,12 @@
             "type": "image_picker",
             "id": "image",
             "label": "Image"
-          }
+          },
+          {
+          "type": "text",
+          "id": "title",
+          "label": "Client Name"
+        }
         ]
       }
     ],

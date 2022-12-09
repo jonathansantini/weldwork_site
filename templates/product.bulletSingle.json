@@ -7,6 +7,46 @@
     },
     "top": {
       "type": "productTopBulletSingle",
+      "blocks": {
+        "311d8575-55cf-444e-8cc7-cca6169da91e": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Clear_1_1_1.jpg",
+            "item-title": "Standard Clear",
+            "item-value": "Standard 1\/4\" Clear"
+          }
+        },
+        "7608c22c-71c3-49a2-8ab4-742b46b0f38d": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Low_Iron_Acid_Etched_-_1_1.jpg",
+            "item-title": "1⁄4” Frosted",
+            "item-value": "1\/4\" frosted"
+          }
+        },
+        "73a76067-1dec-4ace-b2b1-e5decf7b2576": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Reeded_-_1_1.jpg",
+            "item-title": "Reeded Glass",
+            "item-value": "Reeded Glass"
+          }
+        },
+        "595bedf9-a774-409d-9307-0458e7dc079f": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Thin_Reeded_-_1_1.jpg",
+            "item-title": "Thin Reeded Glass",
+            "item-value": "Thin Reeded Glass"
+          }
+        }
+      },
+      "block_order": [
+        "311d8575-55cf-444e-8cc7-cca6169da91e",
+        "7608c22c-71c3-49a2-8ab4-742b46b0f38d",
+        "73a76067-1dec-4ace-b2b1-e5decf7b2576",
+        "595bedf9-a774-409d-9307-0458e7dc079f"
+      ],
       "settings": {
       }
     },
@@ -15,7 +55,7 @@
       "settings": {
         "titleWidth": "16",
         "titleMargin": "19",
-        "marTop": "",
+        "marTop": "20",
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
@@ -42,7 +82,7 @@
         "titleColorMob": "",
         "titleAlignMob": "left",
         "titleMarBottomMob": "17",
-        "subtext": "The Bullet Hinge Door is a timeless addition to your home. The thin line frame door maintains a room's open appearance while still providing privacy depending on your glass choice.  This custom Quick Ship door is made of steel and hand built with locally sourced materials. \n\nOur thin line frames were intended to maximize natural lighting and create that sense of openness in anyspace.",
+        "subtext": "If you’re looking for timeless, look no further than our Bullet Hinge. Designed with a sleek custom jamb, this hinge will upgrade any entryway. The Bullet Hinge will seamlessly blend with other traditional hinges around your home",
         "subtextSize": "16",
         "subtextWeight": "300",
         "subtextLine": "24",
@@ -205,7 +245,7 @@
       "type": "titleText",
       "settings": {
         "titleWidth": "19",
-        "titleMargin": "15",
+        "titleMargin": "15.5",
         "marTop": "",
         "marBottom": "",
         "marTopMob": "",
@@ -327,19 +367,22 @@
         "06730b6f-b9d0-4111-bf6e-e1334d8b93bd": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_308.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_308.png",
+            "title": ""
           }
         },
         "9824911a-320f-4270-8d8c-20cb4de618af": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png",
+            "title": ""
           }
         },
         "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Untitled_design-38.png"
+            "image": "shopify:\/\/shop_images\/Untitled_design-38.png",
+            "title": ""
           }
         }
       },

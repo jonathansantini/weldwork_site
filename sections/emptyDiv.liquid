@@ -1,3 +1,7 @@
+{% assign split1 = section.id | split: "--"  %}
+{% assign split2 = split1 | last| split: "__"  %}
+
+
 <style>
   #shopify-section-{{ section.id }} {
     height: {{ section.settings.height }}vw;
@@ -14,6 +18,22 @@
     }
   }
 </style>
+<script>
+  
+  $(document).ready(function(){
+    var windowsize = $(window).width(),
+        elem=$(".emptyDiv.emptyDivAbout"),
+        top_position = elem.prev().position().top+elem.prev().outerHeight(true);
+
+    if(windowsize <= 1009){
+      $(elem).css("height",top_position);
+      $(".stickyAbout").css("top",top_position);
+      
+    }
+  });
+    
+    //$(".aboutMain.come-in").position().top + $(".aboutMain.come-in").outerHeight(true)
+</script>
 {% schema %}
   {
     "name": "Empty Div",

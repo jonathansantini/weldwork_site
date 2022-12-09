@@ -1,4 +1,7 @@
+
 <style>
+
+  
   #shopify-section-{{ section.id }} {
     margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
     margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
@@ -9,6 +12,11 @@
     border-bottom: 1px solid rgba(195, 195, 195, .5);
     background-color: {{ section.settings.backgroundColor }};
   }
+  @media only screen and (min-width: 1009px) {
+.secondImagesection {    width: 35.39%!important;}
+    
+  }
+  
   @media only screen and (max-width: 1009px) {
     #shopify-section-{{ section.id }} {
       margin-top: {{ section.settings.marTopMob }}px;
@@ -132,9 +140,9 @@
             </style>
         {% endif %}
     </div>
-    <div class="boxDiv-{{ section.id }}">
+    <div class="boxDiv-{{ section.id }} secondImagesection">
       {% if section.settings.image2 != blank %}
-      <img class="fullWidth come-in-1" src="{{ section.settings.image2 | img_url: "1200x" }}">
+      <img class="fullWidth come-in-1 " src="{{ section.settings.image2 | img_url: "1200x" }}">
       {% endif %}
 	  {% if section.settings.title2 != blank %}
             <h2 class="GT-600 customHeading come-in-2 heading2-{{ section.id }}">{{ section.settings.title2 }}</h2>

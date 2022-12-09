@@ -218,12 +218,12 @@
    	<div class="productImageHolder prIm-{{ forloop.index }} come-in-2">
     <style>
       .prIm-{{ forloop.index }} {
-      	background-image: url({{ product.featured_image | img_url: "x920" }});
+      	background-image: url({{ product.images[1] | img_url: "x920" }});
         transition: background-image .3s ease-in;
         background-position: center;
       }
       .prIm-{{ forloop.index }}:hover {
-      	background-image: url({{ product.images[1]  | img_url: "x920" }});
+      	background-image: url({{ product.featured_image  | img_url: "x920" }});
       }
     </style>
     <img class="fullWidth" style="visibility: hidden;" src="{{ product.featured_image | img_url: "x120" }}">

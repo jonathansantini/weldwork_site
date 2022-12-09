@@ -35,9 +35,9 @@
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {{ 'animations.css' | asset_url | stylesheet_tag }}
-  {{ 'new.css' | asset_url | stylesheet_tag }}
-  {{ 'newMob.css' | asset_url | stylesheet_tag }}
-  {{ 'cursorAnimation.css' | asset_url | stylesheet_tag }}
+  {{ 'Customnew.css' | asset_url | stylesheet_tag }}
+  {{ 'CustomnewMob.css' | asset_url | stylesheet_tag }}
+  {% comment%}{{ 'cursorAnimation.css' | asset_url | stylesheet_tag }}{% endcomment%}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
   <!-- Casual Sushi Custom CSS --> 
@@ -94,9 +94,10 @@
   
   <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'new.js' | asset_url }}" defer="defer"></script>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  {%- comment -%} removed cursor animation : <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>{%- endcomment -%}
+ <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
-
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
   <!-- Header hook for plugins ================================================== -->
@@ -114,40 +115,200 @@
 
   {% render 'judgeme_core' %}
   <style>
+
+
+@media only screen and (min-width: 768px){
+  .header-right-part {
+  position: fixed;
+    height: calc(5vw + 10px);
+/*     40 */
+    right: 100px;
+    top: 0;
+    padding: 2.5vw 0vw;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items:center;
+    cursor: pointer;
+    transition: all .6s ease-out;
+    border: 0px solid rgb(195 195 195 / 10%);
+    border-bottom: 0px;
+  }
+
+  .header-right-part.right-slide-right{
+    right: 120.7px;
+  }
+
+.header-right-part .loginLink, .header-right-part .cart-linkheader-wrap{
+  font-family: 'GT Walsheim Pro';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 120%;
+}
+  .header-right-part .imgCartLink{
+  width:24px;
+  height:24px;
+  }
+
+ .header-right-part .cart-linkheader-wrap{
+  padding-left:60px;
+  display:flex;
+  align-items:center;
+  }
+
+  .header-right-part .cart-linkheader-wrap a{
+  padding-left:13px;
+  }
+
+  .logoMain.mobMenu.downScroll {
+left: 50%;
+transform: translateX(-50%);
+}
+
+  
+  }
+
+
+  
+
+  @media only screen and (min-width: 1600px){
+    .header-right-part.right-slide-right{
+    right: 140.7px;
+  }
+}
+
+
+   @media only screen and (min-width: 1920px){
+    .header-right-part.right-slide-right{
+   right: 220.7px;
+  }
+}
+  
+@media only screen and (min-width: 1920px){.deskMenuItem {
+        
+    }}
+    
     .deskMenuItem {
       	position: fixed;
-      	opacity: 0;
-    	transform: translateY(-200%);
-      	transition: all .6s ease-out;
-    }
-    .deskMenuItem.downScroll {
       	opacity: 1;
-    	transform: translateY(0%);
+    	    z-index: 99!important;
+         top: {{40| times: 100 | divided_by: 1920.0 }}vw;
     }
-    @media only screen and (max-width: 1009px) {
+
+ 
+    
+    .deskMenuItem.downScroll {
+      opacity: 1;
+     
+
+    }
     .mobMenu {
-      	opacity: 0;
-    	transform: translateY(-200%);
-      	transition: all .6s ease-out;
+      //position: fixed;
+      //opacity: 0;
+      //transform: translateY(-5rem);
+      //transition: all .6s ease-out;
     }
+    .mobMenu.active {
+      opacity: 1;
+      transform: none;
+      transition: all .6s ease-out;
+    }
+    .mobMenu.downScroll {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px){
+  .header-right-part.right-slide-right {
+    right: 40.7px;
+}
+  .header-right-part .loginLink, .header-right-part .cart-linkheader-wrap{
+  font-family: 'GT Walsheim Pro';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 120%;
+}
+  .logoMain{
+  width:130px;
+  }
+  }
+    
+    @media only screen and (max-width: 1008px) {
+    .mobMenu {
+/*       	opacity: 0;
+    	transform: translateY(-200%);
+      	transition: all .6s ease-out; */
+    }
+
+      .main-logo-mobile{
+      stroke:#ffffff;
+      }
     .mobMenu.downScroll2 {
       	opacity: 1;
     	transform: translateY(0%);
     }
       .logoContainer.downScroll2 {
-      	background: white;
+      	
       }
       .logoContainer.trBG {
-      	background: transparent;
+background: #3c2e2e00!important; 
       }
+      .linecustom {
+      /*  display:none */
+        }
     }
+
+   @media only screen and (max-width: 767px) {
+  .header-right-part {
+  display:none;
+  }
+  }
   </style>
+
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css" media="screen" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js">
+</script><script type="text/javascript" src="https://cdn.roomvo.com/static/scripts/b2b/stratastonescouk.js" async></script>
+  
+
+
+  
 </head>
 
 {% comment %}
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
-<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ request.page_type | handle }}">
+<body id="{{ page_title | handle }}" class="{% if template contains 'index' or template contains 'portfolio'   or template contains 'customizationtemplate'  %}header-blend-color {% endif %} {{ template.suffix }} {% if customer %}customer-logged-in {% endif %}template-{{ request.page_type | handle }}">
+<script>window.KlarnaThemeGlobals={};{%case template.name%} {%when"product"%} {% if product.first_available_variant.price %}window.KlarnaThemeGlobals.data_purchase_amount = {{ product.first_available_variant.price }};{% endif %}window.KlarnaThemeGlobals.productVariants={{product.variants|json}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%when"cart"%} window.KlarnaThemeGlobals.data_purchase_amount={{cart.total_price}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%endcase%}</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="mainPageOverlay"></div>
   <div class="imageViewer">
     <a class="closeViewer">
@@ -157,32 +318,48 @@
     <img src="" class="imageView fullWidth">
     </div>
   </div>
-  <img onclick="location.href='/';" class="logoMain mobMenu downScroll2" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Untitled_design-46.png?v=1644327525" style="mix-blend-mode: overlay;">
-  <img onclick="location.href='/';" class="logoMain mobMenu downScroll2" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Untitled_design-46.png?v=1644327525">
-  <img class="hambMenu mobMenu downScroll2" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Menu_Hamb.png?v=1636641228" style="mix-blend-mode: overlay;">
-  <img class="hambMenu mobMenu downScroll2" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Menu_Hamb.png?v=1636641228">
-  {% if template contains "about" %}
-  <style>
-    
-  </style>
-  <div class="stickyAbout" style="transition: position 0.6s ease-out; color: white; mix-blend-mode: difference; position: absolute; top: 708px;left: 6.11vw; height: 4044px; background: black; z-index: 11;">
-    <div style="position: sticky; top: 50vh; left: 0;" class="aboutTabsDiv2"></div>
-      </div>
-  {% endif %}
-        {% if customer %}
-        <a style="color: white; mix-blend-mode: overlay; mix-blend-mode: difference!important; color: white!important;" class="GT-500 deskMenuItem loginLink withinBody downScroll" href="/account">Account</a>
-       	{% else %}
-        <a style="color: white; mix-blend-mode: overlay; mix-blend-mode: difference!important; color: white!important;" class="GT-500 deskMenuItem loginLink withinBody downScroll" href="/account/login">Login</a>
-        {% endif %}
-      
+  <div class="hide_css">
+    {% comment %}
+  <img onclick="location.href='/';" class="deskMenuItem   downScroll logoMain mobMenu downScroll2" src="https://cdn.shopify.com/s/files/1/0079/9093/5629/files/group_4943.png?v=1658920960" style="mix-blend-mode: overlay;">
+ {% endcomment %}
+  {% comment %} <img onclick="location.href='/';" class="deskMenuItem downScroll logoMain mobMenu downScroll2  {% if template contains 'index' or template contains 'portfolio'   or template contains 'customizationtemplate'  %}header-blend-color {% endif %}" src="https://cdn.shopify.com/s/files/1/0079/9093/5629/files/group_4943.png?v=1658920960?v=1644327525"> {% endcomment %}
+  {% comment %}  <img onclick="location.href='/';" class=" display_block   downScroll logoMain mobMenu downScroll2 {% if template contains 'index' or template contains 'portfolio'   or template contains 'customizationtemplate'  %}header-blend-color {% endif %}" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Untitled_design-46.png?v=1644327525"> {% endcomment %}
   
+  {% render 'weldwork-logo' %}
+    {% render 'weldwork-logo-mobile' %}
+  <img  class="hambMenu {% if template contains 'index' or template contains 'portfolio'   or template contains 'customizationtemplate'  %}header-blend-color {% endif %}" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Menu_Hamb.png?v=1636641228" style="mix-blend-mode: overlay;">
+  <img class="hambMenu  {% if template contains 'index' or template contains 'portfolio'   or template contains 'customizationtemplate'  %}header-blend-color {% endif %}" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Menu_Hamb.png?v=1636641228">
+  
+  {%  comment %}
+  {% if template contains "about" %}
+  <div class="stickyAbout" style="transition: position 0.6s ease-out; color: white; mix-blend-mode: difference; position: absolute; top: 708px;left: 6.11vw; height: 4044px; background: black; z-index: 11;">
+    <div style="position: sticky; top: /*5*/0vh; left: 0;" class="aboutTabsDiv2"></div>
+  </div>
 
-                  <img class="deskMenuItem cartLink withinBody downScroll imgCartLink" style="cursor: pointer; width: 1.66vw; height: 1.66vw; margin-right: 0.9vw; mix-blend-mode: difference!important; right: 13.7vw; margin-top: 2px;" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/37_-_content_cart_checkout_shopping_shopping_cart_webshop_icon_d785d1e2-1dea-4bbe-bcea-6bf0f6be0bc5.png?v=1637157427"> 
-                  
- 				<a style="mix-blend-mode: difference!important; color: white!important;" href="/cart" class="deskMenuItem cartLink withinBody downScroll site-nav__link--icon cart-link js-drawer-open-button-right GT-500" aria-controls="CartDrawer" tabindex="">
-                  Your Cart
+  <script>
+
+  </script>
+  {% endif %}
+   {%  endcomment %}
+  <div class="header-right-part">
+        {% if customer %}
+        <a style="color: white; mix-blend-mode: overlay; color: white!important;" class="GT-500 loginLink withinBody downScroll" href="/account">Account</a>
+       	{% else %}
+        <a style="color: white; mix-blend-mode: overlay;color: white!important;" class="GT-500 loginLink withinBody downScroll" href="/account/login">Login</a>
+        {% endif %}
+                  <div class="cart-linkheader-wrap"><img class="withinBody downScroll imgCartLink" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/37_-_content_cart_checkout_shopping_shopping_cart_webshop_icon_d785d1e2-1dea-4bbe-bcea-6bf0f6be0bc5.png?v=1637157427"> 
+                  <a style="color: white!important;" href="/cart" class="withinBody downScroll site-nav__link--icon cart-link js-drawer-open-button-right" aria-controls="CartDrawer" tabindex="">
+                  Your cart
   				</a>
-                  
+                  </div>
+ 				
+  </div>
+
+  
+  
+ <hr class="linecustom"  style="border-bottom: 1px solid #C3C3C3; top: 0px; margin: 0px 0px 0px; height:auto;border-width:1px;color:gray;position: fixed;width: 100%;z-index: 9;">
+
+   
   {% if template contains 'index' or template contains 'portfolio' %}
   {% section 'loadingScreen' %}
   {% endif %}
@@ -205,7 +382,7 @@
       <div id="CartContainer" class="drawer__cart"></div>
     </div>
   </div>
-  
+  </div>
   <div id="PageContainer" class="page-container">
     <main class="main-content" role="main">
         {{ content_for_layout }}
@@ -321,30 +498,41 @@
 	$(window).scroll(function(event){
        var st2 = $(this).scrollTop();
       if (st2 <= 0){
+        
       	$(".deskMenuItem").addClass("downScroll");
+        $(".mobMenu").addClass("downScroll");
         $(".mobMenu").addClass("downScroll2");
         $(".mobMenu").addClass("trBG");
+  $('body .linecustom').removeClass('stylecss');
+       
+         
       }
        else if (st2 > lastScrollTop2){
-           $(".deskMenuItem").removeClass("downScroll");
-           $(".mobMenu").removeClass("downScroll2");
-           $(".mobMenu").removeClass("trBG");
-           if ($(window).width() < 1009) {
+         
+        
+         $(".deskMenuItem").removeClass("downScroll");
+         $(".mobMenu").removeClass("downScroll");
+         $(".mobMenu").removeClass("downScroll2");
+         $(".mobMenu").removeClass("trBG");
+         if ($(window).width() < 1009) {
            $(".stickyAbout .aboutTabsDiv2").addClass("topzero");
            }
        } else {
-          $(".deskMenuItem").addClass("downScroll");
-          $(".mobMenu").addClass("downScroll2");
-          $(".mobMenu").removeClass("trBG");
-          if ($(window).width() < 1009) {
-          $(".stickyAbout .aboutTabsDiv2").removeClass("topzero");
-          }
+         $(".deskMenuItem").addClass("downScroll");
+         $(".mobMenu").addClass("downScroll");
+         $(".mobMenu").addClass("downScroll2");
+         $(".mobMenu").removeClass("trBG");
+         if ($(window).width() < 1009) {
+           $(".stickyAbout .aboutTabsDiv2").removeClass("topzero");
+         }
        }
        lastScrollTop2 = st2;
     });
   </script>
   <script>
+     
     window.addEventListener('load', (event) => {
+     if ($(window).width() > 768) {
   let initialColor = "";
   let initialBg = "";
   let initialStroke = "";
@@ -352,7 +540,11 @@
       if ($(this).hasClass("noHoverButton")){}else{
       initialColor = $(this).find("div").first().css("color");
       console.log(initialColor);
-      if (initialColor == "#ffffff" || initialColor == "white" || initialColor == "rgb(255, 255, 255)"){
+         if (initialColor == "rgb(255, 255, 255)"){
+          $(this).addClass('colorAddedBtn');
+        }
+   //   if (initialColor == "#ffffff" || initialColor == "white" || initialColor == "rgb(255, 255, 255)"){
+         if($(this).hasClass('colorAddedBtn')){
       	$(this).find("div").first().css("color","#000000");
         $(this).find("path").attr("stroke","#000000");
         $(this).css("background-color","#fff");
@@ -372,7 +564,11 @@
       $(".twoBoxesSection .evenCol").hover(function(){
       initialColor = $(this).find(".buttonDiv div").first().css("color");
       console.log(initialColor);
-      if (initialColor == "#ffffff" || initialColor == "white" || initialColor == "rgb(255, 255, 255)"){
+        if (initialColor == "rgb(255, 255, 255)"){
+          $(this).addClass('colorAdded');
+        }
+     // if (initialColor == "#ffffff" || initialColor == "white" || initialColor == "rgb(255, 255, 255)"){
+        if($(this).hasClass('colorAdded')){
       	$(this).find(".buttonDiv div").first().css("color","#000000");
         $(this).find(".buttonDiv path").attr("stroke","#000000");
         $(this).find(".buttonDiv").css("background-color","#fff");
@@ -386,8 +582,345 @@
         $(this).find(".buttonDiv path").attr("stroke",initialColor);
       	$(this).find(".buttonDiv").css("background-color","transparent");
     });
+ }
+      
 });
   </script>
-<script>window.KlarnaThemeGlobals={};{%case template.name%} {%when"product"%} window.KlarnaThemeGlobals.data_purchase_amount={{product.first_available_variant.price}};window.KlarnaThemeGlobals.productVariants={{product.variants|json}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%when"cart"%} window.KlarnaThemeGlobals.data_purchase_amount={{cart.total_price}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%endcase%}</script>
+
+
+  <script>
+
+ $( document ).ready(function() {
+  $('.hambMenu').outerHeight();
+
+var newHeight = $('.hambMenu').outerHeight();
+   var logoHeight = newHeight/2 - 10;
+$('.linecustom').css('height',newHeight + 'px');
+ $('.linecustom').css('margin',0 + 'px');
+      $('.linecustom').css('border-width',1 + 'px');
+        
+      $('.logoContainer').css('background','black');
+   // $('.deskMenuItem.logoMain').attr('style', 'top:' + logoHeight +'px !important');
+
+
+ $(window).resize(function(){
+ $('.hambMenu').outerHeight();
+
+var newHeight = $('.hambMenu').outerHeight();
+   var logoHeight = newHeight/2 - 10;
+$('.linecustom').css('height',newHeight + 'px');
+ $('.linecustom').css('margin',0 + 'px');
+      $('.linecustom').css('border-width',1 + 'px');
+       
+      $('.logoContainer').css('background','black');
+   // $('.deskMenuItem.logoMain').attr('style', 'top:' + logoHeight +'px !important');
+  });
+   
+});
+  
+</script>
+
+
+<script>
+  $( document ).ready(function() {
+  
+  
+  
+  $(".variantsGlass .variantMain").on({
+  mouseenter: function () {
+  $( 'body .hoverimage' ).addClass('side-open');
+  
+  
+  var images = $( this ).attr('imgsrc');
+  $(".imgown").attr("src",images);
+  },
+  mouseleave: function () {
+  $('body .hoverimage').removeClass('side-open');
+  }
+  });
+  
+  $('body').on('click touchend', '.scr-close', function () {
+  
+  $('.hoverimage').removeClass('side-open');
+  
+  });
+  
+  });
+  
+{% comment %}   $(window).on('scroll', function() {
+  if($(".stickyCart").hasClass('active')) {
+  
+  $( ".hide_css" ).addClass( 'hide');
+  } else {
+  $( ".hide_css" ).removeClass( 'hide');
+  }
+  }); {% endcomment %}
+
+    $(".hambMenu ").click(function(){
+ if($(".hambMenu").hasClass('active')) {
+   $('.header-right-part').addClass('right-slide-right');
+  $( ".linecustom " ).removeClass( 'door-lingo');
+  
+  } else {
+    $('.header-right-part').removeClass('right-slide-right');
+  $( ".linecustom" ).addClass( 'door-lingo');
+   
+  }
+});
+ </script>
+ {% if template.suffix == "door-lingo" %}
+  <script>
+        $(document).ready(function(){
+ $('.logoContainer').css('background','#f4f0ea');
+});
+      $(".hambMenu ").click(function(){
+ if($(".hambMenu").hasClass('active')) {
+ $('.logoContainer').css('background','black');
+  } else {
+  
+    $('.logoContainer').css('background','#f4f0ea');
+  }
+});
+
+
+    
+  </script>
+ {% endif %}
+<style>
+ .scr-close {
+           width: 16px;
+    height: 16px;
+    opacity: 0.3;
+    cursor: pointer;
+    display: flex;
+    padding: 23px;
+    margin: 7px 10px 0px auto;
+    position: relative;
+    transform: translate(0, 0);
+      }
+       .scr-close:hover {
+        opacity: 1;
+      }
+       .scr-close:before, 
+       .scr-close:after {
+        content: '';
+        position: absolute;
+        top: 15px;
+        right: 23px;
+        height: 17px;
+        width: 2px;
+        background-color: #333;
+      }
+       .scr-close:before {
+        transform: rotate(45deg);
+      }
+      .scr-close:after {
+        transform: rotate(-45deg);
+      }
+  
+.hoverimage {border: 2px solid #C3C3C3;
+  border: 2px solid #C3C3C3;
+    margin-bottom: 10px;
+    text-align: center;
+    position: absolute;
+    
+    background: white;
+    z-index: 2;}
+.imgown {width:66%;}
+.variantSelector {
+  position: relative;
+}
+
+   .hoverimage {display:none;}
+  .side-open {display:block!important;}
+
+  .stickyCart {
+
+    width: 100%;
+}
+</style>
+
+  {% if template.suffix == "door-lingo" %}
+    <script>
+      $(document).ready(function(){
+  $(".linecustom").addClass("door-lingo");
+});
+    </script>
+  <style>
+ .door-lingo {
+    background: #f4f0ea!important;
+   border-bottom: 1px solid rgb(195 195 195 / 34%)!important;
+}
+#door-lingo .logoContainer {
+    background: #f4f0ea;
+}
+
+  </style>
+    {% endif %}
+<style>
+  #shopify-section-166142916848306adf #v-wrapper {
+background-color: white;
+}
+
+
+  #shopify-section-16370694717a229a3e .evenContainer {
+   
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+    #shopify-section-16370694717a229a3e .active {
+    color: #fff!important;
+}
+
+.stylecss {background-color:black;
+              border: none;
+        
+    }
+
+
+  </style>
+
+  <script>
+    window.onload=function(){
+     $("#shopify-section-template--15694629372100__1661494495a0aab569 .homepageFirstButton").removeAttr("style");
+
+};
+  </script>
+  <style>
+.my-slider .slick-slide {
+    width: fit-content;
+}
+
+  </style>
+
+<!--tab  -->
+  <script>
+// $(window).scroll(function(){
+//     if ($(this).scrollTop() > 10) {
+     
+//        $('.linecustom').addClass('stylecss');
+//     } else {
+//        $('.linecustom').removeClass('stylecss');
+//     }
+// });
+
+$(document).ready(function() {
+// scroll to top
+$(window).scroll(function() {
+if ($(this).scrollTop() >= 10) { // if page is scrolled more than 700px
+
+$('.linecustom').addClass('stylecss', 800);
+  
+} 
+}).scroll();
+
+$(window).scroll(function() {
+if ($(this).scrollTop() <= 10) { // if page is scrolled more than 700px
+ 
+$('.linecustom').removeClass('stylecss');
+} 
+}).scroll();
+
+});  
+
+
+    $(document).ready(function(){
+      $('.my-slider').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+        variableWidth: true,
+        infinite: true,
+        autoplaySpeed: 5000,
+        autoplay: false,
+        responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 4,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 4,
+        }
+      }
+    ]
+      });
+
+$(".fancybox").hide();
+$(".fancybox").eq(0).show();
+
+
+    $( ".productThumbnails .productThumbnail  " ).on( "click", function() { 
+     
+var imgId = "."+$(this).attr("data-image-id");
+     
+// if ($(".productThumbnail").hasClass("active")) {
+//       var getsrc = $(this).attr( "src" );
+//   $(".fancybox").attr("href", getsrc);
+//     }
+
+       $(".fancybox").hide();
+      
+              $(imgId).show();
+      
+});
+
+      
+      
+    });
+
+  
+</script>
+
+
+  <script>
+
+$(document).ready(function () {
+update();
+$(window).resize(function() {
+updateContainer();
+});
+});
+function update() { 
+if (window.innerWidth < 1009) {
+
+$('.rightSide  .customheaderclick').unbind('mouseenter mouseleave'); 
+$('.menuBlockText').show();
+}
+else {
+$('.rightSide  .customheaderclick').bind("mouseenter", function()  {
+$(this).find('.menuBlockText').slideToggle("slow");
+});
+$('.rightSide  .customheaderclick').bind("mouseleave", function() {
+
+$(this).find('.menuBlockText').slideToggle("slow");
+});
+$('.menuBlockText').hide();
+}
+
+}
+ </script>
+<script>
+$(document).ready(function() {
+$('.productThumbnail').click(function() {
+$('.iframeVideoShow').removeClass('custommainImgAn1');
+});
+$('.productThumbnailVideo').click(function() {
+$('.iframeVideoShow').addClass('custommainImgAn1');
+});
+
+<!--  vedio click script -->
+$( ".img-thumb-video svg" ).on( "click", function() {
+$( ".productThumbnailVideo" ).trigger( "click" );
+});
+
+});
+</script>
 </body>
 </html>

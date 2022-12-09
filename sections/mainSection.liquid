@@ -1,4 +1,6 @@
 <style>
+
+  
   .shopify-section {
   	z-index: 2;
     position: relative;
@@ -174,7 +176,7 @@
           <div style="min-height: 51px; color: {{ section.settings.titleColor }};" class="GT-600">{{ section.settings.buttonText }}</div>
       	</div>
       {% endif %}
-      <div class="blurredTop"></div>
+<!--       <div class="blurredTop"></div> -->
       <div class="blurredCenter"></div>
       <div class="blurredBottom"></div>
     </div>
@@ -182,7 +184,7 @@
       <div class="slickDiv slickDivMain slickDivMainHome">
         {% assign reversed = section.blocks | reverse %}
         {% for block in section.blocks %}
-        	<div style="{% if forloop.first %}padding-top: 6.13vw;{% elsif forloop.last %}padding-bottom: 10.41vw;{% endif %}" id="scrollTo{{ forloop.index }}" class="slickSlideMob slickSlide {% if forloop.first %}scrollToMe{% endif %}">
+        	<div style="{% if forloop.first %}padding-top: 2.8vw;{% elsif forloop.last %}padding-bottom: 10.41vw;{% endif %}" id="scrollTo{{ forloop.index }}" class="slickSlideMob slickSlide {% if forloop.first %}scrollToMe{% endif %}">
              	{% if block.settings.image != blank %}
               		<img class="imgBlock fullWidth" src="{{ block.settings.image | img_url: "1000x" }}"> 
              	{% endif %}
@@ -191,7 +193,7 @@
         
       </div>
     </div>
-    <div class="divCol-right">
+              <div class="divCol-right">
       <div class="subSlickHolder">
         <div class="lineWithNumbers" style="display: flex; align-items: center;">
           <div style="height: 1px; width: 50%; background: #C3C3C3;"></div>
@@ -216,6 +218,9 @@
         </script>-->
       </div>
     </div>
+    {% comment %}
+    
+    {% endcomment %}
   </div>
 </div>
 {% if section.settings.dark %}
@@ -259,6 +264,7 @@
       $('.slickDivMainHome').slick({
         dots: false,
         speed: 600,
+        
         slidesToShow: 1.1,
         initialSlide: 0,
         slidesToScroll: 1,
@@ -266,10 +272,14 @@
         centerMode: false,
         infinite: false,
         adaptiveHeight: true,
-        autoplay: true,
+        autoplay: false,
   		autoplaySpeed: 3000
       });
+
+        
       $(".slickNumber").click(function(){
+      
+
         $(".slickNumbersHomeMain .slickNumber").removeClass("active");
         $(this).addClass("active");
         let num = Number($(this).attr("slicknumber"));

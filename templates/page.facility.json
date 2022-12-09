@@ -579,30 +579,42 @@
     },
     "16380435977ab875c5": {
       "type": "fullImage",
+      "disabled": true,
       "blocks": {
         "06730b6f-b9d0-4111-bf6e-e1334d8b93bd": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1.jpg"
+            "image": "shopify:\/\/shop_images\/1.jpg",
+            "title": ""
           }
         },
         "9824911a-320f-4270-8d8c-20cb4de618af": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/2.jpg"
+            "image": "shopify:\/\/shop_images\/2.jpg",
+            "title": ""
           }
         },
         "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/5_52ef1171-c2ff-4df3-9efb-77bebf456ba6.jpg"
+            "image": "shopify:\/\/shop_images\/5_52ef1171-c2ff-4df3-9efb-77bebf456ba6.jpg",
+            "title": ""
+          }
+        },
+        "cdbdae3c-d0fa-4f9f-8f41-7212917576ff": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_139_510f8390-c613-4f4f-b045-b7478f97ffb5.png",
+            "title": ""
           }
         }
       },
       "block_order": [
         "06730b6f-b9d0-4111-bf6e-e1334d8b93bd",
         "9824911a-320f-4270-8d8c-20cb4de618af",
-        "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a"
+        "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a",
+        "cdbdae3c-d0fa-4f9f-8f41-7212917576ff"
       ],
       "settings": {
         "marTop": "",
@@ -612,6 +624,45 @@
         "padTop": "0",
         "padBottom": "100",
         "padTopMob": "",
+        "padBottomMob": "68",
+        "backgroundColor": "#f0f8fc"
+      }
+    },
+    "6d4c28c2-c66f-4ab4-958b-8bd1db2b5881": {
+      "type": "Facility_slider",
+      "blocks": {
+        "d8df5195-2fcb-48a7-8949-83cb02a7fccd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker.jpg"
+          }
+        },
+        "5fb52bf2-6103-405c-8c49-4b14b0ab0546": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_1500x_fdb95e87-28a1-46e7-ac32-380a5db5e0b6.png"
+          }
+        },
+        "f06d98ce-c9a5-4ecc-b05c-0f4aba3b1639": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_1500x_33d0b779-91ec-4990-bca6-5c0a21ed2759.png"
+          }
+        }
+      },
+      "block_order": [
+        "d8df5195-2fcb-48a7-8949-83cb02a7fccd",
+        "5fb52bf2-6103-405c-8c49-4b14b0ab0546",
+        "f06d98ce-c9a5-4ecc-b05c-0f4aba3b1639"
+      ],
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "0",
+        "padBottom": "100",
+        "padTopMob": "42",
         "padBottomMob": "68",
         "backgroundColor": "#f0f8fc"
       }
@@ -627,7 +678,7 @@
             "imgMobMarBottom": "",
             "iconMarBottom1": "",
             "iconMarBottomMob1": "",
-            "link1": "shopify:\/\/pages\/portfolio",
+            "link1": "",
             "title1": "3-Lite Double Doors",
             "title1Size": "32",
             "title1Line": "35.2",
@@ -877,118 +928,115 @@
         "buttonLink": "shopify:\/\/pages\/portfolio"
       }
     },
-    "1637950491e2cd16d2": {
-      "type": "subtitle-title",
-      "settings": {
-        "anchor": "",
-        "marTop": "",
-        "marBottom": "",
-        "marTopMob": "",
-        "marBottomMob": "",
-        "padTop": "100",
-        "padBottom": "60",
-        "padLeft": "",
-        "padRight": "",
-        "padTopMob": "72",
-        "padBottomMob": "36",
-        "padLeftMob": "20",
-        "padRightMob": "20",
-        "backgroundColor": "#000000",
-        "subtext": "LET’S FIND THE DOOR THAT COMPLETES YOUR SPACE",
-        "subtextSize": "16",
-        "subtextWeight": "400",
-        "subtextLine": "20.8",
-        "subtextLetter": "4",
-        "subtextColor": "#c3c3c3",
-        "subtextAlign": "center",
-        "subtextMarBottom": "",
-        "subtextSizeMob": "12",
-        "subtextLineMob": "21.6",
-        "subtextLetterMob": "",
-        "subtextColorMob": "",
-        "subtextAlignMob": "center",
-        "subtextMarBottomMob": "",
-        "title": "",
-        "titleSize": "",
-        "titleLine": "",
-        "titleLetter": "",
-        "titleColor": "",
-        "titleAlign": "center",
-        "titleMarBottom": "",
-        "titleSizeMob": "",
-        "titleLineMob": "",
-        "titleLetterMob": "",
-        "titleColorMob": "",
-        "titleAlignMob": "center",
-        "titleMarBottomMob": ""
-      }
-    },
-    "1637499934d49abbe2": {
+    "16629578433ea1ad71": {
       "type": "two-background-images",
       "settings": {
         "marTop": "0",
         "marBottom": "0",
         "marTopMob": "",
-        "marBottomMob": "",
+        "marBottomMob": "0",
         "padTop": "100",
         "padBottom": "100",
-        "padLeft": "145",
-        "padRight": "145",
+        "padLeft": "",
+        "padRight": "",
         "padTopMob": "72",
         "padBottomMob": "72",
         "padLeftMob": "20",
         "padRightMob": "20",
         "backgroundColor": "#000000",
-        "image-1": "shopify:\/\/shop_images\/52_Double_Doors_3Lite_BulletHinge_SceneView_1_1_9e5a403f-587c-4811-bd27-405b7fcf22a3.png",
-        "img1PadLeft": "70",
+        "title": "Weldwork offers two signature service tiers to best serve our clients",
+        "titleSize": "56",
+        "titleLine": "58.8",
+        "titleLetter": "-0.02",
+        "titleColor": "#ffffff",
+        "titleAlign": "center",
+        "titleMarBottom": "67",
+        "titleSizeMob": "36",
+        "titleLineMob": "37.8",
+        "titleLetterMob": "-0.02",
+        "titleColorMob": "#ffffff",
+        "titleAlignMob": "center",
+        "titleMarBottomMob": "32",
+        "image-1": "shopify:\/\/shop_images\/IMAGE_CTA.png",
+        "img1PadBottom": "36",
+        "img1PadLeft": "44",
         "img1PadRight": "125",
-        "img1PadLeftMob": "31",
-        "img1PadRightMob": "48",
-        "imgMobMarBottom": "16",
-        "icon-1": "shopify:\/\/shop_images\/Group_256_1.png",
+        "img1PadBottomMob": "26",
+        "img1PadLeftMob": "30",
+        "img1PadRightMob": "60",
+        "imgMobMarBottom": "58",
         "icon-1-SVG": "",
         "iconMarBottom1": "40",
         "iconMarBottomMob1": "67",
         "link1": "shopify:\/\/collections\/all",
-        "linkText1": "Shop the Quickship line",
-        "title1": "Discover Quick Ship Doors",
+        "linkText1": "Shop Now",
+        "title1": "Made-to-Measure",
         "title1Size": "40",
         "title1Line": "44",
         "title1Letter": "0",
         "title1Color": "#ffffff",
         "title1Align": "left",
-        "title1MarBottom": "42",
+        "title1MarBottom": "25",
         "title1SizeMob": "32",
         "title1LineMob": "35.2",
         "title1LetterMob": "0",
         "title1ColorMob": "",
         "title1AlignMob": "left",
-        "title1MarBottomMob": "42",
-        "image-2": "shopify:\/\/shop_images\/Untitled_design-36.png",
-        "img2PadLeft": "70",
+        "title1MarBottomMob": "26",
+        "subtext": "Illuminate your interiors with steel doors that are made to fit your standard opening",
+        "subtextSize": "16",
+        "subtextWeight": "350",
+        "subtextLine": "24",
+        "subtextLetter": "",
+        "subtextColor": "#ffffff",
+        "subtextAlign": "left",
+        "subtextMarBottom": "25",
+        "subtextSizeMob": "16",
+        "subtextLineMob": "24",
+        "subtextLetterMob": "",
+        "subtextColorMob": "#ffffff",
+        "subtextAlignMob": "left",
+        "subtextMarBottomMob": "20",
+        "image-2": "shopify:\/\/shop_images\/Rectangle_221_60dc8864-08fb-4b30-84ee-9d6e4243a274.png",
+        "img2PadBottom": "36",
+        "img2PadLeft": "44",
         "img2PadRight": "100",
+        "img2PadBottomMob": "26",
         "img2PadLeftMob": "30",
         "img2PadRightMob": "60",
         "imgMobMarBottom2": "0",
-        "icon-2": "shopify:\/\/shop_images\/Group_257_1.png",
         "icon-2-SVG": "",
         "iconMarBottom2": "40",
         "iconMarBottomMob2": "70",
-        "link2": "shopify:\/\/pages\/contact",
-        "linkText2": "Build your custom door",
-        "title2": "Custom Build Your Dream Door",
+        "link2": "https:\/\/www.weldwork.com\/pages\/door-configurator",
+        "linkText2": "Build Now",
+        "title2": "Custom Door Builder",
+        "subtext2": "Your choice of grid patterns, glass, hardware, and a full spectrum of powder coated finishes",
+        "subtextSize2": "16",
+        "subtextWeight2": "350",
+        "subtextLine2": "24",
+        "subtextLetter2": "",
+        "subtextColor2": "#ffffff",
+        "subtextAlign2": "left",
+        "subtextMarBottom2": "25",
+        "subtextSizeMob2": "16",
+        "subtextLineMob2": "24",
+        "subtextLetterMob2": "2",
+        "subtextColorMob2": "#ffffff",
+        "subtextAlignMob2": "left",
+        "subtextMarBottomMob2": "20",
         "title2Size": "40",
         "title2Line": "44",
         "title2Letter": "0",
         "title2Color": "#ffffff",
         "title2Align": "left",
-        "title2MarBottom": "42",
+        "title2MarBottom": "25",
         "title2SizeMob": "32",
         "title2LineMob": "35.2",
         "title2LetterMob": "",
         "title2ColorMob": "",
         "title2AlignMob": "left",
-        "title2MarBottomMob": "42"
+        "title2MarBottomMob": "20"
       }
     }
   },
@@ -1010,8 +1058,8 @@
     "16380317024e0d754c",
     "163803196943172bf3",
     "16380435977ab875c5",
+    "6d4c28c2-c66f-4ab4-958b-8bd1db2b5881",
     "1637608422ec19821d",
-    "1637950491e2cd16d2",
-    "1637499934d49abbe2"
+    "16629578433ea1ad71"
   ]
 }

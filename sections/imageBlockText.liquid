@@ -68,26 +68,38 @@
               {{ block.settings.subtext | newline_to_br }}
       		</p>
             <style>
-              .subtext-{{ block.id }} {
+                 .subtext-{{ block.id }} {
                 margin: 0; 
-                letter-spacing: {{ block.settings.subtextLetter }}px; 
+                letter-spacing: {{ section.settings.subtextLetter }}em; 
                 font-size: {{ block.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
                 color: {{ block.settings.subtextColor }}; 
                 line-height: {{ block.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
                 text-align: {{ block.settings.subtextAlign }};
                 margin-bottom: {{ block.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+             
               }
-              @media only screen and (max-width: 1009px) {
-                .subtext-{{ block.id }} {
+
+
+                 @media only screen and (min-width:1440px) and (max-width: 1919px) {
+           .subtext-{{ block.id }} {
+                
+                font-size: {{ block.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                line-height: {{ block.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                margin-bottom: {{ block.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+           }
+        }
+
+  
+
+               @media only screen and (max-width:833px) { .subtext-{{ block.id }} {
                   margin: 0; 
-                  letter-spacing: {{ block.settings.subtextLetterMob }}px; 
-                  font-size: {{ block.settings.subtextSizeMob }}px; 
+                  letter-spacing: {{ block.settings.subtextLetterMob }}em; 
+                  font-size: {{ block.settings.subtextSizeMob}}px; 
                   color: {{ block.settings.subtextColorMob }}; 
                   line-height: {{ block.settings.subtextLineMob }}px;
                   text-align: {{ block.settings.subtextAlignMob }};
                   margin-bottom: {{ block.settings.subtextMarBottomMob }}px;
-                }
-              }
+                }}
             </style>
         {% endif %}
       {% if forloop.last %}

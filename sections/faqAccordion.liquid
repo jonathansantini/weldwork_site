@@ -1,4 +1,5 @@
 <style>
+  .customfaqaccordian  .acc-TopQuestions  {font-weight: 400;}
   #shopify-section-{{ section.id }} {
     margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
     margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
@@ -73,7 +74,7 @@
 {% endfor %}
 {% assign array = string | split: "|" %}
 
-<div class="flexDiv fullWidth accordionCategory come-in">
+<div class="flexDiv fullWidth accordionCategory come-in customfaqaccordian">
   {% for str in array %}
   <a category="{{ str | replace: " ","" }}" class="GT-500 come-in-{{ forloop.index }} accCategory{% if forloop.first %} active{% endif %}">
     {{ str }}
@@ -91,7 +92,7 @@
 {% assign count = count | plus: 1 %}
 {% endif %}
 {% endfor %}
-<button class="accPanel come-in-{{ finalNum }} accordion {% if section.blocks.first.settings.category == block.settings.category %}{% else %}accHidden{% endif %} acc-{{ block.settings.category | replace: " ","" }} GT-500"><span class="accordionNumber">0{{ finalNum }}.</span>{{ block.settings.title }}</button>
+<button style="font-weight: 400;" class="accPanel come-in-{{ finalNum }} accordion {% if section.blocks.first.settings.category == block.settings.category %}{% else %}accHidden{% endif %} acc-{{ block.settings.category | replace: " ","" }} GT-500"><span class="accordionNumber GT-400 faqaccordian">0{{ finalNum }}.</span>{{ block.settings.title }}</button>
 <div class="accPanel GT-300 panel {% if section.blocks.first.settings.category == block.settings.category %}{% else %}accHidden{% endif %} acc-{{ block.settings.category | replace: " ","" }}">
   <span class="accordionNumber">0{{ finalNum }}.</span>
   <p>

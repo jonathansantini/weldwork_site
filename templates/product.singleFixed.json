@@ -7,6 +7,46 @@
     },
     "top": {
       "type": "productTopFixed",
+      "blocks": {
+        "f14e97ca-ea44-4b6e-a13f-ba279e3b512c": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Clear_1_1_1.jpg",
+            "item-title": "Standard Clear",
+            "item-value": "Standard 1\/4\" Clear"
+          }
+        },
+        "65c6f018-ed1f-4994-84f3-394e8fa4a7b7": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Low_Iron_Acid_Etched_-_1_1.jpg",
+            "item-title": "1⁄4” Frosted",
+            "item-value": "1\/4\" Frost"
+          }
+        },
+        "0abaa2da-6b14-4cd0-84fa-2b2bffdb5225": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Reeded_-_1_1.jpg",
+            "item-title": "Reeded Glass",
+            "item-value": "Reeded Glass"
+          }
+        },
+        "0a0ffbf3-9189-4281-88de-51fae2ec9f37": {
+          "type": "image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Matte_Black_-_Thin_Reeded_-_1_1.jpg",
+            "item-title": "Thin Reeded Glass",
+            "item-value": "Thin Reeded Glass"
+          }
+        }
+      },
+      "block_order": [
+        "f14e97ca-ea44-4b6e-a13f-ba279e3b512c",
+        "65c6f018-ed1f-4994-84f3-394e8fa4a7b7",
+        "0abaa2da-6b14-4cd0-84fa-2b2bffdb5225",
+        "0a0ffbf3-9189-4281-88de-51fae2ec9f37"
+      ],
       "settings": {
       }
     },
@@ -15,7 +55,7 @@
       "settings": {
         "titleWidth": "16",
         "titleMargin": "19",
-        "marTop": "",
+        "marTop": "20",
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
@@ -42,7 +82,7 @@
         "titleColorMob": "",
         "titleAlignMob": "left",
         "titleMarBottomMob": "17",
-        "subtext": "Designed with simple horizontal steel bars and high-quality glass, our doors are functional art pieces. Each door is crafted with locally sourced materials and hand-welded by highly skilled American steel fabrication masters.\n\nWe source our hardware from high quality 3rd party brands, with all production performed completely in house in our Michigan facility - ensuring the highest level of finish, with quality you can trust. Our doors can be used in almost every space imaginable, for a sleek, stand-out design.",
+        "subtext": "Add privacy while letting natural light shine through with our Fixed Partitions. These dividers work flawlessly in a variety of spaces, including vestibules, offices, lofts, and more. Create a dramatic entryway while blocking off a room and reducing unwanted noise.",
         "subtextSize": "16",
         "subtextWeight": "300",
         "subtextLine": "24",
@@ -78,6 +118,7 @@
     },
     "16390544621c083a39": {
       "type": "titleText",
+      "disabled": true,
       "settings": {
         "titleWidth": "42.37",
         "titleMargin": "8.92",
@@ -126,6 +167,7 @@
     },
     "1639054846057d3f18": {
       "type": "imageRows",
+      "disabled": true,
       "blocks": {
         "a000a475-26f7-4266-b0c7-71c290a4f36c": {
           "type": "image",
@@ -217,7 +259,7 @@
         "padLeftMob": "20",
         "padRightMob": "20",
         "backgroundColor": "#ffffff",
-        "title": "Specifications",
+        "title": "Warranty",
         "titleSize": "32",
         "titleWeight": "500",
         "titleLine": "35.2",
@@ -231,7 +273,7 @@
         "titleColorMob": "",
         "titleAlignMob": "left",
         "titleMarBottomMob": "20",
-        "subtext": "Each Weldwork door has its own product specifications. Click below to view the specifications for the product you are viewing.",
+        "subtext": "Every Weldwork door is backed by our superior Warranty Policy. Our doors are always guaranteed free from defect in material and craftsmanship when they leave our facilitiy. To view our full policy, please <a href=\"\/pages\/privacy-policy\">click here<\/a>.",
         "subtextSize": "16",
         "subtextWeight": "300",
         "subtextLine": "24",
@@ -249,6 +291,7 @@
     },
     "163898184780a6e9e9": {
       "type": "accordion",
+      "disabled": true,
       "blocks": {
         "c4b4e790-2e0b-464e-83f0-65bb0ad48911": {
           "type": "Tab",
@@ -319,23 +362,27 @@
     },
     "16380435977ab875c5": {
       "type": "fullImage",
+      "disabled": true,
       "blocks": {
         "06730b6f-b9d0-4111-bf6e-e1334d8b93bd": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_308.png"
+            "image": "shopify:\/\/shop_images\/Rectangle_308.png",
+            "title": ""
           }
         },
         "9824911a-320f-4270-8d8c-20cb4de618af": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_139_2.png"
+            "image": "shopify:\/\/shop_images\/image_139_2.png",
+            "title": ""
           }
         },
         "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_139_2.png"
+            "image": "shopify:\/\/shop_images\/image_139_2.png",
+            "title": ""
           }
         }
       },
@@ -358,6 +405,7 @@
     },
     "1638982282f427ce2f": {
       "type": "titleText",
+      "disabled": true,
       "settings": {
         "titleWidth": "13",
         "titleMargin": "39",
@@ -365,8 +413,8 @@
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
-        "padTop": "85",
-        "padBottom": "104",
+        "padTop": "102",
+        "padBottom": "74",
         "padLeft": "185",
         "padRight": "185",
         "padTopMob": "68",
@@ -406,6 +454,7 @@
     },
     "163750857405134196": {
       "type": "subtitle-title",
+      "disabled": true,
       "settings": {
         "anchor": "",
         "marTop": "0",
@@ -452,6 +501,7 @@
     },
     "1637601312b8801fb9": {
       "type": "videoSection",
+      "disabled": true,
       "settings": {
         "marTop": "",
         "marBottom": "",

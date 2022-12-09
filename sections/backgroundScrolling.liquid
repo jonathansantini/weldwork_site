@@ -8,7 +8,8 @@
     background-image: url({{ section.settings.backgroundImageSVG }});
     {% endif %}
     position: relative;
-    background-size: cover;
+    background-size: contain;
+    line-height: 0px;
   }
   #shopify-section-{{ section.id }} .visibilityDiv {
   	padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
@@ -28,11 +29,11 @@
       {% elsif section.settings.backgroundImageSVGMob != blank %}
       background-image: url({{ section.settings.backgroundImageSVGMob }});
       {% endif %}
-      background-size: cover;
+      background-size: contain;
     }
     #shopify-section-{{ section.id }} .visibilityDiv {
-  	  padding-top: {{ section.settings.padTopMob }}px;
-      padding-bottom: {{ section.settings.padBottomMob }}px;
+  	  padding-top: {{ section.settings.padTopMob }}%;
+      padding-bottom: {{ section.settings.padBottomMob }}%;
       padding-left: 0;
       padding-right: 0;
     }
@@ -181,37 +182,64 @@
               }
             </style>
         {% endif %}
-      {% if section.settings.text != blank %}
-            <p class="text-{{ section.id }} GT-400">
+    
+  </div>
+</div>
+{% unless template contains 'facility' %}
+<div style="background: black; padding: 100px 0; text-align: center;">
+
+  {% if section.settings.text != blank %}
+    <div> <label class="text-{{ section.id }} GT-400" style="
+    font-style: inherit;
+    text-transform: uppercase;
+    ">
               {{ section.settings.text }}
-      		</p>
+      		</label></div>
+           
             <style>
+              
               .text-{{ section.id }} {
+                display:block;
                 margin: 0; 
                 letter-spacing: {{ section.settings.textLetter }}px; 
-                font-size: {{ section.settings.textSize | times: 100 | divided_by: 1440.0 }}vw; 
+                font-size: {{ section.settings.textSize | times: 100 | divided_by: 1920.0 }}vw; 
                 color: {{ section.settings.textColor }}; 
-                line-height: {{ section.settings.textLine | times: 100 | divided_by: 1440.0 }}vw;
+                line-height: {{ section.settings.textLine | times: 100 | divided_by: 1920.0 }}vw;
                 text-align: {{ section.settings.textAlign }};
-                margin-bottom: {{ section.settings.textMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+                margin-bottom: {{ section.settings.textMarBottom | times: 100 | divided_by: 1920.0 }}vw;
+               
               }
-              @media only screen and (max-width: 1009px) {
+
+        @media only screen and (min-width:1009px)  {
+ .text-{{ section.id }} {
+                
+                font-size: {{ section.settings.textSize | times: 100 | divided_by: 1440.0 }}vw; 
+                
+                line-height: {{ section.settings.textLine | times: 100 | divided_by: 1440.0 }}vw;
+               
+                margin-bottom: {{ section.settings.textMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+               
+              }
+        }
+        
+   
+              
+              
+              @media only screen and (max-width:1008px) {
                 .text-{{ section.id }} {
                   margin: 0; 
                   letter-spacing: {{ section.settings.textLetterMob }}px; 
-                  font-size: {{ section.settings.textSizeMob }}px; 
+                  font-size: {{ section.settings.textSizeMob }}px;
                   color: {{ section.settings.textColorMob }}; 
                   line-height: {{ section.settings.textLineMob }}px;
                   text-align: {{ section.settings.textAlignMob }};
                   margin-bottom: {{ section.settings.textMarBottomMob }}px;
+                     
                 }
               }
             </style>
         {% endif %}
-  </div>
-</div>
-{% unless template contains 'facility' %}
-<div style="background: black; padding: 50px 0; display: flex; justify-content: center;">
+  
 {% if section.settings.link != blank or section.settings.linkText != blank %}
             <div onclick="location.href='{{ section.settings.link }}'" class="buttonDiv buttonDiv-{{ section.id }}">
             <style>

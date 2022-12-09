@@ -1,0 +1,622 @@
+{% assign heading_max_width = 653 %}
+{% if template contains 'customization' %}
+  {% assign heading_max_width = 750 %}
+{% assign sub_heading_max_width = 480 %}
+  {% else %}
+{% assign sub_heading_max_width = 318 %}
+  {% endif %}
+
+  {% assign lt-space-desk = section.settings.titleLetter | times: 16  %}
+<style>
+
+
+.Homepage_main_section .buttonDiv  {
+    transition: all .6s ease-out;
+/*     background: black!important; */
+  
+  }
+
+  
+
+
+
+  .shopify-section {
+  	position: relative;
+  }
+
+@media only screen and (min-width:1009px) {
+       .Homepage_main_section .buttonDiv:hover {
+    transition: all .6s ease-out;
+    background: white!important;
+        stroke: black!important;
+}
+   homepageFirstButton :hover {
+    transition: all .6s ease-out;
+    background: white!important;
+        stroke: black!important;
+}
+
+  {% if template contains 'customization' %}
+ #shopify-section-{{ section.id }} {
+{% comment %}      background-image: url({{ section.settings.backgroundImage | img_url: "master" }}); {% endcomment %}
+       background:linear-gradient(0deg, rgb(0 0 0 / 65%), rgb(0 0 0 / 57%)),  url({{ section.settings.backgroundImage | img_url: "master" }})!important;
+ position: relative;
+    background-size: cover!important;
+ background-repeat: no-repeat!important;
+ }
+
+         {% else %}
+    
+     #shopify-section-{{ section.id }} {
+/*    background-image: url({{ section.settings.backgroundImage | img_url: "master" }}); */
+    background: linear-gradient(0deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 0%)),  url({{ section.settings.backgroundImage | img_url: "master" }})!important;
+    position: relative;
+    background-size: cover!important;
+      
+  }
+  {% endif %}
+  .Homepage_main_section {display:block!important;}
+
+{% if template contains 'customization' %}
+.Homepage_main_section {
+display:block!important;
+/* height: 100vh; */
+}
+
+   {% endif %}
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+  }
+  
+  #shopify-section-{{ section.id }} .visibilityDiv {
+  	padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by:1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+  }
+
+   #shopify-section-{{ section.id }} .visibilityDiv h1{
+   max-width:{{ heading_max_width | times: 100 | divided_by: 1440.0 }}vw;
+   }
+      #shopify-section-{{ section.id }} .visibilityDiv p{
+   max-width:{{ sub_heading_max_width | times: 100 | divided_by: 1440.0 }}vw;
+   }
+}
+
+@media only screen and (max-width: 1008px) {
+
+#shopify-section-165953881509dea222 .visibilityDiv h1 {
+    max-width: 100vw!important;
+}
+  
+.Homepage_main_section .buttonDiv {
+   
+    margin: 0;
+    margin-right: 10px!important;
+}
+      
+
+   #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+    /*  background-image: url({{ section.settings.backgroundImageMob | img_url: "master" }}); */
+        background:linear-gradient(0deg, rgb(0 0 0 / 80%), rgb(0 0 0 / 80%)), url({{ section.settings.backgroundImageMob | img_url: "master" }});
+      background-size: 100% 100%;
+    }
+   
+  
+        #shopify-section-{{ section.id }} .visibilityDiv {
+  	  padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+
+   #shopify-section-{{ section.id }} .visibilityDiv h1{
+   max-width:{{ heading_max_width | times: 100 | divided_by: 1008.0 }}vw;
+   }
+
+        
+    #shopify-section-{{ section.id }} .lottieDiv {
+    	position: absolute;
+      	top: unset!important;
+      	right: unset!important;
+      	bottom: 15px;
+      	left: 20px;
+      	z-index: 5;
+    }
+   }
+
+
+  
+ 
+</style>
+
+{% if section.settings.backgroundImage != blank %}
+<img style="visibility: hidden;" src="{{ section.settings.backgroundImage | img_url: "master" }}" class="fullWidth visibilityDivImg">
+{% endif %}
+<div class="visibilityDiv visibilityDivMob come-in">
+ 
+  	{% if section.settings.title != blank %}
+            <h1 class="CCD customHeading come-in-loading-2 heading-{{ section.id }}">{{ section.settings.title }}</h1>
+        <style>
+          @media only screen and (min-width:1009px) {
+          h1.heading-{{ section.id }} {
+            margin: 0; 
+            letter-spacing: {{ section.settings.titleLetter }}em; 
+            font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+            color: {{ section.settings.titleColor }}; 
+            line-height: {{ section.settings.titleLine}}%;
+            text-align: {{ section.settings.titleAlign }};
+            margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+          }
+          }
+        
+        @media only screen and (max-width:1008px) {
+          h1.heading-{{ section.id }} {
+            margin: 0; 
+            color: {{ section.settings.titleColorMob }}; 
+            text-align: {{ section.settings.titleAlignMob }};
+            margin-bottom: {{ section.settings.titleMarBottomMob  | times: 100 | divided_by: 375.0 }}vw;
+            font-size: {{ section.settings.titleSizeMob  | times: 100 | divided_by: 375.0 }}vw;
+           /* letter-spacing: {{ section.settings.titleLetterMob }}em; */
+            letter-spacing: {{ section.settings.titleLetterMob }}em; 
+            line-height: {{ section.settings.titleLineMob }}%;
+          }
+        }
+        </style>
+        {% endif %}
+
+
+<p class="subtext-165933224204727729 GT-400 come-in-loading-1" style="
+    margin-bottom: 10px;display:none;
+">
+<img class="googleImage"  style="width: 26%;     margin-left: -6px;" src ="https://cdn.shopify.com/s/files/1/0079/9093/5629/files/image_2022_08_01T05_56_22_497Z-removebg-preview.png?v=1659334042"/>
+</p>
+
+
+ {% if section.settings.subtext != blank %}
+            <p class="subtext-{{ section.id }} GT-350 come-in-loading-1">
+              {{ section.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ section.id }} {
+                margin: 0; 
+                color: {{ section.settings.subtextColor }}; 
+                text-align: {{ section.settings.subtextAlign }};
+              }
+              @media only screen and (min-width:1009px) {
+                .subtext-{{ section.id }} {
+                 letter-spacing: {{ section.settings.subtextLetter | times: 100 | divided_by: 1440.0 }}vw; 
+                 font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw;
+                 line-height: {{ section.settings.subtextLine }}%;
+                 margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+                }
+              }
+              
+              @media only screen and (max-width:1008px) {
+               .subtext-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.subtextLetterMob }}em; 
+                  font-size: {{ section.settings.subtextSizeMob | times: 100 | divided_by: 375.0 }}vw; 
+                  color: {{ section.settings.subtextColorMob }}; 
+                  line-height: {{ section.settings.subtextLineMob }}%; 
+                  text-align: {{ section.settings.subtextAlignMob }};
+                  margin-bottom: {{ section.settings.subtextMarBottomMob | times: 100 | divided_by: 375.0 }}vw;
+              }
+              }
+              
+           
+            </style>
+        {% endif %}
+
+  
+  {% if section.settings.buttonText != blank %}
+      	<div style="margin-right: 40px; margin-bottom: 48px;  onclick="location.href='{{ section.settings.buttonLink }}'" class="homepageFirstButton buttonDiv buttonDiv-{{ section.id }} {% if template contains "portfolio" %}portfolioButtonMain{% endif %}">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+          <svg class="orignalicon" xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            </svg>
+<svg  class="scrolicon" width="51" height="30" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.041 1.96875L13.4282 16.1276" stroke="white" stroke-width="2"/>
+<path d="M19.9678 9.63571L13.4404 16.5302L6.5459 10.0028" stroke="white" stroke-width="2"/>
+</svg>
+
+
+    
+        <a href="{{ section.settings.buttonLink }}">  <div style="min-height: 51px; color: {{ section.settings.titleColor }};" class="GT-600">{{ section.settings.buttonText }}</div></a>
+      	</div>
+      {% endif %}
+
+
+
+  {% if section.settings.buttonText2 != blank or section.settings.buttonLink2 != blank %}
+      	<div style="margin-bottom: 48px;     background-color: black;" onclick="location.href='{{ section.settings.buttonLink2 }}'" class="homepageFirstButton come-in-loading-3 buttonDiv buttonDiv-{{ section.id }} {% if template contains "portfolio" %}portfolioButtonMain{% endif %}">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+          <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            </svg>
+          <div style="min-height: 51px; color: {{ section.settings.titleColor }};" class="GT-600">{{ section.settings.buttonText2 }}</div>
+      	</div>
+      {% endif %}  
+</div>
+{% if section.settings.dark %}
+	<style>
+      .deskMenuItem {
+      	z-index: 1;
+      }
+      .deskMenuItem.light {
+  	display: block!important;
+  }
+  .deskMenuItem.dark {
+  	display: none!important;
+  }
+      .deskMenuItem.withinBody {
+      	mix-blend-mode: unset!important;
+        color: white!important;
+      }
+  .deskMenuItem.withinBody * {
+      	mix-blend-mode: unset!important;
+        color: white!important;
+      }
+	</style>
+{% else %}
+<style>
+  .deskMenuItem {
+      	z-index: 1;
+      }
+  .deskMenuItem.light {
+  	display: none!important;
+  }
+  .deskMenuItem.dark {
+  	display: block!important;
+  }
+      .deskMenuItem.withinBody {
+      	mix-blend-mode: unset!important;
+        color: black!important;
+      }
+  .deskMenuItem.withinBody * {
+      	mix-blend-mode: unset!important;
+        color: black!important;
+      }
+	</style>
+{% endif %}
+{% schema %}
+  {
+    "name": "main_section",
+	"class": "Homepage_main_section",
+    "settings": [
+		{
+          "type": "checkbox",
+          "id": "dark",
+          "default": true,
+          "label": "Dark background"
+        },
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImage",
+          "label": "Background image"
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImageMob",
+          "label": "Background image mobile"
+        },
+		
+		{
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+
+      {
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtitle"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        },
+
+      
+		{
+          "type": "text",
+          "id": "buttonText",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button Link"
+        },
+  {
+          "type": "text",
+          "id": "buttonText2",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "buttonLink2",
+          "label": "Button Link"
+        }
+	],
+    "presets": [
+      {
+        "category": "Homepage",
+        "name": "Homepage_main_section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
