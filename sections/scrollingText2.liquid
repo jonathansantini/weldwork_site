@@ -1,0 +1,315 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+    }
+  }
+  {% assign padB = section.settings.padBottom %}
+  {% assign padT = section.settings.padTop %}
+  {% assign height = padB | plus: padT | plus: section.settings.titleSize %}
+#shopify-section-{{ section.id }} .m-scroll {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: {{ height | times: 100 | divided_by: 1440.0 }}vw;
+  margin: auto;
+  background-color: {{ section.settings.backgroundColor }};
+  overflow: hidden;
+  z-index: 1;
+}
+#shopify-section-{{ section.id }} .m-scroll__title {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  transform: scale(1);
+  transition: all 1s ease;
+}
+#shopify-section-{{ section.id }} .m-scroll__title > div {
+  display: flex;
+  {% if template contains 'about' %}
+  -webkit-animation: scrollText 18s infinite linear;
+          animation: scrollText 18s infinite linear;
+  {% else %}
+  -webkit-animation: scrollText 23s infinite linear;
+          animation: scrollText 23s infinite linear;
+  {% endif %}
+}
+#shopify-section-{{ section.id }} .m-scroll__title h1 {
+  margin: 0;
+  transition: all 2s ease;
+}
+#shopify-section-{{ section.id }} .m-scroll__title a {
+  text-decoration: none;
+  color: white;
+}
+#shopify-section-{{ section.id }} .m-scroll__title a:hover {
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+}
+</style>
+<div class="m-scroll">
+  <div class="m-scroll__title">
+    <div>
+      {% for block in section.blocks %}
+       <style>
+                .img-{{ block.id }} {
+                  width: {{ block.settings.width | times: 100 | divided_by: 1440.0 }}vw;
+                  margin: 2.22vw 3.46vw;
+                  margin-bottom: 0;
+                  }
+                @media only screen and (max-width: 600px) {
+                  .img-{{ block.id }} {
+                      width: {{ block.settings.widthMob }}px;
+                   }
+                }
+            </style>
+            <style>
+              h1.heading-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.titleLetter }}px; 
+                font-size: {{ block.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.titleColor }}; 
+                line-height: {{ block.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.titleAlign }};
+              }
+              .evenCol-{{ block.id }} {
+              	margin-bottom: {{ block.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h1.heading-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.titleLetterMob }}px; 
+                  font-size: {{ block.settings.titleSizeMob }}px; 
+                  color: {{ block.settings.titleColorMob }}; 
+                  line-height: {{ block.settings.titleLineMob }}px;
+                  text-align: {{ block.settings.titleAlignMob }};
+                }
+                .evenCol-{{ block.id }} {
+                	margin-bottom: {{ block.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% if block.settings.title != blank %}
+              <h1 class="CCD customHeading heading-{{ block.id }}">{{ block.settings.title }}</h1>
+              {% if block.settings.image != blank %}
+                <img class="img-{{ block.id }}" src="{{ block.settings.image }}">
+              {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% assign items = section.blocks | reverse %}
+      {% for block in section.blocks  %}
+          {% if block.settings.title != blank %}
+                <h1 class="CCD customHeading heading-{{ block.id }}">{{ block.settings.title }}</h1>
+            {% if block.settings.image != blank %}
+                    <img class="img-{{ block.id }}" src="{{ block.settings.image }}">
+            {% endif %}
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Scrolling text 2",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        }
+	],
+	"blocks": [
+      {
+        "type": "text",
+        "name": "Block",
+        "settings": [
+          	{
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "width",
+            "label": "Image width (numbers only)"
+        },
+        {
+            "type": "text",
+            "id": "widthMob",
+            "label": "Image width (Mobile numbers only)"
+        }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "About",
+        "name": "Scrolling Text 2",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

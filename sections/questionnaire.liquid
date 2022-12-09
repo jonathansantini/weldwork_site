@@ -1,0 +1,917 @@
+<style>
+  #shopify-section-{{ section.id }} {
+	z-index: 11000;
+  }
+  .questionnaire {
+  	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #F4F0EA;
+    z-index: 20;
+    padding: 10.8333vw 6.11vw 5.9vw 6.11vw;
+    overflow-y: scroll;
+    transform: translateY(-200%);
+    transition: transform 0.6s ease-out;
+  }
+  .questionnaire.active {
+  	transform: translateY(0%);
+  }
+  .questionCart {
+  	padding: 3.96vw 6.8vw 3.96vw 14.72vw;
+    border-top: 1px solid rgba(195, 195, 195, .5);
+    display: flex;
+  }
+  .questionCart2 {
+    border-top: 1px solid rgba(195, 195, 195, .5);
+  	padding: 4.513vw 6.8vw 0vw 14.72vw;
+    display: flex;
+  }
+  .questionNumber {
+  	padding-right: 15.278vw;
+    font-size: 1.667vw;
+  	line-height: 2vw;
+    color: #848484;
+  }
+  .cartQuestionText {
+  	font-size: 1.667vw;
+  	line-height: 2vw;
+    color: #000;
+    margin-bottom: 2.29vw;
+  }
+  .cartInputText {
+  	margin-bottom: 0;
+    max-width: 35.76vw;
+  }
+  .questionInit {
+  	flex-grow: 1;
+  }
+  .questionButtons {
+  	display: flex;
+  }
+  .questionButtons > div {
+  	margin-right: 3.89vw;
+  }
+ .questionButtons label {
+    font-family: "GT Walsheim Pro";
+    font-weight: 300;
+  	font-size: 1.11vw;
+    line-height: 1.67vw;
+    font-style: unset!important;
+    position: relative;
+  }
+  .questionButtons input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.389vw;
+  width: 1.389vw;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #C3C3C3;
+}
+
+/* On mouse-over, add a grey background color */
+.questionButtons label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.questionButtons label input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.questionButtons label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.questionButtons label .checkmark:after {
+ 	top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	width: 0.56vw;
+	height: 0.56vw;
+	border-radius: 50%;
+	background: #000;
+}
+  .textLabel {
+  	margin-left: 2.5vw;
+  }
+  .containercont {
+  font-style: unset!important;
+  display: flex;
+  position: relative;
+  padding-left: 2.5vw;
+  margin-bottom: 2.22vw;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.containercont input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.389vw;
+  width: 1.389vw;
+  background-color: transparent;
+  border: 1px solid #c3c3c3;
+}
+
+/* On mouse-over, add a grey background color */
+.containercont:hover input ~ .checkbox2 {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containercont input:checked ~ .checkbox2 {
+  background-color: #transparent;
+}
+
+/* Create the checkbox2/indicator (hidden when not checked) */
+.checkbox2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkbox2 when checked */
+.containercont input:checked ~ .checkbox2:after {
+  display: block;
+}
+
+/* Style the checkbox2/indicator */
+.containercont .checkbox2:after {
+  top: 50%;
+  left: 30%;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg) translate(-50%,-50%);
+  -ms-transform: rotate(45deg) translate(-50%,-50%);
+  transform: rotate(45deg) translate(-50%,-50%);
+}
+  .textLabelCheckbox {
+  	font-style: unset!important;
+    font-size: 0.97vw;
+    line-height: 1.361vw;
+    color: #5E5E5E;
+    font-family: "GT Walsheim Pro";
+    font-weight: 400;
+  }
+  .leftBorderQuest {
+  	height: 100%;
+    position: fixed;
+    width: 1px;
+    background: #c3c3c3;
+    opacity: 0.5;
+    top: 0;
+    left: 6.11vw;
+  }
+  .rightBorderQuest {
+  	height: 100%;
+    position: fixed;
+    width: 1px;
+    background: #c3c3c3;
+    opacity: 0.5;
+    top: 0;
+    right: 6.11vw;
+  }
+  .xDivQuest {
+  	position: fixed;
+    width: 6.11vw;
+    height: 6.11vw;
+    top: 0;
+    right: 0;
+    padding: 2.29vw;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .xDivFirst {
+  	width: 100%;
+    height: 3px;
+    background: #000;
+    transform: rotate(45deg);
+    transform-origin: top;
+  }
+  .xDivSecond {
+  	width: 100%;
+    height: 3px;
+    background: #000;
+    transform: rotate(135deg);
+    transform-origin: top;
+  }
+  @media only screen and (max-width: 1009px) {
+  	#shopify-section-{{ section.id }} {
+      position: relative;
+      z-index: 11000;
+    }
+    .questionnaire {
+    padding: 96px 20px 53px 20px;
+  }
+  .questionCart {
+  	padding: 48px 20px 50px 20px;
+    border-top: 1px solid rgba(195, 195, 195, .5);
+    display: block;
+    width: 100vw;
+    margin-left: -20px;
+  }
+  .questionCart2 {
+    border-top: 1px solid rgba(195, 195, 195, .5);
+  	padding: 48px 20px 50px 20px;
+    display: block;
+    width: 100vw;
+    margin-left: -20px;
+  }
+  .questionNumber {
+  	padding-right: 0;
+    font-size: 24px;
+  	line-height: 28.8px;
+    color: #848484;
+    margin-bottom: 8px;
+  }
+  .cartQuestionText {
+  	font-size: 24px;
+  	line-height: 28.8px;
+    color: #000;
+    margin-bottom: 26px;
+  }
+  .cartInputText {
+  	margin-bottom: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  .questionInit {
+  	flex-grow: 1;
+  }
+  .questionButtons {
+  	display: flex;
+  }
+  .questionButtons > div {
+  	margin-right: 39px;
+  }
+ .questionButtons label {
+    font-family: "GT Walsheim Pro";
+    font-weight: 300;
+  	font-size: 16px;
+    line-height: 24px;
+    font-style: unset!important;
+    position: relative;
+  }
+  .questionButtons input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #C3C3C3;
+}
+
+/* On mouse-over, add a grey background color */
+.questionButtons label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.questionButtons label input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.questionButtons label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.questionButtons label .checkmark:after {
+ 	top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #000;
+}
+  .textLabel {
+  	margin-left: 36px;
+  }
+  .containercont {
+  font-style: unset!important;
+  display: flex;
+  position: relative;
+  padding-left: 39px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.containercont input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 1px solid #c3c3c3;
+}
+
+/* On mouse-over, add a grey background color */
+.containercont:hover input ~ .checkbox2 {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.containercont input:checked ~ .checkbox2 {
+  background-color: #transparent;
+}
+
+/* Create the checkbox2/indicator (hidden when not checked) */
+.checkbox2:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkbox2 when checked */
+.containercont input:checked ~ .checkbox2:after {
+  display: block;
+}
+
+/* Style the checkbox2/indicator */
+.containercont .checkbox2:after {
+  top: 50%;
+  left: 30%;
+  width: 5px;
+  height: 10px;
+  border: solid #000;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg) translate(-50%,-50%);
+  -ms-transform: rotate(45deg) translate(-50%,-50%);
+  transform: rotate(45deg) translate(-50%,-50%);
+}
+  .textLabelCheckbox {
+  	font-style: unset!important;
+    font-size: 14px;
+    line-height: 19.6px;
+    color: #5E5E5E;
+    font-family: "GT Walsheim Pro";
+    font-weight: 400;
+  }
+  .leftBorderQuest {
+  	display: none;
+  }
+  .rightBorderQuest {
+  	display: none;
+  }
+  .xDivQuest {
+  	position: fixed;
+    width: 19px;
+    height: 19px;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .xDivFirst {
+  	width: 107%;
+    height: 3px;
+    background: #000;
+    transform: rotate(45deg);
+    transform-origin: top;
+  }
+  .xDivSecond {
+  	width: 110%;
+    height: 3px;
+    background: #000;
+    transform: rotate(135deg);
+    transform-origin: top;
+  }
+  }
+</style>
+<div class="questionnaire">
+  <div class="leftBorderQuest"></div>
+<div class="rightBorderQuest"></div>
+<div class="xDivQuest">
+  <div class="xDivFirst"></div>
+  <div class="xDivSecond"></div>
+</div>
+{% if section.settings.subtext != blank %}
+            <p class="subtext-{{ section.id }} GT-{{ section.settings.subtextWeight }}">
+              {{ section.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.subtextLetter }}px; 
+                font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.subtextColor }}; 
+                line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.subtextAlign }};
+                margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.subtextLetterMob }}px; 
+                  font-size: {{ section.settings.subtextSizeMob }}px; 
+                  color: {{ section.settings.subtextColorMob }}; 
+                  line-height: {{ section.settings.subtextLineMob }}px;
+                  text-align: {{ section.settings.subtextAlignMob }};
+                  margin-bottom: {{ section.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      	{% if section.settings.title != blank %}
+            <h2 class="GT-400 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+  {% for block in section.blocks %}
+    <div class="questionCart">
+      <div class="GT-500 questionNumber">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>
+      <div class="questionInit">
+        <p class="cartQuestionText GT-500">{{ block.settings.question }}</p>
+        {% if block.type == "Text" %}
+        	<label for="CartForm{{ block.id }}" class="hidden-label">{{ block.settings.placeholder }}</label>
+            <input type="text" id="CartForm{{ block.id }}" class="input-full cartInputText" name="question-{{ forloop.index }}" placeholder="{{ block.settings.placeholder }}" autocapitalize="words">
+        {% else %}
+        <div class="questionButtons">
+          {% if block.settings.answer1 != blank %}
+          <div>
+            <label for="question{{ block.id }}-1">
+            <input type="radio" id="question{{ block.id }}-1" name="question-{{ forloop.index }}" value="{{ block.settings.answer1 }}" checked>
+            <span class="checkmark"></span>
+              <span class="textLabel">{{ block.settings.answer1 }}</span></label>
+          </div>
+          {% endif %}
+          {% if block.settings.answer2 != blank %}
+          <div>
+            <label for="question{{ block.id }}-2">
+            <input type="radio" id="question{{ block.id }}-2" name="question-{{ forloop.index }}" value="{{ block.settings.answer2 }}">
+            <span class="checkmark"></span>
+              <span class="textLabel">{{ block.settings.answer2 }}</span></label>
+          </div>
+          {% endif %}
+          {% if block.settings.answer3 != blank %}
+          <div>
+            <label for="question{{ block.id }}-3">
+            <input type="radio" id="question{{ block.id }}-3" name="question-{{ forloop.index }}" value="{{ block.settings.answer3 }}">
+            <span class="checkmark"></span>
+            <span class="textLabel">{{ block.settings.answer3 }}</span></label>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+  	</div>
+  {% endfor %}
+  <div class="questionCart2">
+      <div style="opacity: 0;" class="GT-500 questionNumber">01</div>
+      <div class="questionInit">
+        <label class="containercont">
+          <span class="textLabelCheckbox">
+          Customer agrees to check all packaging for damage before accepting any order.
+          </span>
+          <input type="checkbox">
+          <span class="checkbox2"></span>
+        </label>
+        <label class="containercont">
+          <span class="textLabelCheckbox">
+          Customer acknowledges that strut bar will always be bent so please don’t worry.
+          </span>
+          <input type="checkbox">
+          <span class="checkbox2"></span>
+        </label>
+        <label class="containercont">
+          <span class="textLabelCheckbox">
+          Customer acknowledges that while it rarely happens, if the glass happens to break, Weldwork has all documentation and engineering specs to get you a new piece.
+          </span>
+          <input type="checkbox">
+          <span class="checkbox2"></span>
+        </label>
+        <label class="containercont">
+          <span class="textLabelCheckbox">
+          Installation is easy. We provide detailed instruction and facetime support if needed. We will have downloadable instructions through a QR code once the unit goes into production. 
+          </span>
+        </label>
+        <div class="buttonDiv buttonDiv-{{ section.id }} questionnaireSubmit">
+            <style>
+              .buttonDiv-{{ section.id }} {
+              	width: 40%;
+                margin-top: 1.736vw;
+              }
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='#000' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='#000' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+          <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="#000" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="#000" stroke-width="2"/>
+            </svg>
+          <div style="min-height: 51px; color: #000;" class="GT-600">Submit</div>
+      	</div>
+      </div>
+  </div>
+</div>
+<script>{% for block in section.blocks %}
+  let question{{ forloop.index }} = "{% if block.settings.answer1 %}{{  block.settings.answer1 }}{% endif %}";{% endfor %}
+  {% for block in section.blocks %}
+  {% if block.type == "Text" %}
+  $('input[name=question-{{ forloop.index }}]').on('input',function(e){
+   question{{ forloop.index }} = this.value;
+  });
+  {% else %}
+  $('input[type=radio][name=question-{{ forloop.index }}]').change(function() {
+	question{{ forloop.index }} = this.value;
+  });
+  {% endif %}
+  {% endfor %}
+  $(".questionnaireSubmit").click(function(){
+  	jQuery.post('/cart/update.js', {
+      attributes: { {% for block in section.blocks %}
+        "{{ block.settings.question }}": question{{ forloop.index }}{% unless forloop.last %},{% endunless %}{% endfor %}
+      }
+  	});
+    setTimeout(function(){
+    	$(".checkoutMain").click();
+    },1500);
+  });
+</script>
+<script>
+  $(document).on('click', '.checkoutQuest', function(){
+  	$(".questionnaire").addClass("active");
+    $(".js-drawer-close").click();
+  });
+</script>
+<script>
+  $(".xDivQuest").click(function(){
+  	$(".questionnaire").removeClass("active");
+    $(".cart__checkout").removeClass("btn--loading");
+    $(".js-drawer-open-button-right").click()
+  });
+</script>
+{% schema %}
+  {
+    "name": "Prebuild questionnaire",
+    "settings": [
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextWeight",
+          "label": "Subtitle weight (100-900)",
+		  "default": "400"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        }
+	],
+	"blocks": [
+    {
+      "type": "multi",
+      "name": "Multiple Choice Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "text",
+          "id": "answer1",
+          "label": "Answer 1"
+        },
+        {
+          "type": "text",
+          "id": "answer2",
+          "label": "Answer 2"
+        },
+        {
+          "type": "text",
+          "id": "answer3",
+          "label": "Answer 3"
+        }
+      ]
+    },
+    {
+      "type": "Text",
+      "name": "Text question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "question"
+        },
+        {
+          "type": "text",
+          "id": "placeholder",
+          "label": "Input placeholder"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

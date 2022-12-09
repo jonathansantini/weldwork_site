@@ -1,0 +1,1257 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background-image: url({{ section.settings.backgroundImage | img_url: "1200x" }});
+    position: relative;
+    background-size: cover;
+  }
+  #shopify-section-{{ section.id }} .textDiv-{{ section.id }} {
+  	padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+  }
+  .perksDiv.firstTwo {
+  	position: relative;
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      background-image: url({{ section.settings.backgroundImageMob | img_url: "1200x" }});
+      background-size: cover;
+    }
+    #shopify-section-{{ section.id }} .textDiv-{{ section.id }} {
+  	  padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+    .noAbsolute {
+    	position: relative!important;
+    }
+    .perkTitle {
+    	font-size: 24px;
+      	line-height: 28.8px;
+      	color: #fff;
+    }
+    .perksFlex {
+    	display: flex;
+      	flex-wrap: wrap;
+      	width: 592px;
+      	min-width: 592px;
+    }
+    .perksFlex .perksDiv {
+    	width: 237px;
+      	margin-right: 59px;
+    }
+    .perksDiv.firstTwo {
+    	border-bottom: 1px solid #fff;
+      	margin-bottom: 25px;
+    }
+    .perksDiv.perksSVG {
+    	margin-bottom: 29px;
+    }
+    .indTab + .mobileClass {
+   		display: none; 
+      	width: 100vw;
+		margin-left: -20px;
+      	margin-bottom: 24px;
+    }
+    .indTab.active + .mobileClass {
+   		display: block; 
+      	height: 100%;
+      	padding-top: 48px;
+		padding-bottom: 48px;
+    }
+  }
+</style>
+{% if section.settings.backgroundImage != blank %}
+<img style="visibility: hidden;" src="{{ section.settings.backgroundImage | img_url: "1200x" }}" class="fullWidth visibilityDivImg">
+{% endif %}
+<div class="visibilityDiv visibilityDivMob flexDiv applyAnimation">
+  <div style="min-height: 100%; position: absolute;" class="noAbsolute flexDiv fullWidth fullHeight">
+    <div class="textDiv-{{ section.id }}">
+    <style>
+      {% assign boxDiv = 100 | minus: section.settings.textWidth | minus: section.settings.textMargin %}
+      {% assign boxDiv2 = 100 | minus: section.settings.textWidthMob | minus: section.settings.textMarginMob %}
+      .textDiv-{{ section.id }} {
+        width: {{ section.settings.textWidth }}%;
+        margin-right: {{ section.settings.textMargin }}%;
+      }
+      .boxDiv-{{ section.id }} {
+        width: {{ boxDiv }}%;
+      }
+      @media only screen and (max-width: 1009px) {
+      .textDiv-{{ section.id }} {
+      	width: {{ section.settings.textWidthMob }}%;
+        margin-right: {{ section.settings.textMarginMob }}%;
+      }
+      {% if boxDiv2 <= 0 %}
+        .boxDiv-{{ section.id }} {
+        	width: 100%;
+        }
+      {% else %}
+        .boxDiv-{{ section.id }} {
+        	width: {{ boxDiv2 }}%;
+        }
+      {% endif %}
+      }
+    </style>
+  	{% if section.settings.subtext != blank %}
+            <p class="subtext-{{ section.id }} GT-400 come-in-1">
+              {{ section.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.subtextLetter }}px; 
+                font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.subtextColor }}; 
+                line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.subtextAlign }};
+                margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.subtextLetterMob }}px; 
+                  font-size: {{ section.settings.subtextSizeMob }}px; 
+                  color: {{ section.settings.subtextColorMob }}; 
+                  line-height: {{ section.settings.subtextLineMob }}px;
+                  text-align: {{ section.settings.subtextAlignMob }};
+                  margin-bottom: {{ section.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      	{% if section.settings.title != blank %}
+            <h2 class="GT-600 customHeading come-in-2 heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+    	<style>
+              .tabTitle-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.tabTitleLetter }}px; 
+                font-size: {{ section.settings.tabTitleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.tabTitleColor }}; 
+                line-height: {{ section.settings.tabTitleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.tabTitleAlign }};
+                margin-bottom: {{ section.settings.tabTitleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+          .tabNumber {
+          	line-height: {{ section.settings.tabTitleLine | times: 100 | divided_by: 1440.0 }}vw;
+          }
+              @media only screen and (max-width: 1009px) {
+                .tabNumber {
+                  line-height: {{ section.settings.tabTitleLineMob }}px;
+                }
+                .tabTitle-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.tabTitleLetterMob }}px; 
+                  font-size: {{ section.settings.tabTitleSizeMob }}px; 
+                  color: {{ section.settings.tabTitleColorMob }}; 
+                  line-height: {{ section.settings.tabTitleLineMob }}px;
+                  text-align: {{ section.settings.tabTitleAlignMob }};
+                  margin-bottom: {{ section.settings.tabTitleMarBottomMob }}px;
+                }
+              }
+          .tabTitle2-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.tabTitle2Letter }}px; 
+                font-size: {{ section.settings.tabTitle2Size | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.tabTitle2Color }}; 
+                line-height: {{ section.settings.tabTitle2Line | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.tabTitle2Align }};
+              }
+          .tabTitle2Div-{{ section.id }} {
+          	margin-bottom: {{ section.settings.tabTitle2MarBottom | times: 100 | divided_by: 1440.0 }}vw;
+          }
+              @media only screen and (max-width: 1009px) {
+                .tabTitle2-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.tabTitle2LetterMob }}px; 
+                  font-size: {{ section.settings.tabTitle2SizeMob }}px; 
+                  color: {{ section.settings.tabTitle2ColorMob }}; 
+                  line-height: {{ section.settings.tabTitle2LineMob }}px;
+                  text-align: {{ section.settings.tabTitle2AlignMob }};
+                  margin-bottom: {{ section.settings.tabTitle2MarBottomMob }}px;
+                }
+                .tabTitle2Div-{{ section.id }} {
+                    margin-bottom: {{ section.settings.tabTitle2MarBottomMob }}px;
+                }
+              }
+          	.tabText-{{ section.id }}.tabText-{{ section.id }} p {
+          		margin: 0; 
+                letter-spacing: {{ section.settings.tabTextLetter }}px; 
+                font-size: {{ section.settings.tabTextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.tabTextColor }}; 
+                line-height: {{ section.settings.tabTextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.tabTextAlign }};
+                margin-bottom: {{ section.settings.tabTextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .tabText-{{ section.id }}.tabText-{{ section.id }} p {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.tabTextLetterMob }}px; 
+                  font-size: {{ section.settings.tabTextSizeMob }}px; 
+                  color: {{ section.settings.tabTextColorMob }}; 
+                  line-height: {{ section.settings.tabTextLineMob }}px;
+                  text-align: {{ section.settings.tabTextAlignMob }};
+                  margin-bottom: {{ section.settings.tabTextMarBottomMob }}px;
+            </style>
+      {% for block in section.blocks %}
+    	<div tab="{{ forloop.index }}" style="border-color: {{ section.settings.tabTitleColor }};" 
+             class="indTab come-in-{{ forloop.index | plus: 2 }} fullWidth {% if forloop.first %}active{% endif %}">
+        	<div class="tabTitle">
+              {% if block.settings.title != blank %}
+              	<p style="padding-right: 20px;" class="GT-300 tabTitle-{{ section.id }}">
+                  {{ block.settings.title }}
+              	</p>
+              {% endif %}
+          	</div>
+          	<div style="color: {{ section.settings.tabTitleColor }}; align-items: flex-start;" class="tabNumber numberTab active GT-400">
+              {% if block.settings.title != blank %}
+              	0{{ forloop.index }}
+              {% endif %}
+          	</div>
+          	<div style="color: {{ section.settings.tabTitleColor }};" class="tabNumber arrowTab GT-400">
+              <svg class="desktopClass" style="width: 100%;" xmlns="http://www.w3.org/2000/svg" width="38" height="24" viewBox="0 0 38 24" fill="none">
+              <path d="M0 12L35 12" stroke="white" stroke-width="3"/>
+              <path d="M25 2L35 12L25 22" stroke="white" stroke-width="3"/>
+              </svg>
+              
+              <svg class="mobileClass" xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+              <path d="M12 0L12 19.5" stroke="white" stroke-width="3"/>
+              <path d="M22 9.5L12 19.5L2 9.5" stroke="white" stroke-width="3"/>
+              </svg>
+          	</div>
+    	</div>
+      	<div class="mobileClass boxDiv-{{ section.id }}">
+      <style>
+       .boxDiv-{{ section.id }} {
+          height: 100%;
+          padding-top: {{ section.settings.boxPadTop | times: 100 | divided_by: 1440.0 }}vw;
+          padding-bottom: {{ section.settings.boxPadBottom | times: 100 | divided_by: 1440.0 }}vw;
+          padding-left: {{ section.settings.boxPadLeft | times: 100 | divided_by: 1440.0 }}vw;
+          padding-right: {{ section.settings.boxPadRight | times: 100 | divided_by: 1440.0 }}vw;
+          background-color: {{ section.settings.backgroundColor }};
+        }
+        @media only screen and (max-width: 1009px) {
+          .boxDiv-{{ section.id }} {
+            padding-top: {{ section.settings.boxPadTopMob }}px;
+            padding-bottom: {{ section.settings.boxPadBottomMob }}px;
+            padding-left: {{ section.settings.boxPadLeftMob }}px;
+            padding-right: {{ section.settings.boxPadRightMob }}px;
+            overflow-x: scroll;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+          }
+          .boxDiv-{{ section.id }}::-webkit-scrollbar {
+              display: none;
+            }
+        }
+      </style>
+      <div style="justify-content: space-between;" class="flexDiv perksFlex">
+        <div class="perksDiv firstTwo come-in-1">
+          {% if section.settings.title != blank %}
+            <h2 style="visibility: hidden; line-height: 22px;" class="GT-600 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+          <p style="position: absolute; bottom: 0;" class="perkTitle perkW">
+         <svg xmlns="http://www.w3.org/2000/svg" width="172" height="32" viewBox="0 0 172 32" fill="none">
+          <g clip-path="url(#clip0_1351_46650)">
+          <path d="M62.7213 25.3302L60.9374 18.8363L58.667 9.93353H58.4803L56.2148 18.8462L54.4235 25.3302H51.7207L46.7695 7.36328H48.9564L51.3226 15.9556L53.0746 22.7649L54.8339 15.9556L57.2026 7.36328H59.9251L62.2938 15.9556L64.0531 22.7649L65.8124 15.9556L68.1811 7.36328H70.3679L65.4242 25.3302H62.7213Z" fill="white"/>
+          <path d="M89.0508 25.33V5.56519H91.1713V25.33H89.0508Z" fill="white"/>
+          <path d="M106.415 25.33V22.3649C105.91 23.3646 105.136 24.2002 104.183 24.776C103.229 25.3518 102.134 25.6445 101.024 25.6206C97.2227 25.6206 94.3135 22.5437 94.3135 18.2724C94.3135 14.0011 97.2719 10.9267 101.012 10.9267C102.129 10.9076 103.228 11.2071 104.184 11.7909C105.14 12.3746 105.914 13.219 106.417 14.2271V5.56519H108.538V25.33H106.415ZM96.4463 18.2724C96.4463 21.3716 98.6086 23.5867 101.437 23.5867C104.265 23.5867 106.425 21.3865 106.425 18.2774C106.425 15.1682 104.253 12.9556 101.434 12.9581C98.6159 12.9606 96.4438 15.1484 96.4463 18.2724Z" fill="white"/>
+          <path d="M124.556 25.3299L123.168 20.5743L121.293 13.4223H121.136L119.264 20.5718L117.863 25.3299H115.298L111.175 11.2122H113.29L114.573 15.6573L116.6 22.9012L118.63 15.6573L119.908 11.2122H122.502L123.785 15.6573L125.814 22.9012L127.844 15.6573L129.124 11.2122H131.24L127.122 25.3299H124.556Z" fill="white"/>
+          <path d="M147.409 18.2777C147.409 22.4993 144.239 25.6184 140.215 25.6209C136.19 25.6234 133.018 22.4919 133.018 18.2727C133.018 14.0535 136.249 10.927 140.215 10.927C144.18 10.927 147.404 14.0411 147.409 18.2777ZM135.148 18.2777C135.148 21.3769 137.386 23.592 140.215 23.592C143.043 23.592 145.276 21.3918 145.279 18.2826C145.281 15.1735 143.03 12.9609 140.215 12.9633C137.399 12.9658 135.143 15.1487 135.143 18.2727L135.148 18.2777Z" fill="white"/>
+          <path d="M152.682 13.2535V25.3299H150.562V11.2122H157.874V13.2535H152.682Z" fill="white"/>
+          <path d="M168.586 11.2123H171.321L164.714 17.9446L171.999 25.33H169.245L162.638 18.7219V25.33H160.515V5.56519H162.638V17.2791L168.586 11.2123Z" fill="white"/>
+          <path d="M29.9231 3.40962L18.1263 0V9.26284L9.06194 6.64292V15.8933L0 13.2858V25.4219L11.7943 28.8315L20.8611 31.4514V22.1886L29.9231 24.8085V3.40962ZM27.1883 5.49314V11.8803L20.8611 10.0525V3.6654L27.1883 5.49314ZM2.7348 16.9512L9.06194 18.779V25.1661L2.7348 23.3433V16.9512ZM18.1263 27.786L11.7943 25.9583V10.3133L18.1239 12.141V27.786H18.1263ZM20.8611 19.3129V12.9282L27.1883 14.756V21.1431L20.8611 19.3129Z" fill="white"/>
+          <path d="M83.5286 20.6468C82.8578 22.5515 81.0886 23.7758 78.9509 23.7758C76.1154 23.7609 73.9408 21.6451 73.8744 18.6179H86.0152C86.0512 18.207 86.0463 17.7935 86.0004 17.3837C85.6098 13.5271 82.5383 10.927 78.8747 10.927C74.8622 10.927 71.749 14.0635 71.749 18.2752C71.749 22.4869 74.8721 25.6184 78.9681 25.6184C81.9535 25.6184 84.5483 23.9446 85.5582 21.2304L83.5286 20.6468ZM78.919 12.715C80.1308 12.6933 81.3064 13.1331 82.2122 13.9469C83.1181 14.7608 83.688 15.8892 83.8087 17.108H74.0145C74.1473 15.8914 74.7228 14.7681 75.6291 13.9563C76.5354 13.1445 77.708 12.7021 78.919 12.715Z" fill="white"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_1351_46650">
+          <rect width="172" height="31.4514" fill="white"/>
+          </clipPath>
+          </defs>
+          </svg>
+          </p>
+        </div>
+        <div class="perksDiv firstTwo come-in-1">
+          {% if section.settings.title != blank %}
+            <h2 style="visibility: hidden; line-height: 22px;" class="GT-600 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+          <p style="position: absolute; bottom: 0; line-height: 39px;" class="perkTitle perkC GT-600">Our competitors</p>
+        </div>
+        <div class="perksDiv perksSVG come-in-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+            <circle cx="17.5" cy="17.5" r="17.5" fill="#F4F0EA"/>
+            <path d="M11 17.6897L16 21.5L24 12" stroke="black" stroke-width="4"/>
+          </svg>
+        </div>
+        <div class="perksDiv perksSVG come-in-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <circle cx="17.5" cy="17.5" r="17.5" fill="#848484"/>
+          <path d="M12 22.5416L23 12.4583" stroke="#232323" stroke-width="4"/>
+          <path d="M22.5413 23L12.458 12" stroke="#232323" stroke-width="4"/>
+          </svg>
+        </div>
+        
+        {% if block.settings.titlePerk != blank %}
+        <div style="padding: 0; display: block!important;" class="perksDiv tabTitle2Div-{{ section.id }} come-in-3 tabTextNew textTab-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+      	<div style="padding: 0; margin-bottom: 0;" class="tabTitle2-{{ section.id }}">
+          <p style="margin-bottom: 0;" class="GT-600">{{ block.settings.titlePerk }}</p>
+      	</div>
+        </div>
+      	{% endif %}
+        {% if block.settings.titleCon != blank %}
+        <div style="padding: 0; display: block!important;" class="perksDiv tabTitle2Div-{{ section.id }} come-in-3 tabTextNew textTab-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+      	<div style="padding: 0; margin-bottom: 0;" class="tabTitle2-{{ section.id }}">
+          <p style="margin-bottom: 0;" class="GT-600">{{ block.settings.titleCon }}</p>
+      	</div>
+        </div>
+      	{% endif %}
+      	{% if block.settings.textPerk != blank %}
+        <div style="display: block!important;" class="perksDiv tabTextNew come-in-4 textTab-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+      	<div class="tabText-{{ section.id }}">
+          <p class="GT-300">{{ block.settings.textPerk }}</p>
+      	</div>
+        </div>
+      	{% endif %}
+        {% if block.settings.textCon != blank %}
+        <div style="display: block!important;" class="perksDiv tabTextNew come-in-4 textTab-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+      	<div class="tabText-{{ section.id }}">
+          <p class="GT-300">{{ block.settings.textCon }}</p>
+      	</div>
+        </div>
+      	{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+    <div class="desktopClass boxDiv-{{ section.id }}">
+      <style>
+       .boxDiv-{{ section.id }} {
+          height: 100%;
+          padding-top: {{ section.settings.boxPadTop | times: 100 | divided_by: 1440.0 }}vw;
+          padding-bottom: {{ section.settings.boxPadBottom | times: 100 | divided_by: 1440.0 }}vw;
+          padding-left: {{ section.settings.boxPadLeft | times: 100 | divided_by: 1440.0 }}vw;
+          padding-right: {{ section.settings.boxPadRight | times: 100 | divided_by: 1440.0 }}vw;
+          background-color: {{ section.settings.backgroundColor }};
+        }
+        @media only screen and (max-width: 1009px) {
+          .boxDiv-{{ section.id }} {
+            padding-top: {{ section.settings.boxPadTopMob }}px;
+            padding-bottom: {{ section.settings.boxPadBottomMob }}px;
+            padding-left: {{ section.settings.boxPadLeftMob }}px;
+            padding-right: {{ section.settings.boxPadRightMob }}px;
+          }
+        }
+      </style>
+      <div style="justify-content: space-between;" class="flexDiv">
+        <div class="perksDiv firstTwo come-in-1">
+          {% if section.settings.title != blank %}
+            <h2 style="visibility: hidden;" class="GT-600 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+          <p style="position: absolute; bottom: 0;" class="perkTitle perkW">
+         <svg xmlns="http://www.w3.org/2000/svg" width="172" height="32" viewBox="0 0 172 32" fill="none">
+          <g clip-path="url(#clip0_1351_46650)">
+          <path d="M62.7213 25.3302L60.9374 18.8363L58.667 9.93353H58.4803L56.2148 18.8462L54.4235 25.3302H51.7207L46.7695 7.36328H48.9564L51.3226 15.9556L53.0746 22.7649L54.8339 15.9556L57.2026 7.36328H59.9251L62.2938 15.9556L64.0531 22.7649L65.8124 15.9556L68.1811 7.36328H70.3679L65.4242 25.3302H62.7213Z" fill="white"/>
+          <path d="M89.0508 25.33V5.56519H91.1713V25.33H89.0508Z" fill="white"/>
+          <path d="M106.415 25.33V22.3649C105.91 23.3646 105.136 24.2002 104.183 24.776C103.229 25.3518 102.134 25.6445 101.024 25.6206C97.2227 25.6206 94.3135 22.5437 94.3135 18.2724C94.3135 14.0011 97.2719 10.9267 101.012 10.9267C102.129 10.9076 103.228 11.2071 104.184 11.7909C105.14 12.3746 105.914 13.219 106.417 14.2271V5.56519H108.538V25.33H106.415ZM96.4463 18.2724C96.4463 21.3716 98.6086 23.5867 101.437 23.5867C104.265 23.5867 106.425 21.3865 106.425 18.2774C106.425 15.1682 104.253 12.9556 101.434 12.9581C98.6159 12.9606 96.4438 15.1484 96.4463 18.2724Z" fill="white"/>
+          <path d="M124.556 25.3299L123.168 20.5743L121.293 13.4223H121.136L119.264 20.5718L117.863 25.3299H115.298L111.175 11.2122H113.29L114.573 15.6573L116.6 22.9012L118.63 15.6573L119.908 11.2122H122.502L123.785 15.6573L125.814 22.9012L127.844 15.6573L129.124 11.2122H131.24L127.122 25.3299H124.556Z" fill="white"/>
+          <path d="M147.409 18.2777C147.409 22.4993 144.239 25.6184 140.215 25.6209C136.19 25.6234 133.018 22.4919 133.018 18.2727C133.018 14.0535 136.249 10.927 140.215 10.927C144.18 10.927 147.404 14.0411 147.409 18.2777ZM135.148 18.2777C135.148 21.3769 137.386 23.592 140.215 23.592C143.043 23.592 145.276 21.3918 145.279 18.2826C145.281 15.1735 143.03 12.9609 140.215 12.9633C137.399 12.9658 135.143 15.1487 135.143 18.2727L135.148 18.2777Z" fill="white"/>
+          <path d="M152.682 13.2535V25.3299H150.562V11.2122H157.874V13.2535H152.682Z" fill="white"/>
+          <path d="M168.586 11.2123H171.321L164.714 17.9446L171.999 25.33H169.245L162.638 18.7219V25.33H160.515V5.56519H162.638V17.2791L168.586 11.2123Z" fill="white"/>
+          <path d="M29.9231 3.40962L18.1263 0V9.26284L9.06194 6.64292V15.8933L0 13.2858V25.4219L11.7943 28.8315L20.8611 31.4514V22.1886L29.9231 24.8085V3.40962ZM27.1883 5.49314V11.8803L20.8611 10.0525V3.6654L27.1883 5.49314ZM2.7348 16.9512L9.06194 18.779V25.1661L2.7348 23.3433V16.9512ZM18.1263 27.786L11.7943 25.9583V10.3133L18.1239 12.141V27.786H18.1263ZM20.8611 19.3129V12.9282L27.1883 14.756V21.1431L20.8611 19.3129Z" fill="white"/>
+          <path d="M83.5286 20.6468C82.8578 22.5515 81.0886 23.7758 78.9509 23.7758C76.1154 23.7609 73.9408 21.6451 73.8744 18.6179H86.0152C86.0512 18.207 86.0463 17.7935 86.0004 17.3837C85.6098 13.5271 82.5383 10.927 78.8747 10.927C74.8622 10.927 71.749 14.0635 71.749 18.2752C71.749 22.4869 74.8721 25.6184 78.9681 25.6184C81.9535 25.6184 84.5483 23.9446 85.5582 21.2304L83.5286 20.6468ZM78.919 12.715C80.1308 12.6933 81.3064 13.1331 82.2122 13.9469C83.1181 14.7608 83.688 15.8892 83.8087 17.108H74.0145C74.1473 15.8914 74.7228 14.7681 75.6291 13.9563C76.5354 13.1445 77.708 12.7021 78.919 12.715Z" fill="white"/>
+          </g>
+          <defs>
+          <clipPath id="clip0_1351_46650">
+          <rect width="172" height="31.4514" fill="white"/>
+          </clipPath>
+          </defs>
+          </svg>
+          </p>
+        </div>
+        <div class="perksDiv firstTwo come-in-1">
+          {% if section.settings.title != blank %}
+            <h2 style="visibility: hidden;" class="GT-600 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+          <p style="position: absolute; bottom: 0; line-height: 2.22vw;" class="perkTitle perkC GT-600">Our competitors</p>
+        </div>
+        <div class="perksDiv perksSVG come-in-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+            <circle cx="17.5" cy="17.5" r="17.5" fill="#F4F0EA"/>
+            <path d="M11 17.6897L16 21.5L24 12" stroke="black" stroke-width="4"/>
+          </svg>
+        </div>
+        <div class="perksDiv perksSVG come-in-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+          <circle cx="17.5" cy="17.5" r="17.5" fill="#848484"/>
+          <path d="M12 22.5416L23 12.4583" stroke="#232323" stroke-width="4"/>
+          <path d="M22.5413 23L12.458 12" stroke="#232323" stroke-width="4"/>
+          </svg>
+        </div>
+        {% for block in section.blocks %}
+        {% if block.settings.titlePerk != blank %}
+        <div style="padding: 0;" class="perksDiv come-in-3 tabTitle2Div-{{ section.id }} tabTextNew textTab-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+      	<div style="padding: 0;" class="tabTitle2-{{ section.id }}">
+          <p style="margin-bottom: 0;" class="GT-600">{{ block.settings.titlePerk }}</p>
+      	</div>
+        </div>
+      	{% endif %}
+        {% if block.settings.titleCon != blank %}
+        <div style="padding: 0;" class="perksDiv come-in-3 tabTitle2Div-{{ section.id }} tabTextNew textTab-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+      	<div style="padding: 0;" class="tabTitle2-{{ section.id }}">
+          <p style="margin-bottom: 0;" class="GT-600">{{ block.settings.titleCon }}</p>
+      	</div>
+        </div>
+      	{% endif %}
+      	{% if block.settings.textPerk != blank %}
+        <div class="perksDiv tabTextNew come-in-4 textTab-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+      	<div class="tabText-{{ section.id }}">
+          <p class="GT-300">{{ block.settings.textPerk }}</p>
+      	</div>
+        </div>
+      	{% endif %}
+        {% if block.settings.textCon != blank %}
+        <div class="perksDiv tabTextNew come-in-4 textTab-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+      	<div class="tabText-{{ section.id }}">
+          <p class="GT-300">{{ block.settings.textCon }}</p>
+      	</div>
+        </div>
+      	{% endif %}
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(".indTab").click(function(){
+  	$(".tabTextNew.active").hide();
+    $(".perksSVG").hide();
+    $(".tabTextNew").removeClass("active");
+    $(".textTab-"+$(this).attr("tab")).slideDown();
+    $(".perksSVG").slideDown();
+    $(".textTab-"+$(this).attr("tab")).addClass("active");
+    $(".indTab").removeClass("active");
+    $(this).addClass("active");
+    $(".indTab .numberTab").show();
+    $(".indTab .arrowTab").hide();
+    $(".indTab.active .numberTab").hide();
+    $(".indTab.active .arrowTab").slideDown();
+    if ($(window).width() < 1009) {
+    	$('html, body').animate({scrollTop: $(this).offset().top}, 500);
+    }
+  });
+</script>
+<script>
+  $(document).ready(function(){
+  	$(".indTab").first().click();
+  });
+</script>
+{% schema %}
+  {
+    "name": "Perks",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImage",
+          "label": "Background image"
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImageMob",
+          "label": "Background image mobile"
+        },
+		{
+          "type": "text",
+          "id": "textWidth",
+          "label": "Text part width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMargin",
+          "label": "Text part margin right (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textWidthMob",
+          "label": "Text part width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMarginMob",
+          "label": "Text part margin right (0-100)"
+        },
+		{
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Tab title Desktop"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleSize",
+          "label": "Tab title Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLine",
+          "label": "Tab title Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLetter",
+          "label": "Tab title Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTitleColor",
+          "label": "Tab title color"
+        },
+		{
+          "type": "select",
+          "id": "tabTitleAlign",
+          "label": "Tab title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleMarBottom",
+          "label": "Tab title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Tab title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleSizeMob",
+          "label": "Tab title Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLineMob",
+          "label": "Tab title Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLetterMob",
+          "label": "Tab title Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTitleColorMob",
+          "label": "Tab title color"
+        },
+		{
+          "type": "select",
+          "id": "tabTitleAlignMob",
+          "label": "Tab title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleMarBottomMob",
+          "label": "Tab title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Tab title 2 Desktop"
+        },
+		{
+          "type": "text",
+          "id": "tabTitle2Size",
+          "label": "Tab title 2 Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitle2Line",
+          "label": "Tab title 2 Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitle2Letter",
+          "label": "Tab title 2 Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTitle2Color",
+          "label": "Tab title 2 color"
+        },
+		{
+          "type": "select",
+          "id": "tabTitle2Align",
+          "label": "Tab title 2 align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTitle2MarBottom",
+          "label": "Tab title 2 bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Tab title 2 Mobile"
+        },
+		{
+          "type": "text",
+          "id": "tabTitle2SizeMob",
+          "label": "Tab title 2 Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitle2LineMob",
+          "label": "Tab title 2 Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitle2LetterMob",
+          "label": "Tab title 2 Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTitle2ColorMob",
+          "label": "Tab title 2 color"
+        },
+		{
+          "type": "select",
+          "id": "tabTitle2AlignMob",
+          "label": "Tab title 2 align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTitle2MarBottomMob",
+          "label": "Tab title 2 bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Tab text Desktop"
+        },
+		{
+          "type": "text",
+          "id": "tabTextSize",
+          "label": "Tab text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLine",
+          "label": "Tab text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLetter",
+          "label": "Tab text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTextColor",
+          "label": "Tab text color"
+        },
+		{
+          "type": "select",
+          "id": "tabTextAlign",
+          "label": "Tab text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTextMarBottom",
+          "label": "Tab text bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Tab text Mobile"
+        },
+		{
+          "type": "text",
+          "id": "tabTextSizeMob",
+          "label": "Tab text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLineMob",
+          "label": "Tab text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLetterMob",
+          "label": "Tab text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTextColorMob",
+          "label": "Tab text color"
+        },
+		{
+          "type": "select",
+          "id": "tabTextAlignMob",
+          "label": "Tab text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTextMarBottomMob",
+          "label": "Tab text bottom margin mobile (numbers only)"
+        },
+  		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Box background color"
+        },
+		{
+          "type": "text",
+          "id": "boxPadTop",
+          "label": "Top box padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadBottom",
+          "label": "Bottom box padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadLeft",
+          "label": "Left box padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "boxPadRight",
+          "label": "Right box padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "boxPadTopMob",
+          "label": "Top box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadBottomMob",
+          "label": "Bottom box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadLeftMob",
+          "label": "Left box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadRightMob",
+          "label": "Right box padding mobile (numbers only)"
+        }
+	],
+	"blocks": [
+      {
+        "type": "Tab",
+        "name": "Tab",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+		  {
+            "type": "text",
+            "id": "titlePerk",
+            "label": "Title perk"
+          },
+		  {
+            "type": "text",
+            "id": "titleCon",
+            "label": "Title con"
+          },
+          {
+            "type": "textarea",
+            "id": "textPerk",
+            "label": "Text perk"
+          },
+		  {
+            "type": "textarea",
+            "id": "textCon",
+            "label": "Text con"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Why Weldwork",
+        "name": "Perks",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

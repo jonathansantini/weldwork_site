@@ -1,0 +1,439 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+  }
+</style>		
+<style>
+              .tabTitle-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.tabTitleLetter }}px; 
+                font-size: {{ section.settings.tabTitleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.tabTitleColor }}; 
+                line-height: {{ section.settings.tabTitleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.tabTitleAlign }};
+                margin-bottom: {{ section.settings.tabTitleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .tabTitle-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.tabTitleLetterMob }}px; 
+                  font-size: {{ section.settings.tabTitleSizeMob }}px; 
+                  color: {{ section.settings.tabTitleColorMob }}; 
+                  line-height: {{ section.settings.tabTitleLineMob }}px;
+                  text-align: {{ section.settings.tabTitleAlignMob }};
+                  margin-bottom: {{ section.settings.tabTitleMarBottomMob }}px;
+                }
+              }
+          	.tabText.tabText-{{ section.id }} p {
+          		margin: 0; 
+                letter-spacing: {{ section.settings.tabTextLetter }}px; 
+                font-size: {{ section.settings.tabTextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.tabTextColor }}; 
+                line-height: {{ section.settings.tabTextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.tabTextAlign }};
+                margin-bottom: {{ section.settings.tabTextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .tabText.tabText-{{ section.id }} p {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.tabTextLetterMob }}px; 
+                  font-size: {{ section.settings.tabTextSizeMob }}px; 
+                  color: {{ section.settings.tabTextColorMob }}; 
+                  line-height: {{ section.settings.tabTextLineMob }}px;
+                  text-align: {{ section.settings.tabTextAlignMob }};
+                  margin-bottom: {{ section.settings.tabTextMarBottomMob }}px;
+            </style>
+{% assign string = "" %}
+{% for block in section.blocks %}
+{% assign count = 0 %}
+{% for bl in section.blocks %}
+{% if bl.settings.category == block.settings.category %}
+{% assign count = count | plus: 1 %}
+{% endif %}
+{% endfor %}
+{% unless string contains block.settings.category  %}
+{% capture string %}{{ string }}{{ block.settings.category }}|{% endcapture string %}
+{% endunless %}
+{% endfor %}
+{% assign array = string | split: "|" %}
+
+<div class="flexDiv fullWidth accordionCategory come-in">
+  {% for str in array %}
+  <a category="{{ str | replace: " ","" }}" class="GT-500 come-in-{{ forloop.index }} accCategory{% if forloop.first %} active{% endif %}">
+    {{ str }}
+  </a>
+  {% endfor %}
+</div>
+<div class="come-in">
+{% for block in section.blocks %}
+{% assign count = 0 %}
+{% for b in section.blocks %}
+{% if b.settings.category == block.settings.category and b.settings.title == block.settings.title %}
+{% assign count = count | plus: 1 %}
+{% assign finalNum = count %}
+{% elsif b.settings.category == block.settings.category %}
+{% assign count = count | plus: 1 %}
+{% endif %}
+{% endfor %}
+<button class="accPanel come-in-{{ finalNum }} accordion {% if section.blocks.first.settings.category == block.settings.category %}{% else %}accHidden{% endif %} acc-{{ block.settings.category | replace: " ","" }} GT-500"><span class="accordionNumber">0{{ finalNum }}.</span>{{ block.settings.title }}</button>
+<div class="accPanel GT-300 panel {% if section.blocks.first.settings.category == block.settings.category %}{% else %}accHidden{% endif %} acc-{{ block.settings.category | replace: " ","" }}">
+  <span class="accordionNumber">0{{ finalNum }}.</span>
+  <p>
+  {{ block.settings.text }}
+  </p>
+</div>
+{% endfor %}
+</div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 54 + "px";
+    } 
+  });
+}
+</script>
+<script>
+  $(document).ready(function(){
+    let category = "";
+    $(".accCategory").click(function(){
+    	$(".accCategory").removeClass("active");
+      	$(this).addClass("active");
+      	category = $(this).attr("category");
+      	$(".accPanel").hide();
+        $(".accPanel").each(function(){
+          if($(this).hasClass("acc-"+category)){
+          	$(this).show();
+          }
+        });
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "Accordion with categories",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+          "type": "header",
+          "content": "Tab title Desktop"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleSize",
+          "label": "Tab title Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLine",
+          "label": "Tab title Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLetter",
+          "label": "Tab title Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTitleColor",
+          "label": "Tab title color"
+        },
+		{
+          "type": "select",
+          "id": "tabTitleAlign",
+          "label": "Tab title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleMarBottom",
+          "label": "Tab title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Tab title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleSizeMob",
+          "label": "Tab title Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLineMob",
+          "label": "Tab title Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLetterMob",
+          "label": "Tab title Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTitleColorMob",
+          "label": "Tab title color"
+        },
+		{
+          "type": "select",
+          "id": "tabTitleAlignMob",
+          "label": "Tab title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleMarBottomMob",
+          "label": "Tab title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Tab text Desktop"
+        },
+		{
+          "type": "text",
+          "id": "tabTextSize",
+          "label": "Tab text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLine",
+          "label": "Tab text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLetter",
+          "label": "Tab text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTextColor",
+          "label": "Tab text color"
+        },
+		{
+          "type": "select",
+          "id": "tabTextAlign",
+          "label": "Tab text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTextMarBottom",
+          "label": "Tab text bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Tab text Mobile"
+        },
+		{
+          "type": "text",
+          "id": "tabTextSizeMob",
+          "label": "Tab text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLineMob",
+          "label": "Tab text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLetterMob",
+          "label": "Tab text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTextColorMob",
+          "label": "Tab text color"
+        },
+		{
+          "type": "select",
+          "id": "tabTextAlignMob",
+          "label": "Tab text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTextMarBottomMob",
+          "label": "Tab text bottom margin mobile (numbers only)"
+        }
+	],
+	"blocks": [
+      {
+        "type": "Tab",
+        "name": "Tab",
+        "settings": [
+		  {
+            "type": "text",
+            "id": "category",
+            "label": "Category"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "textarea",
+            "id": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "General",
+        "name": "Accordion with categories",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

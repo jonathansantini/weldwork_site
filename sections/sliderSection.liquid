@@ -1,0 +1,787 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+    }
+    #shopify-section-{{ section.id }} .lottieDiv {
+    	position: absolute;
+      	top: unset!important;
+      	right: unset!important;
+      	bottom: 52.3px;
+      	left: 50px;
+      	z-index: 5;
+      	display: none;
+    }
+  }
+
+  div#shopify-section-16370694717a229a3e {
+    padding-top: 100px !important;
+}
+</style>
+<div style="position: sticky; top: 0; left: 0;" class="pinMe noCursor">
+<!-- <div class="downLottie lottieDiv" id="slider-Lottie" >
+    <lottie-player src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/data_198b0883-a51c-4dfc-97a8-a766a242ec9b.json?v=1640001156" background="transparent"  speed="1"  style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+  </div> -->
+<div class="evenContainer">
+   <div class="evenRow evenCol-{{ section.id }}">
+  	<div class="evenCol">
+      {% if section.settings.title != blank %}
+            <h2 class="applyAnimation GT-500 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+              }
+              .evenCol-{{ section.id }} {
+              	margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+                .evenCol-{{ section.id }} {
+                  margin-bottom: 44px;
+                }
+              }
+            </style>
+        {% endif %}
+     </div>
+    <div class="evenCol rightCenter">
+      {% if section.settings.buttonText != blank or section.settings.buttonLink != blank %}
+      	<div onclick="location.href='{{ section.settings.buttonLink }}'" class="applyAnimation buttonDiv buttonDiv-{{ section.id }}">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+          <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            </svg>
+          <div style="min-height: 51px; color: {{ section.settings.titleColor }};" class="GT-600">{{ section.settings.buttonText }}</div>
+      	</div>
+      {% endif %}
+     </div>
+  </div>
+</div>
+  
+<div style="overflow-x: hidden;" class="evenContainerLeft evenCont-{{ section.id }}">
+  <div class="paddingLeftSlider" style="height: 100%;
+              background-color: {{ section.settings.backgroundColor }};
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: 5;
+              width: 10.05vw;"></div>
+  <div style="overflow: visible; -webkit-font-smoothing: antialiased;" data--200-center-top="transform: translateX(0%)" data--1000-center-bottom="transform: translateX(-115.5%)" class="desktopClass horizontalSlider horizont-{{ section.id }}">
+    {% for block in section.blocks %}
+      <div class="horizontalSlide">
+        	{% assign height = 100 | divided_by: 100.0 | times: 37.5 %}
+        	{% assign width = block.settings.image-1.aspect_ratio | times: height %}
+        	{% assign heightCalc = 100 | divided_by: 100.0 | times: 447 %}
+        	{% assign widthMob = block.settings.image-1.aspect_ratio | times: heightCalc %}
+        <style>
+          @media only screen and (max-width: 1009px) {
+            .imgCont-1-{{ block.id }} {
+              width: {{ widthMob }}px!important;
+            }
+          }
+        </style>
+        	<div style="height: 100%; width: {{ width }}vw; background-size: cover; background-image: url({{ block.settings.image-1 | img_url: "1000x" }});" class="imageContainer imgCont-1-{{ block.id }} img-1-{{ block.id }} ">
+          <img style="visibility: hidden;" src="{{ block.settings.image-1 | img_url: "1000x" }}">
+          <div class="visibilityDiv visSlide">
+            <div onclick="location.href='{{ block.settings.link1 }}'" style="cursor: pointer;" class="xsPadded2">
+            {% if block.settings.icon-1 != blank %}
+            <div class="fullWidth">
+            <img class="icon1-{{ block.id }} iconImage" src="{{ block.settings.icon-1 | img_url: "400x" }}">
+            <style>
+              .icon1-{{ block.id }} {
+                margin-bottom: {{ block.settings.iconMarBottom1 | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .icon1-{{ block.id }} {
+                  margin-bottom: {{ block.settings.iconMarBottomMob1 }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if block.settings.title1 != blank %}
+            <div class="fullWidth">
+            <h3 class="customHeading heading1-{{ block.id }}">{{ block.settings.title1 }}</h3>
+            <style>
+              h3.heading1-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.title1Letter }}px; 
+                font-size: {{ block.settings.title1Size | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ block.settings.title1Color }}; 
+                line-height: {{ block.settings.title1Line | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ block.settings.title1Align }};
+                margin-bottom: {{ block.settings.title1MarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h3.heading1-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.title1LetterMob }}px; 
+                  font-size: {{ block.settings.title1SizeMob }}px; 
+                  color: {{ block.settings.title1ColorMob }}; 
+                  line-height: {{ block.settings.title1LineMob }}px;
+                  text-align: {{ block.settings.title1AlignMob }};
+                  margin-bottom: {{ block.settings.title1MarBottomMob }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if block.settings.subtext != blank %}
+            <p class="subtext-{{ block.id }} GT-400">
+              {{ block.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.subtextLetter }}px; 
+                font-size: {{ block.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.subtextColor }}; 
+                line-height: {{ block.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.subtextAlign }};
+                margin-bottom: {{ block.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.subtextLetterMob }}px; 
+                  font-size: {{ block.settings.subtextSizeMob }}px; 
+                  color: {{ block.settings.subtextColorMob }}; 
+                  line-height: {{ block.settings.subtextLineMob }}px;
+                  text-align: {{ block.settings.subtextAlignMob }};
+                  margin-bottom: {{ block.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+            {% if block.settings.link1 != blank %}
+            <div style="margin-top: auto;" class="fullWidth">
+            	<a class="imageLink" href="{{ block.settings.link1 }}">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
+                  <rect width="54" height="54" fill="white"/>
+                  <path d="M18.9727 26.3855H33.1368" stroke="black" stroke-width="2"/>
+                  <path d="M26.8275 19.6709L33.541 26.3844L26.8275 33.0979" stroke="black" stroke-width="2"/>
+                  </svg>
+            	</a>
+            </div>
+            {% endif %}
+          </div>
+          </div>
+      	</div>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <div class="mobileClass horizontalSlider horizont-{{ section.id }}">
+    {% for block in section.blocks %}
+      <div class="horizontalSlide">
+        	{% assign height = block.settings.height | divided_by: 100.0 | times: 37.5 %}
+        	{% assign width = block.settings.image-1.aspect_ratio | times: height %}
+        	{% assign heightCalc = block.settings.height | divided_by: 100.0 | times: 447 %}
+        	{% assign widthMob = block.settings.image-1.aspect_ratio | times: heightCalc %}
+        <style>
+          @media only screen and (max-width: 1009px) {
+            .imgCont-1-{{ block.id }} {
+              width: {{ widthMob }}px!important;
+            }
+          }
+        </style>
+        	<div style="height: 100%; width: {{ width }}vw; background-size: cover; background-image: url({{ block.settings.image-1 | img_url: "1000x" }});" class="imageContainer imgCont-1-{{ block.id }} img-1-{{ block.id }}">
+          <img style="visibility: hidden;" src="{{ block.settings.image-1 | img_url: "1000x" }}">
+          <div class="visibilityDiv visSlide">
+            <div class="xsPadded2">
+            {% if block.settings.icon-1 != blank %}
+            <div class="fullWidth">
+            <img class="icon1-{{ block.id }} iconImage" src="{{ block.settings.icon-1 | img_url: "400x" }}">
+            <style>
+              .icon1-{{ block.id }} {
+                margin-bottom: {{ block.settings.iconMarBottom1 | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .icon1-{{ block.id }} {
+                  margin-bottom: {{ block.settings.iconMarBottomMob1 }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if block.settings.title1 != blank %}
+            <div class="fullWidth">
+            <h3 class="customHeading heading1-{{ block.id }}">{{ block.settings.title1 }}</h3>
+            <style>
+              h3.heading1-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.title1Letter }}px; 
+                font-size: {{ block.settings.title1Size | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ block.settings.title1Color }}; 
+                line-height: {{ block.settings.title1Line | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ block.settings.title1Align }};
+                margin-bottom: {{ block.settings.title1MarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h3.heading1-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.title1LetterMob }}px; 
+                  font-size: {{ block.settings.title1SizeMob }}px; 
+                  color: {{ block.settings.title1ColorMob }}; 
+                  line-height: {{ block.settings.title1LineMob }}px;
+                  text-align: {{ block.settings.title1AlignMob }};
+                  margin-bottom: {{ block.settings.title1MarBottomMob }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+            {% if block.settings.subtext != blank %}
+            <p class="subtext-{{ block.id }} GT-400">
+              {{ block.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.subtextLetter }}px; 
+                font-size: {{ block.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.subtextColor }}; 
+                line-height: {{ block.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.subtextAlign }};
+                margin-bottom: {{ block.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.subtextLetterMob }}px; 
+                  font-size: {{ block.settings.subtextSizeMob }}px; 
+                  color: {{ block.settings.subtextColorMob }}; 
+                  line-height: {{ block.settings.subtextLineMob }}px;
+                  text-align: {{ block.settings.subtextAlignMob }};
+                  margin-bottom: {{ block.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+            {% if block.settings.link1 != blank %}
+            <div style="margin-top: auto;" class="fullWidth">
+            	<a class="imageLink" href="{{ block.settings.link1 }}">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none">
+                  <rect width="54" height="54" fill="white"/>
+                  <path d="M18.9727 26.3855H33.1368" stroke="black" stroke-width="2"/>
+                  <path d="M26.8275 19.6709L33.541 26.3844L26.8275 33.0979" stroke="black" stroke-width="2"/>
+                  </svg>
+            	</a>
+            </div>
+            {% endif %}
+          </div>
+          </div>
+      	</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+
+<script>
+  let pad = 0;
+  let wid = 0;
+  window.addEventListener('load', (event) => {
+    pad = $(window).width()*0.09930555555555555;
+    if ($(window).width() > 1009) {
+    $("#shopify-section-{{ section.id }}").css("height",$(".horizont-{{ section.id }}").width()+1000+pad+"px"); 
+    }else{
+    }
+    console.log($(".horizont-{{ section.id }}").width());
+    var s = skrollr.init();
+    let win = $(window);
+    let top = 0.0833 * win.width();
+	win.scroll(function() {
+      	let docTop = win.scrollTop();
+    	if (docTop > ($(window).height()+top)){
+        	 $("main .shopify-section").first().hide()
+        }else{
+        	$("main .shopify-section").first().show()
+        }
+	});
+  });
+</script>
+<!--<script>
+  $(document).ready(function(){
+  let topof = $("#shopify-section-{{ section.id }}").offset().top;
+// init controller
+var controller = new ScrollMagic.Controller();
+
+// create a scene
+new ScrollMagic.Scene({
+    duration: $(".horizont-{{ section.id }}").width(), // the scene should last for a scroll distance of 100px
+    offset: topof // start this scene after scrolling for 50px
+})
+    .setPin('') // pins the element for the the scene's duration
+    .addTo(controller) // assign the scene to the controller
+  	.on("start", function (event) {
+        console.log("Hit start point of scene.");
+    })
+  	.on("update", function (e) {
+      $('.horizont-{{ section.id }}').scrollLeft(e.scrollPos - topof);
+					});
+  });
+</script>-->
+
+
+ 
+
+{% schema %}
+  {
+    "name": "Slider Section",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "buttonText",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "buttonLink",
+          "label": "Button Link"
+        }
+	],
+	"blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+      "type": "image_picker",
+      "id": "image-1",
+	  "label": "First image"
+    },
+	{
+            "type": "range",
+            "id": "height",
+            "min": 1,
+            "max": 100,
+			"default": 100,
+            "step": 1,
+			"label": "Image height"
+          },
+	{
+          "type": "text",
+          "id": "imgMobMarBottom",
+          "label": "Image bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "image_picker",
+      "id": "icon-1",
+	  "label": "First icon"
+    },
+	{
+          "type": "text",
+          "id": "iconMarBottom1",
+          "label": "Icon 1 bottom margin (numbers only)"
+        },
+	{
+          "type": "text",
+          "id": "iconMarBottomMob1",
+          "label": "Icon 1 bottom margin mobile (numbers only)"
+        },
+	{
+      "type": "url",
+      "id": "link1",
+      "label": "Link 1"
+    },
+    {
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "title1Size",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1Line",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1Letter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title1Color",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title1Align",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title1MarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "title1SizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1LineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "title1LetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "title1ColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "title1AlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "title1MarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Homepage",
+        "name": "Slider Section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

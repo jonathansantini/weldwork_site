@@ -1,0 +1,343 @@
+<style>
+  #shopify-section-{{ section.id }} {
+  	position: fixed;
+    z-index: 99999999999999999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background: black;
+    overflow-y: scroll;
+    transition: transform .6s ease-out;
+  }
+  #shopify-section-{{ section.id }} input::placeholder, #shopify-section-{{ section.id }} textarea::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+
+  #shopify-section-{{ section.id }} input:-ms-input-placeholder, #shopify-section-{{ section.id }} textarea:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: white;
+  }
+
+  #shopify-section-{{ section.id }} input::-ms-input-placeholder, #shopify-section-{{ section.id }} textarea::-ms-input-placeholder { /* Microsoft Edge */
+   color: white;
+  }
+  #shopify-section-{{ section.id }} input {
+  	color: white;
+  }
+  #shopify-section-{{ section.id }} textarea {
+    color: white;
+  	background: transparent;
+  }
+   #shopify-section-{{ section.id }} .jdgm-form__reviewer-name-format-container, #shopify-section-{{ section.id }} label, #shopify-section-{{ section.id }} .jdgm-spinner, #shopify-section-{{ section.id }} .jdgm-shop-reviews__body, #shopify-section-{{ section.id }} .jdgm-subtab, #shopify-section-{{ section.id }} .jdgm-all-reviews__body, .jdgm-all-reviews-page__title, .jdgm-branding-footer {
+  	display: none!important;
+  }
+  #shopify-section-{{ section.id }} .jdgm-all-reviews__header > * {
+  	display: none!important;
+  }
+  #shopify-section-{{ section.id }} .jdgm-all-reviews__header > .jdgm-form-wrapper {
+  	display: block!important;
+    border: 0;
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .jdgm-all-reviews__header {
+  	color: #fff;
+  }
+  #shopify-section-{{ section.id }} input[type="text"], #shopify-section-{{ section.id }} input[type="email"] {
+  	margin-bottom: 0.83vw;
+    border: 1px solid #484848;
+  }
+  #shopify-section-{{ section.id }} .jdgm-form__rating-fieldset {
+  	margin-bottom: 0.83vw;
+  }
+  #shopify-section-{{ section.id }} .jdgm-star.jdgm--on:before {
+  	color: #fff;
+  }
+  #shopify-section-{{ section.id }} .jdgm-star.jdgm--off:before {
+  	color: #848484;
+    content: "\e000";
+  }
+  #shopify-section-{{ section.id }} label {
+  	font-style: unset;
+    font-size: 1.11vw;
+    line-height: 1.67vw;
+    margin-bottom: 1.11vw;
+  }
+  #shopify-section-{{ section.id }} .jdgm-form__body-fieldset label , #shopify-section-{{ section.id }} .jdgm-picture-fieldset-title, #shopify-section-{{ section.id }} .jdgm-picture-fieldset__box {
+  	display: block!important;	
+  }
+  #shopify-section-{{ section.id }} .jdgm-picture-fieldset__box {
+  }
+  #shopify-section-{{ section.id }} .jdgm-photocamera-icon:before {
+  	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='40' viewBox='0 0 56 40' fill='none'%3E%3Cpath d='M25 29L25 17' stroke='white' stroke-width='2'/%3E%3Cpath d='M31 23L19 23' stroke='white' stroke-width='2'/%3E%3Crect x='1' y='7' width='48' height='32' stroke='white'/%3E%3Cpath d='M49 33H55V1H7V7' stroke='white'/%3E%3C/svg%3E");
+  }
+  #shopify-section-{{ section.id }} .jdgm-submit-rev {
+  	background: transparent;
+    border: 1px solid #fff;
+    text-transform: unset;
+    font-size: 0.97vw;
+    font-weight: 500;
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .jdgm-submit-rev:hover {
+  	color: #848484;
+    border-color: #848484;
+  }
+  #shopify-section-{{ section.id }} .jdgm-widget.jdgm-all-reviews-widget {
+  	padding: 8.33vw 12.78vw;
+    padding-bottom: 106px;
+  }
+  .jdgm-subtab__name {
+  	padding: 12px 16px;
+    border: 1px solid #C3C3C3;
+    font-weight: 500;
+  }
+  .jdgm-subtab__name.jdgm--active {
+  	border: 0;
+    background: #000;
+    color: white;
+  }
+  .jdgm-subtab {
+  	position: sticky;
+    top: 0px;
+    background: #f5f5fa;
+    z-index: 5;
+    padding: 20px 0;
+  }
+  #shopify-section-{{ section.id }} .jdgm-all-reviews-page {
+  	background: #232323;
+  }
+  .jdgm-widget.jdgm-all-reviews-widget {
+  	border: 0;
+    padding: 3.89vw;
+    margin-top: 0;
+  }
+  .jdgm-widget.jdgm-all-reviews-widget * {
+  	font-family: "GT Walsheim Pro";
+  }
+  .jdgm-all-reviews-page__wrapper.jdgm-all-reviews-page__wrapper {
+  	max-width: 87.78vw;
+  }
+ .jdgm-rev.jdgm--leex-done-setup {
+    display: flex;
+	flex-wrap: wrap;
+  }
+  .jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev {
+  	width: calc(50% - 11px);
+    border: 0;
+    background: white;
+    padding: 2.78vw;
+  }
+  .jdgm-rev__pics {
+  	order: 3;
+    width: 40%;
+    padding-left: 2.78vw;
+    padding-top: 2.78vw;
+  }
+  .jdgm-rev .jdgm-rev__header.jdgm-rev__header {
+    order: 2;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0;
+    padding-top: 1.11vw;
+  }
+  .jdgm-rev__prod-info-wrapper {
+  	height: 0!important;
+    padding: 0!important;
+    opacity: 0!important;
+  }
+  .jdgm-rev__author-wrapper.jdgm-rev__author-wrapper {
+  	display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .jdgm-rev__header * {
+  	order: 2;
+  }
+  .jdgm-rev__rating.jdgm-rev__rating.jdgm-rev__rating {
+  	order: 0;
+    position: relative;
+    top: 0px;
+    width: auto;
+    display: inline-table;
+  }
+  .jdgm-rev__timestamp.jdgm-rev__timestamp.jdgm-rev__timestamp {
+  	order: 1;
+    width: auto;
+    position: relative;
+    top: 0px;
+    margin-left: 15px;
+    display: inline-table;
+    line-height: 23px;
+    font-size: 14px;
+    color: #848484;
+  }
+  .jdgm-star.jdgm--on:before {
+  	font-size: 15px;
+  }
+  .jdgm-rev__content.jdgm-rev__content.jdgm-rev__content {
+  	padding: 0;
+  }
+  .jdgm-star.jdgm-star.jdgm-star {
+  	font-family: 'JudgemeStar';
+  }
+  .jdgm-rev__title.jdgm-rev__title.jdgm-rev__title {
+  	font-weight: 500;
+    font-size: 26px;
+    line-height: 31.2px;
+    margin-bottom: 10px;
+  }
+  .jdgm-rev__body p {
+  	font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 0px;
+    color: #5E5E5E;
+  }
+  .jdgm-rev__author.jdgm-rev__author.jdgm-rev__author {
+  	font-weight: 400;
+    font-size: 18px;
+    line-height: 23.4px;
+    margin-bottom: 0px;
+  }
+  .reviewModalDiv {
+  	display: flex;
+  }
+  .reviewModalTitle {
+  	width: 38.68%;
+    padding: 8.33vw 2.91vw 0 10.069vw;  
+  }
+  .reviewModalForm {
+  	width: 61.32%;
+  }
+  .reviewModalTitle p {
+  	font-family: "GT Walsheim Pro";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.89vw;
+    line-height: 105%;
+    /* or 59px */
+    letter-spacing: -0.02em;
+    color: #fff;
+    position: sticky;
+    top: 8.33vw;
+  }
+  .closReviewModal {
+	height: 0.9vw;
+    width: 0.9vw;
+    position: absolute;
+    top: 3.47vw;
+    right: 3.47vw;
+    transition: transform .2s ease-out;
+    transform-origin: center;
+    cursor: pointer;
+  }
+  .overflowHidden {
+  	overflow-y: hidden!important;
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} { 
+    	padding: 88px 20px 50px;
+    }
+    .reviewModalDiv {
+    	display: block;
+    }
+    .reviewModalTitle {
+    	width: 100%;
+      	padding: 0;
+    }
+    .reviewModalForm {
+    	width: 100%;
+    }
+    #shopify-section-{{ section.id }} .jdgm-all-reviews-page {
+      background: #000;
+    }
+    #shopify-section-{{ section.id }} .jdgm-widget.jdgm-all-reviews-widget {
+    	padding: 0;
+    }
+    .reviewModalTitle p {
+    	font-size: 36px;
+      	line-height; 37.8px;
+      	margin-bottom: 36px;
+    }
+    .reviewModalTitle p br {
+    	display: none;
+    }
+    #shopify-section-{{ section.id }} input {
+    	margin-bottom: 15px!important;
+    }
+    .jdgm-form__rating-fieldset {
+    	margin-bottom: 15px!important;
+    }
+    #shopify-section-{{ section.id }} label {
+    	font-size: 16px;
+      	line-height: 24px;
+      	margin-bottom: 15px;
+    }
+    .jdgm-picture-fieldset__box-wrapper {
+    	background: #484848;
+    }
+    #shopify-section-{{ section.id }} .jdgm-submit-rev {
+    	font-size: 14px;
+      	padding: 18px 28px;
+    }
+    .closReviewModal {
+    	height: 0.9vw;
+        width: 0.9vw;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+    }
+  }
+</style>
+<div onclick="location.href='/pages/reviews'" class="closReviewModal">
+  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+  <path d="M1 14L14 1" stroke="white" stroke-width="2"/>
+  <path d="M14 14L0.999999 1" stroke="white" stroke-width="2"/>
+  </svg>
+</div>
+<div class="reviewModalDiv">
+<div class="reviewModalTitle">
+  <p class="GT-500">Tell us<br> about your experience</p>
+</div>
+<div class="reviewModalForm">
+<div id='judgeme_all_reviews_page' class="page clearfix jdgm-all-reviews-page">
+  <div class="jdgm-all-reviews-page__wrapper">
+    <h1 class="jdgm-all-reviews-page__title">{{ page.title }}</h1>
+    <div class='jdgm-all-reviews-page__description'>{{ page.content }}</div>
+
+    {% render 'judgeme_all_reviews' %}
+  </div>
+</div>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+    $(".openReviewModal").click(function(){
+    	$("#shopify-section-{{ section.id }}").toggleClass("active");
+        $("html, body").toggleClass("overflowHidden");
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "Reviews Modal",
+    "settings": [],
+    "presets": [
+      {
+        "category": "General",
+        "name": "Review Modal",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

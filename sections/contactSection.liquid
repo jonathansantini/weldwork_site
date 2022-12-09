@@ -1,0 +1,857 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+    z-index: 3;
+  }
+  .contactHolder {
+    background: {{ section.settings.boxBackgroundColor }};
+    position: relative;
+    bottom: -5.625vw;
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+    .contactHolder {
+    	padding: 40px 24px;
+    }
+  }
+</style>
+<div class="contactHolder">
+  <div class="topContact flexDiv come-in">
+    <div class="contactDiv contactTitleDiv come-in-1">
+      {% if section.settings.title != blank %}
+            <h2 class="GT-400 customHeading heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+    </div>
+    <div class="contactDiv contactServiceDiv flexDiv">
+      <div class="textDiv-{{ section.id }} come-in-1">
+    <style>
+      {% assign boxDiv = 100 | minus: section.settings.textWidth | minus: section.settings.textMargin %}
+      {% assign boxDiv2 = 100 | minus: section.settings.textWidthMob | minus: section.settings.textMarginMob %}
+      .textDiv-{{ section.id }} {
+        width: {{ section.settings.textWidth }}%;
+        margin-right: {{ section.settings.textMargin }}%;
+      }
+      .boxDiv-{{ section.id }} {
+        width: {{ boxDiv }}%;
+      }
+      @media only screen and (max-width: 1009px) {
+      .textDiv-{{ section.id }} {
+      	width: {{ section.settings.textWidthMob }}%;
+        margin-right: {{ section.settings.textMarginMob }}%;
+        margin: 0 auto;
+      }
+        .boxDiv-{{ section.id }} { 
+        	width: 100%!important;
+          	margin-top: 25px;
+        }
+      {% if boxDiv2 <= 0 %}
+        .boxDiv-{{ section.id }} {
+        	width: 100%;
+        }
+      {% else %}
+        .boxDiv-{{ section.id }} {
+        	width: {{ boxDiv2 }}%;
+        }
+      {% endif %}
+      }
+    </style>
+      {% if section.settings.image != blank %}
+      <img class="fullWidth" src="{{ section.settings.image | img_url: "1600x" }}">
+      {% endif %}
+    </div>
+    <div class="boxDiv-{{ section.id }}">
+	  {% if section.settings.subtext != blank %}
+            <p class="subtext-{{ section.id }} GT-500 come-in-2">
+              {{ section.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.subtextLetter }}px; 
+                font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.subtextColor }}; 
+                line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.subtextAlign }};
+                margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.subtextLetterMob }}px; 
+                  font-size: {{ section.settings.subtextSizeMob }}px; 
+                  color: {{ section.settings.subtextColorMob }}; 
+                  line-height: {{ section.settings.subtextLineMob }}px;
+                  text-align: {{ section.settings.subtextAlignMob }};
+                  margin-bottom: {{ section.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+  {% if section.settings.text != blank %}
+          <div class="textHolder-{{ section.id }} come-in-3">
+            <p class="GT-300 text-{{ section.id }}">{{ section.settings.text }}</p>
+          </div>
+            <style>
+              .text-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.textLetter }}px; 
+                font-size: {{ section.settings.textSize | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ section.settings.textColor }}; 
+                line-height: {{ section.settings.textLine | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ section.settings.textAlign }};
+                margin-bottom: {{ section.settings.textMarBottom | times: 100 | divided_by: 1366.0 }}vw!important;
+              }
+              @media only screen and (max-width: 1009px) {
+                .text-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.textLetterMob }}px; 
+                  font-size: {{ section.settings.textSizeMob }}px; 
+                  color: {{ section.settings.textColorMob }}; 
+                  line-height: {{ section.settings.textLineMob }}px;
+                  text-align: {{ section.settings.textAlignMob }};
+                  margin-bottom: {{ section.settings.textMarBottomMob }}px!important;
+                }
+              }
+            </style>
+        {% endif %}
+    </div>
+    </div>
+  </div>
+  <div class="buttons-parent-holder applyAnimation" style="padding-bottom:72px;">
+  <h3 class="text-titles-btns come-in-1">Let's get started!</h3>
+  <h3 class="text-titles-btns bold come-in-2">Select one of the options below.</h3>
+    <div class="buttons-holder-main-h">
+      <div style="margin-bottom: 48px;" onclick="location.href='{{section.settings.button_link-one}}'" class="homepageFirstButton come-in-3 buttonDiv buttonDiv-{{ section.id }} {% if template contains "collection" %}collectionButtonMain{% endif %}">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+          <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            </svg>
+          <div style="min-height: 51px; color: {{ section.settings.titleColor }};" class="GT-600">{{section.settings.button-one}}</div>
+      	</div>
+
+        <div style="margin-bottom: 48px;" onclick="location.href='{{section.settings.button_link-two}}'" class="homepageFirstButton come-in-4 buttonDiv buttonDiv-{{ section.id }} {% if template contains "collection" %}collectionButtonMain{% endif %}">
+          <style>
+            .buttonDiv-{{ section.id }} div:after {
+              content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+            }
+          </style>
+        <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+          <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+          <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+          </svg>
+        <div style="min-height: 51px; color: {{ section.settings.titleColor }};" class="GT-600">{{section.settings.button-two}}</div>
+      </div>
+    
+      <div style="margin-bottom: 48px;" onclick="location.href='{{section.settings.button_link-three}}'" class="homepageFirstButton come-in-5 buttonDiv buttonDiv-{{ section.id }} {% if template contains "collection" %}collectionButtonMain{% endif %}">
+        <style>
+          .buttonDiv-{{ section.id }} div:after {
+            content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+          }
+        </style>
+      <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+        <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+        <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+        </svg>
+      <div style="min-height: 51px; color: {{ section.settings.titleColor }};" class="GT-600">{{section.settings.button-three}}</div>
+    </div>
+
+    <div style="margin-bottom: 48px;" onclick="location.href='{{section.settings.button_link-four}}'" class="homepageFirstButton come-in-6 buttonDiv buttonDiv-{{ section.id }} {% if template contains "collection" %}collectionButtonMain{% endif %}">
+      <style>
+        .buttonDiv-{{ section.id }} div:after {
+          content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+        }
+      </style>
+    <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+      <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+      <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+      </svg>
+    <div style="min-height: 51px; color: {{ section.settings.titleColor }};" class="GT-600">{{section.settings.button-four}}</div>
+  </div>
+        
+    </div>
+</div>
+
+<!-- <iframe height="800" allowTransparency="true" scrolling="no" style="margin-top:50px; display:block;min-width:100%;width:100px;border:none;overflow:auto;" frameborder="0" src="https://form-builder-an.pifyapp.com/form/s/6407"></iframe> -->
+
+  <div class="bottomContact flexDiv" style="display: none;">
+    <div class="bottomContactLeft">
+      <div c="Project" class="contactCategory active contact-Project flexDiv">
+        <div class="contactNumber GT-400">
+         1
+        </div>
+        <div class="contactTitle">
+          <p class="GT-500">Project Details</p>
+        </div>
+      </div>
+      <div c="Address" class="contactCategory contact-Address flexDiv">
+        <div class="contactNumber GT-400">
+         2
+        </div>
+        <div class="contactTitle">
+          <p class="GT-500">Project Address</p>
+        </div>
+      </div>
+      <div c="Personal" class="contactCategory contact-Personal flexDiv">
+        <div class="contactNumber GT-400">
+         3
+        </div>
+        <div class="contactTitle">
+          <p class="GT-500">Personal Details</p>
+        </div>
+      </div>
+    </div>
+    <div class="bottomContactRight">
+      {% form 'contact' %}
+
+            {% comment %}
+              Successful message
+            {% endcomment %}
+            {% if form.posted_successfully? %}
+              <p class="note form-success">
+                {{ 'contact.form.post_success' | t }}
+              </p>
+            {% endif %}
+
+            {{ form.errors | default_errors }}
+			<div category="Project" class="contactForm contactForm-Project active">
+              <p class="smallContactTitle GT-500">Let us know more about your project</p>
+              	<label for="ContactFormMessage" class="hidden-label">Details or questions about your project</label>
+              	
+            	<textarea style="background: white!important;" required="required" rows="10" id="ContactFormMessage" class="input-full" name="contact[Details]" placeholder="Details or questions about your project">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+              
+                <div class="selectDiv">
+                <select required="required" id="" name="contact[Where did you learn about us]">
+                  <option style='display:none' disabled selected value="">Where did you learn about us?</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Pinterest">Pinterest</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Houzz">Houzz</option>
+                  <option value="Customer referral">Customer referral</option>
+                  <option value="Search engine">Search engine</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="Architect, Designer, Builder">Architect, Designer, Builder</option>
+                </select>
+                </div>
+              	<div class="buttonDiv nextButton buttonDiv1-{{ section.id }}">
+            <style>
+              .buttonDiv1-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='black' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='black' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+                    <path d="M20.9609 32.5547L30.9765 22.5392" stroke="#000" stroke-width="2"/>
+                    <path d="M21.7665 22.2535H31.2608V31.7478" stroke="#000" stroke-width="2"/>
+                  </svg>
+                  <div style="min-height: 52px; color: #000;" class="GT-600">Next</div>
+              </div>
+      		</div>
+      		<div category="Address" class="contactForm contactForm-Address">
+              <p class="smallContactTitle GT-500">Your address</p>
+              <label for="ContactFormAddress" class="hidden-label">Address</label>
+              <input required="required" autocomplete="address-line1" type="text" id="ContactFormAddress" class="input-full" name="contact[Address]" placeholder="Project Address 1" autocapitalize="words" value="">
+              <label for="ContactFormAddress2" class="hidden-label">Address 2</label>
+              <input autocomplete="address-line2" type="text" id="ContactFormAddress2" class="input-full" name="contact[Address 2]" placeholder="Project Address 2" autocapitalize="words" value="">
+              <label for="ContactFormCity" class="hidden-label">City</label>
+              <input required="required" autocomplete="city" type="text" id="ContactFormCity" class="input-full" name="contact[City]" placeholder="City" autocapitalize="words" value=""> 
+              <div class="selectDiv">
+              <select required="required" autocomplete="state" id="ContactFormState" name="contact[State]">
+              <option style='display:none' disabled selected value="">State</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option>
+              </select>
+              </div>
+              <label for="ContactFormZIP" class="hidden-label">ZIP</label>
+              <input required="required" autocomplete="zip" type="text" id="ContactFormName" class="input-full" name="contact[ZIP]" placeholder="Zip Code" autocapitalize="words" value="">
+              <div class="buttonDiv nextButton buttonDiv2-{{ section.id }}">
+            <style>
+              .buttonDiv2-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='black' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='black' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+                    <path d="M20.9609 32.5547L30.9765 22.5392" stroke="#000" stroke-width="2"/>
+                    <path d="M21.7665 22.2535H31.2608V31.7478" stroke="#000" stroke-width="2"/>
+                  </svg>
+                  <div style="min-height: 52px; color: #000;" class="GT-600">Next</div>
+              </div>
+      		</div>
+      		<div category="Personal" class="contactForm contactForm-Personal">
+            	<p class="smallContactTitle GT-500">Let us know more about yourself</p>
+              	<div class="selectDiv">
+                <select id="" name="contact[Building]">
+                    <option style='display:none' disabled selected value="">Type of building</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Residential">Residential</option>
+                </select>
+                </div>
+              	<label for="ContactFormName" class="hidden-label">{{ 'contact.form.name' | t }}</label>
+                <input required="required" autocomplete="given-name" type="text" id="ContactFormName" class="input-full" name="contact[{{ 'contact.form.name' | t }}]" placeholder="Your first name" autocapitalize="words" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+              	<label for="ContactFormName" class="hidden-label">{{ 'contact.form.name' | t }}</label>
+                <input required="required" autocomplete="family-name" type="text" id="ContactFormName" class="input-full" name="contact[Last name]" placeholder="Your last name" autocapitalize="words">
+              	<label for="ContactFormEmail" class="hidden-label">{{ 'contact.form.email' | t }}</label>
+                <input autocomplete="email" required="required" type="email" id="ContactFormEmail" class="input-full" name="contact[email]" placeholder="Email address" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+             	<label for="ContactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
+            	<input required="required" autocomplete="tel" type="tel" id="ContactFormPhone" class="input-full" name="contact[{{ 'contact.form.phone' | t }}]" placeholder="Phone number" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+				<div class="buttonDiv nextButton sendButton buttonDiv3-{{ section.id }}">
+            <style>
+              .buttonDiv3-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='black' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='black' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+                    <path d="M20.9609 32.5547L30.9765 22.5392" stroke="#000" stroke-width="2"/>
+                    <path d="M21.7665 22.2535H31.2608V31.7478" stroke="#000" stroke-width="2"/>
+                  </svg>
+                  <div id="buttonDiv3-{{ section.id }}" style="min-height: 52px; color: #000;" class="GT-600">Send</div>
+              </div>
+      		</div>
+            <input style="display: none;" class="submitButton" type="submit" class="btn right" value="{{ 'contact.form.send' | t }}">
+
+          {% endform %}
+    </div>
+  </div>
+</div>
+<script>
+          var form = document.querySelector("#shopify-section-{{ section.id }} form");
+
+        document.getElementById("buttonDiv3-{{ section.id }}").addEventListener("click", function () {
+          form.submit();
+        });
+      </script>
+<script>
+	$(document).ready(function(){
+        $(".contactCategory").click(function(){
+          let num = 0;
+          $(".contactForm:visible").find("input,select,textarea").each(function(){
+              if($(this).attr("required")=="required" && $(this).val() === null){
+				num++;
+                $(this).css("box-shadow","0 0 0 2px red");
+              }
+              else if($(this).attr("required")=="required" && $(this).val().length == 0){
+              	num++;
+                $(this).css("box-shadow","0 0 0 2px red");
+                $(this).attr("placeholder",$(this).attr("placeholder")+" (Required)")
+              }else{
+              	$(this).css("box-shadow","unset");
+              }
+            });
+          	if(num == 0){
+              $(".contactCategory").removeClass("active");
+              $(this).addClass("active");
+              $(".contactForm").slideUp();
+              $(".contactForm-"+$(this).attr("c")).slideDown();
+            }
+        });
+        $(".nextButton").click(function(){
+				$(".contactCategory.active").next().first().click();
+        });
+	});
+</script>
+{% schema %}
+  {
+    "name": "Contact section",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+        {
+          "type": "text",
+          "id": "button-one",
+          "label": "Residentials",
+          "default": "Residentials Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link-one",
+          "label": "Residentials Button link"
+        },
+        {
+          "type": "text",
+          "id": "button-two",
+          "label": "Builder",
+          "default": "Builder Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link-two",
+          "label": "Builder Button link"
+        },
+        {
+          "type": "text",
+          "id": "button-three",
+          "label": "Designer",
+          "default": "Designer Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link-three",
+          "label": "Designer Button link"
+        },
+        {
+          "type": "text",
+          "id": "button-four",
+          "label": "Architect",
+          "default": "Residentials Button text"
+        },
+        {
+          "type": "url",
+          "id": "button_link-four",
+          "label": "Architect Button link"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+        {
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+          "type": "color",
+          "id": "boxBackgroundColor",
+          "label": "Box background color"
+        },
+		{
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+		{
+          "type": "text",
+          "id": "textWidth",
+          "label": "Image part width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMargin",
+          "label": "Image part margin right (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textWidthMob",
+          "label": "Image part mobile width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMarginMob",
+          "label": "Image part margin right (0-100)"
+        },
+		{
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Text Desktop"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+		{
+          "type": "text",
+          "id": "textSize",
+          "label": "Text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "textLine",
+          "label": "Text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "textLetter",
+          "label": "Text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "textColor",
+          "label": "Text color"
+        },
+		{
+          "type": "select",
+          "id": "textAlign",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "textMarBottom",
+          "label": "Text bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Text Mobile"
+        },
+		{
+          "type": "text",
+          "id": "textSizeMob",
+          "label": "Text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "textLineMob",
+          "label": "Text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "textLetterMob",
+          "label": "Text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "textColorMob",
+          "label": "Text color"
+        },
+		{
+          "type": "select",
+          "id": "textAlignMob",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "textMarBottomMob",
+          "label": "Text bottom margin mobile (numbers only)"
+        }
+	],
+	"presets": [
+      {
+        "category": "Contact",
+        "name": "Contact section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

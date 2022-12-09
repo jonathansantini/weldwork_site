@@ -1,0 +1,1411 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+<style>
+    .productThumbnailVideo.active {
+  	border: 2px solid #000;
+  }
+  @media only screen and (min-width: 1009px) {
+  .quickShipTitle {
+  	font-size: 1.39vw;
+    line-height: 1.67vw;
+    margin-bottom: 0.97vw;
+    color: #000;
+  }
+  .productTopTitle {
+  	font-size: 3.61vw;
+    line-height: 3.79vw;
+    letter-spacing: -2px;
+    margin-bottom: 1.67vw;
+    color: #000;
+  }
+  .jdgm-star {
+  	font-size: 1.04vw;
+  }
+  .jdgm-prev-badge__text {
+  	font-family: "GT Walsheim Pro";
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 0.97vw;
+    margin-left: 1.94vw;
+    color: #000;
+    opacity: 0.5;
+  }
+  .jdgm-widget.jdgm-preview-badge {
+  	margin-bottom: 4.03vw;
+  }
+  .productTopMeta {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  	padding: 1.67vw 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .product-single__price {
+  	font-size: 2.22vw;
+    line-height: 2.44vw;
+    font-family: "GT Walsheim Pro";
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .product-single__price--compare-at {
+  	font-size: 1.11vw;
+    line-height: 2.44vw;
+    font-family: "GT Walsheim Pro";
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .btn--add-to-cart2.btn.btn {
+  	margin: 0 0 0 15px;
+    padding: 0;
+    font-family: "GT Walsheim Pro";
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    font-weight: 500;
+    font-size: 0.97vw;
+    line-height: 0.97vw;
+    text-transform: unset;
+  }
+  .product-single__add-to-cart {
+  	margin: 0;
+  }
+  .flexDiv.btn.btn--add-to-cart2 {
+  	align-items: center;
+  }
+  .btnIcon {
+  	border-right: 1px solid #000;
+  }
+  .btnText {
+  	padding: 1.25vw 1.11vw;
+  }
+  .productTopPerks {
+  	padding: 1.74vw 0;
+    border-bottom: 1px solid #c3c3c3;
+  }
+  .productTopPerk {
+  	margin-bottom: 0.83vw;
+  }
+  .perkCheckmark {
+  	margin-right: 1.6vw;
+    padding-top: 0.28vw;
+  }
+  .productPerkTitle  {
+  	font-size: 0.97vw;
+    line-height: 1.36vw;
+    margin-bottom: 0;
+    color: #000;
+  }
+  .productPerkText  {
+  	font-size: 0.97vw;
+    line-height: 1.36vw;
+    margin-bottom: 0;
+    color: #5E5E5E;
+  }
+  .productThumbnails {
+  	position: absolute; 
+    top: 10%;
+    left: 2.43vw; 
+    width: 5.56vw; 
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+  }
+  .productThumbnail {
+  	margin-bottom: 1.11vw;
+    cursor: pointer;
+    border: 1px solid #fff;
+  }
+  .mainImg {
+  	visibility: hidden;
+  }
+  .mainImgAn {
+  	position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .productThumbnail.active {
+  	border: 2px solid #000;
+  }
+  .stickyCart {
+    position: fixed;
+    top: 0;
+    right: 0;
+  	width: calc(100vw - 6.11vw);
+    background: #000;
+    color: #fff;
+    z-index: 3;
+    padding: 1.11vw 10vw 1.11vw 3.75vw;
+    display: flex;
+    align-items: center;
+    transform: translateY(-200%);
+    transition: all 0.6s ease-out;
+  }
+  .stickyCart.active {
+  	transform: translateY(0%);
+  }
+  .stickyPerks {
+  	width: 51%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .stickyPerks img {
+  	width: 1.11vw;
+    height: 1.11vw;
+    margin-right: 0.97vw;
+  }
+  .stickyPerks p {
+  	font-size: 0.97vw;
+    line-height: 1.17vw;
+    color: #fff;
+    margin-bottom: 0;
+  }
+  .stickyPerk {
+  	display: flex;
+  }
+  .stickyAdd {
+  	width: 49%;
+    display: flex;
+  }
+  .stickyAdd .stickyPrice {
+  	margin: 0 auto;
+  }
+  .stickyAdd button {
+  	display: inline-flex;
+  }
+  .stickyCart .price-container {
+  	margin: 0 auto;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  .stickyCart .price-container .product-single__price {
+  	color: #fff;
+  }
+  }
+  @media only screen and (max-width: 1009px) {
+    .productImageHolder {
+    	position: relative!important;
+      	top: unset!important;
+      	padding-bottom: 104px;
+      	margin-top: 86px;
+    }
+  	.quickShipTitle {
+  	font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 8px;
+    color: #000;
+    padding: 0 20px;
+  }
+  .productTopTitle {
+  	font-size: 36px;
+    line-height: 37.8px;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    color: #000;
+    padding: 0 20px;
+  }
+  .jdgm-star {
+  	font-size: 1.04vw;
+  }
+  .jdgm-prev-badge__text {
+  	font-family: "GT Walsheim Pro";
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 0.97vw;
+    margin-left: 1.94vw;
+    color: #000;
+    opacity: 0.5;
+  }
+  .jdgm-widget.jdgm-preview-badge {
+  	margin-bottom: 4.03vw;
+  }
+  .productTopMeta {
+    display: flex;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  	padding: 31px 0;
+    margin: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .product-single__price {
+  	font-size: 28px;
+    line-height: 31.2px;
+    font-family: "GT Walsheim Pro";
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .product-single__price--compare-at {
+  	font-size: 16px;
+    line-height: 31.2px;
+    font-family: "GT Walsheim Pro";
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .btn--add-to-cart2.btn.btn {
+  	margin: 0 0 0 15px;
+    padding: 0;
+    font-family: "GT Walsheim Pro";
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: unset;
+  }
+  .product-single__add-to-cart {
+  	margin: 0;
+  }
+  .flexDiv.btn.btn--add-to-cart2 {
+    display: flex;
+  	align-items: center;
+  }
+  .btnIcon {
+  	border-right: 1px solid #000;
+  }
+  .btnText {
+  	padding: 18px 16px;
+  }
+  .productTopPerks {
+  	padding: 37px 20px;
+    border-bottom: 1px solid #c3c3c3;
+  }
+  .productTopPerk {
+    display: flex;
+  	margin-bottom: 12px;
+  }
+  .perkCheckmark {
+  	margin-right: 23px;
+    padding-top: 5px;
+  }
+  .productPerkTitle  {
+  	font-size: 14px;
+    line-height: 19.6px;
+    margin-bottom: 0;
+    color: #000;
+  }
+  .productPerkText  {
+  	font-size: 14px;
+    line-height: 19.6px;
+    margin-bottom: 0;
+    color: #5E5E5E;
+  }
+  .productThumbnails {
+  	position: absolute; 
+    bottom: 0;
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 2;
+  }
+  .productThumbnail {
+  	margin-left: 16px;
+    height: 64px;
+    width: auto;
+    cursor: pointer;
+    border: 1px solid #fff;
+  }
+  .productThumbnail:nth-child(1) {
+  	margin-left: 0px;
+  }
+  .mainImg {
+  	visibility: hidden;
+  }
+  .mainImgAn {
+  	position: absolute; 
+    width: 100%;
+    bottom: 104px;
+    left: 0;
+  }
+  .productThumbnail.active {
+  	border: 2px solid #000;
+  }
+  .stickyCart {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  	width: 100%;
+    background: #000;
+    color: #fff;
+    z-index: 3;
+    padding: 13px 21px;
+    display: flex;
+    align-items: center;
+    transform: translateY(200%);
+    transition: all 0.6s ease-out;
+  }
+  .stickyCart.active {
+  	transform: translateY(0%);
+  }
+  .stickyPerks {
+  	width: 51%;
+    display: none;
+    justify-content: space-between;
+  }
+  .stickyPerks img {
+  	width: 1.11vw;
+    height: 1.11vw;
+    margin-right: 0.97vw;
+  }
+  .stickyPerks p {
+  	font-size: 0.97vw;
+    line-height: 1.17vw;
+    color: #fff;
+    margin-bottom: 0;
+  }
+  .stickyPerk {
+  	display: flex;
+  }
+  .stickyAdd {
+  	width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .stickyAdd .stickyPrice {
+  	margin: 0 auto;
+    margin-left: 0;
+  }
+  .stickyAdd button {
+  	display: inline-flex;
+  }
+    .stickyAdd .btnIcon, .stickyAdd .btnIcon svg {
+    	width: 40px;
+      	height: 40px;
+    }
+    .stickyAdd .btnText {
+    	padding: 13px 16px;
+    }
+  .stickyCart .price-container {
+  	margin: 0 auto;
+    margin-left: 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  .stickyCart .price-container .product-single__price {
+  	color: #fff;
+  }
+    .variantPicker {
+    	padding: 0 20px;
+      	padding-bottom: 71px;
+    }
+  }
+  .videoImage{
+    cursor: pointer;
+  }
+  .iframeVideo{
+    position: absolute;
+    width: 85%;
+    height: 100%; 
+    top: 20%;
+    left: 20%;
+    visibility:hidden;
+max-height: 480px;  }
+  .iframeVideoShow{
+    visibility: unset;
+    display: block !important;
+  }
+  @media(max-width:1008px){
+    .iframeVideo {
+    left: 0%;
+    width: 100%;
+    top: 25%;
+    height: 50%;
+    max-height: unset;
+}
+  }
+
+
+  /* GLASS OPTIONS POPUP */
+  .glass-options-image{
+    margin: 0 auto;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition:  .6s ease-in-out;
+    -moz-transition: .6s ease-in-out;
+    -o-transition:  .6s ease-in-out;
+    transition: .6s ease-in-out;
+}
+.glass-options-image .image-parent{
+  top: 3.5%;
+  padding: 40px;
+  background-color: #000;
+    z-index: 999999;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 100%;
+   
+}
+
+.closePopupGlass{
+  position: absolute;
+    top: 8px;
+    cursor: pointer;
+    right: 8px;
+}
+.show-glass-options{
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.hide-glass-options{
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+.mobile-glass-image-options{
+  display: none;
+}
+
+.desktop-glass-image-options{
+  display: block;
+}
+@media(max-width:767px){
+  .image-parent{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .mobile-glass-image-options{
+  display: block;
+  width: 100%;
+    height: 100%;
+    min-height: 550px;
+    object-fit: cover;
+}
+
+.desktop-glass-image-options{
+  display: none;
+} 
+}
+.moreinfo-popup{
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  font-size: 10px;
+  top: -25px;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    width: 250px;
+    text-align: center;
+    border-radius: 20px;
+    line-height: unset;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    left: -30px;
+}
+p.view-glass-options:hover .moreinfo-popup {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media(max-width:767px){
+  .moreinfo-popup{
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    top: -20px;
+  }
+}
+</style>
+<div class="stickyCart">
+  <div class="stickyPerks">
+    <div class="stickyPerk">
+      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+      <p class="GT-400">
+      	  {% if product.metafields.my_fields.product_perk_1 != blank %}
+            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
+          {% else %}
+            Made in the USA
+          {% endif %}
+      </p>
+    </div>
+     <div class="stickyPerk">
+      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+      <p class="GT-400">
+      	   {% if product.metafields.my_fields.product_perk_2 != blank %}
+            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
+          {% else %}
+            Delivers Nationwide
+          {% endif %}
+      </p>
+    </div>
+     <div class="stickyPerk">
+      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+      <p class="GT-400">
+      	  {% if product.metafields.my_fields.product_perk_3 != blank %}
+            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
+          {% else %}
+            Specialty Interior Doors
+          {% endif %}
+      </p>
+    </div>
+  </div>
+  <div class="stickyAdd">
+    {% include 'product-price', variant: current_variant %}
+   
+    <div>
+    <button class="buttonStickyAdd flexDiv btn btn--add-to-cart2{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                  <div class="btnIcon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none" style="&#10;">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1753 20.9996H33.5003L32.44 26.9785C32.3694 27.3764 32.0236 27.6663 31.6195 27.6663H21.0013C20.5739 27.6663 20.2217 27.3446 20.1736 26.9302L20.168 26.8319V26.8319L20.1753 20.9996Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18.5 18.4999H20.1584L20.1667 21.8332" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.0835 31.833C28.0835 30.9126 28.8297 30.1664 29.7501 30.1664C30.6706 30.1664 31.4168 30.9126 31.4168 31.833C31.4168 32.7535 30.6706 33.4997 29.7501 33.4997C28.858 33.4997 28.1274 32.7143 28.0835 31.833Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M22.2506 33.4997C21.3302 33.4997 20.584 32.7535 20.584 31.833C20.584 30.9126 21.3302 30.1664 22.2506 30.1664C23.1711 30.1664 23.9173 30.9126 23.9173 31.833C23.9173 32.7535 23.1711 33.4997 22.2506 33.4997Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M22.2502 27.6665V30.1665" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M27.6663 31.8334H24.333" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  </div>
+                  <div class="btnText">
+                  <span class="btn__text">
+                    {% if current_variant.available %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </span>
+                  </div>
+                </button>
+    </div>
+  </div>
+</div>
+
+<div class="glass-options-image">
+  <div class="image-parent">
+      <?xml version="1.0" encoding="UTF-8"?>
+<svg class="closePopupGlass" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30" width="30px" height="30px">
+<g id="surface2108936">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 7 4 C 6.742188 4 6.488281 4.097656 6.292969 4.292969 L 4.292969 6.292969 C 3.902344 6.683594 3.902344 7.316406 4.292969 7.707031 L 11.585938 15 L 4.292969 22.292969 C 3.902344 22.683594 3.902344 23.316406 4.292969 23.707031 L 6.292969 25.707031 C 6.683594 26.097656 7.316406 26.097656 7.707031 25.707031 L 15 18.414062 L 22.292969 25.707031 C 22.683594 26.097656 23.316406 26.097656 23.707031 25.707031 L 25.707031 23.707031 C 26.097656 23.316406 26.097656 22.683594 25.707031 22.292969 L 18.414062 15 L 25.707031 7.707031 C 26.097656 7.316406 26.097656 6.683594 25.707031 6.292969 L 23.707031 4.292969 C 23.316406 3.902344 22.683594 3.902344 22.292969 4.292969 L 15 11.585938 L 7.707031 4.292969 C 7.511719 4.097656 7.257812 4 7 4 Z M 7 4 "/>
+</g>
+</svg>
+    <img class="desktop-glass-image-options" src="{{product.metafields.my_fields.glass_option_video | img_url: 'master'}}"/>
+    <img class="mobile-glass-image-options" src="{{ product.metafields.my_fields.glass_options_image_mobile | img_url: 'master'}}"/>
+
+
+  </div>
+</div>
+<script>
+  // A $( document ).ready() block.
+$( document ).ready(function() {
+  $( ".view-glass-options" ).click(function() {
+    $(".glass-options-image").removeClass('hide-glass-options')
+ $(".glass-options-image").addClass('show-glass-options')
+});
+$( ".closePopupGlass" ).click(function() {
+ $(".glass-options-image").removeClass('show-glass-options')
+ $(".glass-options-image").addClass('hide-glass-options')
+
+});
+});
+</script>
+
+<div itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product-template"
+  data-image-zoom-type="{{ section.settings.enable_image_zoom }}"
+  data-enable-history-state="true"
+  data-stacked-layout="{% if section.settings.media_layout == "stacked" %}true{% else %}false{% endif %}"
+  {% if first_3d_model %}data-has-model="true"{% endif %} class="productTop flexDiv">
+  <div class="productTopLeft">
+    <div style="position: sticky; top: -100px;" class="productImageHolder">
+      <p class="mobileClass quickShipTitle GT-500">Quickship</p>
+    <p class="mobileClass productTopTitle GT-500">{{ product.title | escape }}</p>
+    <div class="mobileClass">
+    {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
+    </div>
+    	<img class="mainImg fullWidth" src="{{ product.featured_image | img_url: "300x" }}">
+      	<img class="mainImgAn image-zoom" 
+          data-zoom-image="{{ product.featured_image | img_url: "1200x" }}"
+          src="{{ product.featured_image | img_url: "1200x" }}">
+        <iframe class="iframeVideo iv-one"  src=""></iframe>
+        <iframe class="iframeVideo iv-three"  src="" title="W3Schools Free Online Web Tutorials"></iframe>
+        <iframe class="iframeVideo iv-four"  src="" title="W3Schools Free Online Web Tutorials"></iframe>
+
+        <div class="productThumbnails">
+      	{% for img in product.images %}
+        	<img class="fullWidth productThumbnail {% if forloop.first %}active{% endif %}" 
+            source="{{ img | img_url: '1200x' }}" 
+            src="{{ img | img_url: '400x' }}"
+            data-image="{{ img | img_url: '1200x' }}" 
+            data-zoom-image="{{ img | img_url: '1200x' }}">
+        {% endfor %}
+       <div class="img-thumb-video">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="8" y="7.11108" width="8.88889" height="10.6667" fill="#F4F0EA"/>
+<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 16.5V7.5L16 12L10 16.5Z" fill="black"/>
+</svg>
+   
+          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-One" source="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image | img_url: '1200x'}}">
+          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Two" source="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_three_lite | img_url: '1200x'}}">
+          <img class="videoImage productThumbnailVideo{% if forloop.first %}active{% endif %} Image-V-Three" source="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}" src="{{product.metafields.my_fields.product_video_image_four_lite | img_url: '1200x'}}">
+        </div>
+      </div>
+    </div>
+    <style>
+      .videoImage{
+        display: none;
+      }
+      .Image-V-One{
+        display: block
+      }
+    </style>
+  <script>
+    $(document).ready(function(){
+//       const zoomConfig = {
+//         zoomType: 'inner',
+//         cursor: 'crosshair'
+//       }
+//       $('.image-zoom').ezPlus(zoomConfig);
+
+//       const resetZoom = () => {
+//         $(".image-zoom").attr("data-zoom-image", $(".productThumbnail.active").attr("source"));
+//         $('.image-zoom').ezPlus(zoomConfig);
+//       }
+
+//       const removeZoom = () => {
+//         if($('.ZoomContainer')) {
+//           $('.ZoomContainer').remove();
+//           $(".image-zoom").removeData('elevateZoom');
+//         }
+//       }
+
+      $(".productThumbnail").click(function(){
+//         removeZoom();
+        $(".productThumbnail").removeClass("active");
+        $(".productThumbnailVideo").removeClass("active");
+        $(".iv-three").attr("src", "");
+        $(".iv-four").attr("src", "");
+        $(".iv-one").attr("src", "");
+  
+        $(this).addClass("active");
+        if($( ".lite-full" ).hasClass( "selected" )){
+          $(".iv-one").fadeOut();; 
+        $(".iv-one").removeClass('iframeVideoShow'); 
+  
+        }
+  
+        if($( ".lite-three" ).hasClass( "selected" )){
+          // $("#foo").attr("src", "bar2.jpg");
+  
+          $(".iv-three").fadeOut();; 
+        $(".iv-three").removeClass('iframeVideoShow'); 
+  
+        }
+  
+        if($( ".lite-four" ).hasClass( "selected" )){
+          $(".iv-four").fadeOut();; 
+        $(".iv-four").removeClass('iframeVideoShow'); 
+  
+        }
+  
+        $(".mainImgAn").fadeOut();
+        setTimeout(function(){ 
+          $(".mainImg").attr("src",$(".productThumbnail.active").attr("src"));
+          $(".mainImgAn").attr("src",$(".productThumbnail.active").attr("source"));
+          if($(".productThumbnail.active")[0].tagName === 'IMG' ) {
+//             resetZoom();
+            if(window.innerWidth > 1008) {
+              $(".mainImgAn").fadeIn();
+            } else {
+              setTimeout(() => {
+                $(".mainImgAn").css('display', 'unset');
+              }, 0);
+            }
+          }
+        }, 400);
+      });
+    
+      $(".Image-V-One").click(function(){
+//         removeZoom();
+        $(".productThumbnail").removeClass("active");
+        $(this).addClass("active");
+        $(".mainImgAn").fadeOut();
+        setTimeout(function(){ 
+        // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+        $(".iv-one").addClass('iframeVideoShow'); 
+    
+        $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
+  
+        // $(".iframeVideo").addClass('mainImgAn'); 
+        $(".iv-one").fadeIn(); 
+        }, 400);
+      });
+  
+        
+      $(".Image-V-Two").click(function(){
+//         removeZoom();
+        $(".productThumbnail").removeClass("active");
+        $(this).addClass("active");
+        $(".mainImgAn").fadeOut();
+        setTimeout(function(){ 
+        // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+        $(".iv-three").addClass('iframeVideoShow'); 
+        $(".iv-three").attr("src", "{{product.metafields.my_fields.product_video_url_three_lite}}");
+  
+        // $(".iframeVideo").addClass('mainImgAn'); 
+        $(".iv-three").fadeIn(); 
+        }, 400);
+      });
+  
+        
+      $(".Image-V-Three").click(function(){
+//         removeZoom();
+        $(".productThumbnail").removeClass("active");
+        $(this).addClass("active");
+        $(".mainImgAn").fadeOut();
+        setTimeout(function(){ 
+        // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+        $(".iv-four").addClass('iframeVideoShow'); 
+        $(".iv-four").attr("src", "{{product.metafields.my_fields.product_video_url_four_lite}}");
+  
+        // $(".iframeVideo").addClass('mainImgAn'); 
+        $(".iv-four").fadeIn(); 
+        }, 400);
+      });
+    });
+
+  </script>
+  </div>
+  <div class="productTopRight">
+    {% capture "form_classes" %}
+              product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+            {%- endcapture %}
+
+            {% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
+
+            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+              {% comment %}
+                Automatically inserted by Shop Pay Installments theme updater
+              {% endcomment %}
+              {% unless settings.disable_autogenerated_payment_terms %}
+                {{ form | payment_terms }}
+              {% endunless %}
+    <p class="desktopClass quickShipTitle GT-500">Quick Ship</p>
+    <p class="desktopClass productTopTitle GT-500">{{ product.title | escape }}</p>
+    <div class="desktopClass">
+    {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
+    </div>
+    {% include 'discount-timer' %}
+    <div class="productTopMeta flexDiv">
+      {% include 'product-price', variant: current_variant %}
+      <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
+                <div class="mainAddToCart flexDiv btn btn--add-to-cart2{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                  <div class="btnIcon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none" style="&#10;">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1753 20.9996H33.5003L32.44 26.9785C32.3694 27.3764 32.0236 27.6663 31.6195 27.6663H21.0013C20.5739 27.6663 20.2217 27.3446 20.1736 26.9302L20.168 26.8319V26.8319L20.1753 20.9996Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18.5 18.4999H20.1584L20.1667 21.8332" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.0835 31.833C28.0835 30.9126 28.8297 30.1664 29.7501 30.1664C30.6706 30.1664 31.4168 30.9126 31.4168 31.833C31.4168 32.7535 30.6706 33.4997 29.7501 33.4997C28.858 33.4997 28.1274 32.7143 28.0835 31.833Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M22.2506 33.4997C21.3302 33.4997 20.584 32.7535 20.584 31.833C20.584 30.9126 21.3302 30.1664 22.2506 30.1664C23.1711 30.1664 23.9173 30.9126 23.9173 31.833C23.9173 32.7535 23.1711 33.4997 22.2506 33.4997Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M22.2502 27.6665V30.1665" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M27.6663 31.8334H24.333" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  </div>
+                  <div class="btnText">
+                  <span class="btn__text">
+                    {% if current_variant.available %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </span>
+                  </div>
+                </div>
+                {% if section.settings.enable_payment_button %}
+                  {{ form | payment_button }}
+                {% endif %}
+              </div>
+    </div>
+    <div class="productTopPerks">
+      <div class="productTopPerk flexDiv">
+        <div class="perkCheckmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
+            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="perkTextHolder">
+          <p class="productPerkTitle GT-500">
+          {% if product.metafields.my_fields.product_perk_1 != blank %}
+            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
+          {% else %}
+            Made in the USA
+          {% endif %}
+          </p>
+          <p class="productPerkText GT-400">
+          {% if product.metafields.my_fields.product_perk_1 != blank %}
+            {{ product.metafields.my_fields.product_perk_1 | split: "/" | last }}
+          {% else %}
+            Quality & service you can rely on.
+          {% endif %}
+          </p>
+        </div>
+      </div>
+      
+      <div class="productTopPerk flexDiv">
+        <div class="perkCheckmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
+            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="perkTextHolder">
+          <p class="productPerkTitle GT-500">
+          {% if product.metafields.my_fields.product_perk_2 != blank %}
+            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
+          {% else %}
+            Delivers Nationwide
+          {% endif %}
+          </p>
+          <p class="productPerkText GT-400">
+          {% if product.metafields.my_fields.product_perk_2 != blank %}
+            {{ product.metafields.my_fields.product_perk_2 | split: "/" | last }}
+          {% else %}
+            Wherever you are, we’ll find a way to work with you.
+          {% endif %}
+          </p>
+        </div>
+      </div>
+      
+      <div class="productTopPerk flexDiv">
+        <div class="perkCheckmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
+            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="perkTextHolder">
+          <p class="productPerkTitle GT-500">
+          {% if product.metafields.my_fields.product_perk_3 != blank %}
+            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
+          {% else %}
+            Specialty Interior Doors
+          {% endif %}
+          </p>
+          <p class="productPerkText GT-400">
+          {% if product.metafields.my_fields.product_perk_3 != blank %}
+            {{ product.metafields.my_fields.product_perk_3 | split: "/" | last }}
+          {% else %}
+            We do one thing – and we do it right every time.
+          {% endif %}
+          </p>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 0;" class="productTopPerk flexDiv">
+        <div class="perkCheckmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
+            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="perkTextHolder">
+          <p class="productPerkTitle GT-500">
+          {% if product.metafields.my_fields.product_perk_4 != blank %}
+            {{ product.metafields.my_fields.product_perk_4 | split: "/" | first }}
+          {% else %}
+            More than a Door
+          {% endif %}
+          </p>
+          <p class="productPerkText GT-400">
+          {% if product.metafields.my_fields.product_perk_4 != blank %}
+            {{ product.metafields.my_fields.product_perk_4 | split: "/" | last }}
+          {% else %}
+            Functional art you'll enjoy every day.
+          {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+    <style>
+      .view-glass-options {
+    font-family: 'GT Walsheim Pro';
+    font-size: 12px;
+    line-height: 1.36vw;
+    margin-bottom: 0;
+    color: #5E5E5E;
+    cursor: pointer;
+    margin-left: 10px;
+}
+      .productSelector {
+      	margin-top: 24px;
+      }
+      .variantSelector {
+      	margin-top: 24px;
+      }
+      .productLabel {
+      	font-size: 16px;
+        margin-bottom: 16px;
+      }
+      .variantsFlex {
+      	display: flex;
+      }
+      .productLabel svg {
+      	margin-bottom: -3px;
+        margin-right: 8px;
+      }
+      .variantsFlex .variantMain {
+      	flex-grow: 1;
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(195, 195, 195, .5);
+        font-size: 14px;
+        font-weight: 400;
+      	font-family: "GT Walsheim Pro";
+        cursor: pointer;
+        color: #5E5E5E;
+        margin-right: 10px;
+      }
+      .variantMain:hover {
+      	background: #F4F0EA;
+      }
+      .variantMain.selected {
+      	background: #F4F0EA;
+        border-color: #000;
+        color: #000;
+      }
+      .variantsFlex .variantMain:nth-last-child(1) {
+      	margin-right: 0px;
+      }
+      .variantMain.variantHandle {
+      	padding: 27px 41px 27px 24px;
+        justify-content: space-between;
+        line-height: 17.3px;
+      }
+      .varitantsLite .variantMain {
+      	padding: 14px 20px 11px;
+        flex-direction: column;
+        max-width: calc(20% - 8px);
+      }
+      .varitantsLite .variantMain svg {
+      	display: block;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+      .variantsGlass {
+      	flex-wrap: wrap;
+      }
+      .variantsGlass .variantMain {
+      	padding: 0 0 0 24px;
+        width: calc(50% - 5px);
+        flex-grow: unset;
+        margin-bottom: 12px;
+        justify-content: space-between;
+        overflow-x: hidden;
+      }
+      .variantsGlass .variantMain:nth-child(2) {
+      	margin-right: 0;
+      }
+      .variantsGlass .variantMain img {
+      	width: 70px;
+      }
+    </style>
+    <div class="variantPicker">
+    	<!--<div sel="" class="productSelector">
+          <div class="productLabel GT-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+<rect x="0.5" y="2.5" width="16" height="12" stroke="black"/>
+<path d="M8.5 16.5L8.5 0.5" stroke="black" stroke-dasharray="2 2"/>
+</svg>
+            Door profile</div>
+          <div class="variantsFlex">
+            <div value="1'" class="variantMain selected">1"</div>
+            <div value="2'" class="variantMain">2"</div>
+          </div>
+      	</div>-->
+      	<div sel="" class="productSelector">
+          <div class="productLabel GT-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+<path d="M8.49951 16L8.49951 1" stroke="black"/>
+<path d="M2 5L8.49943 1L15 5" stroke="black"/>
+<path d="M15 12L8.5 16L2 12" stroke="black"/>
+</svg>
+Opening height</div>
+          <div class="variantsFlex">
+            <div value="7'" class="variantMain selected">7'</div>
+            <div value="8'" class="variantMain">8'</div>
+          </div>
+      	</div>
+      	<div sel="" class="variantSelector">
+          <div class="productLabel GT-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+<path d="M16 8.50061L1 8.50061" stroke="black"/>
+<path d="M5 15L1 8.50057L5 2" stroke="black"/>
+<path d="M12 2L16 8.5L12 15" stroke="black"/>
+</svg>
+Opening width</div>
+          <div class="variantsFlex">
+            <div value='48"' class="variantMain selected">48"</div>
+            <div value='60"' class="variantMain">60"</div>
+            <div value='72"' class="variantMain">72"</div>
+          </div>
+      	</div>
+      	<div sel="" class="variantSelector">
+          <div class="productLabel GT-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+<rect x="0.5" y="0.5" width="8" height="8" stroke="black"/>
+<rect x="0.5" y="8.5" width="8" height="8" stroke="black"/>
+<rect x="8.5" y="0.5" width="8" height="8" stroke="black"/>
+<rect x="8.5" y="8.5" width="8" height="8" stroke="black"/>
+</svg>
+            Lite options</div>
+          <div class="variantsFlex varitantsLite">
+            <div thumb="{{ product.metafields.my_fields.full_view | img_url: '1000x' }}" scene="{{ product.metafields.my_fields.full_view_scene | img_url: '1000x' }}" value='Full View' class="variantMain selected  lite-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="38" viewBox="0 0 22 38" fill="none">
+              <rect x="1" y="1" width="20" height="36" stroke="black" stroke-width="2"/>
+              </svg>
+              Full</div>
+            <div thumb="{{ product.metafields.my_fields.three_lite  | img_url: '1000x' }}" scene="{{ product.metafields.my_fields.three_lite_scene | img_url: '1000x' }}" value='3' class="variantMain lite-three"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="38" viewBox="0 0 22 38" fill="none">
+<rect x="1" y="1" width="20" height="36" stroke="black" stroke-width="2"/>
+<path d="M1 13L21 13" stroke="black" stroke-width="2"/>
+<path d="M1 25L21 25" stroke="black" stroke-width="2"/>
+</svg> 3</div>
+            <div thumb="{{ product.metafields.my_fields.four_lite | img_url: '1000x' }}" scene="{{ product.metafields.my_fields.four_lite_scene | img_url: '1000x' }}" value='4' class="variantMain lite-four"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="38" viewBox="0 0 22 38" fill="none">
+<rect x="1" y="1" width="20" height="36" stroke="black" stroke-width="2"/>
+<path d="M1 10L21 10" stroke="black" stroke-width="2"/>
+<path d="M1 19L21 19" stroke="black" stroke-width="2"/>
+<path d="M1 28L21 28" stroke="black" stroke-width="2"/>
+</svg> 4</div>
+          </div>
+          </div>
+      	</div>
+      	<div sel="" class="productSelector">
+          <div class="productLabel GT-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+<circle cx="5" cy="8" r="2" fill="black"/>
+<rect x="0.5" y="0.5" width="9" height="16" stroke="black"/>
+<rect x="5.5" y="7.5" width="11" height="1" stroke="black"/>
+</svg>
+            Hardware</div>
+          <div class="variantsFlex">
+            <div value="offset" class="variantMain selected variantHandle">Offset<br> handle <svg xmlns="http://www.w3.org/2000/svg" width="14" height="37" viewBox="0 0 14 37" fill="none">
+<path d="M1 1H3V36H1V1Z" stroke="black" stroke-width="2"/>
+<path d="M14 1H2V36H14" stroke="black" stroke-width="2"/>
+</svg></div>
+            <div value="porta" class="variantMain variantHandle">Porta Pivot<br> Hinge Upgrade <svg xmlns="http://www.w3.org/2000/svg" width="14" height="37" viewBox="0 0 14 37" fill="none">
+<rect x="1" y="1" width="2" height="35" stroke="black" stroke-width="2"/>
+<path d="M14 5H3V32H14" stroke="black" stroke-width="2"/>
+</svg></div>
+          </div>
+      	</div>
+      <div sel="" class="variantSelector">
+          <div class="productLabel GT-500" style="display: flex; position: relative; align-items: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+<rect x="0.5" y="0.5" width="16" height="16" stroke="black"/>
+<path d="M5 11L12 4" stroke="black"/>
+<path d="M9 11.4502L11.4502 9" stroke="black"/>
+</svg>
+Glass {% if product.metafields.my_fields.glass_options_text != blank %} <p class="view-glass-options" style="position: relative;  display:flex; align-items: center;"> 
+  {{product.metafields.my_fields.glass_options_text }} 
+
+     <span class="moreinfo-popup">Click on "{{product.metafields.my_fields.glass_options_text }}"" to view glass options   </span></p>{%endif%}</div>
+          <div class="variantsFlex variantsGlass">
+            <div value='Standard 1/4" Clear' class="variantMain selected">Standard<br> 1/4" Clear<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
+            <div value='Low Iron 1/4" Acid Etched (Frosted)' class="variantMain">Low Iron 1/4" Acid Etched<br> (Frosted)<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
+            <div value='Low Iron 1/4" Clearvision' class="variantMain">Low Iron 1/4" Clearvision<img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/image_150-2.png?v=1642190236"></div>
+          </div>
+      	</div>
+    </div>
+    {% endform %}
+  </div>
+</div>
+<div style="margin-left: 12vw; display: none;" class="variantsHidden">
+  check
+  <div>
+    {% for product in collections.double-pivot.products  %}
+      <div class="productMain" title="{{ product.title }}" producthandle="{% for tag in product.tags %}{% if tag contains "height_" %}{{ tag | split: "_" | last }}_{% endif %}{% endfor %}{% for tag in product.tags %}{% if tag contains "hardware_" %}{{ tag | split: "_" | last }}{% endif %}{% endfor %}">
+		<ul>
+          {% for variant in product.variants %}
+          <li variantid="{{ variant.id }}" price="{{ variant.price | money }}" varianthandle='{{ variant.option1 }}_{{ variant.option2 }}_{{ variant.option3 | replace: "  ", " " }}'></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  .hideThumbnailImage{
+    display:none !important;
+  }
+  .showCorrectimage{
+    display: block !important;
+  }
+</style>
+<script>
+  $(document).ready(function(){
+
+
+    $(".varitantsLite .variantMain").click(function(){
+    	$(".productThumbnail").first().attr("src",$(this).attr("thumb"));
+      	$(".productThumbnail").first().attr("source",$(this).attr("thumb"));
+      	$(".productThumbnail").last().attr("src",$(this).attr("scene"));
+      	$(".productThumbnail").last().attr("source",$(this).attr("scene"));
+      	$(".mainImg").attr("src",$(".productThumbnail.active").attr("src"));
+      	$(".mainImgAn").attr("src",$(".productThumbnail.active").attr("src"));
+      
+    });
+
+    $(".lite-three").click(function(){
+    $('.Image-V-One').removeClass('showCorrectimage');
+    $('.Image-V-One').addClass('hideThumbnailImage');
+    $(".iv-three").attr("src", "{{product.metafields.my_fields.product_video_url_three_lite}}");
+    $(".iv-four").attr("src", "");
+    $(".iv-one").attr("src", "");
+    $('.Image-V-Three').removeClass('showCorrectimage');
+    $('.Image-V-Three').addClass('hideThumbnailImage');
+
+    $('.Image-V-Two').removeClass('hideThumbnailImage');
+    $('.Image-V-Two').addClass('showCorrectimage');
+
+    if($('.Image-V-One').hasClass('active')){
+    $('.iv-four').removeClass('iframeVideoShow');
+    $('.iv-three').addClass('iframeVideoShow');
+    $('.iv-one').removeClass('iframeVideoShow');
+    $('.Image-V-Two').addClass('active')
+    }
+    if($('.Image-V-Three').hasClass('active')){
+      $('.iv-four').removeClass('iframeVideoShow');
+    $('.iv-three').addClass('iframeVideoShow');
+    $('.iv-one').removeClass('iframeVideoShow');
+    $('.Image-V-Two').addClass('active')
+    }
+}); 
+
+$(".lite-full").click(function(){
+  $('.Image-V-Three').removeClass('showCorrectimage');
+    $('.Image-V-Three').addClass('hideThumbnailImage');
+    $(".iv-four").attr("src", "");
+    $(".iv-three").attr("src", "");
+
+    $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
+
+    $('.Image-V-Two').removeClass('showCorrectimage');
+    $('.Image-V-Two').addClass('hideThumbnailImage');
+
+    $('.Image-V-One').removeClass('hideThumbnailImage');
+    $('.Image-V-One').addClass('showCorrectimage');
+
+    if($('.Image-V-Two').hasClass('active')){
+    $('.iv-four').removeClass('iframeVideoShow');
+    $('.iv-three').removeClass('iframeVideoShow');
+    $('.iv-one').addClass('iframeVideoShow');
+    $('.Image-V-One').addClass('active')
+    }
+    if($('.Image-V-Three').hasClass('active')){
+      $('.iv-four').removeClass('iframeVideoShow');
+    $('.iv-three').removeClass('iframeVideoShow');
+    $('.iv-one').addClass('iframeVideoShow');
+    $('.Image-V-One').addClass('active');
+    }
+
+});
+
+$(".lite-four").click(function(){
+  $('.Image-V-Three').removeClass('hideThumbnailImage');
+    $('.Image-V-Three').addClass('showCorrectimage');
+    $(".iv-four").attr("src", "{{product.metafields.my_fields.product_video_url_four_lite}}");
+    $(".iv-one").attr("src", "");
+    $(".iv-three").attr("src", "");
+    $('.Image-V-Two').removeClass('showCorrectimage');
+    $('.Image-V-Two').addClass('hideThumbnailImage');
+
+    $('.Image-V-One').removeClass('showCorrectimage');
+    $('.Image-V-One').addClass('hideThumbnailImage');
+
+    if($('.Image-V-One').hasClass('active')){
+    $('.iv-four').addClass('iframeVideoShow');
+    $('.iv-three').removeClass('iframeVideoShow');
+    $('.iv-one').removeClass('iframeVideoShow');
+    $('.Image-V-Three').addClass('active')
+    }
+    if($('.Image-V-Two').hasClass('active')){
+      $('.iv-four').addClass('iframeVideoShow');
+    $('.iv-three').removeClass('iframeVideoShow');
+    $('.iv-one').removeClass('iframeVideoShow');
+    $('.Image-V-Three').addClass('active')
+    }
+   
+});
+
+  });
+
+</script>
+<script>
+  $(document).ready(function(){
+  	let selected = "";
+    $(".productSelector .variantMain").click(function(){
+      $(this).parent().find(".variantMain").removeClass("selected");
+      $(this).addClass("selected");
+      selected = $(this).attr("value");
+      $(this).closest(".productSelector").attr("sel",selected);
+    });
+    $(".variantSelector .variantMain").click(function(){
+      $(this).parent().find(".variantMain").removeClass("selected");
+      $(this).addClass("selected");
+      selected = $(this).attr("value");
+      $(this).closest(".variantSelector").attr("sel",selected);
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+  	$(window).scroll(function(){
+    if($(window).scrollTop() >= $('.product-single__add-to-cart').offset().top){
+          $(".stickyCart").addClass("active");
+    }else{
+    	$(".stickyCart").removeClass("active");
+    }
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    let product = "";
+    let variant = "";
+    let check = true;
+    function checkProduct(){
+      product = "";
+      variant = "";
+      $(".productMain.active li").removeClass("active");
+      $(".productMain").removeClass("active");
+      $(".productSelector").each(function(index){
+        if (index < $(".productSelector").length - 1){
+        product+=$(this).attr("sel")+"_";
+        }else{
+        product+=$(this).attr("sel");
+        }
+      });
+      $(".variantSelector").each(function(index){
+        if (index < $(".variantSelector").length - 1){
+        variant+=$(this).attr("sel")+"_";
+        }else{
+        variant+=$(this).attr("sel");
+        }
+      });
+      $(".productMain").each(function(){
+        if ($(this).attr("producthandle")==product){
+        	$(this).addClass("active");
+        }
+      });
+      $(".productMain.active li").each(function(){
+        if ($(this).attr("varianthandle")==variant){
+        	$(this).addClass("active");
+        }
+      });
+      $(".product-single__price").text($(".productMain.active li.active").attr("price"));
+      console.log(product);
+      console.log(variant);
+    }
+    function checkProductAdd(){
+      product = "";
+      variant = "";
+      check = true;
+      $(".productMain.active li").removeClass("active");
+      $(".productMain").removeClass("active");
+      $(".productSelector").each(function(index){
+        if (index < $(".productSelector").length - 1){
+        product+=$(this).attr("sel")+"_";
+        }else{
+        product+=$(this).attr("sel");
+        }
+      });
+      if (check){}else{
+      	return false;
+      }
+      $(".variantSelector").each(function(index){
+        if (index < $(".variantSelector").length - 1){
+        variant+=$(this).attr("sel")+"_";
+        }else{
+        variant+=$(this).attr("sel");
+        }
+      });
+      if (check){}else{
+      	return false;
+      }
+      $(".productMain").each(function(){
+        if ($(this).attr("producthandle")==product){
+        	$(this).addClass("active");
+        }
+      });
+      $(".productMain.active li").each(function(){
+      	if ($(this).attr("varianthandle")==variant){
+        	$(this).addClass("active");
+        }
+      });
+      $(".product-single__price").text($(".productMain.active li.active").attr("price"));
+      data = {
+        "id":$(".productMain.active li.active").attr("variantid"),
+        "quantity": 1,
+        "properties": {
+        	'_Image': $(".productThumbnail").first().attr("src")
+      	}
+      } 
+      jQuery.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: data,
+        dataType: 'json',
+        success: function() { 
+
+        $(".site-nav__link--icon.js-drawer-open-button-right").click();
+
+        }
+    });
+    }
+    $(".buttonStickyAdd, .mainAddToCart").click(function(){
+    	checkProductAdd();
+    });
+    $(".variantMain").click(function(){
+      	console.log("check");
+    	checkProduct();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $(".variantMain.selected").each(function(index){
+    	$(this).click();
+    });
+   });
+</script>
+{% unless product == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+  <script type="application/json" id="ModelJson-{{ section.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+{% endunless %}
+{% schema %}
+  {
+    "name": "Product top",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+
+
+

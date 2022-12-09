@@ -1,0 +1,195 @@
+<style>
+  #shopify-section-{{ section.id }} {
+	z-index: 12000;
+}
+  .loadingScreen {
+  	width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: {{ section.settings.backgroundColor }};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 999999999999999999;
+    flex-wrap: wrap;
+  }
+  .loadingText {
+  	color: #fff;
+    text-align: center;
+  }
+</style>
+<div class="loadingScreen" id="loadingScreen">
+  <div style="text-align: center; margin-top: {{ section.settings.loadingCenterOffset | times: 100 | divided_by: 1440.0 }}vw;" class="fullWidth">
+    {% if section.settings.image1 != blank %}
+      <img class="loadingImg1-{{ block.id }}" src="{{ section.settings.image1 }}">
+      <style>
+        .loadingImg1-{{ block.id }} {
+          width: {{ section.settings.width1 }}%;
+          margin-bottom: {{ section.settings.img1MarginBottom | times: 100 | divided_by: 1440.0 }}vw;
+        }
+        @media only screen and (max-width: 600px) {
+          .loadingImg1-{{ block.id }} {
+              width: {{ section.settings.width1Mob }}%;
+           }
+        }
+    </style>
+    {% endif %}
+  </div>
+  <div style='margin-bottom: {{ section.settings.loadingMarginBottom | times: 100 | divided_by: 1440.0 }}vw;' class="loadingBar">
+    <div style="background: {{ section.settings.loadingUnfilled }};" class="unfilledBar">
+    </div>
+    <div style="background: {{ section.settings.loadingFilled }};" class="filledBar">
+    </div>
+  </div>
+  <div style="text-align: center;" class="fullWidth">
+    {% if section.settings.image != blank %}
+      <img class="loadingImg-{{ block.id }}" src="{{ section.settings.image }}">
+      <style>
+        .loadingImg-{{ block.id }} {
+          width: {{ section.settings.width }}%;
+          margin-bottom: {{ section.settings.imgMarginBottom | times: 100 | divided_by: 1440.0 }}vw;
+        }
+        @media only screen and (max-width: 600px) {
+          .loadingImg-{{ block.id }} {
+              width: {{ section.settings.widthMob }}%;
+           }
+        }
+    </style>
+    {% endif %}
+  </div>
+  <div style="width: 100%">
+    	{% if section.settings.quote %}<p style="color: #fff;" class="loadingText GT-400">{{ section.settings.quote }}</p>{% endif %}
+  </div>
+</div>
+<style>
+  #loadingScreen {
+  	transition: transform 1.2s ease-out;
+  }
+  .hideAnimation {
+  	transform: translateY(-200%);
+  }
+</style>
+<script>
+  setTimeout(function(){
+    $("#loadingScreen").addClass("hideAnimation");
+    document.body.style.overflow = 'visible';
+    $(".secondTitleHome").addClass("fade-in-bottom-delay");
+    $(".firstTitleHome").addClass("fade-in-bottom-delay-2");
+    $(".homepageFirstButton").addClass("fade-in-bottom-delay-3");
+  }, 2000);
+</script>
+{% schema %}
+  {
+    "name": "Loading Screen",
+    "settings": [
+    {
+      "type": "checkbox",
+      "id": "loading",
+      "default": true,
+      "label": "Turn On/Off Loading Screen"
+    },
+    {
+      "type": "color",
+      "id": "backgroundColor",
+      "default": "#000",
+      "label": "Background Color"
+    },
+	{
+      "type": "text",
+      "id": "image1",
+	  "label": "Logo 1 SVG"
+    },
+	{
+		"type": "range",
+		"id": "width1",
+		"min": 1,
+		"max": 100,
+		"default": 30,
+		"step": 1,
+		"label": "Image 1 width"
+    },
+	{
+		"type": "range",
+		"id": "width1Mob",
+		"min": 1,
+		"max": 100,
+		"default": 30,
+		"step": 1,
+		"label": "Image 1 width (Mobile)"
+    },
+	{
+      "type": "text",
+      "id": "img1MarginBottom",
+      "default": "98.87",
+      "label": "Image 1 bottom margin"
+    },
+    {
+      "type": "text",
+      "id": "image",
+	  "label": "Logo SVG"
+    },
+	{
+		"type": "range",
+		"id": "width",
+		"min": 1,
+		"max": 100,
+		"default": 30,
+		"step": 1,
+		"label": "Image width"
+    },
+	{
+		"type": "range",
+		"id": "widthMob",
+		"min": 1,
+		"max": 100,
+		"default": 30,
+		"step": 1,
+		"label": "Image width (Mobile)"
+    },
+	{
+      "type": "text",
+      "id": "imgMarginBottom",
+      "default": "98.87",
+      "label": "Image bottom margin"
+    },
+    {
+      "type": "color",
+      "id": "loadingUnfilled",
+      "default": "#484848",
+      "label": "Loading Unfilled Color"
+    },
+    {
+      "type": "color",
+      "id": "loadingFilled",
+      "default": "#fff",
+      "label": "Loading Filled Color"
+    },
+	{
+      "type": "text",
+      "id": "loadingMarginBottom",
+      "default": "98.87",
+      "label": "Loading bar bottom margin"
+    },
+    {
+      "type": "text",
+      "id": "quote",
+      "default": "The world’s finest functional art",
+      "label": "Quote"
+    },
+	{
+      "type": "text",
+      "id": "loadingCenterOffset",
+      "default": "98.87",
+      "label": "Loading center offset"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

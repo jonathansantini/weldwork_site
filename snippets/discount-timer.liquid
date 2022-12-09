@@ -1,0 +1,52 @@
+<style>
+    .custom-offers{
+        text-align: left;
+        font-size: 12px;
+        padding-bottom: 20px;
+    }
+    .custom-offers h1{
+        text-transform: capitalize;
+    font-family: 'GT Walsheim Pro';
+    font-weight: 500;
+    color: #000;
+
+    }
+
+    .custom-offers h2{
+      
+    font-family: 'GT Walsheim Pro';
+    font-size: 0.97vw;
+    line-height: 1.36vw;
+    margin-bottom: 0;
+    color: #5E5E5E;
+    }
+
+    .custom-offers h2 strong{
+      color: #000;
+      font-family: 'Circular-Loom';
+
+      }
+</style>
+{% if product.metafields.my_fields.offer_details != blank %}
+<div  class="custom-offers">
+    <h1>{{ product.metafields.my_fields.offer_details }}</h1>
+    <h2>Sales ends in <strong id="timer"></strong></h2>
+    </div>
+    {%endif%}
+    <script>
+    var countDownDate = new Date("{{ product.metafields.my_fields.offer_ends }}").getTime();
+    var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "OFFER EXPIRED";  }
+    }, 1000);
+    </script>

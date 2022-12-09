@@ -1,0 +1,351 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+  }
+</style>
+<div class="flexDiv fullWidth designOptions">
+  {% for block in section.blocks %}
+  	<div class="designOption{% if forloop.last %} lastOf{% endif %}">
+      {% if block.settings.subtext != blank %}
+            <p class="subtext-{{ block.id }} GT-{{ block.settings.subtextWeight }}">
+              {{ block.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.subtextLetter }}px; 
+                font-size: {{ block.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.subtextColor }}; 
+                line-height: {{ block.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.subtextAlign }};
+                margin-bottom: {{ block.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.subtextLetterMob }}px; 
+                  font-size: {{ block.settings.subtextSizeMob }}px; 
+                  color: {{ block.settings.subtextColorMob }}; 
+                  line-height: {{ block.settings.subtextLineMob }}px;
+                  text-align: {{ block.settings.subtextAlignMob }};
+                  margin-bottom: {{ block.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      {% if block.settings.image != blank %}
+      <img class="fullWidth img-{{ block.id }}" src="{{ block.settings.image | img_url: "700x" }}">
+      <style>
+              .img-{{ block.id }} {
+                margin-bottom: {{ block.settings.imgMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .img-{{ block.id }} {
+                  margin-bottom: {{ block.settings.imgMarBottomMob }}px;
+                }
+              }
+            </style>
+      {% endif %}
+      {% if block.settings.link != blank %}
+            <div style="text-align: center;" class="fullWidth">
+            	<a class="imageLink" href="{{ block.settings.link }}">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54" fill="none" style="&#10;">
+                <rect opacity="0.5" x="0.5" y="0.5" width="53" height="53" stroke="{{ block.settings.subtextColor }}"/>
+                <path d="M21.9609 32.5549L31.9765 22.5394" stroke="{{ block.settings.subtextColor }}" stroke-width="2"/>
+                <path d="M22.7665 22.2535H32.2608V31.7478" stroke="{{ block.settings.subtextColor }}" stroke-width="2"/>
+                </svg> 
+            	</a>
+            </div>
+            {% endif %}
+  	</div>
+  {% endfor %}
+</div>
+<div class="subSlickHolder2 mobileClass">
+        <div class="lineWithNumbers2" style="display: flex; align-items: center; left: -45px;">
+          <div style="height: 1px; width: 50%; background: #C3C3C3;"></div>
+          <div style="height: 3px; width: 50%; background: #000000;"></div>
+        </div>
+    <div blocklimit="{{ section.blocks.size }}" class="subSlick2 subSlick-{{ section.id }}">
+            {% for block in section.blocks %}
+          		<p mobnumber="{{ forloop.index | minus: 1 }}" number="{% if forloop.last %}{{ forloop.index | minus: 2 }}{% else %}{{ forloop.index | minus: 1 }}{% endif %}" class="slickNumber2 GT-400 {% if forloop.first %}active{% endif %}">0{{ forloop.index }}</p>
+          	{% endfor %}
+        </div>
+    </div>
+<script>
+   $(document).ready(function(){
+     if ($(window).width() < 1009) {
+      $('.designOptions').slick({
+        responsive: [
+          {
+            breakpoint: 1009,
+            settings: {
+              slidesToShow: 1.2,
+              slidesToScroll: 1,
+              arrows: false,
+              centerMode: false,
+              infinite: false,
+              dots: false,
+              adaptiveHeight: true
+            }
+          }
+        ]
+      });
+     }
+    });
+</script>
+<script>
+  $(".slickNumber2").click(function(){
+        $(".slickNumber2").removeClass("active");
+        $(this).addClass("active");
+        let num = Number($(this).attr("number"));
+        let numMob = Number($(this).attr("mobnumber"));
+        if ($(window).width() > 1009) {
+			$('.designOptions').slick('slickGoTo', num);
+        }else{
+        	$('.designOptions').slick('slickGoTo', numMob);
+        }
+	  });
+</script>
+{% schema %}
+  {
+    "name": "Designs",
+	"max_blocks": 4,
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        }
+	],
+	"blocks": [
+      {
+        "type": "design",
+        "name": "Design",
+        "settings": [
+		{
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+		  {
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextWeight",
+          "label": "Subtitle weight (100-900)",
+		  "default": "400"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+		{
+          "type": "text",
+          "id": "imgMarBottom",
+          "label": "Image bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "imgMarBottomMob",
+          "label": "Image mobile bottom margin (numbers only)"
+        }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Portfolio",
+        "name": "Designs",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

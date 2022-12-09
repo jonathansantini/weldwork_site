@@ -1,0 +1,120 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    z-index: {{ section.settings.zIndex }};
+    height: {{ section.settings.height | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: 6.11vw;
+    padding-right: 6.11vw;
+    background-color: {% if section.settings.backgroundColor != blank %}{{ section.settings.backgroundColor }}{% else %}transparent{% endif %};
+  }
+  .borderDivMain {
+  	height: {{ section.settings.borderSize }}px;
+    width: calc(100vw - 12.22vw);
+    z-index: {{ section.settings.zIndex }};
+    background-color: {{ section.settings.borderColor }};
+    {% if section.settings.borderColor == "#c3c3c3" or section.settings.borderColor == "C3C3C3" %}
+    opacity: 0.5;
+    {% endif %}
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      display: none;
+      height: {{ section.settings.height }}px;
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+    }
+  }
+</style>
+<div class="borderDivMain">
+  
+</div>
+{% schema %}
+  {
+    "name": "Border",
+    "settings": [
+		{
+          "type": "text",
+          "id": "height",
+          "label": "Section height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+          "type": "text",
+          "id": "borderSize",
+          "label": "Border Size (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "borderColor",
+          "label": "Border color"
+        },
+		{
+          "type": "text",
+          "id": "zIndex",
+          "label": "Z index (numbers only)"
+        }
+	],
+    "presets": [
+      {
+        "category": "General",
+        "name": "Border",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

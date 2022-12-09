@@ -1,0 +1,1038 @@
+
+<style>
+  a.parentLink.mainLink.GT-500.Weldwork{
+    display: none;
+}
+</style>
+<div class="mainHeader">
+  <div class="mainContainer">
+    <div class="leftPart mobMenu downScroll2">
+      <svg style="visibility: hidden;" xmlns="http://www.w3.org/2000/svg" width="26" height="10" viewBox="0 0 26 10" fill="none">
+        <rect width="26" height="3" fill="black"/>
+        <rect y="7" width="16" height="3" fill="black"/>
+      </svg>
+    </div>
+    <div class="centerPart">
+      
+    </div>
+    <div style="pointer-events: none" class="rightPart">
+      
+    </div>
+  </div>
+</div>
+<div class="logoContainer mobMenu downScroll2 trBG">
+  
+</div>
+<div class="menuHolder">
+  <div class="menuRow">
+    
+    <div class="leftleftSide">
+      <div class="borderDiv">
+      
+    </div>
+    </div>
+    <div class="leftSide">
+      <div class="topLinks">
+      <div class="menuParent">
+      {% for link in linklists[section.settings.main_menu_link_list].links %}
+          {% if link.links != blank %}
+          {% assign parent_index = forloop.index %}
+			<a parent="{{ parent_index }}" class="parentLink mainLink GT-500
+                    {{link.title}}  {% unless request.page_type == 'index' %}{% if link.active %}current-page{% endif %}{% endunless%}" 
+               hrefs="{{ link.url }}">
+              {{ link.title | escape }} 
+      		</a>
+      		{% else %}
+      		<a class="mainLink GT-500
+                      {% unless request.page_type == 'index' %}{% if link.active %}currentPage{% endif %}{% endunless%}" 
+               href="{{ link.url }}">
+              {{ link.title | escape }}
+      		</a>
+          {% endif %}
+      {% endfor %}
+      </div>
+      {% for link in linklists[section.settings.main_menu_link_list].links %}
+          {% if link.links != blank %}
+            {% assign parent_index = forloop.index %}
+            <div style="display: none;" child="{{ parent_index }}" class="childMenu">
+              <a class="reverseLink">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M23.7559 13.0703H9.59176" stroke="white" stroke-width="2"/>
+                <path d="M15.901 19.7849L9.1875 13.0714L15.901 6.35796" stroke="white" stroke-width="2"/>
+                </svg></a>
+              <a href="{{ link.url }}" class="linkToParent GT-400">{{ link.title | escape }}</a>
+				{% for childlink in link.links %}
+              		<a class="mainLink GT-600
+                      {% unless request.page_type == 'index' %}{% if childlink.active %}currentPage{% endif %}{% endunless%}" 
+                         href="{{ childlink.url }}">
+                        {{ childlink.title | escape }}
+                      </a>
+              	{% endfor %}
+            </div>
+          {% endif %}
+      {% endfor %}
+      </div>
+      <div style="visibility: hidden;" class="bottomLinks desktopClass">
+        {% for link in linklists[section.settings.bottom_link_list].links %}
+        	{% if forloop.index == 1 or forloop.index == 3 %}
+        	<div class="twoLinks">
+            {% endif %}
+        	<a class="secondLink GT-400" href="{{ link.url }}">
+              {{ link.title | escape }}
+          	</a>
+          	{% if forloop.index == 2 or forloop.last %}
+        	</div>
+          	{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="rightSide">
+      <div class="menuBackground">
+        <div class="deskMenuItem loginLink">
+        {% if customer %}
+        <a class="GT-600" href="/account">Account</a>
+       	{% else %}
+        <a class="GT-600" href="/account/login">Login</a>
+        {% endif %}
+      </div>
+      <div class="deskMenuItem cartLink">
+        		<a href="/cart" class="GT-600 site-nav__link--icon cart-link js-drawer-open-button-right" aria-controls="CartDrawer" tabindex="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.98726 5.99884H21.97L20.6982 13.1702C20.6136 13.6474 20.1988 13.9952 19.714 13.9952H6.97806C6.46546 13.9952 6.04298 13.6093 5.98524 13.1122L5.97852 12.9944V12.9944L5.98726 5.99884Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M3.97656 3.00024H5.96571L5.97565 6.99842" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M15.4727 18.9929C15.4727 17.8889 16.3677 16.9938 17.4717 16.9938C18.5757 16.9938 19.4708 17.8889 19.4708 18.9929C19.4708 20.097 18.5757 20.992 17.4717 20.992C16.4016 20.992 15.5253 20.05 15.4727 18.9929Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M8.47561 20.992C7.37157 20.992 6.47656 20.097 6.47656 18.9929C6.47656 17.8889 7.37157 16.9938 8.47561 16.9938C9.57966 16.9938 10.4747 17.8889 10.4747 18.9929C10.4747 20.097 9.57966 20.992 8.47561 20.992Z" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M8.47438 13.9952V16.9938" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M14.9728 18.9929H10.9746" stroke="#F4F0EA" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg> Your Cart 
+                  </a>
+      </div>
+      </div>
+      {% for block in section.blocks %}
+      	<div onclick="location.href='{{ block.settings.link }}'" style="background-color: {{ block.settings.background }};" class="menuBlock">
+          <div class="textPartBlock">
+            {% if block.settings.title != blank %}<h3 style="color: {{ block.settings.titleColor }};" class="menuBlockTitle GT-500">{{ block.settings.title }}</h3>{% endif %}
+            {% if block.settings.text != blank %}<p style="color: {{ block.settings.textColor }};" class="menuBlockText GT-400">{{ block.settings.text }}</p>{% endif %}
+          </div>
+          <div class="iconPartBlock">
+           {% if block.settings.icon != blank %}
+            <img class="iconBlock" src="{{ block.settings.icon | img_url: '500x' }}">
+            {% endif %}
+          </div>
+          <div style="background-size: cover; background-image: url({{ block.settings.backgroundImage | img_url: '700x' }});" class="menuAbs"></div>
+      	</div>
+      {% endfor %}
+       <div style="visibility: hidden; display: none;" class="bottomLinks mobileClass">
+        {% for link in linklists[section.settings.bottom_link_list].links %}
+        	{% if forloop.index == 1 or forloop.index == 3 %}
+        	<div class="twoLinks">
+            {% endif %}
+        	<a class="secondLink GT-400" href="{{ link.url }}">
+              {{ link.title | escape }}
+          	</a>
+          	{% if forloop.index == 2 or forloop.last %}
+        	</div>
+          	{% endif %}
+        {% endfor %}
+      </div>
+      <div style="background-color: #1D1D1D;" class="menuBlock last">
+        {% if section.settings.right_link_list != blank %}
+        <div class="twoLinks">
+        {% for link in linklists[section.settings.right_link_list].links %}
+        	<a class="secondLink GT-400" href="{{ link.url }}">
+              {{ link.title | escape }}
+          	</a>
+        {% endfor %}
+        </div>
+        {% endif %}
+        {% if section.settings.bottom_link_list != blank %}
+        <div class="twoLinks">
+        {% for link in linklists[section.settings.bottom_link_list].links %}
+        	<a class="secondLink GT-400" href="{{ link.url }}">
+              {{ link.title | escape }}
+          	</a>
+        {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="rightrightSide">
+      <div class="socialTags">
+        <div class="sTags">
+          {% if section.settings.pinterest %}
+              <a href="{{ section.settings.pinterest }}" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                <path d="M0.714844 9.00014C0.714844 12.6855 2.93095 15.8515 6.10212 17.2435C6.07681 16.6151 6.09762 15.8606 6.25877 15.1768C6.43181 14.4462 7.41682 10.2727 7.41682 10.2727C7.41682 10.2727 7.12931 9.69799 7.12931 8.84869C7.12931 7.51493 7.90233 6.51881 8.86505 6.51881C9.6837 6.51881 10.0792 7.1337 10.0792 7.87001C10.0792 8.69295 9.55432 9.92391 9.28439 11.064C9.0589 12.0187 9.76308 12.7974 10.7049 12.7974C12.4101 12.7974 13.5586 10.6073 13.5586 8.01232C13.5586 6.03977 12.2301 4.56335 9.81363 4.56335C7.08354 4.56335 5.38275 6.59932 5.38275 8.87351C5.38275 9.65763 5.61394 10.2106 5.97605 10.6388C6.14255 10.8354 6.16568 10.9145 6.10542 11.1404C6.06225 11.306 5.96311 11.7046 5.92205 11.8626C5.86214 12.0906 5.67743 12.1721 5.47141 12.0879C4.21395 11.5746 3.62831 10.1975 3.62831 8.64949C3.62831 6.09286 5.78452 3.02723 10.0606 3.02723C13.4968 3.02723 15.7584 5.51377 15.7584 8.1829C15.7584 11.7135 13.7956 14.3511 10.9022 14.3511C9.93056 14.3511 9.01657 13.8259 8.70347 13.2293C8.70347 13.2293 8.18098 15.303 8.0703 15.7034C7.87948 16.3973 7.50598 17.0909 7.16447 17.6314C7.97391 17.8703 8.82898 18.0005 9.7152 18.0005C14.6852 18.0005 18.7149 13.971 18.7149 9.00014C18.7149 4.02954 14.6852 0 9.7152 0C4.74473 0 0.714844 4.02954 0.714844 9.00014Z" fill="#F4F0EA"/>
+               </svg> 
+              </a>
+          {% endif %}
+          {% if section.settings.instagram %}
+              <a href="{{ section.settings.instagram }}" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+              <path d="M9.71484 1.76731C12.1148 1.76731 12.4148 1.76731 13.3898 1.84231C15.8648 1.91731 16.9898 3.11731 17.0648 5.51731C17.1398 6.49231 17.1398 6.71731 17.1398 9.11731C17.1398 11.5173 17.1398 11.8173 17.0648 12.7173C16.9898 15.1173 15.7898 16.3173 13.3898 16.3923C12.4148 16.4673 12.1898 16.4673 9.71484 16.4673C7.31484 16.4673 7.01484 16.4673 6.11484 16.3923C3.63984 16.3173 2.51484 15.1173 2.43984 12.7173C2.36484 11.7423 2.36484 11.5173 2.36484 9.11731C2.36484 6.71731 2.36484 6.41731 2.43984 5.51731C2.51484 3.11731 3.71484 1.91731 6.11484 1.84231C7.01484 1.76731 7.31484 1.76731 9.71484 1.76731ZM9.71484 0.11731C7.23984 0.11731 6.93984 0.11731 6.03984 0.19231C2.73984 0.34231 0.939844 2.14231 0.789844 5.44231C0.714844 6.34231 0.714844 6.64231 0.714844 9.11731C0.714844 11.5923 0.714844 11.8923 0.789844 12.7923C0.939844 16.0923 2.73984 17.8923 6.03984 18.0423C6.93984 18.1173 7.23984 18.1173 9.71484 18.1173C12.1898 18.1173 12.4898 18.1173 13.3898 18.0423C16.6898 17.8923 18.4898 16.0923 18.6398 12.7923C18.7148 11.8923 18.7148 11.5923 18.7148 9.11731C18.7148 6.64231 18.7148 6.34231 18.6398 5.44231C18.4898 2.14231 16.6898 0.34231 13.3898 0.19231C12.4898 0.11731 12.1898 0.11731 9.71484 0.11731ZM9.71484 4.46731C7.16484 4.46731 5.06484 6.56731 5.06484 9.11731C5.06484 11.6673 7.16484 13.7673 9.71484 13.7673C12.2648 13.7673 14.3648 11.6673 14.3648 9.11731C14.3648 6.56731 12.2648 4.46731 9.71484 4.46731ZM9.71484 12.1173C8.06484 12.1173 6.71484 10.7673 6.71484 9.11731C6.71484 7.46731 8.06484 6.11731 9.71484 6.11731C11.3648 6.11731 12.7148 7.46731 12.7148 9.11731C12.7148 10.7673 11.3648 12.1173 9.71484 12.1173ZM14.5148 3.26731C13.9148 3.26731 13.4648 3.71731 13.4648 4.31731C13.4648 4.91731 13.9148 5.36731 14.5148 5.36731C15.1148 5.36731 15.5648 4.91731 15.5648 4.31731C15.5648 3.71731 15.1148 3.26731 14.5148 3.26731Z" fill="#F4F0EA"/>
+              </svg>
+              </a>
+          {% endif %}
+          {% if section.settings.facebook %}
+              <a href="{{ section.settings.facebook }}" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="19" viewBox="0 0 11 19" fill="none">
+                <path d="M3.21484 6.2345H0.714844V9.2345H3.21484V18.2345H7.38151V9.2345H10.3815L10.7148 6.2345H7.38151V4.9595C7.38151 4.2845 7.54818 3.9845 8.29818 3.9845H10.7148V0.234497H7.54818C4.54818 0.234497 3.21484 1.4345 3.21484 3.6845V6.2345Z" fill="#F4F0EA"/>
+                </svg> 
+              </a>
+          {% endif %}
+          {% if section.settings.houzz %}
+              <a style="margin-bottom: 0;" href="{{ section.settings.houzz }}" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" viewBox="0 0 17 19" fill="none">
+                <path d="M10.8025 18.3518H16.7674V8.00181L4.83755 4.55181V0.351807H0.662109V18.3518H6.62702V12.3518H10.8025V18.3518Z" fill="#F4F0EA"/>
+                </svg> 
+              </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>	  
+</div>
+<script>
+  $(".hambMenu").click(function(){
+    if ($(".hambMenu").hasClass("active")){
+      $(".hambMenu").removeClass("active");
+      $(".menuHolder").removeClass("active");
+      $(".menuHolder").addClass("unactive");
+      $("body").css("overflow","visible");
+	}  
+    else{
+      $(".hambMenu").addClass("active");
+      $(".menuHolder").removeClass("unactive");
+      $(".menuHolder").addClass("active");
+      $("body").css("overflow","hidden");
+    }
+  });
+</script>
+<script>
+  $(".parentLink").click(function(){
+    let index = $(this).attr("parent");
+  	$(".menuParent").slideUp();
+    $(".childMenu").each(function(){
+      if ($(this).attr("child") == index){
+      	$(this).slideDown();
+      }
+	});
+  });
+  $(".reverseLink").click(function(){
+    $(".childMenu").slideUp();
+  	$(".menuParent").slideDown();
+  });
+</script>
+{% schema %}
+  {
+  "name": {
+    "cs": "Záhlaví",
+    "da": "Overskrift",
+    "de": "Header",
+    "en": "Header",
+    "es": "Encabezado",
+    "fi": "Ylätunniste",
+    "fr": "En-tête",
+    "it": "header",
+    "ja": "ヘッダー",
+    "ko": "헤더",
+    "nb": "Header",
+    "nl": "Koptekst",
+    "pl": "Nagłówek",
+    "pt-BR": "Cabeçalho",
+    "pt-PT": "Cabeçalho",
+    "sv": "Rubrik",
+    "th": "ส่วนหัว",
+    "tr": "Üstbilgi",
+    "vi": "Đầu trang",
+    "zh-CN": "标头",
+    "zh-TW": "標頭"
+  },
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": {
+        "cs": "Logo",
+        "da": "Logo",
+        "de": "Logo",
+        "en": "Logo",
+        "es": "Logo",
+        "fi": "Logo",
+        "fr": "Logo",
+        "it": "Logo",
+        "ja": "ロゴ",
+        "ko": "로고",
+        "nb": "Logo",
+        "nl": "Logo",
+        "pl": "Logo",
+        "pt-BR": "Logo",
+        "pt-PT": "Logótipo",
+        "sv": "Logotyp",
+        "th": "โลโก้",
+        "tr": "Logo",
+        "vi": "Logo",
+        "zh-CN": "logo",
+        "zh-TW": "商標"
+      }
+    },
+    {
+      "type": "range",
+      "id": "logo_max_width",
+      "label": {
+        "cs": "Šířka vlastního loga",
+        "da": "Tilpasset logobredde",
+        "de": "Logobreite",
+        "en": "Custom logo width",
+        "es": "Ancho del logo personalizado",
+        "fi": "Mukautetun logon leveys",
+        "fr": "Largeur personnalisée du logo",
+        "it": "Larghezza logo personalizzato",
+        "ja": "ロゴの幅をカスタマイズする",
+        "ko": "사용자 지정 로고 폭",
+        "nb": "Tilpasset logobredde",
+        "nl": "Aangepaste logo-breedte",
+        "pl": "Niestandardowa szerokość logo",
+        "pt-BR": "Largura do logo personalizado",
+        "pt-PT": "Largura de logótipo personalizada",
+        "sv": "Anpassad logotypsbredd",
+        "th": "ความกว้างของโลโก้ที่กำหนดเอง",
+        "tr": "Özel logo genişliği",
+        "vi": "Chiều rộng logo tùy chỉnh",
+        "zh-CN": "自定义 logo 宽度",
+        "zh-TW": "自訂商標寬度"
+      },
+      "min": 50,
+      "max": 260,
+      "step": 5,
+      "unit": "px",
+      "default": 180
+    },
+    {
+      "type": "color",
+      "id": "header_color",
+      "label": {
+        "cs": "Odkazy a ikony",
+        "da": "Links og ikoner",
+        "de": "Links und Symbole",
+        "en": "Links and icons",
+        "es": "Enlaces e íconos",
+        "fi": "Linkit ja kuvakkeet",
+        "fr": "Liens et icônes",
+        "it": "Link e icone",
+        "ja": "リンクとアイコン",
+        "ko": "링크와 아이콘",
+        "nb": "Koblinger og ikoner",
+        "nl": "Links en pictogrammen",
+        "pl": "Linki i ikony",
+        "pt-BR": "Links e ícones",
+        "pt-PT": "Ligações e ícones",
+        "sv": "Länkar och ikoner",
+        "th": "ลิงก์และไอคอน",
+        "tr": "Bağlantılar ve simgeler",
+        "vi": "Liên kết và biểu tượng",
+        "zh-CN": "链接和图标",
+        "zh-TW": "連結與圖示"
+      },
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": {
+        "cs": "Průhledné záhlaví",
+        "da": "Gennemsigtigt sidehoved",
+        "de": "Transparenter Header",
+        "en": "Transparent header",
+        "es": "Encabezado transparente",
+        "fi": "Läpinäkyvä ylätunniste",
+        "fr": "En-tête transparent",
+        "it": "Header trasparente",
+        "ja": "透過ヘッダー",
+        "ko": "투명 헤더",
+        "nb": "Gjennomsiktig overskrift",
+        "nl": "Transparante koptekst",
+        "pl": "Nagłówek transparentny",
+        "pt-BR": "Cabeçalho transparente",
+        "pt-PT": "Cabeçalho transparente",
+        "sv": "Genomskinlig rubrik",
+        "th": "ส่วนหัวโปร่งใส",
+        "tr": "Şeffaf üstbilgi",
+        "vi": "Đầu trang trong suốt",
+        "zh-CN": "透明标题",
+        "zh-TW": "透明標頭"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_header_enable",
+      "label": {
+        "cs": "Zapnout průhledné záhlaví na domovské stránce",
+        "da": "Aktivér gennemsigtigt sidehoved på startsiden",
+        "de": "Transparenten Header auf der Startseite aktivieren",
+        "en": "Enable transparent header on the homepage",
+        "es": "Habilitar encabezado transparente en la página de inicio",
+        "fi": "Ota läpinäkyvä ylätunniste käyttöön kotisivulla",
+        "fr": "Activer l'en-tête transparent de la page d'accueil",
+        "it": "Abilita header trasparente nella home page",
+        "ja": "ホームページの透過ヘッダーを有効にする",
+        "ko": "홈 페이지에서 투명 헤더를 사용합니다.",
+        "nb": "Aktiver gjennomsiktig overskrift på hjemmesiden",
+        "nl": "Transparante koptekst inschakelen op de homepage",
+        "pl": "Włącz nagłówek transparentny na stronie głównej",
+        "pt-BR": "Habilitar cabeçalho transparente na página inicial.",
+        "pt-PT": "Ativar cabeçalho transparente na página inicial",
+        "sv": "Klicka på aktivera transparent rubrik på startsidan.",
+        "th": "เปิดใช้ส่วนหัวแบบโปร่งใสในหน้าแรก",
+        "tr": "Ana sayfada şeffaf üstbilgiyi etkinleştir",
+        "vi": "Bật đầu trang trong suốt trên trang chủ",
+        "zh-CN": "在主页上启用透明标题",
+        "zh-TW": "啟用首頁上的透明標頭"
+      },
+      "info": {
+        "cs": "Platí pro případy, kdy horní sekce představuje prezentaci.",
+        "da": "Gælder, når det øverste afsnit er et diasshow.",
+        "de": "Anwendbar, wenn der obere Abschnitt eine Slideshow ist.",
+        "en": "Applicable when the top section is a slideshow.",
+        "es": "Aplica cuando la sección superior es una presentación de diapositivas.",
+        "fi": "Sovelletaan, kun yläosa on diaesitys.",
+        "fr": "Applicable lorsque la partie supérieure est un diaporama.",
+        "it": "Disponibile quando la sezione superiore è una presentazione.",
+        "ja": "上部のセクションがスライドショーの場合に適用されます。",
+        "ko": "상단 섹션이 슬라이드 쇼인 경우 적용 가능합니다.",
+        "nb": "Gjelder når toppseksjonen er en lysbildefremvisning.",
+        "nl": "Van toepassing wanneer het bovenste gedeelte een diavoorstelling is.",
+        "pl": "Ma zastosowanie, gdy górna sekcja jest pokazem slajdów.",
+        "pt-BR": "Aplicável quando a seção superior é uma apresentação de slides.",
+        "pt-PT": "Aplicável quando a secção superior é uma apresentação de diapositivos.",
+        "sv": "Tillämplig när det övre avsnittet är ett bildspel.",
+        "th": "สามารถใช้งานได้เมื่อส่วนบนเป็นสไลด์โชว์",
+        "tr": "Üst bölüm slayt gösterisi olduğunda geçerlidir.",
+        "vi": "Áp dụng khi có bản trình chiếu ở phần trên cùng.",
+        "zh-CN": "在顶部部分是幻灯片时适用。",
+        "zh-TW": "可於頂端區段為輪播投影片時套用。"
+      },
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "transparent_logo",
+      "label": {
+        "cs": "Průhledné logo",
+        "da": "Gennemsigtigt logo",
+        "de": "Transparentes Logo",
+        "en": "Transparent logo",
+        "es": "Logo transparente",
+        "fi": "Läpinäkyvä logo",
+        "fr": "Logo transparent",
+        "it": "Logo trasparente",
+        "ja": "透明なロゴ",
+        "ko": "투명 로고",
+        "nb": "Gjennomsiktig logo",
+        "nl": "Transparant logo",
+        "pl": "Logo transparentne",
+        "pt-BR": "Logo transparente",
+        "pt-PT": "Logótipo transparente",
+        "sv": "Transparent logotyp",
+        "th": "โลโก้โปร่งใส",
+        "tr": "Şeffaf logo",
+        "vi": "Logo trong suốt",
+        "zh-CN": "透明的 logo",
+        "zh-TW": "透明商標"
+      },
+      "info": {
+        "cs": "Zobrazí se v případě zapnutí průhledného záhlaví.",
+        "da": "Vises, når det gennemsigtige sidehoved aktiveres.",
+        "de": "Wird angezeigt, wenn ein transparenter Header aktiviert ist.",
+        "en": "Displayed when transparent header is enabled.",
+        "es": "Se muestra cuando el encabezado transparente está habilitado.",
+        "fi": "Näytetään silloin, kun läpinäkyvä ylätunniste ei ole käytössä.",
+        "fr": "Affiché lorsque l'en-tête transparent est activé.",
+        "it": "Visualizzato quando l'header trasparente è abilitato.",
+        "ja": "透明なヘッダーが有効になっている場合に表示されます。",
+        "ko": "투명 헤더가 사용 가능한 경우 표시됩니다.",
+        "nb": "Vises når gjennomsiktig topptekst er aktivert.",
+        "nl": "Weergegeven wanneer transparante kop is ingeschakeld.",
+        "pl": "Wyświetlane przy włączonym nagłówku transparentnym.",
+        "pt-BR": "Exibido quando o cabeçalho transparente está habilitado.",
+        "pt-PT": "Apresentado quando o cabeçalho transparente é ativado.",
+        "sv": "Visas när transparent rubrik är aktiverad.",
+        "th": "จะแสดงเมื่อมีการใช้ส่วนหัวแบบโปร่งใส",
+        "tr": "Şeffaf üstbilgi etkin olduğunda görüntülenir.",
+        "vi": "Hiển thị khi bật đầu trang trong suốt.",
+        "zh-CN": "在启用透明标题时显示。",
+        "zh-TW": "在透明標頭啟用時顯示。"
+      }
+    },
+    {
+      "type": "color",
+      "id": "transparent_header_color",
+      "label": {
+        "cs": "Odkazy a ikony průhledného záhlaví",
+        "da": "Links og ikoner til gennemsigtigt sidehoved",
+        "de": "Transparente Header-Links und -Symbole",
+        "en": "Transparent header links and icons",
+        "es": "Enlaces e íconos de encabezado transparentes",
+        "fi": "Läpinäkyvän ylätunnisteen linkit ja kuvakkeet",
+        "fr": "Liens et icônes d'en-tête transparents",
+        "it": "Link e icone header trasparenti",
+        "ja": "透明なヘッダーのリンクとアイコン",
+        "ko": "투명 헤더 링크와 아이콘",
+        "nb": "Gjennomsiktige topptekstkoblinger og ikoner",
+        "nl": "Transparante koptekstkoppelingen en pictogrammen",
+        "pl": "Transparentne linki i ikony nagłówka",
+        "pt-BR": "Links e ícones de cabeçalho transparentes",
+        "pt-PT": "Ligações e ícones de cabeçalho transparentes",
+        "sv": "Transparenta rubriklänkar och ikoner",
+        "th": "ลิงก์และไอคอนของส่วนหัวแบบโปร่งใส",
+        "tr": "Şeffaf üstbilgi bağlantıları ve simgeleri",
+        "vi": "Liên kết và biểu tượng đầu trang trong suốt",
+        "zh-CN": "透明的标题链接和图标",
+        "zh-TW": "透明標頭連結與圖示"
+      },
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "select",
+      "id": "search",
+      "options": [
+        {
+          "value": "modal",
+          "label": {
+            "cs": "Modální okno",
+            "da": "Modus",
+            "de": "Modal",
+            "en": "Modal",
+            "es": "Modal",
+            "fi": "Modaalinen",
+            "fr": "Fenêtre modale",
+            "it": "Modal",
+            "ja": "モーダル",
+            "ko": "모달",
+            "nb": "Panel",
+            "nl": "Modaal venster",
+            "pl": "Tryb modalny",
+            "pt-BR": "Modal",
+            "pt-PT": "Modal",
+            "sv": "Modal",
+            "th": "โมดอล",
+            "tr": "Mod",
+            "vi": "Hộp tương tác",
+            "zh-CN": "模式",
+            "zh-TW": "互動視窗"
+          }
+        },
+        {
+          "value": "page",
+          "label": {
+            "cs": "Stránka",
+            "da": "Side",
+            "de": "Seite",
+            "en": "Page",
+            "es": "Página",
+            "fi": "Sivu",
+            "fr": "Page",
+            "it": "Pagina",
+            "ja": "ページ",
+            "ko": "페이지",
+            "nb": "Side",
+            "nl": "Pagina",
+            "pl": "Strona",
+            "pt-BR": "Página",
+            "pt-PT": "Página",
+            "sv": "Sida",
+            "th": "หน้า",
+            "tr": "Sayfa",
+            "vi": "Trang",
+            "zh-CN": "页面",
+            "zh-TW": "頁面"
+          }
+        },
+        {
+          "value": "none",
+          "label": {
+            "cs": "Žádné",
+            "da": "Ingen",
+            "de": "Keine",
+            "en": "None",
+            "es": "Ninguno",
+            "fi": "Ei mitään",
+            "fr": "Aucune",
+            "it": "Nessuno",
+            "ja": "なし",
+            "ko": "없음",
+            "nb": "Ingen",
+            "nl": "Geen",
+            "pl": "Brak",
+            "pt-BR": "Nenhum",
+            "pt-PT": "Nenhum",
+            "sv": "Inga",
+            "th": "ไม่มี",
+            "tr": "Yok",
+            "vi": "Không",
+            "zh-CN": "无",
+            "zh-TW": "無"
+          }
+        }
+      ],
+      "label": {
+        "cs": "Typ vyhledávání",
+        "da": "Søgetype",
+        "de": "Suchtyp",
+        "en": "Search type",
+        "es": "Tipo de búsqueda",
+        "fi": "Hakutyyppi",
+        "fr": "Type de recherche",
+        "it": "Tipo di ricerca",
+        "ja": "検索タイプ",
+        "ko": "검색 유형",
+        "nb": "Søketype",
+        "nl": "Zoektype",
+        "pl": "Typ wyszukiwania",
+        "pt-BR": "Tipo de pesquisa",
+        "pt-PT": "Tipo de pesquisa",
+        "sv": "Söktyp",
+        "th": "ประเภทของการค้นหา",
+        "tr": "Arama türü",
+        "vi": "Kiểu tìm kiếm",
+        "zh-CN": "搜索类型",
+        "zh-TW": "搜尋類型"
+      }
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu_link_list",
+      "label": {
+        "cs": "Nabídka",
+        "da": "Menu",
+        "de": "Menü",
+        "en": "Menu",
+        "es": "Menú",
+        "fi": "Valikko",
+        "fr": "Menu",
+        "it": "Menu",
+        "ja": "メニュー",
+        "ko": "메뉴",
+        "nb": "Meny",
+        "nl": "Menu",
+        "pl": "Menu",
+        "pt-BR": "Menu",
+        "pt-PT": "Menu",
+        "sv": "Meny",
+        "th": "เมนู",
+        "tr": "Menü",
+        "vi": "Menu",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      },
+      "default": "main-menu",
+      "info": {
+        "cs": "Nabídka se sbalí do nabídkového tlačítka v případě, že odkazy jsou příliš dlouhé. [Další informace](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "da": "Menuen komprimeres til en menuknap, hvis linkene er for lange. [Få mere at vide](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "de": "Wenn Links zu lang sind, wird das Menü eingeklappt und als Menü-Schaltfläche angezeigt. [Mehr Informationen](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "en": "The menu will collapse into a menu button if links are too long. [Learn more](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "es": "El menú se contraerá en un botón de menú si los enlaces son demasiado largos. [Más información](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "fi": "Valikko kutistuu valikkopainikkeeksi, jos linkit ovat liian pitkiä. [Lisätietoja](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "fr": "Le menu sera réduit à un bouton de menu si les liens sont trop longs. [En savoir plus](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "it": "Il menu si ridurrà a un pulsante menu se i link sono troppo lunghi. [Maggiori informazioni](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "ja": "リンクが長すぎる場合、メニューがメニューボタンに折りたたまれます。[詳しくはこちら](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "ko": "링크가 너무 길면 메뉴가 메뉴 버튼으로 축소됩니다. [자세히 알아보기](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "nb": "Menyen slås sammen til en menyknapp hvis koblingene er for lange. [Finn ut mer](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "nl": "Het menu zal inklappen tot een menuknop als de links te lang zijn. [Meer informatie](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "pl": "Menu zwinie się do postaci przycisku Menu, jeśli linki będą zbyt długie. [Dowiedz się więcej](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "pt-BR": "O menu ficará oculto em um botão de menu se os links forem longos demais. [Saiba mais](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "pt-PT": "O menu será fechado num botão de menu se as ligações forem demasiado compridas. [Saiba mais](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "sv": "Menyn kommer att kollapsa till en menyknapp om länkarna är för långa. [Läs mer](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "th": "เมนูนี้จะย่อลงเป็นปุ่มเมนูในกรณีที่ลิงก์ยาวเกินไป [ดูข้อมูลเพิ่มเติม](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "tr": "Bağlantılar çok uzun olduğunda menü daralarak menü düğmesine dönüşür. [Daha fazla bilgi edinin](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "vi": "Menu sẽ được thu nhỏ thành nút menu nếu liên kết quá dài. [Tìm hiểu thêm](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "zh-CN": "如果链接过长，菜单将折叠成菜单按钮。[了解详细信息](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)",
+        "zh-TW": "如果連結太長，選單會收合為選單按鈕。[深入瞭解](https://help.shopify.com/manual/using-themes/themes-by-shopify/brooklyn#navigation-tips-tips-specific)"
+      }
+    },
+    {
+      "type": "link_list",
+      "id": "bottom_link_list",
+      "label": {
+        "cs": "Vedlejší nabídka v postranní liště",
+        "da": "Sekundær sidebjælkemenu",
+        "de": "Zusätzliches Menü",
+        "en": "Secondary menu",
+        "es": "Menú adicional",
+        "fi": "Sivupalkkivalikko",
+        "fr": "Menu supplémentaire",
+        "it": "Menu aggiuntivo",
+        "ja": "追加メニュー",
+        "ko": "보조 사이드바 메뉴",
+        "nb": "Sekundær meny i sidefeltet",
+        "nl": "Secundair zijbalkmenu",
+        "pl": "Dodatkowe menu paska bocznego",
+        "pt-BR": "Menu adicional",
+        "pt-PT": "Menu lateral secundário",
+        "sv": "Sekundär sidofältsmeny",
+        "th": "เมนูแถบด้านข้างรอง",
+        "tr": "İkincil kenar çubuğu menüsü",
+        "vi": "Menu thanh bên thứ cấp",
+        "zh-CN": "辅助侧边栏菜单",
+        "zh-TW": "次要側邊欄選單"
+      },
+      "default": "footer"
+    },
+	{
+      "type": "link_list",
+      "id": "right_link_list",
+      "label": {
+        "cs": "Vedlejší nabídka v postranní liště",
+        "da": "Sekundær sidebjælkemenu",
+        "de": "Zusätzliches Menü",
+        "en": "Third menu",
+        "es": "Menú adicional",
+        "fi": "Sivupalkkivalikko",
+        "fr": "Menu supplémentaire",
+        "it": "Menu aggiuntivo",
+        "ja": "追加メニュー",
+        "ko": "보조 사이드바 메뉴",
+        "nb": "Sekundær meny i sidefeltet",
+        "nl": "Secundair zijbalkmenu",
+        "pl": "Dodatkowe menu paska bocznego",
+        "pt-BR": "Menu adicional",
+        "pt-PT": "Menu lateral secundário",
+        "sv": "Sekundär sidofältsmeny",
+        "th": "เมนูแถบด้านข้างรอง",
+        "tr": "İkincil kenar çubuğu menüsü",
+        "vi": "Menu thanh bên thứ cấp",
+        "zh-CN": "辅助侧边栏菜单",
+        "zh-TW": "次要側邊欄選單"
+      },
+      "default": "footer"
+    },
+	{
+      "type": "textarea",
+      "id": "rightText",
+      "label": "Right Company Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "drawer_search_enable",
+      "label": {
+        "cs": "Povolit vyhledávání",
+        "da": "Aktivér søgning",
+        "de": "Suche aktivieren",
+        "en": "Enable search",
+        "es": "Habilitar búsqueda",
+        "fi": "Ota hakutoiminto käyttöön",
+        "fr": "Activer la recherche",
+        "it": "Abilita ricerca",
+        "ja": "検索を有効にする",
+        "ko": "검색 활성화",
+        "nb": "Aktiver søk",
+        "nl": "Zoeken inschakelen",
+        "pl": "Włącz wyszukiwanie",
+        "pt-BR": "Habilitar pesquisa",
+        "pt-PT": "Ativar pesquisa",
+        "sv": "Aktivera sökning",
+        "th": "เปิดใช้การค้นหา",
+        "tr": "Arama özelliğini etkinleştir",
+        "vi": "Bật tìm kiếm",
+        "zh-CN": "启用搜索",
+        "zh-TW": "啟用搜索"
+      }
+    },
+    {
+      "type": "header",
+      "content": {
+        "cs": "Panel oznámení",
+        "da": "Meddelelseslinje",
+        "de": "Ankündigungsleiste",
+        "en": "Announcement bar",
+        "es": "Barra de anuncios",
+        "fi": "Ilmoituspalkki",
+        "fr": "Barre d'annonces",
+        "it": "Barra degli annunci",
+        "ja": "告知バー",
+        "ko": "공지 표시줄",
+        "nb": "Kunngjøringslinje",
+        "nl": "Aankondigingsbalk",
+        "pl": "Pasek ogłoszeń",
+        "pt-BR": "Barra de avisos",
+        "pt-PT": "Barra de comunicado",
+        "sv": "Meddelandefält",
+        "th": "แถบประกาศ",
+        "tr": "Duyuru çubuğu",
+        "vi": "Thanh thông báo",
+        "zh-CN": "公告栏",
+        "zh-TW": "公告列"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": {
+        "cs": "Zobrazit oznámení",
+        "da": "Vis meddelelse",
+        "de": "Ankündigung anzeigen",
+        "en": "Show announcement",
+        "es": "Mostrar anuncio",
+        "fi": "Näytä ilmoitus",
+        "fr": "Afficher l'annonce",
+        "it": "Mostra annuncio",
+        "ja": "告知を表示する",
+        "ko": "공지 표시",
+        "nb": "Vis kunngjøring",
+        "nl": "Aankondiging weergeven",
+        "pl": "Pokaż ogłoszenie",
+        "pt-BR": "Exibir comunicado",
+        "pt-PT": "Mostrar comunicado",
+        "sv": "Visa tillkännagivande",
+        "th": "แสดงประกาศ",
+        "tr": "Duyuruyu göster",
+        "vi": "Hiển thị thông báo",
+        "zh-CN": "显示公告",
+        "zh-TW": "顯示公告"
+      },
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": {
+        "cs": "Jen domovská stránka",
+        "da": "Kun startside",
+        "de": "Nur Startseite",
+        "en": "Home page only",
+        "es": "Solo página de inicio",
+        "fi": "Vain etusivu",
+        "fr": "Page d'accueil uniquement",
+        "it": "Solo home page",
+        "ja": "ホームページのみ",
+        "ko": "홈페이지만",
+        "nb": "Kun på startsiden",
+        "nl": "Alleen homepage",
+        "pl": "Tylko strona główna",
+        "pt-BR": "Apenas na página inicial",
+        "pt-PT": "Apenas a página inicial",
+        "sv": "Endast hemsida",
+        "th": "หน้าแรกเท่านั้น",
+        "tr": "Yalnızca ana sayfa",
+        "vi": "Chỉ trang chủ",
+        "zh-CN": "仅主页",
+        "zh-TW": "僅限首頁"
+      },
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": {
+        "cs": "Text",
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "tr": "Metin",
+        "vi": "Văn bản",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "default": {
+        "cs": "Tady můžete zadat oznámení",
+        "da": "Meddel noget her",
+        "de": "Hier Ankündigung platzieren",
+        "en": "Announce something here",
+        "es": "Anuncia algo aquí",
+        "fi": "Ilmoita jotakin tässä",
+        "fr": "Annoncer quelque chose ici",
+        "it": "Annuncia qualcosa qui",
+        "ja": "ここで告知してください",
+        "ko": "여기에 공지하십시오",
+        "nb": "Kunngjør noe her",
+        "nl": "Kondig hier iets aan",
+        "pl": "Ogłoś coś tutaj",
+        "pt-BR": "Anuncie algo aqui",
+        "pt-PT": "Anunciar algo aqui",
+        "sv": "Meddela något här",
+        "th": "ประกาศข้อความที่นี่",
+        "tr": "Buraya bir duyuru ekleyin",
+        "vi": "Thông báo điều gì đó tại đây",
+        "zh-CN": "在此处进行公告",
+        "zh-TW": "在此公告資訊"
+      }
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": {
+        "cs": "Odkaz",
+        "da": "Link",
+        "de": "Link",
+        "en": "Link",
+        "es": "Enlace",
+        "fi": "Linkki",
+        "fr": "Lien",
+        "it": "Link",
+        "ja": "リンク",
+        "ko": "링크",
+        "nb": "Kobling",
+        "nl": "Link",
+        "pl": "Link",
+        "pt-BR": "Link",
+        "pt-PT": "Ligação",
+        "sv": "Länk",
+        "th": "ลิงก์",
+        "tr": "Bağlantı",
+        "vi": "Liên kết",
+        "zh-CN": "链接",
+        "zh-TW": "連結"
+      }
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": {
+        "cs": "Panel",
+        "da": "Bjælke",
+        "de": "Leiste",
+        "en": "Bar",
+        "es": "Barra",
+        "fi": "Palkki",
+        "fr": "Barre",
+        "it": "Barra",
+        "ja": "バー",
+        "ko": "바",
+        "nb": "Felt",
+        "nl": "Balk",
+        "pl": "Pasek",
+        "pt-BR": "Barra",
+        "pt-PT": "Barra",
+        "sv": "Fält",
+        "th": "แถบ",
+        "tr": "Çubuk",
+        "vi": "Thanh",
+        "zh-CN": "栏",
+        "zh-TW": "橫條"
+      },
+      "default": "#1c1d1d"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": {
+        "cs": "Text",
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "tr": "Metin",
+        "vi": "Văn bản",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "default": "#ffffff"
+    },
+	{
+      "type": "url",
+      "id": "pinterest",
+      "label": "Pinterest"
+    },
+	{
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram"
+    },
+	{
+      "type": "url",
+      "id": "facebook",
+      "label": "Facebook"
+    },
+	{
+      "type": "url",
+      "id": "houzz",
+      "label": "Houzz"
+    }
+  ],"blocks": [
+    {
+      "type": "Block",
+      "name": "Block",
+      "settings": [
+		{
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "default": "#2E2E2E",
+          "label": "Background"
+        },
+		{
+          "type": "image_picker",
+          "id": "backgroundImage",
+		  "label": "Background image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "color",
+          "id": "titleColor",
+          "label": "Title Color",
+          "default": "#fff"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "textColor",
+          "default": "#fff",
+          "label": "Text color"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+		  "label": "Icon"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,345 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background: url({{ section.settings.backgroundImage | img_url: "1200x" }});
+    position: relative;
+    background-size: cover;
+  }
+  #shopify-section-{{ section.id }} .visibilityDiv {
+  	padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+  }
+  .reviewsHeadTitle {
+  	font-size: 2.78vw;
+    line-height: 3.06vw;
+    margin-bottom: 0.69vw;
+  }
+  .reviewNumber {
+  	font-size: 3.47vw;
+    line-height: 3.82vw;
+    margin-bottom: 1.39vw;
+  }
+  .reviewBased {
+  	font-size: 0.97vw;
+    line-height: 1.26vw;
+    color: #848484;
+    margin-bottom: 2.08vw;
+  }
+  .reviewNumbers {
+  	font-size: 1.11vw;
+    line-height: 1.67vw;
+  }
+  .starHeadDiv {
+    width: 100%;
+  	align-items: center;
+    margin-bottom: 1.46vw;
+  }
+  .starHeadDiv img {
+  	width: 67.47%;
+    margin-right: 17.6%;
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+    }
+    #shopify-section-{{ section.id }} .visibilityDiv {
+  	  padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+    .reviewsHeadTitle {
+      font-size: 32px;
+      line-height: 35.2px;
+      margin-bottom: 10px;
+    }
+    .reviewNumber {
+      font-size: 32px;
+      line-height: 35.2px;
+      margin-bottom: 20px;
+    }
+    .reviewBased {
+      font-size: 14px;
+      line-height: 18.2px;
+      color: #848484;
+      margin-bottom: 24px;
+    }
+    .starHeadDiv img {
+    	width: 123px;
+    	margin-right: 33px;
+    }
+    .reviewNumbers {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .starHeadDiv {
+      margin-bottom: 20px;
+    }
+    .starHeadDiv:last-child {
+    	margin-bottom: 0;
+    }
+  }
+</style>
+{% if section.settings.backgroundImage != blank %}
+<img style="visibility: hidden;" src="{{ section.settings.backgroundImage | img_url: "1200x" }}" class="fullWidth visibilityDivImg">
+{% endif %}
+<div class="visibilityDiv visibilityDivMob tabsDiv">
+  <div class="flexDiv fullWidth fullHeight">
+    <div class="verticalCenter textDiv-{{ section.id }}">
+    <style>
+      .textDiv-{{ section.id }} {
+        width: 0%;
+        margin-right: 0%;
+      }
+      .boxDiv-{{ section.id }} {
+        width: 100%;
+        justify-content: stretch;
+      }
+      @media only screen and (max-width: 1009px) {
+      .textDiv-{{ section.id }} {
+      	width: 0%;
+        margin-right: 0%;
+      }
+      {% if boxDiv2 <= 0 %}
+        .boxDiv-{{ section.id }} {
+        	width: 100%;
+        }
+      {% else %}
+        .boxDiv-{{ section.id }} {
+        	width: 100%;
+        }
+      {% endif %}
+      }
+    </style>
+    </div>
+    <div class="boxDiv-{{ section.id }} flexDiv">
+      <style>
+       .boxDiv-{{ section.id }} {
+          background-color: {{ section.settings.backgroundColor }};
+        }
+        .boxDiv-{{ section.id }} .reviewsHeadLeft {
+        	padding-top: {{ section.settings.boxPadTop | times: 100 | divided_by: 1440.0 }}vw;
+          	padding-bottom: {{ section.settings.boxPadBottom | times: 100 | divided_by: 1440.0 }}vw;
+          	padding-left: {{ section.settings.boxPadLeft | times: 100 | divided_by: 1440.0 }}vw;
+          	padding-right: 18.33vw;
+          	flex-grow: 1;
+          	border-right: 1px solid #c3c3c3;
+        }
+        .boxDiv-{{ section.id }} .reviewsHeadRight {
+        	padding-top: {{ section.settings.boxPadTop | times: 100 | divided_by: 1440.0 }}vw;
+          	padding-bottom: {{ section.settings.boxPadBottom | times: 100 | divided_by: 1440.0 }}vw;
+          	padding-right: {{ section.settings.boxPadRight | times: 100 | divided_by: 1440.0 }}vw;
+          	padding-left: 5.76vw;
+          	flex-grow: 1;
+        }
+        @media only screen and (max-width: 1009px) {
+          .boxDiv-{{ section.id }} {
+            padding-top: {{ section.settings.boxPadTopMob }}px;
+            padding-bottom: {{ section.settings.boxPadBottomMob }}px;
+            padding-left: {{ section.settings.boxPadLeftMob }}px;
+            padding-right: {{ section.settings.boxPadRightMob }}px;
+          }
+          .boxDiv-{{ section.id }} .reviewsHeadLeft {
+        	padding: 0;
+            border-right: 0;
+          }
+          .boxDiv-{{ section.id }} .reviewsHeadRight {
+        	padding-top: {{ section.settings.boxPadTopMob }}px;
+            padding-bottom: 0px;
+            padding-right: {{ section.settings.boxPadRightMob }}px;
+            padding-left: {{ section.settings.boxPadLeftMob }}px;
+            width: calc(100vw - 40px);
+            min-width: calc(100vw - 40px);
+            margin-left: -30px;
+            border-top: 1px solid #c3c3c3;
+            margin-top: 35px;
+          }
+        }
+      </style>
+      <div class="reviewsHeadLeft">
+        <h2 class="reviewsHeadTitle GT-500">
+          Overall rating
+        </h2>
+        <p class="reviewNumber GT-600"><span class="calculateMe">5</span><span>/5</span></p>
+        <p class="reviewBased GT-400">Based on <span class="totalNumberReviews">0</span> Reviews</p>
+      	 <div onclick="location.href='/pages/submit-review'" class="buttonDiv buttonDiv-{{ section.id }}">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='black' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='black' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="#000" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="#000" stroke-width="2"/>
+            </svg>
+            <div style="min-height: 52px; color: #000;" class="GT-600">Write a review</div>
+          </div>
+      </div>
+      <div class="reviewsHeadRight">
+        <div class="flexDiv starHeadDiv starHeadDivFive">
+          <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Frame_138.svg?v=1638713032">
+          <span class="reviewNumbers GT-400 number5">0</span>
+        </div>
+        
+        <div class="flexDiv starHeadDiv starHeadDivFour">
+          <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Frame_139.svg?v=1638713032">
+          <span class="reviewNumbers GT-400 number4">0</span>
+        </div>
+        
+        <div class="flexDiv starHeadDiv starHeadDivThree">
+          <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Frame_140.svg?v=1638713032">
+          <span class="reviewNumbers GT-400 number3">0</span>
+        </div>
+        
+        <div class="flexDiv starHeadDiv starHeadDivTwo">
+          <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Frame_141.svg?v=1638713032">
+          <span class="reviewNumbers GT-400 number2">0</span>
+        </div>
+        
+        <div class="flexDiv starHeadDiv starHeadDivOne">
+          <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Frame_142.svg?v=1638713032">
+          <span class="reviewNumbers GT-400 number1">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Reviews header",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImage",
+          "label": "Background image"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Box background color"
+        },
+		{
+          "type": "text",
+          "id": "boxPadTop",
+          "label": "Top box padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadBottom",
+          "label": "Bottom box padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadLeft",
+          "label": "Left box padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "boxPadRight",
+          "label": "Right box padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "boxPadTopMob",
+          "label": "Top box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadBottomMob",
+          "label": "Bottom box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadLeftMob",
+          "label": "Left box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadRightMob",
+          "label": "Right box padding mobile (numbers only)"
+        }
+	],
+    "presets": [
+      {
+        "category": "Reviews",
+        "name": "Reviews header",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

@@ -1,0 +1,485 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+<style>
+  .quickShipTitle {
+  	font-size: 1.39vw;
+    line-height: 1.67vw;
+    margin-bottom: 0.97vw;
+    color: #000;
+  }
+  .productTopTitle {
+  	font-size: 3.61vw;
+    line-height: 3.79vw;
+    letter-spacing: -2px;
+    margin-bottom: 1.67vw;
+    color: #000;
+  }
+  .jdgm-star {
+  	font-size: 1.04vw;
+  }
+  .jdgm-prev-badge__text {
+  	font-family: "GT Walsheim Pro";
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 0.97vw;
+    margin-left: 1.94vw;
+    color: #000;
+    opacity: 0.5;
+  }
+  .jdgm-widget.jdgm-preview-badge {
+  	margin-bottom: 4.03vw;
+  }
+  .productTopMeta {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  	padding: 1.67vw 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .product-single__price {
+  	font-size: 2.22vw;
+    line-height: 2.44vw;
+    font-family: "GT Walsheim Pro";
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .product-single__price--compare-at {
+  	font-size: 1.11vw;
+    line-height: 2.44vw;
+    font-family: "GT Walsheim Pro";
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .btn--add-to-cart.btn.btn {
+  	margin: 0 0 0 15px;
+    padding: 0;
+    font-family: "GT Walsheim Pro";
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    font-weight: 500;
+    font-size: 0.97vw;
+    line-height: 0.97vw;
+    text-transform: unset;
+  }
+  .product-single__add-to-cart {
+  	margin: 0;
+  }
+  .flexDiv.btn.btn--add-to-cart {
+  	align-items: center;
+  }
+  .btnIcon {
+  	border-right: 1px solid #000;
+  }
+  .btnText {
+  	padding: 1.25vw 1.11vw;
+  }
+  .productTopPerks {
+  	padding: 1.74vw 0;
+    border-bottom: 1px solid #c3c3c3;
+  }
+  .productTopPerk {
+  	margin-bottom: 0.83vw;
+  }
+  .perkCheckmark {
+  	margin-right: 1.6vw;
+    padding-top: 0.28vw;
+  }
+  .productPerkTitle  {
+  	font-size: 0.97vw;
+    line-height: 1.36vw;
+    margin-bottom: 0;
+    color: #000;
+  }
+  .productPerkText  {
+  	font-size: 0.97vw;
+    line-height: 1.36vw;
+    margin-bottom: 0;
+    color: #5E5E5E;
+  }
+  .productThumbnails {
+  	position: absolute; 
+    top: 10%;
+    left: 2.43vw; 
+    width: 5.56vw; 
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+  }
+  .productThumbnail {
+  	margin-bottom: 1.11vw;
+    cursor: pointer;
+    border: 1px solid #fff;
+  }
+  .mainImg {
+  	visibility: hidden;
+  }
+  .mainImgAn {
+  	position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .productThumbnail.active {
+  	border: 2px solid #000;
+  }
+  .stickyCart {
+    position: fixed;
+    top: 0;
+    right: 0;
+  	width: calc(100vw - 6.11vw);
+    background: #000;
+    color: #fff;
+    z-index: 3;
+    padding: 1.11vw 10vw 1.11vw 3.75vw;
+    display: flex;
+    align-items: center;
+    transform: translateY(-200%);
+    transition: all 0.6s ease-out;
+  }
+  .stickyCart.active {
+  	transform: translateY(0%);
+  }
+  .stickyPerks {
+  	width: 51%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .stickyPerks img {
+  	width: 1.11vw;
+    height: 1.11vw;
+    margin-right: 0.97vw;
+  }
+  .stickyPerks p {
+  	font-size: 0.97vw;
+    line-height: 1.17vw;
+    color: #fff;
+    margin-bottom: 0;
+  }
+  .stickyPerk {
+  	display: flex;
+  }
+  .stickyAdd {
+  	width: 49%;
+    display: flex;
+  }
+  .stickyAdd .stickyPrice {
+  	margin: 0 auto;
+  }
+  .stickyAdd button {
+  	display: inline-flex;
+  }
+  .stickyCart .price-container {
+  	margin: 0 auto;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  .stickyCart .price-container .product-single__price {
+  	color: #fff;
+  }
+</style>
+<div class="stickyCart">
+  <div class="stickyPerks">
+    <div class="stickyPerk">
+      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+      <p class="GT-400">
+      	  {% if product.metafields.my_fields.product_perk_1 != blank %}
+            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
+          {% else %}
+            Made in the USA
+          {% endif %}
+      </p>
+    </div>
+     <div class="stickyPerk">
+      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+      <p class="GT-400">
+      	   {% if product.metafields.my_fields.product_perk_2 != blank %}
+            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
+          {% else %}
+            Delivers Nationwide
+          {% endif %}
+      </p>
+    </div>
+     <div class="stickyPerk">
+      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+      <p class="GT-400">
+      	  {% if product.metafields.my_fields.product_perk_3 != blank %}
+            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
+          {% else %}
+            Specialty Interior Doors
+          {% endif %}
+      </p>
+    </div>
+  </div>
+  <div class="stickyAdd">
+    {% include 'product-price', variant: current_variant %}
+   
+    <div>
+    <button type="submit" class="buttonStickyAdd flexDiv btn btn--add-to-cart{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                  <div class="btnIcon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none" style="&#10;">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1753 20.9996H33.5003L32.44 26.9785C32.3694 27.3764 32.0236 27.6663 31.6195 27.6663H21.0013C20.5739 27.6663 20.2217 27.3446 20.1736 26.9302L20.168 26.8319V26.8319L20.1753 20.9996Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18.5 18.4999H20.1584L20.1667 21.8332" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.0835 31.833C28.0835 30.9126 28.8297 30.1664 29.7501 30.1664C30.6706 30.1664 31.4168 30.9126 31.4168 31.833C31.4168 32.7535 30.6706 33.4997 29.7501 33.4997C28.858 33.4997 28.1274 32.7143 28.0835 31.833Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M22.2506 33.4997C21.3302 33.4997 20.584 32.7535 20.584 31.833C20.584 30.9126 21.3302 30.1664 22.2506 30.1664C23.1711 30.1664 23.9173 30.9126 23.9173 31.833C23.9173 32.7535 23.1711 33.4997 22.2506 33.4997Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M22.2502 27.6665V30.1665" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M27.6663 31.8334H24.333" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  </div>
+                  <div class="btnText">
+                  <span class="btn__text">
+                    {% if current_variant.available %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </span>
+                  </div>
+                </button>
+    </div>
+  </div>
+</div>
+<div itemscope itemtype="http://schema.org/Product" id="ProductSection--{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="product-template"
+  data-image-zoom-type="{{ section.settings.enable_image_zoom }}"
+  data-enable-history-state="true"
+  data-stacked-layout="{% if section.settings.media_layout == "stacked" %}true{% else %}false{% endif %}"
+  {% if first_3d_model %}data-has-model="true"{% endif %} class="productTop flexDiv">
+  <div class="productTopLeft">
+    <div style="position: sticky; top: -100px;" class="productImageHolder">
+    	<img class="mainImg fullWidth" src="{{ product.featured_image | img_url: "300x" }}">
+      	<img class="mainImgAn" src="{{ product.featured_image | img_url: "1200x" }}">
+      <div class="productThumbnails">
+      	{% for img in product.images %}
+        	<img class="fullWidth productThumbnail {% if forloop.first %}active{% endif %}" source="{{ img | img_url: '1200x' }}" src="{{ img | img_url: '400x' }}">
+        {% endfor %}
+      </div>
+    </div>
+    <script>
+      $(".productThumbnail").click(function(){
+      	$(".productThumbnail").removeClass("active");
+        $(this).addClass("active");
+        $(".mainImgAn").fadeOut();
+        setTimeout(function(){ 
+        $(".mainImg").attr("src",$(".productThumbnail.active").attr("src"));
+        $(".mainImgAn").attr("src",$(".productThumbnail.active").attr("source"));
+        $(".mainImgAn").fadeIn(); 
+        }, 400);
+      });
+    </script>
+  </div>
+  <div class="productTopRight">
+    {% capture "form_classes" %}
+              product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
+            {%- endcapture %}
+
+            {% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
+
+            {% form 'product', product, class:form_classes, id:form_id, data-product-form: '' %}
+              {% comment %}
+                Automatically inserted by Shop Pay Installments theme updater
+              {% endcomment %}
+              {% unless settings.disable_autogenerated_payment_terms %}
+                {{ form | payment_terms }}
+              {% endunless %}
+    <p class="quickShipTitle GT-500">Quickship</p>
+    <p class="productTopTitle GT-500">{{ product.title | escape }}</p>
+    <select name="id" id="ProductSelect--{{ section.id }}" class="product-single__variants no-js">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option {% if variant == product.selected_or_first_available_variant %}
+                      selected="selected" {% endif %}
+                      data-sku="{{ variant.sku }}"
+                      value="{{ variant.id }}">
+                      {{ variant.title }} - {{ variant.price | money_with_currency }}
+                    </option>
+                  {% else %}
+                    <option disabled="disabled">
+                      {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                    </option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+    {% if section.settings.quantity_enabled %}
+              <div class="product-single__quantity">
+                <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+              </div>
+              {% endif %}
+    {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product %}
+    <div class="productTopMeta flexDiv">
+      {% include 'product-price', variant: current_variant %}
+      <div class="product-single__add-to-cart{% if section.settings.add_to_cart_button_size == 'large' %} product-single__add-to-cart--full-width{% endif %}">
+                <button type="submit" name="add" id="AddToCart--{{ section.id }}" class="mainAddToCart flexDiv btn btn--add-to-cart{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"{% unless current_variant.available %} disabled="disabled"{% endunless %}>
+                  <div class="btnIcon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none" style="&#10;">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M20.1753 20.9996H33.5003L32.44 26.9785C32.3694 27.3764 32.0236 27.6663 31.6195 27.6663H21.0013C20.5739 27.6663 20.2217 27.3446 20.1736 26.9302L20.168 26.8319V26.8319L20.1753 20.9996Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18.5 18.4999H20.1584L20.1667 21.8332" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M28.0835 31.833C28.0835 30.9126 28.8297 30.1664 29.7501 30.1664C30.6706 30.1664 31.4168 30.9126 31.4168 31.833C31.4168 32.7535 30.6706 33.4997 29.7501 33.4997C28.858 33.4997 28.1274 32.7143 28.0835 31.833Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M22.2506 33.4997C21.3302 33.4997 20.584 32.7535 20.584 31.833C20.584 30.9126 21.3302 30.1664 22.2506 30.1664C23.1711 30.1664 23.9173 30.9126 23.9173 31.833C23.9173 32.7535 23.1711 33.4997 22.2506 33.4997Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M22.2502 27.6665V30.1665" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M27.6663 31.8334H24.333" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  </div>
+                  <div class="btnText">
+                  <span class="btn__text">
+                    {% if current_variant.available %}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  </span>
+                  </div>
+                </button>
+                {% if section.settings.enable_payment_button %}
+                  {{ form | payment_button }}
+                {% endif %}
+              </div>
+    </div>
+    <div class="productTopPerks">
+      <div class="productTopPerk flexDiv">
+        <div class="perkCheckmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
+            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="perkTextHolder">
+          <p class="productPerkTitle GT-500">
+          {% if product.metafields.my_fields.product_perk_1 != blank %}
+            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
+          {% else %}
+            Made in the USA
+          {% endif %}
+          </p>
+          <p class="productPerkText GT-400">
+          {% if product.metafields.my_fields.product_perk_1 != blank %}
+            {{ product.metafields.my_fields.product_perk_1 | split: "/" | last }}
+          {% else %}
+            Quality & service you can rely on.
+          {% endif %}
+          </p>
+        </div>
+      </div>
+      
+      <div class="productTopPerk flexDiv">
+        <div class="perkCheckmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
+            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="perkTextHolder">
+          <p class="productPerkTitle GT-500">
+          {% if product.metafields.my_fields.product_perk_2 != blank %}
+            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
+          {% else %}
+            Delivers Nationwide
+          {% endif %}
+          </p>
+          <p class="productPerkText GT-400">
+          {% if product.metafields.my_fields.product_perk_2 != blank %}
+            {{ product.metafields.my_fields.product_perk_2 | split: "/" | last }}
+          {% else %}
+            Wherever you are, we’ll find a way to work with you.
+          {% endif %}
+          </p>
+        </div>
+      </div>
+      
+      <div class="productTopPerk flexDiv">
+        <div class="perkCheckmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
+            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="perkTextHolder">
+          <p class="productPerkTitle GT-500">
+          {% if product.metafields.my_fields.product_perk_3 != blank %}
+            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
+          {% else %}
+            Specialty Interior Doors
+          {% endif %}
+          </p>
+          <p class="productPerkText GT-400">
+          {% if product.metafields.my_fields.product_perk_3 != blank %}
+            {{ product.metafields.my_fields.product_perk_3 | split: "/" | last }}
+          {% else %}
+            We do one thing – and we do it right every time.
+          {% endif %}
+          </p>
+        </div>
+      </div>
+      
+      <div style="margin-bottom: 0;" class="productTopPerk flexDiv">
+        <div class="perkCheckmark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
+            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="perkTextHolder">
+          <p class="productPerkTitle GT-500">
+          {% if product.metafields.my_fields.product_perk_4 != blank %}
+            {{ product.metafields.my_fields.product_perk_4 | split: "/" | first }}
+          {% else %}
+            More than a Door
+          {% endif %}
+          </p>
+          <p class="productPerkText GT-400">
+          {% if product.metafields.my_fields.product_perk_4 != blank %}
+            {{ product.metafields.my_fields.product_perk_4 | split: "/" | last }}
+          {% else %}
+            Functional art you'll enjoy every day.
+          {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+    <img style="margin-top: 2.5vw;" class="fullWidth" src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Frame_352.svg?v=1639055588">
+    {% endform %}
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+  	$(window).scroll(function(){
+    if($(window).scrollTop() >= $('.product-single__add-to-cart').offset().top){
+          $(".stickyCart").addClass("active");
+    }else{
+    	$(".stickyCart").removeClass("active");
+    }
+    });
+  });
+</script>
+<script>
+  $(document).ready(function(){
+    $(".buttonStickyAdd").click(function(){
+    	$(".mainAddToCart").click();
+    });
+  });
+</script>
+{% unless product == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+  <script type="application/json" id="ModelJson-{{ section.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+{% endunless %}
+{% schema %}
+  {
+    "name": "Product top",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

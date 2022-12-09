@@ -1,0 +1,42 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    height: {{ section.settings.height }}vw;
+    background: transparent;
+    pointer-events: none;
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      {% if template contains "index" or template contains 'collection' %}
+     height: 0;
+     display: none!important;
+      {% endif %}
+       height: 110vh;
+    }
+  }
+</style>
+{% schema %}
+  {
+    "name": "Empty Div",
+	"class": "emptyDiv emptyDivAbout",
+    "settings": [
+		{
+          "type": "text",
+          "id": "height",
+          "label": "Height"
+        }
+	],
+    "presets": [
+      {
+        "category": "Homepage",
+        "name": "Empty Div",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

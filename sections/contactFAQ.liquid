@@ -1,0 +1,850 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background-image: url({{ section.settings.backgroundImage | img_url: "1200x" }});
+    position: relative;
+    background-size: cover;
+  }
+  #shopify-section-{{ section.id }} .textDiv-{{ section.id }} {
+  	padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      background-image: url({{ section.settings.backgroundImageMob | img_url: "1200x" }});
+      background-size: cover;
+    }
+    #shopify-section-{{ section.id }} .textDiv-{{ section.id }} {
+  	  padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+  }
+</style>
+
+<div style="position: relative;" class="visibilityDiv visibilityDivMob flexDiv">
+  <div style="min-height: 100%; position: relative;" class="flexDiv fullWidth fullHeight disableAbs applyAnimation">
+    <div class="textDiv-{{ section.id }}">
+    <style>
+      {% assign boxDiv = 100 | minus: section.settings.textWidth | minus: section.settings.textMargin %}
+      {% assign boxDiv2 = 100 | minus: section.settings.textWidthMob | minus: section.settings.textMarginMob %}
+      .textDiv-{{ section.id }} {
+        width: {{ section.settings.textWidth }}%;
+        margin-right: {{ section.settings.textMargin }}%;
+      }
+      .boxDiv-{{ section.id }} {
+        width: {{ boxDiv }}%;
+      }
+      @media only screen and (max-width: 1009px) {
+      .textDiv-{{ section.id }} {
+      	width: {{ section.settings.textWidthMob }}%;
+        margin-right: {{ section.settings.textMarginMob }}%;
+      }
+      {% if boxDiv2 <= 0 %}
+        .boxDiv-{{ section.id }} {
+        	width: 100%;
+        }
+      {% else %}
+        .boxDiv-{{ section.id }} {
+        	width: {{ boxDiv2 }}%;
+        }
+      {% endif %}
+      }
+    </style>
+  	{% if section.settings.subtext != blank %}
+            <p class="subtext-{{ section.id }} come-in-1 GT-400">
+              {{ section.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.subtextLetter }}px; 
+                font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.subtextColor }}; 
+                line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.subtextAlign }};
+                margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.subtextLetterMob }}px; 
+                  font-size: {{ section.settings.subtextSizeMob }}px; 
+                  color: {{ section.settings.subtextColorMob }}; 
+                  line-height: {{ section.settings.subtextLineMob }}px;
+                  text-align: {{ section.settings.subtextAlignMob }};
+                  margin-bottom: {{ section.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      	{% if section.settings.title != blank %}
+            <h2 class="GT-400 customHeading come-in-2 heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+    	<style>
+              .tabTitle-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.tabTitleLetter }}px; 
+                font-size: {{ section.settings.tabTitleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.tabTitleColor }}; 
+                line-height: {{ section.settings.tabTitleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.tabTitleAlign }};
+                margin-bottom: {{ section.settings.tabTitleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .tabTitle-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.tabTitleLetterMob }}px; 
+                  font-size: {{ section.settings.tabTitleSizeMob }}px; 
+                  color: {{ section.settings.tabTitleColorMob }}; 
+                  line-height: {{ section.settings.tabTitleLineMob }}px;
+                  text-align: {{ section.settings.tabTitleAlignMob }};
+                  margin-bottom: {{ section.settings.tabTitleMarBottomMob }}px;
+                }
+              }
+          .tabTitle2-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.tabTitle2Letter }}px; 
+                font-size: {{ section.settings.tabTitle2Size | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.tabTitle2Color }}; 
+                line-height: {{ section.settings.tabTitle2Line | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.tabTitle2Align }};
+              }
+          .tabTitle2Div-{{ section.id }} {
+          	margin-bottom: {{ section.settings.tabTitle2MarBottom | times: 100 | divided_by: 1440.0 }}vw;
+          }
+              @media only screen and (max-width: 1009px) {
+                .tabTitle2-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.tabTitle2LetterMob }}px; 
+                  font-size: {{ section.settings.tabTitle2SizeMob }}px; 
+                  color: {{ section.settings.tabTitle2ColorMob }}; 
+                  line-height: {{ section.settings.tabTitle2LineMob }}px;
+                  text-align: {{ section.settings.tabTitle2AlignMob }};
+                  margin-bottom: {{ section.settings.tabTitle2MarBottomMob }}px;
+                }
+                .tabTitle2Div-{{ section.id }} {
+                    margin-bottom: {{ section.settings.tabTitle2MarBottomMob }}px;
+                }
+              }
+          	.tabText-{{ section.id }}.tabText-{{ section.id }} p {
+          		margin: 0; 
+                letter-spacing: {{ section.settings.tabTextLetter }}px; 
+                font-size: {{ section.settings.tabTextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.tabTextColor }}; 
+                line-height: {{ section.settings.tabTextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.tabTextAlign }};
+                margin-bottom: {{ section.settings.tabTextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .tabText-{{ section.id }}.tabText-{{ section.id }} p {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.tabTextLetterMob }}px; 
+                  font-size: {{ section.settings.tabTextSizeMob }}px; 
+                  color: {{ section.settings.tabTextColorMob }}; 
+                  line-height: {{ section.settings.tabTextLineMob }}px;
+                  text-align: {{ section.settings.tabTextAlignMob }};
+                  margin-bottom: {{ section.settings.tabTextMarBottomMob }}px;
+            </style>
+      {% for block in section.blocks %}
+              {% if block.settings.title != blank %}
+              	<p {% if forloop.first %}style="padding-top: 27px; border-top: 1px solid {{ section.settings.tabTitleColor }};"{% endif %} class="GT-400 come-in-{{ forloop.index }} tabTitle-{{ section.id }}">
+                  {{ block.settings.title }}
+              	</p>
+              {% endif %}
+      		  {% if block.settings.textCon != blank %}
+        	  <div class="tabText-{{ section.id }}">
+                <p class="GT-600">{{ block.settings.textCon }}</p>
+              </div>
+              {% endif %}
+    {% endfor %}
+    </div>
+    <div class="boxDiv-{{ section.id }}">
+      <style>
+       .boxDiv-{{ section.id }} {
+          height: 100%;
+          padding-top: {{ section.settings.boxPadTop | times: 100 | divided_by: 1440.0 }}vw;
+          padding-bottom: {{ section.settings.boxPadBottom | times: 100 | divided_by: 1440.0 }}vw;
+          padding-left: {{ section.settings.boxPadLeft | times: 100 | divided_by: 1440.0 }}vw;
+          padding-right: {{ section.settings.boxPadRight | times: 100 | divided_by: 1440.0 }}vw;
+          background-color: {{ section.settings.backgroundColor }};
+        }
+        @media only screen and (max-width: 1009px) {
+          .boxDiv-{{ section.id }} {
+            padding-top: {{ section.settings.boxPadTopMob }}px;
+            padding-bottom: {{ section.settings.boxPadBottomMob }}px;
+            padding-left: {{ section.settings.boxPadLeftMob }}px;
+            padding-right: {{ section.settings.boxPadRightMob }}px;
+            min-width: 100vw;
+            margin-left: -20px;
+          }
+        }
+      </style>
+      <div style="justify-content: center;" class="flexDiv">
+		{% form 'contact' %}
+
+            {% comment %}
+              Successful message
+            {% endcomment %}
+            {% if form.posted_successfully? %}
+              <p class="note form-success">
+                {{ 'contact.form.post_success' | t }}
+              </p>
+            {% endif %}
+
+            {{ form.errors | default_errors }}
+      		
+            	<div class="selectDiv selectDivWhite come-in-1">
+                <select style="background: #484848; color: #fff;" id="" name="contact[Building]">
+                    <option style='display:none' disabled selected value="">Type of building</option>
+                    <option value="Residential">Residential</option>
+                    <option value="Commercial">Commercial</option>
+                </select>
+                </div>
+              	<label for="ContactFormName" class="hidden-label">{{ 'contact.form.name' | t }}</label>
+                <input style="color: white;" autocomplete="given-name" required="required" type="text" id="ContactFormName" class="input-full come-in-2" name="contact[{{ 'contact.form.name' | t }}]" placeholder="Your first name" autocapitalize="words" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+              	<label for="ContactFormName" class="hidden-label">{{ 'contact.form.name' | t }}</label>
+                <input style="color: white;" autocomplete="family-name" type="text" id="ContactFormName" class="input-full come-in-3" name="contact[Last name]" placeholder="Your last name" autocapitalize="words">
+              	<label for="ContactFormEmail" class="hidden-label">{{ 'contact.form.email' | t }}</label>
+                <input style="color: white;" autocomplete="email" required="required" type="email" id="ContactFormEmail" class="input-full come-in-4" name="contact[email]" placeholder="Email address" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+             	<label for="ContactFormPhone" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
+            	<input style="color: white;" autocomplete="tel" type="tel" id="ContactFormPhone" class="input-full come-in-5" name="contact[{{ 'contact.form.phone' | t }}]" placeholder="Phone number" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+        		<label for="ContactFormMessage" class="hidden-label">Your message</label>
+            	<div class="textareaBorder come-in-6">
+        		<textarea style="color: white;" required="required" rows="10" id="ContactFormMessage" class="input-full" name="contact[Details]" placeholder="Your message">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+        		</div>
+				<div id="buttonDiv3-{{ section.id }}" style="width: auto; max-width: 100%; border-color: #fff; margin-bottom: 69px;" class="buttonDiv nextButton come-in-7 sendButton buttonDiv3-{{ section.id }}">
+            <style>
+              .buttonDiv3-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='white' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='white' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+                    <path d="M20.9609 32.5547L30.9765 22.5392" stroke="#fff" stroke-width="2"/>
+                    <path d="M21.7665 22.2535H31.2608V31.7478" stroke="#fff" stroke-width="2"/>
+                  </svg>
+                  <div style="min-height: 52px; color: #fff; border-color: #fff;" class="GT-600">Send</div>
+              </div>
+            <input style="display: none;" class="submitButton" type="submit" class="btn right" value="{{ 'contact.form.send' | t }}">
+
+          {% endform %}
+        <script>
+          var form = document.querySelector("#shopify-section-{{ section.id }} form");
+
+        document.getElementById("buttonDiv3-{{ section.id }}").addEventListener("click", function () {
+          form.submit();
+        });
+      </script>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "FAQ Contact",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImage",
+          "label": "Background image"
+        },
+        {
+          "type": "image_picker",
+          "id": "backgroundImageMob",
+          "label": "Background image mobile"
+        },
+		{
+          "type": "text",
+          "id": "textWidth",
+          "label": "Text part width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMargin",
+          "label": "Text part margin right (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textWidthMob",
+          "label": "Text part width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMarginMob",
+          "label": "Text part margin right (0-100)"
+        },
+		{
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Tab title Desktop"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleSize",
+          "label": "Tab title Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLine",
+          "label": "Tab title Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLetter",
+          "label": "Tab title Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTitleColor",
+          "label": "Tab title color"
+        },
+		{
+          "type": "select",
+          "id": "tabTitleAlign",
+          "label": "Tab title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleMarBottom",
+          "label": "Tab title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Tab title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleSizeMob",
+          "label": "Tab title Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLineMob",
+          "label": "Tab title Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleLetterMob",
+          "label": "Tab title Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTitleColorMob",
+          "label": "Tab title color"
+        },
+		{
+          "type": "select",
+          "id": "tabTitleAlignMob",
+          "label": "Tab title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTitleMarBottomMob",
+          "label": "Tab title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Tab text Desktop"
+        },
+		{
+          "type": "text",
+          "id": "tabTextSize",
+          "label": "Tab text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLine",
+          "label": "Tab text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLetter",
+          "label": "Tab text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTextColor",
+          "label": "Tab text color"
+        },
+		{
+          "type": "select",
+          "id": "tabTextAlign",
+          "label": "Tab text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTextMarBottom",
+          "label": "Tab text bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Tab text Mobile"
+        },
+		{
+          "type": "text",
+          "id": "tabTextSizeMob",
+          "label": "Tab text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLineMob",
+          "label": "Tab text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "tabTextLetterMob",
+          "label": "Tab text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "tabTextColorMob",
+          "label": "Tab text color"
+        },
+		{
+          "type": "select",
+          "id": "tabTextAlignMob",
+          "label": "Tab text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "tabTextMarBottomMob",
+          "label": "Tab text bottom margin mobile (numbers only)"
+        },
+  		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Box background color"
+        },
+		{
+          "type": "text",
+          "id": "boxPadTop",
+          "label": "Top box padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadBottom",
+          "label": "Bottom box padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadLeft",
+          "label": "Left box padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "boxPadRight",
+          "label": "Right box padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "boxPadTopMob",
+          "label": "Top box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadBottomMob",
+          "label": "Bottom box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadLeftMob",
+          "label": "Left box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadRightMob",
+          "label": "Right box padding mobile (numbers only)"
+        }
+	],
+	"blocks": [
+      {
+        "type": "Info",
+        "name": "Contact Info",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+		  {
+            "type": "textarea",
+            "id": "textCon",
+            "label": "Text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "FAQ",
+        "name": "FAQ Contact",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

@@ -1,0 +1,449 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+  }
+</style>
+{% if section.settings.imageOverlap %}
+<img class="imageOverlap" src="{{ section.settings.imageOverlap | img_url: "750x" }}">
+{% endif %}
+{% assign padRight =  section.settings.padLeft | minus: section.settings.padRight %}
+<style>
+  .byFunction {
+    width: calc(100vw - 12.22vw);
+    margin-left: calc(({{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw - 6.11vw) * (-1));
+    border-top: 1px solid #C3C3C3;
+	border-bottom: 1px solid #C3C3C3;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: {{ 46 | times: 100 | divided_by: 1440.0 }}vw;
+   }
+  .byProduct {
+    display: none;
+  	padding-top: 0;
+    border-top: 0;
+  }
+  .functionButton {
+  	font-size: {{ 16 | times: 100 | divided_by: 1440.0 }}vw;
+    line-height: {{ 19.68 | times: 100 | divided_by: 1440.0 }}vw;
+    padding: {{ 12 | times: 100 | divided_by: 1440.0 }}vw {{ 16 | times: 100 | divided_by: 1440.0 }}vw;
+    border: 1px solid #C3C3C3;
+    margin-right: {{ 32 | times: 100 | divided_by: 1440.0 }}vw;
+    cursor: pointer;
+  }
+  .functionButton .numberOf {
+  	font-size: {{ 10 | times: 100 | divided_by: 1440.0 }}vw;
+    line-height: {{ 12.36 | times: 100 | divided_by: 1440.0 }}vw;
+    bottom: 4px;
+    position: relative;
+  }
+  .cancelFunc {
+    display: none;
+  	margin-left: {{ 14 | times: 100 | divided_by: 1440.0 }}vw;
+  }
+  .functionButton.active {
+  	background: #000;
+    color: #fff;
+  }
+  .functionButton.active .cancelFunc {
+  	display: inline-block;
+  }
+  .productHolder {
+  	width: 31.65%;
+    margin: 0 0.84%;
+    cursor: pointer;
+    background: #fff;
+    margin-bottom: 2.22vw;
+  }
+  .productImageHolder {
+  	position: relative;
+    background-size: cover;
+  }
+  .productOverImage {
+  	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.67vw;
+    visibility: hidden;
+  }
+  .productItemType {
+  	font-size: 1.11vw;
+    line-height: 1.44vw;
+    margin-bottom: 0.42vw;
+    color: #000;
+  }
+  .productHolder:hover .productItemType {
+  	color: #fff;
+  }
+  .productItemCollections {
+  	font-size: 0.83vw;
+    line-height: 1.03vw;
+    color: #848484;
+  }
+  .productHolder:hover .productItemCollections {
+  	color: #fff;
+  }
+  .productItemBorder {
+  	width: auto;
+    margin: 0 1.67vw;
+    height: 1px;
+    background: #C3C3C3;
+  }
+  .productItemMeta {
+  	padding: 1.67vw;
+  }
+  .productItemTitle {
+  	font-size: 1.67vw;
+    line-height: 2vw;
+    color: #000;
+    width: 63.9%;
+  }
+  .productItemPrice {
+  	width: 36.1%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.39vw;
+    line-height: 2vw;
+    color: #5E5E5E;
+  }
+  .productItemButton {
+  	margin-left: 1.67vw;
+    margin-bottom: 2.5vw;
+  }
+  @media only screen and (max-width: 1009px) {
+  	.productHolder {
+      width: 100%;
+      margin-bottom: 24px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .productOverImage {
+    	padding: 24px;
+    }
+    .productItemType {
+      font-size: 16px;
+      line-height: 20.8px;
+      margin-bottom: 6px;
+      color: #000;
+    }
+    .productItemCollections {
+      font-size: 12px;
+      line-height: 14.83px;
+      color: #848484;
+    }
+    .productItemBorder {
+      width: auto;
+      margin: 0 24px;
+      height: 1px;
+      background: #C3C3C3;
+    }
+    .productItemMeta {
+      padding: 24px;
+      display: flex;
+    }
+    .productItemTitle {
+      font-size: 24px;
+      line-height: 28.8px;
+      color: #000;
+      width: 63.9%;
+    }
+    .productItemPrice {
+      width: 36.1%;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 20px;
+      line-height: 24px;
+      color: #5E5E5E;
+    }
+    .productItemButton {
+      margin-left: 24px;
+      margin-bottom: 36px;
+    }
+  }
+</style>
+{% assign string = "" %}
+{% for link in linklists.collections-menu.links %}
+{% assign col = link.object %}
+{% unless string contains col.title  %}
+{% capture string %}{{ string }}{{ col.title }}_{{ col.all_products_count }}|{% endcapture string %}
+{% endunless %}
+{% endfor %}
+{% assign array = string | split: "|" %}
+<div class="flexDiv fullWidth byFunction byProduct">
+  <div class="functionButton GT-600 active allFunc">All doors <span class="numberOf">{{ collections.all.all_products_count }}</span>
+  </div>
+   {% for str in array %}
+  <div filter="{{ str | split: "_" | first | replace: " ", "-" }}" class="functionButton otherFunc GT-600">{{ str | split: "_" | first }} <span class="numberOf">{{ str | split: "_" | last }}</span>
+    <span class="cancelFunc">
+    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="10" viewBox="0 0 9 10" fill="none">
+      <path d="M1 8.20817L8 1.7915" stroke="white" stroke-width="2"/>
+      <path d="M7.70768 8.5L1.29102 1.5" stroke="white" stroke-width="2"/>
+    </svg>
+    </span>
+  </div>
+  {% endfor %}
+</div>
+<div id="products" style="justify-content: flex-start;" class="flexDiv">
+ {% for product in collections.main.products %}
+  {% assign on_sale = false %}
+  {% if product.compare_at_price > product.price %}
+    {% assign on_sale = true %}
+  {% endif %}
+
+  {% assign sold_out = true %}
+  {% if product.available %}
+    {% assign sold_out = false %}
+  {% endif %}
+
+  {%- assign variant = product.selected_or_first_available_variant -%}
+  <div onclick="location.href='{{ product.url }}'" style="cursor: pointer;" src="{{ product.featured_image | img_url: "x920" }}" filterBy="{{ block.settings.category | replace: " ", "-" }}" class="productHolder applyAnimation">
+   	<div class="productImageHolder prIm-{{ forloop.index }} come-in-2">
+    <style>
+      .prIm-{{ forloop.index }} {
+      	background-image: url({{ product.featured_image | img_url: "x920" }});
+        transition: background-image .3s ease-in;
+        background-position: center;
+      }
+      .prIm-{{ forloop.index }}:hover {
+      	background-image: url({{ product.images[1]  | img_url: "x920" }});
+      }
+    </style>
+    <img class="fullWidth" style="visibility: hidden;" src="{{ product.featured_image | img_url: "x120" }}">
+    <div class="productOverImage">
+      <p class="productItemType GT-500">
+        {{ product.type }}
+      </p>
+      <p class="productItemCollections GT-400">
+        Play &#8226; Zen Room &#8226; Gym
+      </p>
+    </div>
+    </div>
+    <div class="productItemBorder"></div>
+    <div class="productItemMeta flexDiv applyAnimation">
+      <div class="productItemTitle GT-500 come-in-3">
+        {{ product.title | escape }}
+      </div>
+      <div class="productItemPrice GT-500 come-in-3">
+        <span>
+        {% if on_sale %}
+            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+          {% else %}
+             <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+          {% endif %}
+          {% if product.price_varies %}
+            {{ product.price_min | money_without_trailing_zeros }}
+            <span class="icon-fallback-text">
+              <span class="icon icon-plus grid-product__price-min" aria-hidden="true"></span>
+              <span class="fallback-text">+</span>
+            </span>
+          {% else %}
+            {{ product.price | money_without_trailing_zeros }}
+          {% endif %}
+        </span>
+
+        {%- if product.price_varies == false and variant.unit_price_measurement -%}
+          {%- capture unit_price_separator -%}
+            <span aria-hidden="true">/</span><span class="visually-hidden">&nbsp;{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+          {%- endcapture -%}
+
+          {%- capture unit_price_base_unit -%}
+            <span>
+              {%- if variant.unit_price_measurement.reference_value != 1 -%}
+                {{- variant.unit_price_measurement.reference_value -}}
+              {%- endif -%}
+              {{ variant.unit_price_measurement.reference_unit }}
+            </span>
+          {%- endcapture -%}
+          <span class="product-unit-price">
+            <span class="visually-hidden">{{ 'products.general.unit_price' | t }}</span>
+            <span>{{ variant.unit_price | money }}</span>{{- unit_price_separator -}}{{- unit_price_base_unit -}}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>
+    <div onclick="location.href='{{ product.url }}'" class="buttonDiv productItemButton buttonDiv-{{ section.id }} come-in-4">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='black' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='black' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none" style="&#10;    /* background: black; */&#10;">
+
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.1753 20.9998H33.5003L32.44 26.9786C32.3694 27.3765 32.0236 27.6664 31.6195 27.6664H21.0013C20.5739 27.6664 20.2217 27.3447 20.1736 26.9303L20.168 26.832V26.832L20.1753 20.9998Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.4999 18.4998H20.1583L20.1665 21.8331" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M28.0834 31.8329C28.0834 30.9125 28.8296 30.1663 29.75 30.1663C30.6705 30.1663 31.4166 30.9125 31.4166 31.8329C31.4166 32.7534 30.6705 33.4996 29.75 33.4996C28.8578 33.4996 28.1273 32.7142 28.0834 31.8329Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.2505 33.4996C21.33 33.4996 20.5839 32.7534 20.5839 31.8329C20.5839 30.9125 21.33 30.1663 22.2505 30.1663C23.171 30.1663 23.9171 30.9125 23.9171 31.8329C23.9171 32.7534 23.171 33.4996 22.2505 33.4996Z" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22.2499 27.6665V30.1665" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.6665 31.8334H24.3331" stroke="black" stroke-width="1.99909" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+      
+            <div style="min-height: 52px; color: #000;" class="GT-600">Shop now</div>
+          </div>
+  </div>
+ {% endfor %}
+</div>
+<script>
+  $(document).ready(function(){
+  	var elem = document.querySelector('.masonryDiv');
+    var elem2= document.querySelectorAll(".galleryImageDiv")[1]
+  let filters = [];
+    $(".functionButton.otherFunc").click(function(){
+      if ($(this).hasClass("active")){
+      $(this).removeClass("active");
+      $(".galleryMainHolder").each(function(){
+          	if ($(this).hasClass("galleryImageDiv")){
+            }else{
+          	$(this).addClass("galleryImageDiv");
+            }
+          	$(this).show();
+        });
+    		
+        $(".functionButton").removeClass("active");
+        $(".functionButton.allFunc").addClass("active");
+      }else{
+      $(".functionButton").removeClass("active");
+      $(this).addClass("active");
+      filters = $(this).attr("filter");
+      $(".galleryMainHolder").each(function(){
+          if($(this).attr("filterBy") == filters){
+          	if ($(this).hasClass("galleryImageDiv")){
+            }else{
+          	$(this).addClass("galleryImageDiv");
+            }
+          	$(this).show();
+          }else{
+            $(this).removeClass("galleryImageDiv");
+          	$(this).hide();
+          }
+        });
+           
+      }
+      });
+    
+    
+  $(".functionButton.allFunc, .cancelFunc").click(function(){
+  	$(".galleryMainHolder").each(function(){
+          	if ($(this).hasClass("galleryImageDiv")){
+            }else{
+          	$(this).addClass("galleryImageDiv");
+            }
+          	$(this).show();
+        });
+    		
+    $(".functionButton").removeClass("active");
+    $(".functionButton.allFunc").addClass("active");
+  });
+    }); 
+</script>
+{% schema %}
+  {
+    "name": "Gallery",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+            "type": "image_picker",
+            "id": "imageOverlap",
+			"label": "Image Desktop (500x600px)"
+        }
+	],
+    "presets": [
+      {
+        "category": "Portfolio",
+        "name": "Gallery",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

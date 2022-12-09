@@ -1,0 +1,751 @@
+<footer class="site-footer small--text-center" role="contentinfo" data-section-id="{{ section.id }}" data-section-type="footer-section">
+  <div style="display: none;" class="wrapper">
+
+    <div class="grid-uniform">
+
+      {% comment %}
+        Default to 1 footer column (copyright/powered_by/payment_types)
+      {% endcomment %}
+      {% assign num_footer_columns = 1 %}
+
+      {% comment %}
+        Create an extra menu column if link list has more than 5 links
+      {% endcomment %}
+      {% if linklists[section.settings.footer_link_list].links.size > 0 %}
+        {% comment %}
+          We have a Footer menu that isn't empty, we will need another column
+        {% endcomment %}
+        {% assign num_footer_columns = num_footer_columns | plus: 1 %}
+        {% assign extra_footer_linklist_column = false %}
+        {% assign footer_linklist_count = linklists[section.settings.footer_link_list].links.size %}
+        {% if footer_linklist_count > 5 %}
+          {% assign extra_footer_linklist_column = true %}
+          {% comment %}
+            We split the links so we'll need another column
+          {% endcomment %}
+          {% assign num_footer_columns = num_footer_columns | plus: 1 %}
+        {% endif %}
+        {% comment %}
+          If we have an odd amount of links, we need to show 1 more link in 1st column
+        {% endcomment %}
+        {% assign extra_link = footer_linklist_count | modulo: 2 %}
+        {% comment %}
+          We start with a 2nd column after first column is filled up.
+        {% endcomment %}
+        {% assign footer_linklist_split = footer_linklist_count | divided_by: 2 | plus: extra_link | plus: 1 %}
+      {% endif %}
+
+      {% comment %}
+        Determine whether there are social links
+      {% endcomment %}
+      {% assign footer_social_enable = false %}
+      {% if
+        settings.social_twitter_link != blank
+        or settings.social_facebook_link != blank
+        or settings.social_pinterest_link != blank
+        or settings.social_google_plus_link != blank
+        or settings.social_instagram_link != blank
+        or settings.social_tumblr_link != blank
+        or settings.social_youtube_link != blank
+        or settings.social_vimeo_link != blank
+        or settings.social_fancy_link != blank
+        or settings.social_snapchat_link != blank
+      %}
+        {% assign footer_social_enable = true %}
+      {% endif %}
+
+      {% comment %}
+        Determine whether to show selectors
+      {% endcomment %}
+      {%- assign show_country_selector = section.settings.show_currency_selector -%}
+      {%- assign country_selector = false -%}
+      {%- if show_country_selector and localization.available_countries.size > 1 -%}
+        {%- assign country_selector = true -%}
+      {%- endif -%}
+
+      {%- assign locale_selector = false -%}
+      {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+        {%- assign locale_selector = true -%}
+      {%- endif -%}
+
+      {% comment %}
+        Calculate the number of footer columns shown. Default to 1.
+      {% endcomment %}
+      {% if footer_social_enable %}
+        {% assign num_footer_columns = num_footer_columns | plus: 1 %}
+      {% endif %}
+
+      {% case num_footer_columns %}
+        {% when 0 %}
+        {% when 1 %}
+          {% assign footer_column_width = '' %}
+        {% when 2 %}
+          {% assign footer_column_width = 'one-half small--one-whole' %}
+        {% when 3 %}
+          {% assign footer_column_width = 'one-third small--one-whole' %}
+        {% when 4 %}
+          {% assign footer_column_width = 'large--one-quarter medium--one-half' %}
+      {% endcase %}
+
+      {% if linklists[section.settings.footer_link_list].links.size > 0 %}
+        <div class="grid__item {{ footer_column_width }}">
+          <ul class="no-bullets site-footer__linklist">
+            {% for link in linklists[section.settings.footer_link_list].links %}
+
+      {% comment %}
+        Create a second column
+      {% endcomment %}
+      {% if extra_footer_linklist_column and forloop.index == footer_linklist_split %}
+          </ul>
+        </div>
+        <div class="grid__item {{ footer_column_width }}">
+          <ul class="no-bullets site-footer__linklist">
+      {% endif %}
+
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if footer_social_enable %}
+        <div class="grid__item {{ footer_column_width }}">
+            <ul class="no-bullets social-icons">
+              {% if settings.social_facebook_link != blank %}
+                <li>
+                  <a href="{{ settings.social_facebook_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">
+                    <span class="icon icon-facebook" aria-hidden="true"></span>
+                    Facebook
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_twitter_link != blank %}
+                <li>
+                  <a href="{{ settings.social_twitter_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}">
+                    <span class="icon icon-twitter" aria-hidden="true"></span>
+                    Twitter
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_pinterest_link != blank %}
+                <li>
+                  <a href="{{ settings.social_pinterest_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">
+                    <span class="icon icon-pinterest" aria-hidden="true"></span>
+                    Pinterest
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_instagram_link != blank %}
+                <li>
+                  <a href="{{ settings.social_instagram_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">
+                    <span class="icon icon-instagram" aria-hidden="true"></span>
+                    Instagram
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_snapchat_link != blank %}
+                <li>
+                  <a href="{{ settings.social_snapchat_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Snapchat' }}">
+                    <span class="icon icon-snapchat" aria-hidden="true"></span>
+                    Snapchat
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_google_plus_link != blank %}
+                <li>
+                  <a href="{{ settings.social_google_plus_link | escape }}" rel="publisher" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Google Plus' }}">
+                    <span class="icon icon-google_plus" aria-hidden="true"></span>
+                    Google Plus
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_tumblr_link != blank %}
+                <li>
+                  <a href="{{ settings.social_tumblr_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Tumblr' }}">
+                    <span class="icon icon-tumblr" aria-hidden="true"></span>
+                    Tumblr
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_youtube_link != blank %}
+                <li>
+                  <a href="{{ settings.social_youtube_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'YouTube' }}">
+                    <span class="icon icon-youtube" aria-hidden="true"></span>
+                    YouTube
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_vimeo_link != blank %}
+                <li>
+                  <a href="{{ settings.social_vimeo_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Vimeo' }}">
+                    <span class="icon icon-vimeo" aria-hidden="true"></span>
+                    Vimeo
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_fancy_link != blank %}
+                <li>
+                  <a href="{{ settings.social_fancy_link | escape }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Fancy' }}">
+                    <span class="icon icon-fancy" aria-hidden="true"></span>
+                    Fancy
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+        </div>
+      {% endif %}
+
+      {%- liquid
+        assign selectors_form_class = "selectors-form"
+
+        if num_footer_columns == 1
+          assign selectors_form_class = "selectors-form selectors-form--single-column"
+        endif
+      -%}
+
+      <div class="grid__item {{ footer_column_width }} {% if num_footer_columns == 1 %}text-center{% else %}large--text-right{% endif %}">
+        {%- form 'localization', class: selectors_form_class -%}
+          {%- if country_selector -%}
+            <div class="selectors-form__item">
+              <h2 class="visually-hidden" id="country-heading">
+                {{ 'general.country.dropdown_label' | t }}
+              </h2>
+              {%- assign current_currency_symbol = localization.country.currency.symbol -%}
+              {%- assign current_currency_iso_code = localization.country.currency.iso_code -%}
+              <div class="disclosure" data-disclosure-country>
+                <button type="button" class="disclosure__toggle" aria-expanded="false" aria-controls="country-list" aria-describedby="country-heading" data-disclosure-toggle>
+                  {%- if current_currency_symbol -%}
+                    {{ localization.country.name }} ({{ current_currency_iso_code }} {{ current_currency_symbol }})
+                  {%- else -%}
+                    {{ localization.country.name }} ({{ current_currency_iso_code }})
+                  {%- endif -%}
+                </button>
+                <ul id="country-list" class="disclosure-list" data-disclosure-list>
+                  {% for country in localization.available_countries %}
+                    {%- assign currency_symbol = country.currency.symbol -%}
+                    {%- assign currency_iso_code = country.currency.iso_code -%}
+                    <li class="disclosure-list__item {% if country.iso_code == localization.country.iso_code %}disclosure-list__item--current{% endif %}">
+                      <a class="disclosure-list__option" href="#" {% if country.iso_code == localization.country.iso_code %}aria-current="true"{% endif %} data-value="{{ country.iso_code }}" data-disclosure-option>
+                        {%- if currency_symbol -%}
+                          {{ country.name }} ({{ currency_iso_code }} {{ currency_symbol }})
+                        {%- else -%}
+                          {{ country.name }} ({{ currency_iso_code }})
+                        {%- endif -%}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+                <input type="hidden" name="country_code" id="CountrySelector" value="{{ localization.country.iso_code }}" data-disclosure-input/>
+              </div>
+            </div>
+          {%- endif -%}
+
+          {%- if locale_selector -%}
+            <div class="selectors-form__item">
+              <h2 class="visually-hidden" id="lang-heading">
+                {{ 'general.language.dropdown_label' | t }}
+              </h2>
+
+              <div class="disclosure" data-disclosure-locale>
+                <button type="button" class="disclosure__toggle" aria-expanded="false" aria-controls="lang-list" aria-describedby="lang-heading" data-disclosure-toggle>
+                  {{ localization.language.endonym_name }}
+                </button>
+                <ul id="lang-list" class="disclosure-list" data-disclosure-list>
+                  {%- for language in localization.available_languages -%}
+                    <li class="disclosure-list__item {% if language.iso_code == localization.language.iso_code %}disclosure-list__item--current{% endif %}">
+                      <a class="disclosure-list__option" href="#" lang="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}aria-current="true"{% endif %} data-value="{{ language.iso_code }}" data-disclosure-option>
+                        {{ language.endonym_name }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+                <input type="hidden" name="locale_code" id="LocaleSelector" value="{{ localization.language.iso_code }}" data-disclosure-input/>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endform -%}
+
+        <p class="site-footer__copyright-content">&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }}<br>{{ powered_by_link }}</p>
+
+        {%- if section.settings.show_payment_icons -%}
+          {%- unless shop.enabled_payment_types == empty -%}
+            <span class="visually-hidden">{{ 'general.payment.method' | t }}</span>
+            <ul class="inline-list payment-icons site-footer__payment-icons">
+              {%- for type in shop.enabled_payment_types -%}
+                <li>
+                  {{ type | payment_type_svg_tag: class: 'icon' }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endunless -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+  <div class="mainFooterDiv footer-one">
+  <div class="footerDiv">
+    {% for block in section.blocks %}
+    	{% if block.type == "menuNoName" %}
+    		<div class="applyAnimation noTitleMenu">
+              {% for link in linklists[block.settings.menu].links %}
+                  <a class="come-in-{{ forloop.index }} footerLink GT-600
+                            {% unless request.page_type == 'index' %}{% if link.active %}currentPage{% endif %}{% endunless%}" 
+                     href="{{ link.url }}">
+                    {{ link.title | escape }}
+                  </a>
+              {% endfor %}
+              {% if block.settings.image != blank %}
+              	<img class="come-in-{{ forloop.index }} desktopClass footerImage" src="{{ block.settings.image | img_url: "1000x" }}">
+              	{% assign imageMob = block.settings.image %}
+              {% endif %}
+    		</div>
+    	{% else %}
+    		<div class="applyAnimation titleMenu">
+              <p style="cursor: pointer;" {% for link in linklists[block.settings.menu].links %}{% if block.settings.menu.title ==  link.title %}onclick="location.href='{{ link.url }}'"{% endif %}{% endfor %} class="come-in-1 menuTitleFooter GT-600">{{ block.settings.menu.title }}</p>
+              {% for link in linklists[block.settings.menu].links %}
+              {% unless block.settings.menu.title ==  link.title %}
+                  <a class="come-in-{{ forloop.index | plus: 1 }} footerLink2 GT-400
+                            {% unless request.page_type == 'index' %}{% if link.active %}currentPage{% endif %}{% endunless%}" 
+                     href="{{ link.url }}">
+                    {{ link.title | escape }}
+                  </a>
+              {% endunless %}
+              {% endfor %}
+    		</div>
+    	{% endif %}
+    {% endfor %}
+    <img class="mobileClass footerImage" src="{{ imageMob | img_url: "1000x" }}">
+  </div>
+  <div class="rightrightSide">
+      <div class="socialTags">
+        <div class="sTags">
+          {% if section.settings.pinterest %}
+              <a href="{{ section.settings.pinterest }}" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
+                <path d="M0.714844 9.00014C0.714844 12.6855 2.93095 15.8515 6.10212 17.2435C6.07681 16.6151 6.09762 15.8606 6.25877 15.1768C6.43181 14.4462 7.41682 10.2727 7.41682 10.2727C7.41682 10.2727 7.12931 9.69799 7.12931 8.84869C7.12931 7.51493 7.90233 6.51881 8.86505 6.51881C9.6837 6.51881 10.0792 7.1337 10.0792 7.87001C10.0792 8.69295 9.55432 9.92391 9.28439 11.064C9.0589 12.0187 9.76308 12.7974 10.7049 12.7974C12.4101 12.7974 13.5586 10.6073 13.5586 8.01232C13.5586 6.03977 12.2301 4.56335 9.81363 4.56335C7.08354 4.56335 5.38275 6.59932 5.38275 8.87351C5.38275 9.65763 5.61394 10.2106 5.97605 10.6388C6.14255 10.8354 6.16568 10.9145 6.10542 11.1404C6.06225 11.306 5.96311 11.7046 5.92205 11.8626C5.86214 12.0906 5.67743 12.1721 5.47141 12.0879C4.21395 11.5746 3.62831 10.1975 3.62831 8.64949C3.62831 6.09286 5.78452 3.02723 10.0606 3.02723C13.4968 3.02723 15.7584 5.51377 15.7584 8.1829C15.7584 11.7135 13.7956 14.3511 10.9022 14.3511C9.93056 14.3511 9.01657 13.8259 8.70347 13.2293C8.70347 13.2293 8.18098 15.303 8.0703 15.7034C7.87948 16.3973 7.50598 17.0909 7.16447 17.6314C7.97391 17.8703 8.82898 18.0005 9.7152 18.0005C14.6852 18.0005 18.7149 13.971 18.7149 9.00014C18.7149 4.02954 14.6852 0 9.7152 0C4.74473 0 0.714844 4.02954 0.714844 9.00014Z" fill="#F4F0EA"/>
+               </svg> 
+              </a>
+          {% endif %}
+          {% if section.settings.instagram %}
+              <a href="{{ section.settings.instagram }}" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+              <path d="M9.71484 1.76731C12.1148 1.76731 12.4148 1.76731 13.3898 1.84231C15.8648 1.91731 16.9898 3.11731 17.0648 5.51731C17.1398 6.49231 17.1398 6.71731 17.1398 9.11731C17.1398 11.5173 17.1398 11.8173 17.0648 12.7173C16.9898 15.1173 15.7898 16.3173 13.3898 16.3923C12.4148 16.4673 12.1898 16.4673 9.71484 16.4673C7.31484 16.4673 7.01484 16.4673 6.11484 16.3923C3.63984 16.3173 2.51484 15.1173 2.43984 12.7173C2.36484 11.7423 2.36484 11.5173 2.36484 9.11731C2.36484 6.71731 2.36484 6.41731 2.43984 5.51731C2.51484 3.11731 3.71484 1.91731 6.11484 1.84231C7.01484 1.76731 7.31484 1.76731 9.71484 1.76731ZM9.71484 0.11731C7.23984 0.11731 6.93984 0.11731 6.03984 0.19231C2.73984 0.34231 0.939844 2.14231 0.789844 5.44231C0.714844 6.34231 0.714844 6.64231 0.714844 9.11731C0.714844 11.5923 0.714844 11.8923 0.789844 12.7923C0.939844 16.0923 2.73984 17.8923 6.03984 18.0423C6.93984 18.1173 7.23984 18.1173 9.71484 18.1173C12.1898 18.1173 12.4898 18.1173 13.3898 18.0423C16.6898 17.8923 18.4898 16.0923 18.6398 12.7923C18.7148 11.8923 18.7148 11.5923 18.7148 9.11731C18.7148 6.64231 18.7148 6.34231 18.6398 5.44231C18.4898 2.14231 16.6898 0.34231 13.3898 0.19231C12.4898 0.11731 12.1898 0.11731 9.71484 0.11731ZM9.71484 4.46731C7.16484 4.46731 5.06484 6.56731 5.06484 9.11731C5.06484 11.6673 7.16484 13.7673 9.71484 13.7673C12.2648 13.7673 14.3648 11.6673 14.3648 9.11731C14.3648 6.56731 12.2648 4.46731 9.71484 4.46731ZM9.71484 12.1173C8.06484 12.1173 6.71484 10.7673 6.71484 9.11731C6.71484 7.46731 8.06484 6.11731 9.71484 6.11731C11.3648 6.11731 12.7148 7.46731 12.7148 9.11731C12.7148 10.7673 11.3648 12.1173 9.71484 12.1173ZM14.5148 3.26731C13.9148 3.26731 13.4648 3.71731 13.4648 4.31731C13.4648 4.91731 13.9148 5.36731 14.5148 5.36731C15.1148 5.36731 15.5648 4.91731 15.5648 4.31731C15.5648 3.71731 15.1148 3.26731 14.5148 3.26731Z" fill="#F4F0EA"/>
+              </svg>
+              </a>
+          {% endif %}
+          {% if section.settings.facebook %}
+              <a href="{{ section.settings.facebook }}" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="19" viewBox="0 0 11 19" fill="none">
+                <path d="M3.21484 6.2345H0.714844V9.2345H3.21484V18.2345H7.38151V9.2345H10.3815L10.7148 6.2345H7.38151V4.9595C7.38151 4.2845 7.54818 3.9845 8.29818 3.9845H10.7148V0.234497H7.54818C4.54818 0.234497 3.21484 1.4345 3.21484 3.6845V6.2345Z" fill="#F4F0EA"/>
+                </svg> 
+              </a>
+          {% endif %}
+          {% if section.settings.houzz %}
+              <a style="margin-bottom: 0;" href="{{ section.settings.houzz }}" class="socialIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" viewBox="0 0 17 19" fill="none">
+                <path d="M10.8025 18.3518H16.7674V8.00181L4.83755 4.55181V0.351807H0.662109V18.3518H6.62702V12.3518H10.8025V18.3518Z" fill="#F4F0EA"/>
+                </svg> 
+              </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mainFooterDiv mainFooterDiv2">
+  <div class="footerDiv applyAnimation">
+    <div onclick="location.href='/'" class="footerLogoDiv">
+      <svg xmlns="http://www.w3.org/2000/svg" width="172" height="32" viewBox="0 0 172 32" fill="none">
+      <g clip-path="url(#clip0_1351_41610)">
+      <path d="M62.7213 25.3302L60.9374 18.8363L58.667 9.93353H58.4803L56.2148 18.8462L54.4235 25.3302H51.7207L46.7695 7.36328H48.9564L51.3226 15.9556L53.0746 22.7649L54.8339 15.9556L57.2026 7.36328H59.9251L62.2938 15.9556L64.0531 22.7649L65.8124 15.9556L68.1811 7.36328H70.3679L65.4242 25.3302H62.7213Z" fill="white"/>
+      <path d="M89.0508 25.3303V5.56543H91.1713V25.3303H89.0508Z" fill="white"/>
+      <path d="M106.414 25.3303V22.3652C105.909 23.3649 105.135 24.2005 104.182 24.7763C103.228 25.3521 102.133 25.6448 101.023 25.6208C97.2218 25.6208 94.3125 22.544 94.3125 18.2726C94.3125 14.0013 97.2709 10.9269 101.011 10.9269C102.128 10.9078 103.227 11.2073 104.183 11.7911C105.14 12.3749 105.913 13.2192 106.416 14.2273V5.56543H108.537V25.3303H106.414ZM96.4453 18.2726C96.4453 21.3718 98.6076 23.587 101.436 23.587C104.264 23.587 106.424 21.3867 106.424 18.2776C106.424 15.1685 104.252 12.9558 101.433 12.9583C98.615 12.9608 96.4428 15.1486 96.4453 18.2726Z" fill="white"/>
+      <path d="M124.555 25.3297L123.167 20.5741L121.292 13.4221H121.135L119.263 20.5716L117.862 25.3297H115.297L111.174 11.2119H113.289L114.572 15.6571L116.599 22.901L118.629 15.6571L119.907 11.2119H122.501L123.784 15.6571L125.814 22.901L127.843 15.6571L129.123 11.2119H131.239L127.121 25.3297H124.555Z" fill="white"/>
+      <path d="M147.409 18.2774C147.409 22.4991 144.239 25.6182 140.215 25.6206C136.19 25.6231 133.018 22.4916 133.018 18.2725C133.018 14.0533 136.249 10.9268 140.215 10.9268C144.18 10.9268 147.404 14.0409 147.409 18.2774ZM135.148 18.2774C135.148 21.3766 137.386 23.5918 140.215 23.5918C143.043 23.5918 145.276 21.3915 145.279 18.2824C145.281 15.1733 143.03 12.9606 140.215 12.9631C137.399 12.9656 135.143 15.1484 135.143 18.2725L135.148 18.2774Z" fill="white"/>
+      <path d="M152.681 13.2532V25.3297H150.561V11.2119H157.873V13.2532H152.681Z" fill="white"/>
+      <path d="M168.587 11.2125H171.322L164.715 17.9449L172 25.3303H169.246L162.639 18.7221V25.3303H160.516V5.56543H162.639V17.2793L168.587 11.2125Z" fill="white"/>
+      <path d="M29.9231 3.40962L18.1263 0V9.26284L9.06194 6.64292V15.8933L0 13.2858V25.4219L11.7943 28.8315L20.8611 31.4514V22.1886L29.9231 24.8085V3.40962ZM27.1883 5.49314V11.8803L20.8611 10.0525V3.6654L27.1883 5.49314ZM2.7348 16.9512L9.06194 18.779V25.1661L2.7348 23.3433V16.9512ZM18.1263 27.786L11.7943 25.9583V10.3133L18.1239 12.141V27.786H18.1263ZM20.8611 19.3129V12.9282L27.1883 14.756V21.1431L20.8611 19.3129Z" fill="white"/>
+      <path d="M83.5276 20.6465C82.8568 22.5512 81.0876 23.7755 78.9499 23.7755C76.1144 23.7606 73.9398 21.6448 73.8735 18.6176H86.0142C86.0502 18.2068 86.0453 17.7933 85.9995 17.3834C85.6088 13.5268 82.5374 10.9268 78.8738 10.9268C74.8612 10.9268 71.748 14.0632 71.748 18.2749C71.748 22.4867 74.8711 25.6182 78.9671 25.6182C81.9526 25.6182 84.5473 23.9444 85.5572 21.2301L83.5276 20.6465ZM78.918 12.7148C80.1298 12.6931 81.3054 13.1328 82.2113 13.9467C83.1171 14.7605 83.687 15.8889 83.8077 17.1078H74.0135C74.1463 15.8912 74.7218 14.7679 75.6281 13.9561C76.5345 13.1442 77.707 12.7018 78.918 12.7148Z" fill="white"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_1351_41610">
+      <rect width="172" height="31.4514" fill="white"/>
+      </clipPath>
+      </defs>
+      </svg>
+    </div>
+    <div class="rightrightSide mobileClass">
+     <div class="bottomFooterTop">
+       <a class="returnToTop">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" fill="none">
+          <path d="M1.67188 8.9L8.38535 2.18652L15.0988 8.9" stroke="white" stroke-width="2"/>
+          </svg>
+       </a>
+    </div>
+    </div>
+    <div class="footerBottomDiv">
+      <a href="/pages/privacy-policy" class="footerBottomItem GT-300">Privacy policy</a>
+      <p class="footerBottomItem GT-300">©2021 Weldwork LLC</p>
+      <a href="https://casualsushi.com/" class="footerBottomItem GT-300">Website by casualsushi</a>
+    </div>
+  </div>
+  <div class="rightrightSide desktopClass">
+     <div class="bottomFooterTop">
+       <a class="returnToTop">
+         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" fill="none">
+          <path d="M1.67188 8.9L8.38535 2.18652L15.0988 8.9" stroke="white" stroke-width="2"/>
+          </svg>
+       </a>
+    </div>
+    </div>
+  </div>
+</footer>
+<script>
+  $(".returnToTop").click(function(){
+	window.scroll({top: 0, behavior: "smooth"})
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": {
+    "cs": "Zápatí",
+    "da": "Sidefod",
+    "de": "Fußzeile",
+    "en": "Footer",
+    "es": "Pie de página",
+    "fi": "Alatunniste",
+    "fr": "Pied de page",
+    "it": "Footer",
+    "ja": "フッター",
+    "ko": "바닥글",
+    "nb": "Footer",
+    "nl": "Voettekst",
+    "pl": "Stopka",
+    "pt-BR": "Rodapé",
+    "pt-PT": "Rodapé",
+    "sv": "Sidfot",
+    "th": "ส่วนท้าย",
+    "tr": "Altbilgi",
+    "vi": "Chân trang",
+    "zh-CN": "页脚",
+    "zh-TW": "頁尾"
+  },
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": {
+        "cs": "Platební metody",
+        "da": "Betalingsmetoder",
+        "de": "Zahlungsmethoden",
+        "en": "Payment methods",
+        "es": "Métodos de pago",
+        "fi": "Maksutavat",
+        "fr": "Moyens de paiement",
+        "it": "Metodi di pagamento",
+        "ja": "決済方法",
+        "ko": "결제 방법",
+        "nb": "Betalingsmetoder",
+        "nl": "Betaalmethoden",
+        "pl": "Metody płatności",
+        "pt-BR": "Formas de pagamento",
+        "pt-PT": "Métodos de Pagamento",
+        "sv": "Betalningsmetoder",
+        "th": "วิธีการชำระเงิน",
+        "tr": "Ödeme yöntemleri",
+        "vi": "Phương thức thanh toán",
+        "zh-CN": "支付方式",
+        "zh-TW": "付款方式"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": {
+        "cs": "Zobrazit ikony plateb",
+        "da": "Vis betalingsikoner",
+        "de": "Zahlungssymbole anzeigen",
+        "en": "Show payment icons",
+        "es": "Mostrar iconos de pago",
+        "fi": "Näytä maksukuvakkeet",
+        "fr": "Afficher les icônes de paiement",
+        "it": "Mostra le icone di pagamento",
+        "ja": "支払いアイコンを表示する",
+        "ko": "결제 아이콘 표시",
+        "nb": "Vis betalingsikoner",
+        "nl": "Betalingspictogrammen weergeven",
+        "pl": "Pokaż ikony płatności",
+        "pt-BR": "Exibir ícones de pagamento",
+        "pt-PT": "Mostrar ícones de pagamento",
+        "sv": "Visa betalningsikoner",
+        "th": "แสดงไอคอนการชำระเงิน",
+        "tr": "Ödeme simgelerini göster",
+        "vi": "Hiển thị biểu tượng thanh toán",
+        "zh-CN": "显示付款图标",
+        "zh-TW": "顯示付款圖示"
+      },
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": {
+        "cs": "Selektor země/oblasti",
+        "da": "Land/område-vælger",
+        "de": "Auswahl für Land/Region",
+        "en": "Country/region Selector",
+        "es": "Selector de país/región",
+        "fi": "Maa-/aluevalitsin",
+        "fr": "Sélecteur de pays/région",
+        "it": "Selettore paese/area geografica",
+        "ja": "国/地域セレクター",
+        "ko": "국가/지역 선택기",
+        "nb": "Land-/regionvelger",
+        "nl": "Kiezer voor land/regio",
+        "pl": "Selektor kraju/regionu",
+        "pt-BR": "Seletor de país/região",
+        "pt-PT": "Seletor de país/região",
+        "sv": "Land/region-väljare",
+        "th": "ตัวเลือกประเทศ/ภูมิภาค",
+        "tr": "Ülke/Bölge Seçici",
+        "vi": "Hộp chọn quốc gia/vùng",
+        "zh-CN": "国家/地区选择器",
+        "zh-TW": "國家/地區選擇器"
+      },
+      "info": {
+        "cs": "Pokud chcete přidat zemi nebo oblast, přejděte na [nastavení plateb.](/admin/settings/payments)",
+        "da": "For at tilføje et land/område skal du gå til dine [betalingsindstillinger.](/admin/settings/payments)",
+        "de": "Gehe zu deinen [Zahlungseinstellungen](/admin/settings/payments), um ein Land/eine Region hinzuzufügen.",
+        "en": "To add a country/region, go to your [payment settings.](/admin/settings/payments)",
+        "es": "Para agregar un país/región, ve a tu [configuración de pago.](/admin/settings/payments)",
+        "fi": "Lisää maa/alue siirtymällä omiin [maksuasetuksiisi.](/admin/settings/payments)",
+        "fr": "Pour ajouter un pays/une région, allez dans vos [paramètres de paiement.](/admin/settings/payments)",
+        "it": "Per aggiungere un paese/area geografica, vai a [impostazioni pagamento.](/admin/settings/payments)",
+        "ja": "国/地域を追加するには、[決済設定](/admin/settings/payments) に移動します。",
+        "ko": "국가/지역을 추가하려면 [결제 설정](/admin/settings/payments)(으)로 이동하십시오.",
+        "nb": "For å legge til et land/region må du gå til [betalingsinnstillingene.](/admin/settings/payments)",
+        "nl": "Ga naar je [betaalinstellingen.](/admin/settings/payments) om een land/regio toe te voegen.",
+        "pl": "Aby dodać kraj/region, przejdź do swoich [ustawień płatności.](/admin/settings/payments)",
+        "pt-BR": "Para adicionar um país/região, acesse as [Configurações de pagamento.](/admin/settings/payments)",
+        "pt-PT": "Para adicionar um país/região, aceda às [definições de pagamento.](/admin/settings/payments)",
+        "sv": "För att lägga till land/region går du till dina [betalningsinställningar.](/admin/settings/payments)",
+        "th": "หากต้องการเพิ่มประเทศ/ภูมิภาค ให้ไปที่ [การตั้งค่าการชำระเงิน](/admin/settings/payments)",
+        "tr": "Ülke/bölge eklemek için [ödeme ayarlarınıza](/admin/settings/payments) gidin.",
+        "vi": "Để thêm quốc gia/vùng, vào [cài đặt thanh toán.](/admin/settings/payments)",
+        "zh-CN": "若要添加国家/地区，请转到 [支付设置。](/admin/settings/payments)",
+        "zh-TW": "若要新增國家/地區，請前往 [付款設定。](/admin/settings/payments)"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "show_currency_selector",
+      "label": {
+        "cs": "Zobrazit selektor země/oblasti",
+        "da": "Vis land/område-vælger",
+        "de": "Auswahl für Land/Region anzeigen",
+        "en": "Show country/region selector",
+        "es": "Mostrar selector de país/región",
+        "fi": "Näytä maa-/aluevalitsin",
+        "fr": "Afficher le sélecteur de pays/région",
+        "it": "Mostra selettore paese/area geografica",
+        "ja": "国/地域セレクターを表示する",
+        "ko": "국가/지역 선택기 표시",
+        "nb": "Vis land-/regionvelger",
+        "nl": "Kiezer voor land/regio weergeven",
+        "pl": "Pokaż selektor kraju/regionu",
+        "pt-BR": "Exibir seletor de país/região",
+        "pt-PT": "Mostrar seletor de país/região",
+        "sv": "Visa land/region-väljare",
+        "th": "แสดงตัวเลือกประเทศ/ภูมิภาค",
+        "tr": "Ülke/bölge seçiciyi göster",
+        "vi": "Hiển thị hộp chọn quốc gia/vùng",
+        "zh-CN": "显示国家/地区选择器",
+        "zh-TW": "顯示國家/地區選擇器"
+      },
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": {
+        "cs": "Selektor jazyka",
+        "da": "Sprogvælger",
+        "de": "Sprachauswahl",
+        "en": "Language Selector",
+        "es": "Selector de idioma",
+        "fi": "Kielenvalitsin",
+        "fr": "Sélecteur de langue",
+        "it": "Selettore lingua",
+        "ja": "言語セレクター",
+        "ko": "언어 선택기",
+        "nb": "Språkvelger",
+        "nl": "Taalkiezer",
+        "pl": "Selektor języka",
+        "pt-BR": "Seletor de idiomas",
+        "pt-PT": "Seletor de Idioma",
+        "sv": "Språkväljare",
+        "th": "ตัวเลือกภาษา",
+        "tr": "Dil Seçici",
+        "vi": "Hộp chọn ngôn ngữ",
+        "zh-CN": "语言选择器",
+        "zh-TW": "語言選擇器"
+      },
+      "info": {
+        "cs": "Pokud chcete přidat jazyk, přejděte na [jazykové nastavení.](/admin/settings/languages)",
+        "da": "Du kan tilføje et sprog ved at gå til dine [sprogindstillinger.](/admin/settings/languages)",
+        "de": "Geh zu deinen [Spracheinstellungen](/admin/settings/languages), um eine Sprache hinzuzufügen.",
+        "en": "To add a language, go to your [language settings.](/admin/settings/languages)",
+        "es": "Para agregar un idioma, ve a tu[configuración de idioma](/admin/settings/languages)",
+        "fi": "Lisää kieli siirtymällä [kieliasetuksiin.](/admin/settings/languages)",
+        "fr": "Pour ajouter une langue, allez dans vos [paramètres de langue.](/admin/settings/languages).",
+        "it": "Per aggiungere una lingua, vai su [impostazioni della lingua.](/admin/settings/languages)",
+        "ja": "言語を追加するには、[言語設定](/admin/settings/languages) に移動します。",
+        "ko": "언어를 추가하려면 [언어 설정.](/admin/settings/languages)(으)로 이동하십시오.",
+        "nb": "For å legge til et språk, går du til dine [språkinnstillinger.](/admin/settings/languages)",
+        "nl": "Ga naar je [taalinstellingen.](/admin/settings/languages) om een taal toe te voegen.",
+        "pl": "Aby dodać język, przejdź do swoich [ustawień języka.](/admin/settings/languages)",
+        "pt-BR": "Para adicionar um idioma, acesse suas [configurações de idioma. ](/admin/settings/languages)",
+        "pt-PT": "Para adicionar um idioma, aceda a [definições de idioma.](/admin/settings/languages)",
+        "sv": "För att lägga till ett språk, gå till dina [språkinställningar.](/admin/settings/languages)",
+        "th": "หากต้องการเพิ่มภาษา ให้ไปที่ [การตั้งค่าภาษา ](/admin/settings/languages) ของคุณ",
+        "tr": "Dil eklemek için [dil ayarları](/admin/settings/languages) bölümünüze gidin.",
+        "vi": "Để thêm ngôn ngữ, mở [cài đặt ngôn ngữ.](/admin/settings/languages)",
+        "zh-CN": "若要添加语言，请转到您的 [语言设置。](/admin/settings/languages)",
+        "zh-TW": "若要新增語言，請前往 [語言設定。](/admin/settings/languages)"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "show_locale_selector",
+      "label": {
+        "cs": "Zobrazit selektor jazyka",
+        "da": "Vis sprogvælger",
+        "de": "Sprachauswahl anzeigen",
+        "en": "Show language selector",
+        "es": "Mostrar el selector de idioma",
+        "fi": "Näytä kielenvalitsin",
+        "fr": "Afficher le sélecteur de langue",
+        "it": "Mostra selettore lingua",
+        "ja": "言語セレクターを表示する",
+        "ko": "언어 선택기 표시",
+        "nb": "Vis språkvelger",
+        "nl": "Taalkiezer weergeven",
+        "pl": "Pokaż selektor języka",
+        "pt-BR": "Exibir seletor de idioma",
+        "pt-PT": "Mostrar seletor de idioma",
+        "sv": "Visa språkväljare",
+        "th": "แสดงตัวเลือกภาษา",
+        "tr": "Dil seçiciyi göster",
+        "vi": "Hiển thị hộp chọn ngôn ngữ",
+        "zh-CN": "显示语言选择器",
+        "zh-TW": "顯示語言選擇器"
+      },
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": {
+        "cs": "Nabídka",
+        "da": "Menu",
+        "de": "Menü",
+        "en": "Menu",
+        "es": "Menú",
+        "fi": "Valikko",
+        "fr": "Menu",
+        "it": "Menu",
+        "ja": "メニュー",
+        "ko": "메뉴",
+        "nb": "Meny",
+        "nl": "Menu",
+        "pl": "Menu",
+        "pt-BR": "Menu",
+        "pt-PT": "Menu",
+        "sv": "Meny",
+        "th": "เมนู",
+        "tr": "Menü",
+        "vi": "Menu",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      }
+    },
+    {
+      "type": "link_list",
+      "id": "footer_link_list",
+      "label": {
+        "cs": "Nabídka v zápatí",
+        "da": "Sidefodsmenu",
+        "de": "Fußzeilenmenü",
+        "en": "Footer menu",
+        "es": "Menú inferior",
+        "fi": "Alatunniste-valikko",
+        "fr": "Menu pied de page",
+        "it": "Menu footer",
+        "ja": "フッターメニュー",
+        "ko": "바닥글 메뉴",
+        "nb": "Bunntekstmeny",
+        "nl": "Voettekstmenu",
+        "pl": "Menu stopki",
+        "pt-BR": "Menu de rodapé",
+        "pt-PT": "Menu do rodapé",
+        "sv": "Sidfotsmeny",
+        "th": "เมนูส่วนท้าย",
+        "tr": "Altbilgi menüsü",
+        "vi": "Menu chân trang",
+        "zh-CN": "页脚菜单",
+        "zh-TW": "頁尾選單"
+      },
+      "default": "footer"
+    },
+	{
+      "type": "url",
+      "id": "pinterest",
+      "label": "Pinterest"
+    },
+	{
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram"
+    },
+	{
+      "type": "url",
+      "id": "facebook",
+      "label": "Facebook"
+    },
+	{
+      "type": "url",
+      "id": "houzz",
+      "label": "Houzz"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menuNoName",
+      "name": "Menu without title",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+		  "label": "Image"
+        }
+      ]
+    },
+    {
+      "type": "menuName",
+      "name": "Menu with title",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

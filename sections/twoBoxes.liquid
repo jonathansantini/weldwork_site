@@ -1,0 +1,529 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+    }
+    #shopify-section-{{ section.id }} .lottieDiv {
+    	display: none;
+    }
+  }
+  .grid-layout-cont{
+    display: grid;
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+   
+  }
+  
+  .customGri_layout{
+    padding: 100px 70px !important;
+  }
+  .customGri_layout .fullWidth{
+    text-align:center;
+    margin-top: 15px;
+  }
+  .colMain.customGri_layout p {
+    max-width: 60%;
+    margin: 0 auto;
+}
+  .customGri_layout .fullWidth img {
+    max-width: 250px;
+    margin: 0 auto;
+    width: 100%;
+    height: 200px; 
+    margin: 0 auto !important;
+    text-align: center;
+    justify-content: center;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+.grid-layout-cont .colMain.customGri_layout {
+    margin: unset;
+}
+
+@media(max-width:1024px){
+  .colMain.customGri_layout p {
+    max-width: 100%;
+    margin: 0 auto;
+}
+}
+
+@media(max-width:767px){
+  .customGri_layout .fullWidth img {
+    max-width: 200px;
+    height: 200px;
+    
+}
+.customGri_layout{
+    padding: 20px 40px!important;
+  }
+}
+
+@media(max-width:550px){
+  .customGri_layout .fullWidth img {
+    max-width: 150px;
+    height: 150px;
+}
+}
+
+@media(max-width: 440px){
+  .grid-layout-cont{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+   
+  }
+}
+
+/* NEW BORDERS DOBROMIR */
+.colMain.borderRightCol.customGri_layout.element-1 {
+    border: unset;
+    border-right: 1px solid rgba(195,195,195,.5);
+    border-top: 1px solid rgba(195,195,195,.5);
+}
+.colMain.customGri_layout.element-2 {
+    border-bottom: unset;
+}
+.colMain.borderRightCol.customGri_layout.element-3 {
+  border: unset;
+    border-right: 1px solid rgba(195,195,195,.5);
+    border-top: 1px solid rgba(195,195,195,.5);
+    border-bottom:  1px solid rgba(195,195,195,.5);
+}
+
+
+</style>
+<div class="boxContainer noCursor" style="cursor: default !important;">
+  <div class="downLottie lottieDiv" style="display:none;">
+    <lottie-player src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/data_198b0883-a51c-4dfc-97a8-a766a242ec9b.json?v=1640001156" background="transparent"  speed="1"  style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+  </div>
+  <div class="grid-layout-cont">
+    {% for block in section.blocks %}
+    <div class="applyAnimation colMain {% if forloop.index == 1 or forloop.index == 3 %}borderRightCol{% endif %} {% if forloop.last %}lastOf{% endif %} customGri_layout element-{{forloop.index}}">
+      	{% if block.settings.image != blank %}
+            <div class="fullWidth">
+            <img class="come-in-1 image-{{ block.id }}" src="{{ block.settings.image | img_url: "600x" }}">
+            <style>
+              .image-{{ block.id }} {
+                margin-bottom: {{ block.settings.imgMarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .image-{{ block.id }} {
+                  margin-bottom: {{ block.settings.imgMobMarBottom }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+      	{% if block.settings.title1 != blank %}
+            <div class="come-in-2 fullWidth">
+            <h3 class="customHeading heading1-{{ block.id }}">{{ block.settings.title1 }}</h3>
+            <style>
+              h3.heading1-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.title1Letter }}px; 
+                font-size: {{ block.settings.title1Size | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ block.settings.title1Color }}; 
+                line-height: {{ block.settings.title1Line | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ block.settings.title1Align }};
+                margin-bottom: {{ block.settings.title1MarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h3.heading1-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.title1LetterMob }}px; 
+                  font-size: {{ block.settings.title1SizeMob }}px; 
+                  color: {{ block.settings.title1ColorMob }}; 
+                  line-height: {{ block.settings.title1LineMob }}px;
+                  text-align: {{ block.settings.title1AlignMob }};
+                  margin-bottom: {{ block.settings.title1MarBottomMob }}px;
+                }
+              }
+            </style>
+            </div>
+        {% endif %}
+      	 {% if block.settings.subtext != blank %}
+            <p class="come-in-3 subtext-{{ block.id }} GT-400">
+              {{ block.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.subtextLetter }}px; 
+                font-size: {{ block.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.subtextColor }}; 
+                line-height: {{ block.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.subtextAlign }};
+                margin-bottom: {{ block.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.subtextLetterMob }}px; 
+                  font-size: {{ block.settings.subtextSizeMob }}px; 
+                  color: {{ block.settings.subtextColorMob }}; 
+                  line-height: {{ block.settings.subtextLineMob }}px;
+                  text-align: {{ block.settings.subtextAlignMob }};
+                  margin-bottom: {{ block.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="colRight">
+    <div style="display: none!important;" class="subSlickHolder2">
+        <div class="lineWithNumbers2" style="display: flex; align-items: center;">
+          <div style="height: 1px; width: 50%; background: #C3C3C3;"></div>
+          <div style="height: 3px; width: 50%; background: #000000;"></div>
+        </div>
+    <div blocklimit="{{ section.blocks.size }}" class="subSlick2 subSlick-{{ section.id }}">
+            {% for block in section.blocks %}
+          		<p mobnumber="{{ forloop.index | minus: 1 }}" number="{% if forloop.last %}{{ forloop.index | minus: 2 }}{% else %}{{ forloop.index | minus: 1 }}{% endif %}" class="slickNumber2 GT-400 {% if forloop.first %}active{% endif %}">0{{ forloop.index }}</p>
+          	{% endfor %}
+        </div>
+    </div>
+  </div>
+  
+  <script>
+    $(document).ready(function(){
+      $('.sliderMain').slick({
+        dots: false,
+        speed: 500,
+        slidesToShow: 2,
+        initialSlide: 0,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: false,
+        infinite: false,
+        adaptiveHeight: true,
+        responsive: [
+          {
+            breakpoint: 1009,
+            settings: {
+              slidesToShow: 1.2,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+      $(".slickNumber2").click(function(){
+        $(".slickNumber2").removeClass("active");
+        $(this).addClass("active");
+        let num = Number($(this).attr("number"));
+        let numMob = Number($(this).attr("mobnumber"));
+        if ($(window).width() > 1009) {
+			$('.sliderMain').slick('slickGoTo', num);
+        }else{
+        	$('.sliderMain').slick('slickGoTo', numMob);
+        }
+	  });
+    });
+  </script>
+</div>
+{% schema %}
+  {
+    "name": "Box Slider",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        }
+	],
+	"blocks": [
+      {
+        "type": "image",
+        "name": "Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "imgMarBottom",
+            "label": "Image bottom margin (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "imgMobMarBottom",
+			"label": "Image bottom margin mobile (numbers only)"
+		  },
+          {
+            "type": "header",
+            "content": "Title Desktop"
+          },
+          {
+            "type": "text",
+            "id": "title1",
+            "label": "Heading"
+          },
+          {
+            "type": "text",
+            "id": "title1Size",
+            "label": "Heading Size (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "title1Line",
+            "label": "Heading Line Height (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "title1Letter",
+            "label": "Heading Letter Spacing (numbers only)"
+          },
+          {
+            "type": "color",
+            "id": "title1Color",
+            "label": "Heading color"
+          },
+          {
+            "type": "select",
+            "id": "title1Align",
+            "label": "Title align",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "text",
+            "id": "title1MarBottom",
+            "label": "Title bottom margin (numbers only)"
+          },
+          {
+            "type": "header",
+            "content": "Title Mobile"
+          },
+          {
+            "type": "text",
+            "id": "title1SizeMob",
+            "label": "Heading Size (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "title1LineMob",
+            "label": "Heading Line Height (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "title1LetterMob",
+            "label": "Heading Letter Spacing (numbers only)"
+          },
+          {
+            "type": "color",
+            "id": "title1ColorMob",
+            "label": "Heading color"
+          },
+          {
+            "type": "select",
+            "id": "title1AlignMob",
+            "label": "Title align",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "text",
+            "id": "title1MarBottomMob",
+            "label": "Title bottom margin mobile (numbers only)"
+          },
+          {
+            "type": "header",
+            "content": "Text Desktop"
+          },
+          {
+            "type": "textarea",
+            "id": "subtext",
+            "label": "Text",
+            "default": "Slide title"
+          },
+          {
+            "type": "text",
+            "id": "subtextSize",
+            "label": "Text Size (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "subtextLine",
+            "label": "Text Line Height (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "subtextLetter",
+            "label": "Text Letter Spacing (numbers only)"
+          },
+          {
+            "type": "color",
+            "id": "subtextColor",
+            "label": "Text color"
+          },
+          {
+            "type": "select",
+            "id": "subtextAlign",
+            "label": "Text align",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "text",
+            "id": "subtextMarBottom",
+            "label": "Text bottom margin (numbers only)"
+          },
+          {
+            "type": "header",
+            "content": "Text Mobile"
+          },
+          {
+            "type": "text",
+            "id": "subtextSizeMob",
+            "label": "Text Size (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "subtextLineMob",
+            "label": "Text Line Height (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "subtextLetterMob",
+            "label": "Text Letter Spacing (numbers only)"
+          },
+          {
+            "type": "color",
+            "id": "subtextColorMob",
+            "label": "Text color"
+          },
+          {
+            "type": "select",
+            "id": "subtextAlignMob",
+            "label": "Text align",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "text",
+            "id": "subtextMarBottomMob",
+            "label": "Text mobile bottom margin (numbers only)"
+          }
+          
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Homepage",
+        "name": "Box Slider",
+        "settings": {}
+      }
+    ] 
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

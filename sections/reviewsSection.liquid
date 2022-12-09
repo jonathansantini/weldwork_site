@@ -1,0 +1,197 @@
+<style>
+  #shopify-section-{{ section.id }} .jdgm-all-reviews__header, .jdgm-all-reviews-page__title, .jdgm-branding-footer {
+  	display: none!important;
+  }
+  .jdgm-subtab__name {
+  	padding: 12px 16px;
+    border: 1px solid #C3C3C3;
+    font-weight: 500;
+  }
+  .jdgm-subtab__name.jdgm--active {
+  	border: 0;
+    background: #000;
+    color: white;
+  }
+  .jdgm-subtab {
+  	position: sticky;
+    top: 0px;
+    background: #f5f5fa;
+    z-index: 5;
+    padding: 20px 0;
+  }
+  .jdgm-all-reviews-page {
+  	background: #f5f5fa;
+  }
+  .jdgm-widget.jdgm-all-reviews-widget {
+  	border: 0;
+    padding: 3.89vw;
+    margin-top: 0;
+  }
+  .jdgm-widget.jdgm-all-reviews-widget * {
+  	font-family: "GT Walsheim Pro";
+  }
+  .jdgm-all-reviews-page__wrapper.jdgm-all-reviews-page__wrapper {
+  	max-width: 87.78vw;
+  }
+ .jdgm-rev.jdgm--leex-done-setup {
+    display: flex;
+	flex-wrap: wrap;
+  }
+  .jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev {
+  	width: calc(50% - 11px);
+    border: 0;
+    background: white;
+    padding: 2.78vw;
+  }
+  .jdgm-rev__pics {
+  	order: 3;
+    width: 40%;
+    padding-left: 2.78vw;
+    padding-top: 2.78vw;
+  }
+  .jdgm-rev .jdgm-rev__header.jdgm-rev__header {
+    order: 2;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0;
+    padding-top: 1.11vw;
+  }
+  .jdgm-rev__prod-info-wrapper {
+  	height: 0!important;
+    padding: 0!important;
+    opacity: 0!important;
+  }
+  .jdgm-rev__author-wrapper.jdgm-rev__author-wrapper {
+  	display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .jdgm-rev__header * {
+  	order: 2;
+  }
+  .jdgm-rev__rating.jdgm-rev__rating.jdgm-rev__rating {
+  	order: 0;
+    position: relative;
+    top: 0px;
+    width: auto;
+    display: inline-table;
+  }
+  .jdgm-rev__timestamp.jdgm-rev__timestamp.jdgm-rev__timestamp {
+  	order: 1;
+    width: auto;
+    position: relative;
+    top: 0px;
+    margin-left: 15px;
+    display: inline-table;
+    line-height: 23px;
+    font-size: 14px;
+    color: #848484;
+  }
+  .jdgm-star.jdgm--on:before {
+  	font-size: 15px;
+  }
+  .jdgm-rev__content.jdgm-rev__content.jdgm-rev__content {
+  	padding: 0;
+  }
+  .jdgm-star.jdgm-star.jdgm-star {
+  	font-family: 'JudgemeStar';
+  }
+  .jdgm-rev__title.jdgm-rev__title.jdgm-rev__title {
+  	font-weight: 500;
+    font-size: 26px;
+    line-height: 31.2px;
+    margin-bottom: 10px;
+  }
+  .jdgm-rev__body p {
+  	font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 0px;
+    color: #5E5E5E;
+  }
+  .jdgm-rev__author.jdgm-rev__author.jdgm-rev__author {
+  	font-weight: 400;
+    font-size: 18px;
+    line-height: 23.4px;
+    margin-bottom: 0px;
+  }
+  @media only screen and (max-width: 1009px) {
+  	.jdgm-all-reviews-page__wrapper.jdgm-all-reviews-page__wrapper {
+      max-width: 100vw;
+    }
+    .jdgm-widget.jdgm-all-reviews-widget {
+    	padding: 0 20px;
+    }
+    .jdgm-subtab {
+  	  position: sticky;
+      top: 55px;
+      background: #f5f5fa;
+      z-index: 5;
+      padding: 20px 0;
+      display: flex;
+    }
+    .jdgm-subtab__name {
+    	font-size: 12px;
+    }
+    .jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev.jdgm-rev {
+      width: 100%;
+      border: 0;
+      background: white;
+      padding: 40px 30px;
+    }
+    .jdgm-rev__pics {
+      order: 3;
+      width: 55%;
+      padding-left: 0;
+      padding-top: 25px;
+    }
+    .jdgm-rev__timestamp.jdgm-rev__timestamp.jdgm-rev__timestamp {
+      margin-left: 0px;
+      width: 100%;
+    }
+  }
+</style>
+<div id='judgeme_all_reviews_page' class="page clearfix jdgm-all-reviews-page">
+  <div class="jdgm-all-reviews-page__wrapper">
+    <h1 class="jdgm-all-reviews-page__title">{{ page.title }}</h1>
+    <div class='jdgm-all-reviews-page__description'>{{ page.content }}</div>
+
+    {% render 'judgeme_all_reviews' %}
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+  	$(".starHeadDivFive span").text($(".jdgm-histogram__row[data-rating='5']").attr("data-frequency"));
+    $(".starHeadDivFour span").text($(".jdgm-histogram__row[data-rating='4']").attr("data-frequency"));
+    $(".starHeadDivThree span").text($(".jdgm-histogram__row[data-rating='3']").attr("data-frequency"));
+    $(".starHeadDivTwo span").text($(".jdgm-histogram__row[data-rating='2']").attr("data-frequency"));
+    $(".starHeadDivOne span").text($(".jdgm-histogram__row[data-rating='1']").attr("data-frequency"));
+    if ($(".jdgm-all-reviews__header").attr("data-average-rating") == "5.00"){
+    $(".calculateMe").text("5");
+    }else{
+    $(".calculateMe").text($(".jdgm-all-reviews__header").attr("data-average-rating"));
+    }
+    $(".totalNumberReviews").text($(".jdgm-all-reviews__header").attr("data-number-of-reviews"));
+  });
+</script>
+{% schema %}
+  {
+    "name": "Reviews Section",
+    "settings": [],
+    "presets": [
+      {
+        "category": "General",
+        "name": "Reviews Section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

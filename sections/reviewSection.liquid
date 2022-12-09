@@ -1,0 +1,876 @@
+<style>
+   #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+  }
+  @media only screen and (min-width: 1009px) {
+  .reviewsContainer {
+  	padding-left: 12.85vw;
+    display: flex;
+    width: 100vw;
+    position: relative;
+  }
+  .reviewsContainer style {
+  	display: none!important;
+  }
+  .reviewsContainer * {
+  	z-index : 2;
+  }
+  .quoteMark {
+  	width: 4.54vw;
+  }
+  .reviewHolder {
+  	width: 76.50vw;
+  }
+  .reviewRight {
+  	width: 6.11vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  .slick-vertical  .reviewDiv.slick-slide {
+  	display: flex;
+  }
+  .reviewImage {
+  	width: 31%;
+  }
+  .reviewText {
+    margin-top: 2.08vw;
+  	width: 69%;
+    padding: 0 7.5vw 0 6.5vw;
+  }
+  .starsText {
+  	display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .starsText svg {
+  	width: 20%;
+  }
+  .starDiv {
+  	margin-right: 1.25vw;
+  }
+  .borderDivRev {
+  	position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 1px;
+    background: #c3c3c3;
+  	left: 0;
+  }
+  .arrowHolder {
+    position: absolute;
+    z-index: 2;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .arrowHolder * {
+  	cursor: pointer;
+  }
+  .topArrow {
+  	margin-bottom: 3.15vw;  
+  }
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+    }
+    .reviewsContainer {
+  	padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    position: relative;
+  }
+  .reviewsContainer style {
+  	display: none!important;
+  }
+  .reviewsContainer * {
+  	z-index : 2;
+  }
+  .quoteMark {
+  	width: 28.65px;
+    margin-left: 50px;
+    margin-bottom: -40px;
+  }
+  .quoteMark svg {
+    width: 28.65px;
+  }
+  .reviewHolder {
+  	width: 100%;
+  }
+  .reviewRight {
+  	min-width: 100vw;
+    margin-left: -20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-top: 1px solid rgba(195, 195, 195, .5);
+    border-bottom: 1px solid rgba(195, 195, 195, .5);
+    margin-bottom: 29px;
+  }
+  .slick-vertical  .reviewDiv.slick-slide {
+  	display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .reviewImage {
+  	width: 170px;
+    margin: 0 auto;
+  }
+  .reviewText {
+    margin-top: 32px;
+  	width: 100%;
+    padding: 0;
+  }
+  .starsText {
+  	display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .starsText svg {
+  	width: 20%;
+  }
+  .starDiv {
+  	margin-right: 18px;
+    width: 95px!important;
+  }
+  .borderDivRev {
+  	position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 1px;
+    background: #c3c3c3;
+  	left: 0;
+  }
+  .arrowHolder {
+    position: static;
+    z-index: 2;
+    display: flex;
+  }
+  .arrowHolder * {
+  	cursor: pointer;
+  }
+  .topArrow {
+  	margin-bottom: 0;  
+    transform: rotate(-90deg);
+    margin-right: 40px;
+  }
+  .bottomArrow {
+    display: flex;
+    align-items: flex-end;
+    transform: rotate(-90deg);
+  }
+    .subSlickHolder3 {
+    	height: 64px;
+    }
+    .lineWithNumbers3 {
+    	margin-bottom: 24px;
+      	position: relative;
+		top: -2px;
+    }
+    .borderDivRev {
+    	display: none;
+    }
+  }
+</style>
+<div class="reviewsContainer">
+  <div class="quoteMark">
+    <svg xmlns="http://www.w3.org/2000/svg" width="57" height="45" viewBox="0 0 57 45" fill="none">
+    <path d="M13.6656 10.44C16.5426 8.09999 21.3975 5.22 28.0505 1.98L27.1514 0C17.8013 4.32 10.9685 8.99999 6.653 13.86C2.15773 18.72 0 24.3 0 30.42C0 35.1 1.07886 38.7 3.4164 41.22C5.75394 43.74 8.81073 45 12.4069 45C15.4637 45 18.1609 43.92 20.4984 41.58C22.6562 39.42 23.9148 36.72 23.9148 33.48C23.9148 30.24 23.0158 27.54 21.3975 25.38C19.7792 23.22 17.6215 21.78 14.7445 21.24C12.4069 20.88 10.9685 20.52 10.2492 19.8C9.52997 19.26 9.35016 18.36 9.35016 16.92C9.35016 14.94 10.7886 12.78 13.6656 10.44ZM42.6151 10.44C45.4921 8.09999 50.347 5.22 57 1.98L56.1009 0C46.7508 4.32 39.918 8.99999 35.6025 13.86C31.1073 18.72 28.9495 24.3 28.9495 30.42C28.9495 35.1 30.0284 38.7 32.3659 41.22C34.7035 43.74 37.7603 45 41.3565 45C44.4132 45 47.1104 43.92 49.4479 41.58C51.6057 39.42 52.8643 36.72 52.8643 33.48C52.8643 30.24 51.9653 27.54 50.347 25.38C48.7287 23.22 46.571 21.78 43.694 21.24C41.3565 20.88 39.918 20.52 39.1987 19.8C38.4795 19.26 38.2997 18.36 38.2997 16.92C38.2997 14.94 39.7382 12.78 42.6151 10.44Z" fill="black"/>
+    </svg>
+  </div>
+  <div class="reviewHolder">
+    <div class="reviewSlider">
+      {% for block in section.blocks %}
+		<div class="reviewDiv">
+          <div class="reviewImage">
+            {% if block.settings.image != blank %}
+            	<img src="{{ block.settings.image | img_url: '700x' }}">
+            {% endif %}
+          </div>
+          <div class="reviewText">
+            <div class="starsText starsText-{{ block.id }}">
+              {% unless template contains 'careers' %}
+            <div style="display: flex; width: {{ block.settings.starsWidth }}%;" class="starDiv">
+              {% for i in (1..block.settings.stars) %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M7.5 0.5L9.66011 5.02686L14.6329 5.68237L10.9951 9.13564L11.9084 14.0676L7.5 11.675L3.09161 14.0676L4.00487 9.13564L0.367076 5.68237L5.33989 5.02686L7.5 0.5Z" fill="{{ block.settings.starsColor }}"/>
+                </svg>
+              {% endfor %}
+            </div>
+              {% endunless %}
+              {% if block.settings.title != blank %}
+            <p class="GT-{% unless template contains 'careers' %}4{% else %}5{% endunless %}00 heading-{{ block.id }}">{{ block.settings.title }}</p>
+            <style>
+              p.heading-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.titleLetter }}px; 
+                font-size: {{ block.settings.titleSize | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ block.settings.titleColor }}; 
+                line-height: {{ block.settings.titleLine | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ block.settings.titleAlign }};
+                }
+              .starsText-{{ block.id }} {
+              	margin-bottom: {{ block.settings.titleMarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                p.heading-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.titleLetterMob }}px; 
+                  font-size: {{ block.settings.titleSizeMob }}px; 
+                  color: {{ block.settings.titleColorMob }}; 
+                  line-height: {{ block.settings.titleLineMob }}px;
+                  text-align: {{ block.settings.titleAlignMob }};
+                  }
+                .starsText-{{ block.id }} {
+                  margin-bottom: {{ block.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+            </div>
+            {% if block.settings.text != blank %}
+          	<p class="CCD text-{{ block.id }}">{{ block.settings.text }}</p>
+            <style>
+              .text-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.textLetter }}px; 
+                font-size: {{ block.settings.textSize | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ block.settings.textColor }}; 
+                line-height: {{ block.settings.textLine | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ block.settings.textAlign }};
+                margin-bottom: {{ block.settings.textMarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .text-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.textLetterMob }}px; 
+                  font-size: {{ block.settings.textSizeMob }}px; 
+                  color: {{ block.settings.textColorMob }}; 
+                  line-height: {{ block.settings.textLineMob }}px;
+                  text-align: {{ block.settings.textAlignMob }};
+                  margin-bottom: {{ block.settings.textMarBottomMob }}px;
+                }
+              }
+            </style>
+          {% endif %}
+            {% if block.settings.name != blank %}
+          	<p class="GT-400 name-{{ block.id }}">{{ block.settings.name }}</p>
+            <style>
+              .name-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.nameLetter }}px; 
+                font-size: {{ block.settings.nameSize | times: 100 | divided_by: 1366.0 }}vw; 
+                color: {{ block.settings.nameColor }}; 
+                line-height: {{ block.settings.nameLine | times: 100 | divided_by: 1366.0 }}vw;
+                text-align: {{ block.settings.nameAlign }};
+                margin-bottom: {{ block.settings.nameMarBottom | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .name-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.nameLetterMob }}px; 
+                  font-size: {{ block.settings.nameSizeMob }}px; 
+                  color: {{ block.settings.nameColorMob }}; 
+                  line-height: {{ block.settings.nameLineMob }}px;
+                  text-align: {{ block.settings.nameAlignMob }};
+                  margin-bottom: {{ block.settings.nameMarBottomMob }}px;
+                }
+              }
+            </style>
+          {% endif %}
+            {% if section.settings.link != blank or section.settings.linkText != blank %}
+            <div onclick="location.href='{{ section.settings.link }}'" class="desktopClass buttonDiv buttonDiv-{{ section.id }}">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.blocks.first.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.blocks.first.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.blocks.first.settings.titleColor }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.blocks.first.settings.titleColor }}" stroke-width="2"/>
+            </svg>
+            <div style="min-height: 52px; color: {{ section.blocks.first.settings.titleColor }};" class="GT-600">{{ section.settings.linkText }}</div>
+          </div>
+    {% endif %}
+          </div>
+      	</div>
+      {% if forloop.first %}
+      {% unless template contains 'careers' %}
+       {% assign bottom = block.settings.nameMarBottom | plus: block.settings.nameLine | plus: 108 %}
+      {% assign bottom2 = block.settings.nameMarBottom | plus: block.settings.nameLine | plus: 52 %}
+      <style>
+        .borderDivRev {
+          bottom: {{ bottom | times: 100 | divided_by: 1366.0 }}vw;
+        }
+        .arrowHolder {
+        	bottom: {{ bottom2 | times: 100 | divided_by: 1366.0 }}vw;
+        }
+      </style>
+      {% else %}
+      {% assign bottom = block.settings.nameMarBottom | plus: block.settings.nameLine | plus: 78 %}
+      {% assign bottom2 = block.settings.nameMarBottom | plus: block.settings.nameLine | plus: 22 %}
+      <style>
+        .borderDivRev {
+          bottom: {{ bottom | times: 100 | divided_by: 1366.0 }}vw;
+        }
+        .arrowHolder {
+        	bottom: {{ bottom2 | times: 100 | divided_by: 1366.0 }}vw;
+        }
+      </style>
+      {% endunless %}
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="reviewRight">
+    <div class="subSlickHolder3">
+        <div class="lineWithNumbers3" style="display: flex; align-items: center;">
+          <div style="height: 1px; width: 50%; background: #C3C3C3;"></div>
+          <div style="height: 3px; width: 50%; background: #000000;"></div>
+        </div>
+    <div blocklimit="{{ section.blocks.size }}" class="subSlick3 subSlick-{{ section.id }}">
+            {% for block in section.blocks %}
+          		<p number="{{ forloop.index | minus: 1 }}" class="slickNumber3 slickNumber3-{{ forloop.index | minus: 1 }} GT-400 {% if forloop.first %}active{% endif %}">0{{ forloop.index }}</p>
+          	{% endfor %}
+        </div>
+    </div>
+    <div class="arrowHolder" >
+      <div class="topArrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <path d="M12.3867 23.7549V9.59079" stroke="black" stroke-width="2"/>
+          <path d="M5.67383 15.901L12.3873 9.1875L19.1008 15.901" stroke="black" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="bottomArrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <path d="M13.0723 2.15674L13.0723 16.3208" stroke="black" stroke-width="2"/>
+          <path d="M19.7852 10.0106L13.0717 16.7241L6.3582 10.0106" stroke="black" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="borderDivRev">
+    
+  </div>
+  <div style="display: flex; justify-content: center;">
+  {% if section.settings.link != blank or section.settings.linkText != blank %}
+            <div class="mobileClass buttonDiv buttonDiv-{{ section.id }}">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.blocks.first.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.blocks.first.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.blocks.first.settings.titleColor }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.blocks.first.settings.titleColor }}" stroke-width="2"/>
+            </svg>
+            <div style="min-height: 52px; color: {{ section.blocks.first.settings.titleColor }};" class="GT-600">{{ section.settings.linkText }}</div>
+          </div>
+    {% endif %}
+  </div>
+</div>
+<script>
+    $(document).ready(function(){
+      $('.reviewSlider').slick({
+        dots: false,
+        speed: 500,
+        slidesToShow: 1,
+        initialSlide: 0,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: false,
+        vertical: true,
+    	verticalSwiping: true,
+        infinite: false,
+        responsive: [
+          {
+            breakpoint: 1009,
+            settings: {
+              vertical: false
+            }
+          }
+        ]
+      });
+      $(".slickNumber3").click(function(){
+        $(".slickNumber3").removeClass("active");
+        $(this).addClass("active");
+        let num = Number($(this).attr("number"));
+		$('.reviewSlider').slick('slickGoTo', num);
+	  });
+      $(".topArrow").click(function(){
+      	let numBer = Number($(".slickNumber3.active").attr("number"));
+        if ((numBer-1) == -1){
+        	numBer = $(".slickNumber3").length - 1;
+        }else{
+        	numBer--;
+        }
+        $('.slickNumber3-'+numBer).click();
+      });
+      $(".bottomArrow").click(function(){
+      	let numBer = Number($(".slickNumber3.active").attr("number"));
+        if ((numBer+1) == $(".slickNumber3").length){
+        	numBer = 0;
+        }else{
+        	numBer++;
+        }
+        $('.slickNumber3-'+numBer).click();
+      });
+    });
+  </script>
+{% schema %}
+  {
+    "name": "Reviews Section",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "linkText",
+          "label": "Link text"
+        }
+	],
+	"blocks": [
+      {
+		"type": "Review",
+      	"name": "Review",
+        "settings": [
+		  {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "header",
+            "content": "Review Title Desktop"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading"
+          },
+          {
+            "type": "text",
+            "id": "titleSize",
+            "label": "Heading Size (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "titleLine",
+            "label": "Heading Line Height (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "titleLetter",
+            "label": "Heading Letter Spacing (numbers only)"
+          },
+          {
+            "type": "color",
+            "id": "titleColor",
+            "label": "Heading color"
+          },
+          {
+            "type": "select",
+            "id": "titleAlign",
+            "label": "Title align",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "text",
+            "id": "titleMarBottom",
+            "label": "Title bottom margin (numbers only)"
+          },
+          {
+            "type": "header",
+            "content": "Review Title Mobile"
+          },
+          {
+            "type": "text",
+            "id": "titleSizeMob",
+            "label": "Heading Size (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "titleLineMob",
+            "label": "Heading Line Height (numbers only)"
+          },
+          {
+            "type": "text",
+            "id": "titleLetterMob",
+            "label": "Heading Letter Spacing (numbers only)"
+          },
+          {
+            "type": "color",
+            "id": "titleColorMob",
+            "label": "Heading color"
+          },
+          {
+            "type": "select",
+            "id": "titleAlignMob",
+            "label": "Title align",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "text",
+            "id": "titleMarBottomMob",
+            "label": "Title bottom margin mobile (numbers only)"
+          },
+		  {
+          "type": "header",
+          "content": "Line"
+        },
+		  {
+          "type": "text",
+          "id": "lineMarBottom",
+          "label": "Line margin bottom (numbers only)"
+        },
+		  {
+          "type": "text",
+          "id": "lineMarBottomMob",
+          "label": "Line margin bottom mobile (numbers only)"
+        },
+          {
+            "type": "range",
+            "id": "line",
+            "min": 1,
+            "max": 50,
+			"default": 2,
+            "step": 1,
+			"label": "Line width"
+          },
+		{
+          "type": "color",
+          "id": "lineColor",
+          "label": "Line color"
+        },
+		  {
+          "type": "header",
+          "content": "Name Desktop"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name"
+        },
+		{
+          "type": "text",
+          "id": "nameSize",
+          "label": "Name Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "nameLine",
+          "label": "Name Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "nameLetter",
+          "label": "Name Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "nameColor",
+          "label": "Name color"
+        },
+		{
+          "type": "select",
+          "id": "nameAlign",
+          "label": "Name align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "nameMarBottom",
+          "label": "Name bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Name Mobile"
+        },
+		{
+          "type": "text",
+          "id": "nameSizeMob",
+          "label": "Name Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "nameLineMob",
+          "label": "Name Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "nameLetterMob",
+          "label": "Name Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "nameColorMob",
+          "label": "Name color"
+        },
+		{
+          "type": "select",
+          "id": "nameAlignMob",
+          "label": "Name align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "nameMarBottomMob",
+          "label": "Name bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Review Text Desktop"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+		{
+          "type": "text",
+          "id": "textSize",
+          "label": "Text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "textLine",
+          "label": "Text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "textLetter",
+          "label": "Text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "textColor",
+          "label": "Text color"
+        },
+		{
+          "type": "select",
+          "id": "textAlign",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "textMarBottom",
+          "label": "Text bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Review Text Mobile"
+        },
+		{
+          "type": "text",
+          "id": "textSizeMob",
+          "label": "Text Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "textLineMob",
+          "label": "Text Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "textLetterMob",
+          "label": "Text Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "textColorMob",
+          "label": "Text color"
+        },
+		{
+          "type": "select",
+          "id": "textAlignMob",
+          "label": "Text align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "textMarBottomMob",
+          "label": "Text bottom margin mobile (numbers only)"
+        },
+          {
+            "type": "range",
+            "id": "stars",
+            "min": 1,
+            "max": 5,
+			"default": 5,
+            "step": 1,
+			"label": "Number of stars"
+          },
+		{
+            "type": "range",
+            "id": "starsWidth",
+            "min": 1,
+            "max": 100,
+			"default": 30,
+            "step": 1,
+			"label": "Width of stars"
+          },
+		{
+          "type": "color",
+          "id": "starsColor",
+          "label": "Star color"
+        }
+        ]
+      }
+    ],
+	"presets": [
+      {
+        "category": "Homepage",
+        "name": "Reviews Section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

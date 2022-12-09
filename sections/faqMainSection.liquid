@@ -1,0 +1,728 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    background: {{ section.settings.backgroundColor }};
+    position: relative;
+    background-size: cover;
+  }
+  #shopify-section-{{ section.id }} .faqHolder {
+  	padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+    }
+    #shopify-section-{{ section.id }} .faqHolder {
+  	  padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+  }
+</style>
+<div class="faqHolder">
+  <div class="flexDiv fullWidth fullHeight">
+    <div class="verticalCenter textDiv-{{ section.id }} come-in">
+    <style>
+      {% assign boxDiv = 100 | minus: section.settings.textWidth | minus: section.settings.textMargin %}
+      {% assign boxDiv2 = 100 | minus: section.settings.textWidthMob | minus: section.settings.textMarginMob %}
+      .textDiv-{{ section.id }} {
+        width: {{ section.settings.textWidth }}%;
+        margin-right: {{ section.settings.textMargin }}%;
+      }
+      .boxDiv-{{ section.id }} {
+        width: {{ boxDiv }}%;
+      }
+      @media only screen and (max-width: 1009px) {
+      .textDiv-{{ section.id }} {
+      	width: {{ section.settings.textWidthMob }}%;
+        margin-right: {{ section.settings.textMarginMob }}%;
+      }
+      {% if boxDiv2 <= 0 %}
+        .boxDiv-{{ section.id }} {
+        	width: 100%;
+        }
+      {% else %}
+        .boxDiv-{{ section.id }} {
+        	width: {{ boxDiv2 }}%;
+        }
+      {% endif %}
+      }
+    </style>
+  	{% if section.settings.title != blank %}
+            <h2 class="CCD customHeading come-in-1 heading-{{ section.id }}">{{ section.settings.title }}</h2>
+            <style>
+              h2.heading-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.titleLetter }}px; 
+                font-size: {{ section.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.titleColor }}; 
+                line-height: {{ section.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.titleAlign }};
+                margin-bottom: {{ section.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.titleLetterMob }}px; 
+                  font-size: {{ section.settings.titleSizeMob }}px; 
+                  color: {{ section.settings.titleColorMob }}; 
+                  line-height: {{ section.settings.titleLineMob }}px;
+                  text-align: {{ section.settings.titleAlignMob }};
+                  margin-bottom: {{ section.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      	{% if section.settings.icon != blank %}
+            <div class="fullWidth">
+            <img class="icon1-{{ section.id }} iconImage" src="{{ section.settings.icon | img_url: "400x" }}">
+            <style>
+              .icon1-{{ section.id }} {
+               	width: {{ section.settings.iconWidth | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .icon1-{{ section.id }} {
+                  width: {{ section.settings.iconWidthMob }}px;
+                }
+              }
+            </style>
+            </div>
+      	{% elsif section.settings.link != blank and section.settings.linkText == blank %}
+      	<svg style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 92 92" fill="none">
+        <rect opacity="0.5" x="0.5" y="0.5" width="91" height="91" stroke="white"/>
+        <path d="M37.4141 55.4639L54.4776 38.4004" stroke="white" stroke-width="2"/>
+        <path d="M38.7873 37.9134H54.9627V54.0889" stroke="white" stroke-width="2"/>
+        </svg>
+      	{% elsif section.settings.linkText != blank or section.settings.link != blank %}
+            <div class="buttonDiv buttonDiv-{{ section.id }}">
+            <style>
+              .buttonDiv-{{ section.id }} div:after {
+              	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='51' height='52' viewBox='0 0 51 52' fill='none'%3E%3Cpath d='M20.9609 32.5547L30.9765 22.5392' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3Cpath d='M21.7665 22.2535H31.2608V31.7478' stroke='{{ section.settings.titleColor }}' stroke-width='2'%3E%3C/path%3E%3C/svg%3E");
+              }
+            </style>
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            </svg>
+            <div style="min-height: 52px; color: {{ section.settings.titleColor }};" class="GT-600">{{ section.settings.linkText }}</div>
+          </div>
+        {% endif %}
+    </div>
+    <div class="boxDiv-{{ section.id }} come-in">
+      <style>
+       .boxDiv-{{ section.id }} {
+          padding-top: {{ section.settings.boxPadTop | times: 100 | divided_by: 1440.0 }}vw;
+          padding-bottom: {{ section.settings.boxPadBottom | times: 100 | divided_by: 1440.0 }}vw;
+          padding-left: {{ section.settings.boxPadLeft | times: 100 | divided_by: 1440.0 }}vw;
+          padding-right: {{ section.settings.boxPadRight | times: 100 | divided_by: 1440.0 }}vw;
+          background: {{ section.settings.backgroundColor }};
+        }
+        @media only screen and (max-width: 1009px) {
+          .boxDiv-{{ section.id }} {
+            padding-top: {{ section.settings.boxPadTopMob }}px;
+            padding-bottom: {{ section.settings.boxPadBottomMob }}px;
+            padding-left: {{ section.settings.boxPadLeftMob }}px;
+            padding-right: {{ section.settings.boxPadRightMob }}px;
+          }
+        }
+      </style>
+      {% if section.settings.boxTitle != blank %}
+            <p class="come-in-1 boxTitle-{{ section.id }} GT-600">
+              {{ section.settings.boxTitle }}
+      		</p>
+            <style>
+              .boxTitle-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.boxTitleLetter }}px; 
+                font-size: {{ section.settings.boxTitleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.boxTitleColor }}; 
+                line-height: {{ section.settings.boxTitleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.boxTitleAlign }};
+                margin-bottom: {{ section.settings.boxTitleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .boxTitle-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.boxTitleLetterMob }}px; 
+                  font-size: {{ section.settings.boxTitleSizeMob }}px; 
+                  color: {{ section.settings.boxTitleColorMob }}; 
+                  line-height: {{ section.settings.boxTitleLineMob }}px;
+                  text-align: {{ section.settings.boxTitleAlignMob }};
+                  margin-bottom: {{ section.settings.boxTitleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      {% if section.settings.subtext != blank %}
+            <p class="come-in-2 subtext-{{ section.id }} GT-400">
+              {{ section.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ section.id }} {
+                margin: 0; 
+                letter-spacing: {{ section.settings.subtextLetter }}px; 
+                font-size: {{ section.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ section.settings.subtextColor }}; 
+                line-height: {{ section.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ section.settings.subtextAlign }};
+                margin-bottom: {{ section.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ section.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ section.settings.subtextLetterMob }}px; 
+                  font-size: {{ section.settings.subtextSizeMob }}px; 
+                  color: {{ section.settings.subtextColorMob }}; 
+                  line-height: {{ section.settings.subtextLineMob }}px;
+                  text-align: {{ section.settings.subtextAlignMob }};
+                  margin-bottom: {{ section.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      	{% if section.settings.boxLink != blank and section.settings.boxLinkText == blank %}
+      	<svg style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 92 92" fill="none">
+        <rect opacity="0.5" x="0.5" y="0.5" width="91" height="91" stroke="white"/>
+        <path d="M37.4141 55.4639L54.4776 38.4004" stroke="white" stroke-width="2"/>
+        <path d="M38.7873 37.9134H54.9627V54.0889" stroke="white" stroke-width="2"/>
+        </svg>
+        {% elsif section.settings.boxLinkText != blank or section.settings.boxLink != blank %}
+            <div class="buttonDiv">
+            <svg xmlns="http://www.w3.org/2000/svg" width="51" height="52" viewBox="0 0 51 52" fill="none">
+            <path d="M20.9609 32.5547L30.9765 22.5392" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            <path d="M21.7665 22.2535H31.2608V31.7478" stroke="{{ section.settings.titleColor }}" stroke-width="2"/>
+            </svg>
+            <div style="min-height: 52px; color: {{ section.settings.titleColor }};" class="GT-600">{{ section.settings.boxLinkText }}</div>
+          </div>
+      	{% elsif section.settings.boxIcon != blank %}
+            <div class="fullWidth">
+            <img class="icon1-{{ section.id }} iconImage" src="{{ section.settings.boxIcon | img_url: "400x" }}">
+            <style>
+              .icon1-{{ section.id }} {
+               	width: {{ section.settings.boxIconWidth | times: 100 | divided_by: 1366.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .icon1-{{ section.id }} {
+                  width: {{ section.settings.boxIconWidthMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "FAQ Main Section",
+    "settings": [
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+        {
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+          "type": "text",
+          "id": "textWidth",
+          "label": "Text part width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMargin",
+          "label": "Text part margin right (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textWidthMob",
+          "label": "Text part width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMarginMob",
+          "label": "Text part margin right (0-100)"
+        },
+		{
+          "type": "header",
+          "content": "Title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+           "type": "text",
+          "id": "iconWidth",
+          "label": "Icon width (numbers only)"
+        },
+        {
+           "type": "text",
+          "id": "iconWidthMob",
+          "label": "Icon width mobile (numbers only)"
+        },
+		{
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "linkText",
+          "label": "Link text"
+        },
+		{
+          "type": "text",
+          "id": "boxPadTop",
+          "label": "Top box padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadBottom",
+          "label": "Bottom box padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadLeft",
+          "label": "Left box padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "boxPadRight",
+          "label": "Right box padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "boxPadTopMob",
+          "label": "Top box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadBottomMob",
+          "label": "Bottom box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadLeftMob",
+          "label": "Left box padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxPadRightMob",
+          "label": "Right box padding mobile (numbers only)"
+        },
+		{
+          "type": "image_picker",
+          "id": "boxIcon",
+          "label": "Box icon"
+        },
+        {
+           "type": "text",
+          "id": "boxIconWidth",
+          "label": "Box icon width (numbers only)"
+        },
+        {
+           "type": "text",
+          "id": "boxIconWidthMob",
+          "label": "Box icon width mobile (numbers only)"
+        },
+		{
+          "type": "url",
+          "id": "boxLink",
+          "label": "Box link"
+        },
+        {
+          "type": "text",
+          "id": "boxLinkText",
+          "label": "Box link text"
+        },
+  		{
+          "type": "header",
+          "content": "Box title Desktop"
+        },
+        {
+          "type": "text",
+          "id": "boxTitle",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "boxTitleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxTitleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxTitleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "boxTitleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "boxTitleAlign",
+          "label": "Box title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "boxTitleMarBottom",
+          "label": "Box title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Box title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "boxTitleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxTitleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "boxTitleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "boxTitleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "boxTitleAlignMob",
+          "label": "Box title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "boxTitleMarBottomMob",
+          "label": "Box title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        }
+	],
+    "presets": [
+      {
+        "category": "FAQ",
+        "name": "FAQ Main Section",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,581 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
+    margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-top: {{ section.settings.padTop | times: 100 | divided_by: 1440.0 }}vw;
+    padding-bottom: {{ section.settings.padBottom | times: 100 | divided_by: 1440.0 }}vw;
+    padding-left: {{ section.settings.padLeft | times: 100 | divided_by: 1440.0 }}vw;
+    padding-right: {{ section.settings.padRight | times: 100 | divided_by: 1440.0 }}vw;
+    background-color: {{ section.settings.backgroundColor }};
+    z-index: 4;
+  }
+  .allAnchors {
+  	position: relative;
+    top: -300px;
+  }
+  @media only screen and (max-width: 1009px) {
+    #shopify-section-{{ section.id }} {
+      margin-top: {{ section.settings.marTopMob }}px;
+      margin-bottom: {{ section.settings.marBottomMob }}px;
+      padding-top: {{ section.settings.padTopMob }}px;
+      padding-bottom: {{ section.settings.padBottomMob }}px;
+      padding-left: {{ section.settings.padLeftMob }}px;
+      padding-right: {{ section.settings.padRightMob }}px;
+    }
+  }
+</style>
+<a anch="{{ section.settings.anchor }}" id="{{ section.settings.anchor }}-anch" class="allAnchors"></a>
+{% assign padR = section.settings.padRight | times: 100 | divided_by: 1440.0 %}
+{% assign padL = section.settings.padLeft | times: 100 | divided_by: 1440.0 %}
+{% assign divHundred = 100 | minus: padR | minus: padL %}
+{% assign divWidth = section.settings.textWidth | divided_by: 100 | times: divHundred %}
+<div class="flexDiv fullWidth">
+    <div class="textDiv-{{ section.id }}">
+    <div class="aboutTabsDiv" style="opacity: 0; transition: position 0.6s ease-out; color: white; mix-blend-mode: difference;" data-start="visibility: visible;" data-918-start="visibility: hidden; z-index: 11; width: {{ divWidth }}vw;" data-bottom="position: unset;">
+      <style>
+      {% assign boxDiv = 100 | minus: section.settings.textWidth | minus: section.settings.textMargin %}
+      {% assign boxDiv2 = 100 | minus: section.settings.textWidthMob | minus: section.settings.textMarginMob %}
+      .textDiv-{{ section.id }} {
+        width: {{ section.settings.textWidth }}%;
+        margin-right: {{ section.settings.textMargin }}%;
+      }
+      .boxDiv-{{ section.id }} {
+        width: {{ boxDiv }}%;
+      }
+      @media only screen and (max-width: 1009px) {
+      .textDiv-{{ section.id }} {
+      	width: {{ section.settings.textWidthMob }}%;
+        margin-right: {{ section.settings.textMarginMob }}%;
+      }
+      {% if boxDiv2 <= 0 %}
+        .boxDiv-{{ section.id }} {
+        	width: 100%;
+        }
+      {% else %}
+        .boxDiv-{{ section.id }} {
+        	width: {{ boxDiv2 }}%;
+        }
+      {% endif %}
+      }
+    </style>
+      {% for block in section.blocks %}
+      <div tab="{{ forloop.index }}" class="flexDiv aboutTabMain {% if forloop.first %}active{% endif %}">
+      <div style="width: 20%; display: flex; align-items: center;">
+        <div class="tabLine" style="mix-blend-mode: difference; height: 2px; width: 50%; background: white;"></div>
+      </div>
+      <div style="width: 80%; display: flex; align-items: center;">
+        <p anchor="{{ block.settings.anchor }}" style="margin-bottom: 0;mix-blend-mode: difference;" class="GT-400 aboutTabTitle anch-{{ block.settings.anchor }}">{{ block.settings.tabTitle }}</p>
+      </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="tabHolderDiv boxDiv-{{ section.id }}">
+      {% for block in section.blocks %}
+      {% if forloop.first %}
+      <div class="aboutTabTextHidden">
+	  {% if block.settings.title != blank %}
+            <h2 class="GT-400 customHeading heading-{{ block.id }}">{{ block.settings.title }}</h2>
+            <style>
+              h2.heading-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.titleLetter }}px; 
+                font-size: {{ block.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.titleColor }}; 
+                line-height: {{ block.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.titleAlign }};
+                margin-bottom: {{ block.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.titleLetterMob }}px; 
+                  font-size: {{ block.settings.titleSizeMob }}px; 
+                  color: {{ block.settings.titleColorMob }}; 
+                  line-height: {{ block.settings.titleLineMob }}px;
+                  text-align: {{ block.settings.titleAlignMob }};
+                  margin-bottom: {{ block.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      {% if block.settings.subtext != blank %}
+            <p class="subtext-{{ block.id }} GT-300">
+              {{ block.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.subtextLetter }}px; 
+                font-size: {{ block.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.subtextColor }}; 
+                line-height: {{ block.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.subtextAlign }};
+                margin-bottom: {{ block.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.subtextLetterMob }}px; 
+                  font-size: {{ block.settings.subtextSizeMob }}px; 
+                  color: {{ block.settings.subtextColorMob }}; 
+                  line-height: {{ block.settings.subtextLineMob }}px;
+                  text-align: {{ block.settings.subtextAlignMob }};
+                  margin-bottom: {{ block.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      </div>
+      {% endif %}
+      <div class="aboutTabText applyAnimation aboutTabText-{{ forloop.index }} {% if forloop.first %}active{% endif %}">
+	  {% if block.settings.title != blank %}
+            <h2 class="GT-400 customHeading come-in-1 heading-{{ block.id }}">{{ block.settings.title }}</h2>
+            <style>
+              h2.heading-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.titleLetter }}px; 
+                font-size: {{ block.settings.titleSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.titleColor }}; 
+                line-height: {{ block.settings.titleLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.titleAlign }};
+                margin-bottom: {{ block.settings.titleMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                h2.heading-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.titleLetterMob }}px; 
+                  font-size: {{ block.settings.titleSizeMob }}px; 
+                  color: {{ block.settings.titleColorMob }}; 
+                  line-height: {{ block.settings.titleLineMob }}px;
+                  text-align: {{ block.settings.titleAlignMob }};
+                  margin-bottom: {{ block.settings.titleMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      {% if block.settings.subtext != blank %}
+            <p class="subtext-{{ block.id }} come-in-2 GT-300">
+              {{ block.settings.subtext }}
+      		</p>
+            <style>
+              .subtext-{{ block.id }} {
+                margin: 0; 
+                letter-spacing: {{ block.settings.subtextLetter }}px; 
+                font-size: {{ block.settings.subtextSize | times: 100 | divided_by: 1440.0 }}vw; 
+                color: {{ block.settings.subtextColor }}; 
+                line-height: {{ block.settings.subtextLine | times: 100 | divided_by: 1440.0 }}vw;
+                text-align: {{ block.settings.subtextAlign }};
+                margin-bottom: {{ block.settings.subtextMarBottom | times: 100 | divided_by: 1440.0 }}vw;
+              }
+              @media only screen and (max-width: 1009px) {
+                .subtext-{{ block.id }} {
+                  margin: 0; 
+                  letter-spacing: {{ block.settings.subtextLetterMob }}px; 
+                  font-size: {{ block.settings.subtextSizeMob }}px; 
+                  color: {{ block.settings.subtextColorMob }}; 
+                  line-height: {{ block.settings.subtextLineMob }}px;
+                  text-align: {{ block.settings.subtextAlignMob }};
+                  margin-bottom: {{ block.settings.subtextMarBottomMob }}px;
+                }
+              }
+            </style>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+<script>
+  let topOf = 0;
+  $(".aboutTabTitle").click(function(){
+  	/*$(".aboutTabText.active").hide();
+    $(".aboutTabText").removeClass("active");
+    $(".aboutTabText-"+$(this).parent().parent().attr("tab")).slideDown();
+    $(".aboutTabText-"+$(this).parent().parent().attr("tab")).addClass("active");
+    
+    $(".aboutTabMain").removeClass("active");
+    $(this).parent().parent().addClass("active");*/
+    topOf = $(this).attr("anchor");
+    $('html, body').animate({scrollTop: $("#"+topOf+"-anch").offset().top+300}, 500);
+  });
+</script>
+<script>
+  
+  var lastScrollTop = 0;
+  $(window).scroll(function(event){
+     var st = $(this).scrollTop();
+     if (st > lastScrollTop){
+         // 
+      $($(".allAnchors").get().reverse()).each(function(){
+         if ($(this).offset().top<window.pageYOffset){
+            console.log($(this).offset().top,window.pageYOffset);
+           	console.log("anch-"+$(this).attr("id").replace("-anch",""));
+         	$(".anch-"+$(this).attr("id").replace("-anch","")).parent().parent().addClass("active");
+           	$(".anch-"+$(this).attr("id").replace("-anch","")).parent().parent().siblings().removeClass("active");
+           	return false;
+         }
+       });
+     } else {
+        // upscroll code
+       $(".allAnchors").each(function(){
+         if ($(this).offset().top>window.pageYOffset){
+           	$(".anch-"+$(this).attr("id").replace("-anch","")).parent().parent().prev().addClass("active");
+           	$(".anch-"+$(this).attr("id").replace("-anch","")).parent().parent().prev().siblings().removeClass("active");
+           	return false;
+         }
+       });
+     }
+     lastScrollTop = st;
+  });
+</script>
+<script>
+  $(document).ready(function(){
+  	$(".aboutTabTitle").click(function(){
+      let h = $(this).attr("anchor")+"-anch";
+      document.getElementById(h).scrollIntoView();
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "About tabs",
+    "settings": [
+		{
+          "type": "text",
+          "id": "anchor",
+          "label": "Anchor for"
+        },
+		{
+          "type": "text",
+          "id": "marTop",
+          "label": "Top margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottom",
+          "label": "Bottom margin (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marTopMob",
+          "label": "Top margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "marBottomMob",
+          "label": "Bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padTop",
+          "label": "Top padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottom",
+          "label": "Bottom padding (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeft",
+          "label": "Left padding (numbers only)",
+		  "default": "145"
+        },
+		
+		{
+          "type": "text",
+          "id": "padRight",
+          "label": "Right padding (numbers only)",
+	      "default": "145"
+        },
+		{
+          "type": "text",
+          "id": "padTopMob",
+          "label": "Top padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padBottomMob",
+          "label": "Bottom padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padLeftMob",
+          "label": "Left padding mobile (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "padRightMob",
+          "label": "Right padding mobile (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "backgroundColor",
+          "label": "Background color"
+        },
+		{
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+		{
+          "type": "text",
+          "id": "textWidth",
+          "label": "Tab part width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMargin",
+          "label": "Tab part margin right (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textWidthMob",
+          "label": "Tab part mobile width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "textMarginMob",
+          "label": "Tab part margin right (0-100)"
+        }
+	],
+	"blocks": [
+      {
+        "type": "Tab",
+        "name": "Tab",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tabTitle",
+            "label": "Tab title"
+          },
+		  {
+          "type": "header",
+          "content": "Title Desktop"
+        },
+		{
+          "type": "text",
+          "id": "anchor",
+          "label": "Anchor for"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+		{
+          "type": "text",
+          "id": "titleSize",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLine",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetter",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColor",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlign",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottom",
+          "label": "Title bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Title Mobile"
+        },
+		{
+          "type": "text",
+          "id": "titleSizeMob",
+          "label": "Heading Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLineMob",
+          "label": "Heading Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "titleLetterMob",
+          "label": "Heading Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "titleColorMob",
+          "label": "Heading color"
+        },
+		{
+          "type": "select",
+          "id": "titleAlignMob",
+          "label": "Title align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "titleMarBottomMob",
+          "label": "Title bottom margin mobile (numbers only)"
+        },
+		{
+          "type": "header",
+          "content": "Subtitle Desktop"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtitle",
+          "default": "Slide title"
+        },
+		{
+          "type": "text",
+          "id": "subtextSize",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLine",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetter",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColor",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlign",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottom",
+          "label": "Subtitle bottom margin (numbers only)"
+        },
+        {
+          "type": "header",
+          "content": "Subtitle Mobile"
+        },
+		{
+          "type": "text",
+          "id": "subtextSizeMob",
+          "label": "Subtitle Size (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLineMob",
+          "label": "Subtitle Line Height (numbers only)"
+        },
+		{
+          "type": "text",
+          "id": "subtextLetterMob",
+          "label": "Subtitle Letter Spacing (numbers only)"
+        },
+		{
+          "type": "color",
+          "id": "subtextColorMob",
+          "label": "Subtitle color"
+        },
+		{
+          "type": "select",
+          "id": "subtextAlignMob",
+          "label": "Subtitle align",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+		{
+          "type": "text",
+          "id": "subtextMarBottomMob",
+          "label": "Subtitle mobile bottom margin (numbers only)"
+        }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "About",
+        "name": "Tabs",
+        "settings": {}
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

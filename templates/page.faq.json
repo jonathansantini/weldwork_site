@@ -1,0 +1,384 @@
+{
+  "sections": {
+    "main": {
+      "type": "faqPage",
+      "settings": {
+      }
+    },
+    "1638286280d6bbb0ba": {
+      "type": "faqMainSection",
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "175",
+        "padBottom": "90",
+        "padLeft": "185",
+        "padRight": "185",
+        "padTopMob": "120",
+        "padBottomMob": "72",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundColor": "#f4f0ea",
+        "textWidth": "47.85",
+        "textMargin": "21.30",
+        "textWidthMob": "100",
+        "textMarginMob": "0",
+        "title": "Frequently Asked Questions",
+        "titleSize": "100",
+        "titleLine": "95",
+        "titleLetter": "-3",
+        "titleColor": "#000000",
+        "titleAlign": "left",
+        "titleMarBottom": "",
+        "titleSizeMob": "60",
+        "titleLineMob": "54",
+        "titleLetterMob": "",
+        "titleColorMob": "",
+        "titleAlignMob": "left",
+        "titleMarBottomMob": "32",
+        "iconWidth": "",
+        "iconWidthMob": "",
+        "link": "",
+        "linkText": "",
+        "boxPadTop": "190",
+        "boxPadBottom": "",
+        "boxPadLeft": "0",
+        "boxPadRight": "0",
+        "boxPadTopMob": "0",
+        "boxPadBottomMob": "",
+        "boxPadLeftMob": "",
+        "boxPadRightMob": "",
+        "boxIconWidth": "",
+        "boxIconWidthMob": "",
+        "boxLink": "",
+        "boxLinkText": "",
+        "boxTitle": "",
+        "boxTitleSize": "",
+        "boxTitleLine": "",
+        "boxTitleLetter": "",
+        "boxTitleColor": "",
+        "boxTitleAlign": "center",
+        "boxTitleMarBottom": "",
+        "boxTitleSizeMob": "",
+        "boxTitleLineMob": "",
+        "boxTitleLetterMob": "",
+        "boxTitleColorMob": "",
+        "boxTitleAlignMob": "center",
+        "boxTitleMarBottomMob": "",
+        "subtext": "Get expert answers to your most asked questions.",
+        "subtextSize": "24",
+        "subtextLine": "31.2",
+        "subtextLetter": "",
+        "subtextColor": "#5e5e5e",
+        "subtextAlign": "left",
+        "subtextMarBottom": "",
+        "subtextSizeMob": "20",
+        "subtextLineMob": "26",
+        "subtextLetterMob": "",
+        "subtextColorMob": "",
+        "subtextAlignMob": "left",
+        "subtextMarBottomMob": ""
+      }
+    },
+    "1638359274b727fc14": {
+      "type": "faqAccordion",
+      "blocks": {
+        "8fd70a0b-cb7c-47b7-b23b-2601134c9634": {
+          "type": "Tab",
+          "settings": {
+            "category": "Top Questions",
+            "title": "Do you ship to all 50 states?",
+            "text": "Yes, we ship and work nationwide. Wherever you are in the U.S., we can find a way to work with you and ship to you. Individual state shipping procedures to states may vary."
+          }
+        },
+        "96af352d-5328-4087-a9ef-b0f41f1008a3": {
+          "type": "Tab",
+          "settings": {
+            "category": "Shipping",
+            "title": "What are your shipping policies & practices?",
+            "text": "•Truck Deliveries: Weldwork delivers local orders within Southeast Michigan with our own licensed and insured drivers. All other shipments are scheduled through common carrier. Shipping fees will be determined based on shipment size, weight, and destination. Shipping fees can be quoted at the customer’s request at the time of order. We will always send shipments utilizing the carrier with the best rate and quickest delivery time. Shipping and delivery fees are the responsibility of the customer. This includes any additional fees associated with rescheduling shipments. Weldwork will schedule all shipment and deliveries and will provide customers with pictures of the pallet as well as the tracking information immediately upon carrier pick up. All products are shipped in a secure system designed specifically to protect and safeguard your products.<br>\n•Local Deliveries: Weldwork delivers local orders within Southeast Michigan. Local orders may include installation for an additional fee. Please speak directly to a Weldwork team member for a quote on a local installation.<br>\n•Non-Local Deliveries: All residential shipments will be delivered via lift-gate, curbside. It is the customer's sole responsibility to arrange to disassemble the crate and move the product to the desired area. Please remember that this is a physical job which will require more than one person. Business\/commercial deliveries will be delivered to a loading dock if available, or curbside. If curbside delivery is required, a fork lift will be necessary and must be provided by the customer. It is the sole responsibility of the customer to unpack, set up, and move all products once they are delivered.<br>\n•Standard delivery hours are from 8 am to 5 pm local time. For non-local deliveries, a transfer time of three to nine business days can be expected depending on the location. Weldwork LLC delivers to all residential and commercial addresses within the contiguous United States. Changes to the delivery date or destination must be made in writing within two hours of order placement.<br>\n• Please note that the customer is not expected to pay any amount to the delivery company or staff at any time. Weldwork LLC will make all payments directly to the vendors used. Any amount that the customer chooses to pay the carrier or its representatives is the responsibility of the customer and at their full discretion. Weldwork is not responsible for any payments made by the customer to vendors other than Weldwork LLC and will not refund any such payments.<br>\n• Processing Times: Weldwork LLC processes and ships orders regularly Monday through Friday unless otherwise noted. All products are locally made and shipped from Royal Oak, Michigan. Prior to shipment, orders are thoroughly inspected and reviewed by the Weldwork team. Credit card processing takes one to three business days, which will be added to order\ntime. On some occasions, voice confirmation is required for credit card payments. Order status can be checked at any time through phone or E-mail contact with a Weldwork representative."
+          }
+        },
+        "20fdf5a8-cec4-46ac-9233-2c9228faea18": {
+          "type": "Tab",
+          "settings": {
+            "category": "Return Process",
+            "title": "What are the details of your return process?",
+            "text": "We are committed to doing everything we can from production to shipping in order to keep our loyal customers satisfied with their purchase. For the rare occasions that you’re not fully satisfied upon receiving your order, please review the following policies and procedures regarding returns:\nWithin thirty days of the date products are delivered and prior to installation or an prior to attempt to install, your purchase can be returned to Weldwork for a refund. Please note that a 25% restocking fee will be charged for returns or exchanges, and Weldwork has the right to charge for any damages that may have occurred to the product(s).   The product must be packed in its original packaging material. If packaging material is unusable, please contact our shipping & logistics department prior to return. Delivery fees are not refundable.  Custom made products are excluded from return or exchange.  Only Quickship items purchased through our website are eligible for return or exchange. \nIf you have any questions regarding your product before or after shipment, contact a Weldwork representative and we will be happy to answer any questions or concerns that may arise.\n\n<br><br>\n<b><u>DETAILS<\/u><\/b><br>\n• In order to return an item you need to first obtain an RMA (Return Merchandise Authorization) number.<br>\n• To request an RMA number online send us an email<br>\n• To request an RMA number by phone, call Customer Service at 248-955-9990<br>\n• Place the original product into its original packaging<br>\n• Please do not place stickers or shipping labels on the original package.<br>\n• The RMA number must be clearly written on package.<br>\n• We recommend you ship via insured common carrier service with a tracking number.<br>\n• Return shipping charges are the responsibility of the customer. We are not responsible for lost or damaged packages.<br>\n• Please allow up to 2 to 3 weeks for your refund or exchange to process for stock products\n\n<br>\n\n<b><u>TERMS<\/u><\/b><br>\n• A 25% restocking fee will be charged for all Product(s) that are returned\/exchanged\n• Custom made products are excluded from return or exchange. \n• Only Quickship items purchased through our website are eligible for return or exchange. \n• Delivery fees are not refundable\nAll returned Product(s) must be in their original condition\n• Returns or exchanges must be received by us within 30 days of the date products are delivered\n• Product(s) need to be returned or exchanged in the original factory box(es) or container(s), with all packing materials and instructions.\n• When Product(s) are sent back for return or exchange, The Purchaser(s) will be responsible for the cost of return shipping and assume liability for any damage incurred during the return transit.\n• Product(s) must be shipped back to us for exchange before we ship out new merchandise (No cross shipping).\n• We reserve the right to refuse service or cancel orders placed on this site by issuing a refund at anytime\n• Refunds will be issued by the same method of payment used for the original purchase."
+          }
+        },
+        "a8fbeafc-402d-43cf-a93e-abad52b6d889": {
+          "type": "Tab",
+          "settings": {
+            "category": "Other Questions",
+            "title": "How do I speak to the Weldwork team?",
+            "text": "You can contact us directly on our contact page. We're always available to help with any additional questions or concerns you may have."
+          }
+        },
+        "1b21b9c0-ede7-4642-b3a7-49acf30b5136": {
+          "type": "Tab",
+          "settings": {
+            "category": "Other Questions",
+            "title": "Can you customize my door?",
+            "text": "If you contact us directly, we can work with you to design your dream door to your specifications. Our quickship doors are ready-to-ship, and cannot be custom built."
+          }
+        },
+        "a0cf1b2e-9d29-4e99-bda0-a4764319513a": {
+          "type": "Tab",
+          "settings": {
+            "category": "Installation",
+            "title": "How many people are required for an Installation?",
+            "text": "Depending on the actual unit we don’t ever recommend more than two people per opening."
+          }
+        },
+        "8addd279-27d8-4fbc-87f0-f1c5d51bdd45": {
+          "type": "Tab",
+          "settings": {
+            "category": "Installation",
+            "title": "How heavy is each individual door panel?",
+            "text": "Each panels weight depends on the configuration of your door and glass option.  In general our 8 foot High x 3 Foot Wide doors weigh between 115 pounds to 165 pounds.  Taller doors can be slightly heaver."
+          }
+        },
+        "aa29b4a2-b2c1-43a1-9da8-aed9a0f814db": {
+          "type": "Tab",
+          "settings": {
+            "category": "Top Questions",
+            "title": "Do you offer exterior doors?",
+            "text": "Unfortunately, Weldwork is only manufacturing interior doors."
+          }
+        },
+        "96bc9006-5169-42c2-b0ed-93ee26b98220": {
+          "type": "Tab",
+          "settings": {
+            "category": "Top Questions",
+            "title": "What type of doors does your company offer?",
+            "text": "Weldwork custom builds a variety of interior doors ranging from Pocket Doors, Barn Doors, Track Doors, Pivot Doors and Bullet Hinge Doors."
+          }
+        },
+        "581b1653-a332-4eaa-b9ff-0369a0aa7896": {
+          "type": "Tab",
+          "settings": {
+            "category": "Shipping",
+            "title": "How do you ship your doors?",
+            "text": "Most of our orders are LTL (Less-Than-Truckload ) freight, each order is palletized specifically to your order and ensured a safe delivery."
+          }
+        },
+        "fc91e744-6e2f-46b7-9cb8-a5e3e91a6ff3": {
+          "type": "Tab",
+          "settings": {
+            "category": "Shipping",
+            "title": "How long does my door take to arrive from Michigan?",
+            "text": "For LTL shipments, transit time is between 2-14 days to get to their destination terminal, depending on the destination. Once it has arrived, the carrier will call within a few days to set up a delivery date and time with you directly."
+          }
+        },
+        "c5622771-2b20-4285-8c75-6b7f4061dccc": {
+          "type": "Tab",
+          "settings": {
+            "category": "Shipping",
+            "title": "How LTL deliveries work?",
+            "text": "Once your date is secured, please be prepared to have a minimum of 2 to 3 persons to dismantle the pallet inside the box truck and bring each piece off one by one. Tools required: Standard #2 Phillips screw bit and a cordless drill.  Lift gates are often available, but they are strictly up to the discretion of the driver and his manager due to safety protocols."
+          }
+        },
+        "c32e889e-5986-490d-aad6-42101dd4ce14": {
+          "type": "Tab",
+          "settings": {
+            "category": "Shipping",
+            "title": "What if my glass breaks during shipment?",
+            "text": "Please make sure you check for additional damage to the frames.  If no damage found to the frames please take pictures of the broken glass and email them to Service@weldwork.com.  Once we receive the service order we will work on shipping out a new piece."
+          }
+        },
+        "bec348eb-9c8d-4b44-bf98-19be1e4c79ec": {
+          "type": "Tab",
+          "settings": {
+            "category": "Shipping",
+            "title": "What if my kids break the glass once installed?",
+            "text": "Again don’t worry we have you covered. Please take pictures of the broken glass\/panel and email them to Service@weldwork.com.  Unfortunately this one will cost ya!  We can also send you the cad file for your local glass company to supply."
+          }
+        },
+        "755cc7ee-db0f-4127-82b1-98c1b61fe67f": {
+          "type": "Tab",
+          "settings": {
+            "category": "Top Questions",
+            "title": "What type of finishes do you offer?",
+            "text": "We use a powder coated finish on all of our doors.  Every door we paint is hand sprayed in house and doubled checked after for any imperfections."
+          }
+        },
+        "95c5f115-b22d-4866-84b0-a66f5cb1a9ea": {
+          "type": "Tab",
+          "settings": {
+            "category": "Installation",
+            "title": "Do you have any installation Videos?",
+            "text": "Yes we have a couple. Please see the link!  We are constantly working on more for each functionality."
+          }
+        }
+      },
+      "block_order": [
+        "8fd70a0b-cb7c-47b7-b23b-2601134c9634",
+        "96af352d-5328-4087-a9ef-b0f41f1008a3",
+        "20fdf5a8-cec4-46ac-9233-2c9228faea18",
+        "a8fbeafc-402d-43cf-a93e-abad52b6d889",
+        "1b21b9c0-ede7-4642-b3a7-49acf30b5136",
+        "a0cf1b2e-9d29-4e99-bda0-a4764319513a",
+        "8addd279-27d8-4fbc-87f0-f1c5d51bdd45",
+        "aa29b4a2-b2c1-43a1-9da8-aed9a0f814db",
+        "96bc9006-5169-42c2-b0ed-93ee26b98220",
+        "581b1653-a332-4eaa-b9ff-0369a0aa7896",
+        "fc91e744-6e2f-46b7-9cb8-a5e3e91a6ff3",
+        "c5622771-2b20-4285-8c75-6b7f4061dccc",
+        "c32e889e-5986-490d-aad6-42101dd4ce14",
+        "bec348eb-9c8d-4b44-bf98-19be1e4c79ec",
+        "755cc7ee-db0f-4127-82b1-98c1b61fe67f",
+        "95c5f115-b22d-4866-84b0-a66f5cb1a9ea"
+      ],
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "0",
+        "padBottom": "107",
+        "padLeft": "89",
+        "padRight": "89",
+        "padTopMob": "",
+        "padBottomMob": "",
+        "padLeftMob": "",
+        "padRightMob": "",
+        "backgroundColor": "#f4f0ea",
+        "tabTitleSize": "",
+        "tabTitleLine": "",
+        "tabTitleLetter": "",
+        "tabTitleColor": "",
+        "tabTitleAlign": "center",
+        "tabTitleMarBottom": "",
+        "tabTitleSizeMob": "",
+        "tabTitleLineMob": "",
+        "tabTitleLetterMob": "",
+        "tabTitleColorMob": "",
+        "tabTitleAlignMob": "center",
+        "tabTitleMarBottomMob": "",
+        "tabTextSize": "",
+        "tabTextLine": "",
+        "tabTextLetter": "",
+        "tabTextColor": "",
+        "tabTextAlign": "center",
+        "tabTextMarBottom": "",
+        "tabTextSizeMob": "",
+        "tabTextLineMob": "",
+        "tabTextLetterMob": "",
+        "tabTextColorMob": "",
+        "tabTextAlignMob": "center",
+        "tabTextMarBottomMob": ""
+      }
+    },
+    "1638363598daf9a386": {
+      "type": "contactFAQ",
+      "blocks": {
+        "e9b391f2-9e5d-4894-a0ff-2930067453e7": {
+          "type": "Info",
+          "settings": {
+            "title": "Contact us anytime via email",
+            "textCon": "sales@weldwork.com"
+          }
+        },
+        "59b6c10d-8136-48da-a7d3-daeb7babab8b": {
+          "type": "Info",
+          "settings": {
+            "title": "Or call us 9am - 5pm, Monday-Friday",
+            "textCon": "<a id=\"dial-phone\" href=\"tel:+1%20248-955-9990\">+1 248-955-9990<\/a>"
+          }
+        }
+      },
+      "block_order": [
+        "e9b391f2-9e5d-4894-a0ff-2930067453e7",
+        "59b6c10d-8136-48da-a7d3-daeb7babab8b"
+      ],
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "134",
+        "padBottom": "95",
+        "padLeft": "185",
+        "padRight": "127",
+        "padTopMob": "73",
+        "padBottomMob": "81",
+        "padLeftMob": "0",
+        "padRightMob": "0",
+        "backgroundImage": "shopify:\/\/shop_images\/Rectangle_237_5.png",
+        "backgroundImageMob": "shopify:\/\/shop_images\/Untitled_design-28.png",
+        "textWidth": "50",
+        "textMargin": "0",
+        "textWidthMob": "100",
+        "textMarginMob": "0",
+        "subtext": "Slide title",
+        "subtextSize": "",
+        "subtextLine": "",
+        "subtextLetter": "",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "subtextMarBottom": "",
+        "subtextSizeMob": "",
+        "subtextLineMob": "",
+        "subtextLetterMob": "",
+        "subtextColorMob": "",
+        "subtextAlignMob": "center",
+        "subtextMarBottomMob": "",
+        "title": "Have a quick question?",
+        "titleSize": "80",
+        "titleLine": "76",
+        "titleLetter": "",
+        "titleColor": "#ffffff",
+        "titleAlign": "left",
+        "titleMarBottom": "164",
+        "titleSizeMob": "48",
+        "titleLineMob": "45.6",
+        "titleLetterMob": "",
+        "titleColorMob": "",
+        "titleAlignMob": "left",
+        "titleMarBottomMob": "66",
+        "tabTitleSize": "16",
+        "tabTitleLine": "24",
+        "tabTitleLetter": "",
+        "tabTitleColor": "#ffffff",
+        "tabTitleAlign": "left",
+        "tabTitleMarBottom": "5",
+        "tabTitleSizeMob": "16",
+        "tabTitleLineMob": "24",
+        "tabTitleLetterMob": "",
+        "tabTitleColorMob": "",
+        "tabTitleAlignMob": "left",
+        "tabTitleMarBottomMob": "5",
+        "tabTextSize": "24",
+        "tabTextLine": "28,8",
+        "tabTextLetter": "",
+        "tabTextColor": "#ffffff",
+        "tabTextAlign": "left",
+        "tabTextMarBottom": "38",
+        "tabTextSizeMob": "24",
+        "tabTextLineMob": "28.8",
+        "tabTextLetterMob": "",
+        "tabTextColorMob": "",
+        "tabTextAlignMob": "left",
+        "tabTextMarBottomMob": "24",
+        "backgroundColor": "#232323",
+        "boxPadTop": "104",
+        "boxPadBottom": "",
+        "boxPadLeft": "121",
+        "boxPadRight": "184",
+        "boxPadTopMob": "63",
+        "boxPadBottomMob": "0",
+        "boxPadLeftMob": "20",
+        "boxPadRightMob": "20"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1638286280d6bbb0ba",
+    "1638359274b727fc14",
+    "1638363598daf9a386"
+  ]
+}

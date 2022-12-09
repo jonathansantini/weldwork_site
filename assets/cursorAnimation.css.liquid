@@ -1,0 +1,10 @@
+@keyframes cursorSVGh{
+      {% assign count = 0 %}
+  {% for i in (1..4) %}
+      {% for j in (1..61) %}
+      {{ count }}% {            
+       	cursor: url(https://cdn.shopify.com/s/files/1/0580/5994/8228/files/ww_{{ j }}.svg), auto;
+      }{% assign count = count | plus: 0.2778 %}
+      {% endfor %}
+  {% endfor %}
+    }

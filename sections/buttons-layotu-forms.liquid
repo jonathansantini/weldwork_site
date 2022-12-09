@@ -1,0 +1,82 @@
+<div class="buttons-parent-holder">
+    <div class="buttons-holder">
+        <div class="button">
+            <a  href="{{section.settings.button_link-one}}">{{section.settings.one}}</a>
+        </div>
+        <div class="button">
+            <a  href="{{section.settings.button_link-two}}">{{section.settings.two}}</a>
+        </div>
+        <div class="button">
+            <a  href="{{section.settings.button_link-three}}">{{section.settings.three}}</a>
+        </div>
+        <div class="button">
+            <a  href="{{section.settings.button_link-four}}">{{section.settings.four}}</a>
+        </div>
+    </div>
+</div>
+  {% schema %}
+    {
+      "name": "Zapier Forms",
+      "settings": [
+      {
+        "type": "text",
+        "id": "button-one",
+        "label": "Residentials",
+        "default": "Residentials Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_link-one",
+        "label": "Residentials Button link"
+      },
+      {
+        "type": "text",
+        "id": "button-two",
+        "label": "Builder",
+        "default": "Builder Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_link-two",
+        "label": "Builder Button link"
+      },
+      {
+        "type": "text",
+        "id": "button-three",
+        "label": "Designer",
+        "default": "Designer Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_link-three",
+        "label": "Designer Button link"
+      },
+      {
+        "type": "text",
+        "id": "button-four",
+        "label": "Architect",
+        "default": "Residentials Button text"
+      },
+      {
+        "type": "url",
+        "id": "button_link-four",
+        "label": "Architect Button link"
+      }
+   
+      ],
+      "presets": [
+        {
+          "category": "Buttons Layout",
+          "name": "Button To Zapier Forms",
+          "settings": {}
+        }
+      ] 
+    }
+  {% endschema %}
+  
+  {% stylesheet %}
+  {% endstylesheet %}
+  
+  {% javascript %}
+  {% endjavascript %}
+  
