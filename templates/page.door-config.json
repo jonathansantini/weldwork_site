@@ -1,0 +1,119 @@
+{
+  "sections": {
+    "31559347-a63d-4b08-896b-06f2b8c20664": {
+      "type": "mainSection",
+      "blocks": {
+        "18a9d4a9-6fb8-429c-9bb2-fd75cf5826dc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Weldwork_-_Zana_-_10-13-22-00180.jpg"
+          }
+        },
+        "68a0ec20-9dd5-405e-b6b6-50a3e65dd7ba": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Weldwork_-_Glass_Fridge_-_08-15-22-0079.jpg"
+          }
+        },
+        "d9d6772f-13fa-48c0-a9bf-b47fb652ab11": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Weldwork_-_Zana_-_10-13-22-00009_1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "18a9d4a9-6fb8-429c-9bb2-fd75cf5826dc",
+        "68a0ec20-9dd5-405e-b6b6-50a3e65dd7ba",
+        "d9d6772f-13fa-48c0-a9bf-b47fb652ab11"
+      ],
+      "settings": {
+        "dark": false,
+        "marTop": "80",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "backgroundColor": "",
+        "subtext": "Made-to-Measure doors are fitted to standard sized door openings and are ready to ship within 6 - 8 weeks. Now you can get your your dream door, quicker.  Let us help you transform your space.",
+        "subtextSize": "24",
+        "subtextLine": "31.2",
+        "subtextLetter": "",
+        "subtextColor": "#848484",
+        "subtextAlign": "left",
+        "subtextMarBottom": "35",
+        "subtextSizeMob": "19",
+        "subtextLineMob": "20",
+        "subtextLetterMob": "",
+        "subtextColorMob": "",
+        "subtextAlignMob": "left",
+        "subtextMarBottomMob": "35",
+        "title": "Made-to-Measure Doors",
+        "titleSize": "100",
+        "titleLine": "100",
+        "titleLetter": "0",
+        "titleColor": "#000000",
+        "titleAlign": "left",
+        "titleMarBottom": "34",
+        "titleSizeMob": "60",
+        "titleLineMob": "54",
+        "titleLetterMob": "0",
+        "titleColorMob": "",
+        "titleAlignMob": "left",
+        "titleMarBottomMob": "48",
+        "buttonText": "Discover our doors",
+        "buttonLink": ""
+      }
+    },
+    "adb050f1-785a-4695-a907-2b0ee2ddbf4a": {
+      "type": "emptyDiv",
+      "settings": {
+        "height": "60"
+      }
+    },
+    "door-config": {
+      "type": "door-config",
+      "settings": {
+      }
+    },
+    "35f94bed-49c9-48b6-acdd-6fbe3fca3918": {
+      "type": "backgroundMainFont",
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "",
+        "padBottom": "",
+        "padLeft": "247",
+        "padRight": "247",
+        "padTopMob": "126",
+        "padBottomMob": "126",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundImage": "shopify:\/\/shop_images\/10.png",
+        "backgroundImageSVG": "",
+        "subtext": "",
+        "subtextSize": "86",
+        "subtextLine": "81.7",
+        "subtextLetter": "",
+        "subtextColor": "#ffffff",
+        "subtextAlign": "center",
+        "subtextMarBottom": "50",
+        "subtextSizeMob": "56",
+        "subtextLineMob": "53.2",
+        "subtextLetterMob": "-4",
+        "subtextColorMob": "",
+        "subtextAlignMob": "center",
+        "subtextMarBottomMob": "48",
+        "link": "",
+        "linkText": ""
+      }
+    }
+  },
+  "order": [
+    "31559347-a63d-4b08-896b-06f2b8c20664",
+    "adb050f1-785a-4695-a907-2b0ee2ddbf4a",
+    "door-config",
+    "35f94bed-49c9-48b6-acdd-6fbe3fca3918"
+  ]
+}
