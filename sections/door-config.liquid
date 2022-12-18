@@ -1,11 +1,14 @@
 <div class="container-door-config">
 <style>
 
+  #shopify-section-{{ section.id }} {
+    z-index: 3;
+  }
 
   #configurator-container {
     max-width: 1200px;
     width: 100%;
-    height: 675px;
+    height: 900px;
     margin: 0 auto;
     position: relative;
   }
@@ -362,6 +365,10 @@
     margin-bottom: 15px;
   }
 
+  .container-door-config .jdgm-all-reviews-page__wrapper {
+    max-width: 90vw;
+  }
+
   /**********************************/
 
   .form-floating {
@@ -661,7 +668,7 @@
     </div>
 {% endform %} -->
 
-<div id="design-config" style="display: none;" class="dc-modal firstpop  nnn" data-modal>
+<div id="design-config" class="dc-modal firstpop" data-modal>
   <div class="dc-modal__container">
     <div class="dc-modal__close" data-modal-close>
       <svg class="dc-modal__close-icon" viewBox="0 0 24 24">
@@ -737,9 +744,9 @@
 
           <div class="button-holder-wrap">
             <a id="psm-cancel" style="display:none;" class="cancel-link">Cancel</a>
-            <input type="button" disabled id="dc-modal__popup-submit" class="dc-modal__submit-button"
-                   onclick="doValidate()" value="Get Started">
-            <input type="submit" style="display:none;" id="dc-modal__final-submit"
+            <input type="submit" disabled id="dc-modal__final-submit" class="dc-modal__submit-button"
+                   value="Get Started">
+            <input type="button" style="display:none;" id="dc-modal__popup-submit"
                    class="dc-modal__submit-button" value="Continue">
           </div>
         </div>
@@ -782,6 +789,8 @@
     const infoElement = form.querySelector('[form-info]');
     const errorsElement = form.querySelector('[form-errors]');
     const inputs = infoElement.querySelectorAll('input');
+    const continueButton = modalContent.querySelector("#dc-modal__popup-submit");
+    const formSubmitButton = modalContent.querySelector("#dc-modal__final-submit");
     const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const phoneValidation = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
 
@@ -831,8 +840,39 @@
             return false;
       });
 
-      console.log(validations);
       return validations;
+    }
+
+    const showContactForm = () => {
+      var element = document.getElementById("design-config");
+      element.classList.remove("product-summary-modal");
+      element.classList.add("firstpop");
+      const targetDiv = document.getElementById("summary-head");
+      const cancelDiv = document.getElementById("psm-cancel");
+      const contactHead = document.getElementById("contact-head");
+      const contactDiv = document.getElementById("top-heading");
+      const modalsummary = document.getElementById("dc-modal__summary");
+      const contactfrminfo = document.getElementById("dc-modal__contact-info");
+      const modalImage = document.getElementById("dc-modal__image");
+      const fnameval = document.getElementById("fname").value;
+      targetDiv.style.display = "none"
+      modalsummary.style.display = "none";
+      cancelDiv.style.display = "none";
+      modalImage.style.display = "none";
+      contactDiv.style.display = "none";
+      contactfrminfo.style.display = "block";
+      contactHead.style.display = "block";
+
+      document.getElementById("dc-modal__popup-submit").style.display = "none";
+      document.getElementById("dc-modal__final-submit").style.display = "block";
+    }
+
+    const populateContactForm = () => {
+      document.getElementById('cemail').value = readCookie('cemail');
+      document.getElementById('telnum').value = readCookie('telnum');
+      document.getElementById("fname").value = readCookie('fname');
+      document.getElementById("lname").value = readCookie('lname');
+      document.getElementById("ProjectAddress").value = readCookie('ProjectAddress');
     }
 
     configurator.ui.callbacks.onRequestProduct = (configurationId, image, partlist, price, labels, configuration) => {
@@ -855,15 +895,15 @@
       modalImage.style.display = "block";
       contactDiv.style.display = "none";
       contactfrminfo.style.display = "none";
-      contactDiv.style.display = "none";
       contactHead.style.display = "none";
       document.getElementById("dc-modal__final-submit").disabled = false;
-      document.getElementById("dc-modal__popup-submit").style.display = "none";
-      document.getElementById("dc-modal__final-submit").style.display = "block";
+      document.getElementById("dc-modal__popup-submit").style.display = "block";
+      document.getElementById("dc-modal__final-submit").style.display = "none";
     };
 
     modal.addEventListener('click', (e) => {
       const target = e.target;
+
       if (target.closest('[data-modal-close]') || target.classList.contains('dc-modal--active')) {
         paramsElement.innerHTML = '';
         // inputs.forEach(input => input.value = '');
@@ -882,17 +922,26 @@
       }
     });
 
+    continueButton.addEventListener('click', e => {
+      e.preventDefault();
+      console.log(continueButton)
+      populateContactForm();
+      showContactForm()
+    })
+
+    formSubmitButton.addEventListener('click', e => {
+      e.preventDefault();
+      console.log('form submit!')
+      doValidate();
+    })
+
     form.addEventListener('submit', e => {
       e.preventDefault();
       const validated = inputInfoValidator(inputs);
+
       errorsElement.innerHTML = '';
 
       if (validated.every(validation => validation)) {
-        document.getElementById('cemail').value = readCookie('cemail');
-        document.getElementById('telnum').value = readCookie('telnum');
-        document.getElementById("fname").value = readCookie('fname');
-        document.getElementById("lname").value = readCookie('lname');
-        document.getElementById("ProjectAddress").value = readCookie('ProjectAddress');
 
         const formSplit = $(form).serialize().split('&');
         let formData = ``;
@@ -956,19 +1005,20 @@
     return phoneRegex.test(phone);
   }
   function doValidate() {
+    let isValid = true;
 
     if (!validateEmail(document.getElementById('cemail').value)) {
 
       const error = document.getElementById('emailerror');
       error.innerText = 'Invalid email';
-
+      isValid = false;
     } else {
       document.getElementById('emailerror').innerText = '';
     }
     if (!validatePhone(document.getElementById('telnum').value)) {
       const error = document.getElementById('phoneerror');
       error.innerText = 'Invalid Phone Number';
-
+      isValid = false;
     } else {
       document.getElementById('phoneerror').innerText = '';
     }
@@ -976,14 +1026,14 @@
     if (document.getElementById("fname").value.length <= 2) {
       const error = document.getElementById('fnameerror');
       error.innerText = 'First name must be larger than 2 characters';
-
+      isValid = false;
     } else {
       document.getElementById('fnameerror').innerText = '';
     }
     if (document.getElementById("lname").value.length <= 2) {
       const error = document.getElementById('lnameerror');
       error.innerText = 'Last name must be larger than 2 characters';
-
+      isValid = false;
     } else {
       document.getElementById('lnameerror').innerText = '';
       //return true;
@@ -992,7 +1042,7 @@
     if (document.getElementById("ProjectAddress").value.length <= 2) {
       const error = document.getElementById('ProjectAddresserror');
       error.innerText = 'Last name must be larger than 2 characters';
-
+      isValid = false;
     } else {
       document.getElementById('ProjectAddresserror').innerText = '';
       //return true;
@@ -1002,11 +1052,19 @@
     if ((validateEmail(document.getElementById('cemail').value)) && (validatePhone(document.getElementById('telnum').value)) && (document.getElementById("fname").value.length > 2) && (document.getElementById("lname").value.length > 2) && (document.getElementById("ProjectAddress").value.length > 2))   {
       //const modal = document.querySelector('[data-modal]');
       // modal.classList.remove('dc-modal--active');
-      jQuery(".dc-modal__close").trigger("click");
+      //jQuery(".dc-modal__close").trigger("click")
     }
     doorConfigPopupCookie();
-
+console.log("isValid", isValid)
+    if (isValid) {
+      const modal = document.querySelector('[data-modal]');
+      const modalContent = modal.querySelector('[data-modal-content]');
+      const form = modalContent.querySelector('form');
+      console.log("form", form)
+      form.submit();
+    }
   }
+
   function checkData() {
     var fname = document.getElementById("fname");
     var lname = document.getElementById("lname");
@@ -1115,11 +1173,11 @@
   if (myParam == 'true') {
     jQuery("#configuration-modal").addClass("is-visible");
     const modal = document.querySelector('[data-modal]');
-    modal.classList.remove('dc-modal--active');
+    //modal.classList.remove('dc-modal--active');
   } else {
     jQuery("#configuration-modal").removeClass("is-visible");
     const modal = document.querySelector('[data-modal]');
-    modal.classList.add('dc-modal--active');
+    //modal.classList.add('dc-modal--active');
   }
   window.onclick = function(event) {
     if(event.target === document.querySelector('.firstpop')) {
@@ -1130,7 +1188,7 @@
     $(window).keydown(function(event){
       if(event.keyCode == 13) {
         event.preventDefault();
-        doValidate();
+        doValidate(event);
         return false;
       }
     });
@@ -1168,7 +1226,7 @@
   };
   var dConfigPopup = readCookie('dConfigPopup');
   if (dConfigPopup) {
-    document.write("<style> #design-config.firstpop  { display: none; }</style>");
+    //document.write("<style> #design-config.firstpop  { display: none; }</style>");
   };
 </script>
 </div>

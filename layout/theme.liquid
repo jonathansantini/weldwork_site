@@ -882,30 +882,24 @@ var imgId = "."+$(this).attr("data-image-id");
   <script>
 
 $(document).ready(function () {
-update();
-$(window).resize(function() {
-updateContainer();
+  update();
+  $(window).resize(function() {
+    updateContainer();
+  });
 });
-});
-function update() { 
-if (window.innerWidth < 1009) {
 
-$('.rightSide  .customheaderclick').unbind('mouseenter mouseleave'); 
-$('.menuBlockText').show();
+function update() {
+  if (window.innerWidth < 1009) {
+    $('.rightSide  .customheaderclick').unbind('mouseenter mouseleave');
+  } else {
+    $('.rightSide  .customheaderclick').bind("mouseenter", function()  {
+    });
+    $('.rightSide  .customheaderclick').bind("mouseleave", function() {
+    });
+  }
 }
-else {
-$('.rightSide  .customheaderclick').bind("mouseenter", function()  {
-$(this).find('.menuBlockText').slideToggle("slow");
-});
-$('.rightSide  .customheaderclick').bind("mouseleave", function() {
+</script>
 
-$(this).find('.menuBlockText').slideToggle("slow");
-});
-$('.menuBlockText').hide();
-}
-
-}
- </script>
 <script>
 $(document).ready(function() {
 $('.productThumbnail').click(function() {
