@@ -1,5 +1,53 @@
 {
   "sections": {
+    "a9fdabcc-ea6e-4c6f-8635-5f68db1c7298": {
+      "type": "Homepage_main_section",
+      "settings": {
+        "dark": true,
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "182",
+        "marBottomMob": "",
+        "padTop": "",
+        "padBottom": "",
+        "padLeft": "144",
+        "padRight": "",
+        "padTopMob": "196",
+        "padBottomMob": "",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "title": "",
+        "titleSize": "",
+        "titleLine": "",
+        "titleLetter": "",
+        "titleColor": "",
+        "titleAlign": "center",
+        "titleMarBottom": "",
+        "titleSizeMob": "",
+        "titleLineMob": "",
+        "titleLetterMob": "",
+        "titleColorMob": "",
+        "titleAlignMob": "center",
+        "titleMarBottomMob": "",
+        "subtext": "",
+        "subtextSize": "",
+        "subtextLine": "",
+        "subtextLetter": "",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "subtextMarBottom": "",
+        "subtextSizeMob": "",
+        "subtextLineMob": "",
+        "subtextLetterMob": "",
+        "subtextColorMob": "",
+        "subtextAlignMob": "center",
+        "subtextMarBottomMob": "",
+        "buttonText": "",
+        "buttonLink": "",
+        "buttonText2": "",
+        "buttonLink2": ""
+      }
+    },
     "31559347-a63d-4b08-896b-06f2b8c20664": {
       "type": "mainSection",
       "blocks": {
@@ -28,7 +76,7 @@
         "d9d6772f-13fa-48c0-a9bf-b47fb652ab11"
       ],
       "settings": {
-        "dark": false,
+        "dark": true,
         "marTop": "80",
         "marBottom": "",
         "marTopMob": "",
@@ -111,6 +159,7 @@
     }
   },
   "order": [
+    "a9fdabcc-ea6e-4c6f-8635-5f68db1c7298",
     "31559347-a63d-4b08-896b-06f2b8c20664",
     "adb050f1-785a-4695-a907-2b0ee2ddbf4a",
     "door-config",
