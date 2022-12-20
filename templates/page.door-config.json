@@ -128,6 +128,7 @@
     },
     "35f94bed-49c9-48b6-acdd-6fbe3fca3918": {
       "type": "backgroundMainFont",
+      "disabled": true,
       "settings": {
         "marTop": "",
         "marBottom": "",
@@ -159,6 +160,24 @@
         "link": "",
         "linkText": ""
       }
+    },
+    "e41db164-81e3-4e22-8b36-3add557342a6": {
+      "type": "collectionMain",
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "120",
+        "padBottom": "88",
+        "padLeft": "145",
+        "padRight": "145",
+        "padTopMob": "72",
+        "padBottomMob": "72",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundColor": "#f4f0ea"
+      }
     }
   },
   "order": [
@@ -166,6 +185,7 @@
     "31559347-a63d-4b08-896b-06f2b8c20664",
     "adb050f1-785a-4695-a907-2b0ee2ddbf4a",
     "door-config",
-    "35f94bed-49c9-48b6-acdd-6fbe3fca3918"
+    "35f94bed-49c9-48b6-acdd-6fbe3fca3918",
+    "e41db164-81e3-4e22-8b36-3add557342a6"
   ]
 }
