@@ -1113,105 +1113,66 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
               </div>
     </div>
     <div class="productTopPerks">
+    {% if product.metafields.custom.features != blank %}
+      {% for feature in product.metafields.custom.features.value %}
+        <div class="productTopPerk flexDiv">
+          <div class="perkCheckmark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
+            </svg>
+          </div>
+          <div class="perkTextHolder">
+            <p class="productPerkTitle GT-500">{{ feature }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
       <div class="productTopPerk flexDiv">
         <div class="perkCheckmark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
-            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
           </svg>
         </div>
         <div class="perkTextHolder">
-          <p class="productPerkTitle GT-500">
-          {% if product.metafields.my_fields.product_perk_1 != blank %}
-            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
-          {% else %}
-            Made in the USA
-          {% endif %}
-          </p>
-          <p class="productPerkText GT-400">
-          {% if product.metafields.my_fields.product_perk_1 != blank %}
-            {{ product.metafields.my_fields.product_perk_1 | split: "/" | last }}
-          {% else %}
-            Quality & service you can rely on.
-          {% endif %}
-          </p>
+          <p class="productPerkTitle GT-500">Made in the USA</p>
+          <p class="productPerkText GT-400">Quality & service you can rely on.</p>
         </div>
       </div>
-      
       <div class="productTopPerk flexDiv">
         <div class="perkCheckmark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
-            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
           </svg>
         </div>
         <div class="perkTextHolder">
-          <p class="productPerkTitle GT-500">
-          {% if product.metafields.my_fields.product_perk_2 != blank %}
-            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
-          {% else %}
-            Delivers Nationwide
-          {% endif %}
-          </p>
-          <p class="productPerkText GT-400">
-          {% if product.metafields.my_fields.product_perk_2 != blank %}
-            {{ product.metafields.my_fields.product_perk_2 | split: "/" | last }}
-          {% else %}
-            Wherever you are, we’ll find a way to work with you.
-          {% endif %}
-          </p>
+          <p class="productPerkTitle GT-500">Delivers Nationwide</p>
+          <p class="productPerkText GT-400">Wherever you are, we’ll find a way to work with you.</p>
         </div>
       </div>
-      
       <div class="productTopPerk flexDiv">
         <div class="perkCheckmark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
-            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
           </svg>
         </div>
         <div class="perkTextHolder">
-          <p class="productPerkTitle GT-500">
-          {% if product.metafields.my_fields.product_perk_3 != blank %}
-            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
-          {% else %}
-            Specialty Interior Doors
-          {% endif %}
-          </p>
-          <p class="productPerkText GT-400">
-          {% if product.metafields.my_fields.product_perk_3 != blank %}
-            {{ product.metafields.my_fields.product_perk_3 | split: "/" | last }}
-          {% else %}
-            We do one thing – and we do it right every time.
-          {% endif %}
-          </p>
+          <p class="productPerkTitle GT-500">Specialty Interior Doors</p>
+          <p class="productPerkText GT-400">We do one thing – and we do it right every time.</p>
         </div>
       </div>
-      
-      <div style="margin-bottom: 0;" class="productTopPerk flexDiv">
+      <div class="productTopPerk flexDiv">
         <div class="perkCheckmark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
-            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
           </svg>
         </div>
         <div class="perkTextHolder">
-          <p class="productPerkTitle GT-500">
-          {% if product.metafields.my_fields.product_perk_4 != blank %}
-            {{ product.metafields.my_fields.product_perk_4 | split: "/" | first }}
-          {% else %}
-            More than a Door
-          {% endif %}
-          </p>
-          <p class="productPerkText GT-400">
-          {% if product.metafields.my_fields.product_perk_4 != blank %}
-            {{ product.metafields.my_fields.product_perk_4 | split: "/" | last }}
-          {% else %}
-            Functional art you'll enjoy every day.
-          {% endif %}
-          </p>
+          <p class="productPerkTitle GT-500">More than a Door</p>
+          <p class="productPerkText GT-400">Functional art you'll enjoy every day.</p>
         </div>
       </div>
+    {% endif %}
+      
     </div>
     
  
