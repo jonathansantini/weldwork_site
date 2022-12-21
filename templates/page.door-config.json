@@ -117,6 +117,7 @@
     },
     "adb050f1-785a-4695-a907-2b0ee2ddbf4a": {
       "type": "emptyDiv",
+      "disabled": true,
       "settings": {
         "height": "60"
       }
@@ -163,6 +164,7 @@
     },
     "e41db164-81e3-4e22-8b36-3add557342a6": {
       "type": "collectionMain",
+      "disabled": true,
       "settings": {
         "marTop": "",
         "marBottom": "",
@@ -178,6 +180,70 @@
         "padRightMob": "20",
         "backgroundColor": "#f4f0ea"
       }
+    },
+    "684345fe-04cd-483d-8bc3-8b8d26305f85": {
+      "type": "subtitle-title",
+      "settings": {
+        "anchor": "",
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "100",
+        "padBottom": "50",
+        "padLeft": "390",
+        "padRight": "390",
+        "padTopMob": "72",
+        "padBottomMob": "80",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundColor": "",
+        "subtext": "",
+        "subtextSize": "",
+        "subtextWeight": "400",
+        "subtextLine": "58.8",
+        "subtextLetter": "",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "subtextMarBottom": "",
+        "subtextSizeMob": "36",
+        "subtextLineMob": "37.8",
+        "subtextLetterMob": "",
+        "subtextColorMob": "rgba(0,0,0,0)",
+        "subtextAlignMob": "center",
+        "subtextMarBottomMob": "",
+        "title": "Browse our gallery by functionality:",
+        "titleSize": "56",
+        "titleLine": "58.8",
+        "titleLetter": "-0.02",
+        "titleColor": "#1f2021",
+        "titleAlign": "center",
+        "titleMarBottom": "",
+        "titleSizeMob": "36",
+        "titleLineMob": "37.8",
+        "titleLetterMob": "-0.02",
+        "titleColorMob": "#1f2021",
+        "titleAlignMob": "center",
+        "titleMarBottomMob": ""
+      }
+    },
+    "2c683a1b-0078-4f79-829e-684d68f256e7": {
+      "type": "gallery",
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "",
+        "padBottom": "",
+        "padLeft": "145",
+        "padRight": "145",
+        "padTopMob": "",
+        "padBottomMob": "",
+        "padLeftMob": "",
+        "padRightMob": "",
+        "backgroundColor": ""
+      }
     }
   },
   "order": [
@@ -186,6 +252,8 @@
     "adb050f1-785a-4695-a907-2b0ee2ddbf4a",
     "door-config",
     "35f94bed-49c9-48b6-acdd-6fbe3fca3918",
-    "e41db164-81e3-4e22-8b36-3add557342a6"
+    "e41db164-81e3-4e22-8b36-3add557342a6",
+    "684345fe-04cd-483d-8bc3-8b8d26305f85",
+    "2c683a1b-0078-4f79-829e-684d68f256e7"
   ]
 }
