@@ -392,6 +392,7 @@
         },
         "1c3d3675-da74-4778-b5ce-d020a44e9653": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Double_Bullet_Hinge_Doors.jpg",
             "title": ""
