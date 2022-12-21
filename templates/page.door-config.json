@@ -234,15 +234,15 @@
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
-        "padTop": "",
-        "padBottom": "",
-        "padLeft": "145",
-        "padRight": "145",
-        "padTopMob": "",
-        "padBottomMob": "",
-        "padLeftMob": "",
-        "padRightMob": "",
-        "backgroundColor": ""
+        "padTop": "0",
+        "padBottom": "60",
+        "padLeft": "106",
+        "padRight": "106",
+        "padTopMob": "0",
+        "padBottomMob": "50",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundColor": "#ffffff"
       }
     }
   },
