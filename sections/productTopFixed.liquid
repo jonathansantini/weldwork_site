@@ -525,6 +525,23 @@ p.view-glass-options:hover .moreinfo-popup {
     top: -20px;
   }
 }
+
+.featureTitle {
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 8px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #000000;
+}
+
+@media screen and (min-width:768px ){
+  .featureTitle {
+    font-size: 24px;
+    line-height: 28.45px;
+    margin-bottom: 16.5px;
+  }
+}
 </style>
 <div class="stickyCart">
   <div class="stickyPerks">
@@ -887,6 +904,7 @@ $( ".closePopupGlass" ).click(function() {
               </div>
     </div>
     <div class="productTopPerks">
+    <h3 class="featureTitle GT-500">Features</h3>
       {% if product.metafields.custom.features != blank %}
         {% for feature in product.metafields.custom.features.value %}
           <div class="productTopPerk flexDiv">
