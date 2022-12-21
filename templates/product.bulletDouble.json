@@ -389,11 +389,19 @@
             "image": "shopify:\/\/shop_images\/Untitled_design-38.png",
             "title": ""
           }
+        },
+        "1c3d3675-da74-4778-b5ce-d020a44e9653": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Double_Bullet_Hinge_Doors.jpg",
+            "title": ""
+          }
         }
       },
       "block_order": [
         "06730b6f-b9d0-4111-bf6e-e1334d8b93bd",
-        "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a"
+        "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a",
+        "1c3d3675-da74-4778-b5ce-d020a44e9653"
       ],
       "settings": {
         "marTop": "",
