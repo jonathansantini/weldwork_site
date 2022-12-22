@@ -74,55 +74,44 @@
     {% endfor %}
     
   </div>
-  <div class="arrow-container">
+  {%- if section.settings.enable_carousel_arrows -%}
+
+    <div class="arrow-container">
       <button class="slick-prev" aria-label="{{ 'home_page.slideshow.previous_slide' | t }}" data-slide-previous>
         <span class="icon icon-slide-prev" aria-hidden="true"></span>
       </button>
       <button class="slick-next" aria-label="{{ 'home_page.slideshow.next_slide' | t }}" data-slide-previous>
         <span class="icon icon-slide-next" aria-hidden="true"></span>
       </button>
-  </div>
- {% comment %}  <div class="colRight">
-    <div class="subSlickHolder2 verticalCenter">
-        <div class="lineWithNumbers2" style="display: flex; align-items: center; width: 100%;">
-          <div style="height: 1px; width: 50%; background: #C3C3C3;"></div>
-          <div style="height: 3px; width: 50%; background: #000000;"></div>
-        </div>
-    <div blocklimit="{{ section.blocks.size }}" class="subSlick2 subSlick-{{ section.id }}">
-            {% for block in section.blocks %}
-          		<p number="{% if forloop.last %}{{ forloop.index | minus: 1 }}{% else %}{{ forloop.index | minus: 1 }}{% endif %}" class="slickNumber2 GT-400 {% if forloop.first %}active{% endif %}">0{{ forloop.index }}</p>
-          	{% endfor %}
-        </div>
     </div>
-  </div> {% endcomment %}
-  <style>
-  .arrow-container{
-    position:absolute;
-    width: 100%;
-    height: 100%;
-  }
+    <style>
+      .arrow-container{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+      }
 
-  button.slick-prev,  button.slick-next  {
-     top: 35%;
-     width: 100px;
-     height: 100px;
-     background-color: rgba(0,0,0,0.4);
-     }
-  button.slick-prev {
-    left:1%;
-  }
-  button.slick-next {
-    left:87%;
-  }
-    button.slick-prev > .icon-slide-prev::before, button.slick-next > .icon-slide-next::before {
-      color: #ffffff !important;
-      font-size: 25px !important;
-      margin: 2px;
-    }
+      button.slick-prev,  button.slick-next  {
+        top: 35%;
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0,0,0,0.4);
+        }
+      button.slick-prev {
+        left:1%;
+      }
+      button.slick-next {
+        left:87%;
+      }
+        button.slick-prev > .icon-slide-prev::before, button.slick-next > .icon-slide-next::before {
+          color: #ffffff !important;
+          font-size: 25px !important;
+          margin: 2px;
+        }
 
-  .fullWidth{
-    padding-right: 10px;
-  }
+      .fullWidth{
+        padding-right: 10px;
+      }
   </style>
   <script>
     $(document).ready(function(){
@@ -158,12 +147,70 @@
 	  });
     });
   </script>
+
+  {%- else -%}
+
+  <div class="colRight">
+    <div class="subSlickHolder2 verticalCenter">
+        <div class="lineWithNumbers2" style="display: flex; align-items: center; width: 100%;">
+          <div style="height: 1px; width: 50%; background: #C3C3C3;"></div>
+          <div style="height: 3px; width: 50%; background: #000000;"></div>
+        </div>
+    <div blocklimit="{{ section.blocks.size }}" class="subSlick2 subSlick-{{ section.id }}">
+            {% for block in section.blocks %}
+          		<p number="{% if forloop.last %}{{ forloop.index | minus: 1 }}{% else %}{{ forloop.index | minus: 1 }}{% endif %}" class="slickNumber2 GT-400 {% if forloop.first %}active{% endif %}">0{{ forloop.index }}</p>
+          	{% endfor %}
+        </div>
+    </div>
+  </div>
+  
+  <script>
+    $(document).ready(function(){
+      $('.sliderMain-{{ section.id }}').slick({
+        dots: false,
+     
+  autoplay: true,
+       autoplaySpeed:5000,
+
+        slidesToShow:1.4,
+        initialSlide: 0,
+        slidesToScroll: 1,
+        arrows: false,
+        
+        infinite: false,
+        adaptiveHeight: true,
+        responsive: [
+          {
+            breakpoint: 1009,
+            settings: {
+              slidesToShow: 1.1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      });
+      $(".slickNumber2").click(function(){
+        $(".slickNumber2").removeClass("active");
+        $(this).addClass("active");
+        let num = Number($(this).attr("number"));
+		$('.sliderMain-{{ section.id }}').slick('slickGoTo', num);
+	  });
+    });
+  </script>
+
+  {%- endif -%}
+
 </div>
 {% schema %}
   {
     "name": "Full Image",
 	"class": "noCursor",
     "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_carousel_arrows",
+      "label": "Enable Previous and Next slide arrows"
+        },  
 		{
           "type": "text",
           "id": "marTop",

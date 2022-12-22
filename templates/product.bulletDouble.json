@@ -404,6 +404,7 @@
         "3688150a-53b0-4380-971e-bfd80b50ac43"
       ],
       "settings": {
+        "enable_carousel_arrows": true,
         "marTop": "",
         "marBottom": "",
         "marTopMob": "",
