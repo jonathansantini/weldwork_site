@@ -74,7 +74,15 @@
     {% endfor %}
     
   </div>
-  <div class="colRight">
+  <div class="arrow-container">
+      <button class="slick-prev" aria-label="{{ 'home_page.slideshow.previous_slide' | t }}" data-slide-previous>
+        <span class="icon icon-slide-prev" aria-hidden="true"></span>
+      </button>
+      <button class="slick-next" aria-label="{{ 'home_page.slideshow.next_slide' | t }}" data-slide-previous>
+        <span class="icon icon-slide-next" aria-hidden="true"></span>
+      </button>
+  </div>
+ {% comment %}  <div class="colRight">
     <div class="subSlickHolder2 verticalCenter">
         <div class="lineWithNumbers2" style="display: flex; align-items: center; width: 100%;">
           <div style="height: 1px; width: 50%; background: #C3C3C3;"></div>
@@ -86,21 +94,50 @@
           	{% endfor %}
         </div>
     </div>
-  </div>
-  
+  </div> {% endcomment %}
+  <style>
+  .arrow-container{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  button.slick-prev,  button.slick-next  {
+     top: 35%;
+     width: 100px;
+     height: 100px;
+     background-color: rgba(0,0,0,0.4);
+     }
+  button.slick-prev {
+    left:1%;
+  }
+  button.slick-next {
+    left:87%;
+  }
+    button.slick-prev > .icon-slide-prev::before, button.slick-next > .icon-slide-next::before {
+      color: #ffffff !important;
+      font-size: 25px !important;
+      margin: 2px;
+    }
+
+  .fullWidth{
+    padding-right: 10px;
+  }
+  </style>
   <script>
     $(document).ready(function(){
       $('.sliderMain-{{ section.id }}').slick({
         dots: false,
      
-  autoplay: true,
-       autoplaySpeed:5000,
+        autoplay: true,
+        autoplaySpeed:5000,
 
-        slidesToShow:1.4,
+        slidesToShow:1.2,
         initialSlide: 0,
         slidesToScroll: 1,
-        arrows: false,
-        
+        arrows: true,
+        prevArrow: $('button.slick-prev'),
+        nextArrow: $('button.slick-next'),
         infinite: false,
         adaptiveHeight: true,
         responsive: [
