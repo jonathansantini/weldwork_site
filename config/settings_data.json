@@ -2753,6 +2753,7 @@
           "17702a29-addb-4f04-9a38-e5ec5bd91a6f"
         ],
         "settings": {
+          "enable_carousel_arrows": false,
           "marTop": "",
           "marBottom": "",
           "marTopMob": "",
