@@ -1299,13 +1299,14 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
         flex-wrap: wrap;
       }
       .variantsHinge .variantMain {
-        padding: 20px;
+        padding: 20px 10px;
         width: calc(50% - 5px);
         flex-grow: unset;
         margin-bottom: 12px;
         justify-content: space-between;
         overflow-x: hidden;
         flex-flow: column-reverse;
+        text-align: center;
       }
       .variantsHinge .variantMain:nth-child(2) {
         margin-right: 0;
@@ -1313,7 +1314,7 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
       .variantsHinge .variantMain img {
         mix-blend-mode: darken;
         margin-bottom: 10px;
-        max-width: 100px;
+        max-width: 144px;
       }
       @media (max-width:1300px){
         .variantsHinge .variantMain {
@@ -1323,7 +1324,7 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
         .variantsHinge .variantMain img {
           mix-blend-mode: darken;
           margin-left: 10px;
-          max-width: 47px;
+          max-width: 144px;
         }
       }
     </style>
@@ -1546,7 +1547,7 @@ Glass </div>
           {% for block in section.blocks %}
             {% case block.type %}
               {% when 'hinge_image' %}
-                <div  imgsrc='{{ block.settings.item-image |img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if forloop.index == 1 %}selected   {% endif %}"><span>{{ block.settings.item-title | escape }}</span><img src="{{ block.settings.item-image | img_url }}"></div>
+                <div  imgsrc='{{ block.settings.item-image |img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if forloop.index == 1 %}selected   {% endif %}"><span>{{ block.settings.item-title | escape }}</span><img src="{{ block.settings.item-image | img_url: "master" }}"></div>
             {% endcase %}
           {% endfor %}
         </div>
@@ -1562,7 +1563,7 @@ Glass </div>
       <div class="productMain" title="{{ product.title }}" producthandle="{% for tag in product.tags %}{% if tag contains "height_" %}{{ tag | split: "_" | last }}{% endif %}{% endfor %}">
 		<ul>
           {% for variant in product.variants %}
-          <li variantid="{{ variant.id }}" price="{{ variant.price | money }}" varianthandle='{{ variant.option1 }}_{{ variant.option2 }}_{{ variant.option3 | replace: "  ", " " }}'></li>
+          <li variantid="{{ variant.id }}" price="{{ variant.price | money }}" varianthandle='{{ variant.option1 }}_{{ variant.option2 }}_{{ variant.option3 | replace: "  ", " " }}_{{ variant.option4 | replace: "  ", " " }}'></li>
           {% endfor %}
         </ul>
       </div>
@@ -1981,7 +1982,6 @@ $(".lite-four").click(function(){
     	checkProductAdd();
     });
     $(".variantMain").click(function(){
-      	console.log("check");
     	checkProduct();
     });
   });
@@ -2034,7 +2034,7 @@ $(".lite-four").click(function(){
     		},
         {
     			"type": "hinge_image",
-    			"name": "hinge-item",
+    			"name": "Hinge Image",
     			"settings": [
                   {
                     "type": "image_picker",
