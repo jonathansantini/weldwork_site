@@ -39,13 +39,49 @@
             "item-title": "Thin Reeded Glass",
             "item-value": "Thin Reeded Glass"
           }
+        },
+        "b9abc6da-4a20-4c43-b7a8-29f9ce7325cd": {
+          "type": "hinge_image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_1.jpg",
+            "item-title": "Left Hand",
+            "item-value": "Left Hand"
+          }
+        },
+        "4c47d649-832c-4c81-9dd3-5f4271be2d71": {
+          "type": "hinge_image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_2.jpg",
+            "item-title": "Right Hand",
+            "item-value": "Right Hand"
+          }
+        },
+        "4074a3e5-3662-46f5-aa30-0edc22bc62c1": {
+          "type": "hinge_image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_3.jpg",
+            "item-title": "Left Hand Reverse",
+            "item-value": "Left Hand Reverse"
+          }
+        },
+        "f5dc602b-b1d4-48a8-9582-29ac670eb7c6": {
+          "type": "hinge_image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_4.jpg",
+            "item-title": "Right Hand Reverse",
+            "item-value": "Right Hand Reverse"
+          }
         }
       },
       "block_order": [
         "ea396b7b-27d7-4971-be44-fa2d25a47da5",
         "741633cc-b4f9-4245-ba9b-0046434492bb",
         "8ef55864-2cc8-4649-8b29-830219dc24e3",
-        "ba59d7c0-1a0b-46c8-80e7-ff4cc2f0b2d0"
+        "ba59d7c0-1a0b-46c8-80e7-ff4cc2f0b2d0",
+        "b9abc6da-4a20-4c43-b7a8-29f9ce7325cd",
+        "4c47d649-832c-4c81-9dd3-5f4271be2d71",
+        "4074a3e5-3662-46f5-aa30-0edc22bc62c1",
+        "f5dc602b-b1d4-48a8-9582-29ac670eb7c6"
       ],
       "settings": {
       }
