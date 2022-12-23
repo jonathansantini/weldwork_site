@@ -873,25 +873,28 @@ $( ".closePopupGlass" ).click(function() {
             }
           }, 400);
         });
-      
-        $(".Image-V-One").click(function(){
-          $(this).parent("div").siblings().removeClass("active");
-          
+
+         $(".Image-V-One").click(function(){
+           $(".mainImgAn").fadeOut(1000, "linear", function() {
+             $(this).hide();
+             $(this).parent("div").siblings().removeClass("active");
+
 //           removeZoom();
-          $(this).addClass("active");
-          $(".mainImgAn").fadeOut();
-          setTimeout(function(){ 
-          // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
-          $(".iv-one").addClass('iframeVideoShow'); 
-          $(".iv-one-ex").attr("src", "");
-          $(".iv-one-ex").removeClass("iframeVideoShow");
-  
-          $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
-  
-          // $(".iframeVideo").addClass('mainImgAn'); 
-          $(".iv-one").fadeIn(); 
-          }, 400);
-        });
+             $(this).addClass("active");
+
+             $('.iframeVideoShow').addClass('custommainImgAn1');
+
+             // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+             $(".iv-one").addClass('iframeVideoShow');
+             $(".iv-one-ex").attr("src", "");
+             $(".iv-one-ex").removeClass("iframeVideoShow");
+
+             $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
+
+             // $(".iframeVideo").addClass('mainImgAn');
+             $(".iv-one").fadeIn();
+           });
+         });
   
         // Extra Video ONE
         $(".Image-V-One-ex").click(function(){
