@@ -1294,6 +1294,38 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
     max-width: 47px;
 }
 }
+
+      .variantsHinge {
+        flex-wrap: wrap;
+      }
+      .variantsHinge .variantMain {
+        padding: 20px;
+        width: calc(50% - 5px);
+        flex-grow: unset;
+        margin-bottom: 12px;
+        justify-content: space-between;
+        overflow-x: hidden;
+        flex-flow: column-reverse;
+      }
+      .variantsHinge .variantMain:nth-child(2) {
+        margin-right: 0;
+      }
+      .variantsHinge .variantMain img {
+        mix-blend-mode: darken;
+        margin-bottom: 10px;
+        max-width: 100px;
+      }
+      @media (max-width:1300px){
+        .variantsHinge .variantMain {
+          font-size: 12px;
+          padding: 10px;
+        }
+        .variantsHinge .variantMain img {
+          mix-blend-mode: darken;
+          margin-left: 10px;
+          max-width: 47px;
+        }
+      }
     </style>
 <!--  Spec Sheet stylings and Html Container    -->
     <style>
@@ -1484,10 +1516,41 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
 Glass </div>
           <div class="variantsFlex variantsGlass">
               {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'image' %}
                <div  imgsrc='{{ block.settings.item-image |img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if forloop.index == 1 %}selected   {% endif %}"><span>{{ block.settings.item-title | escape }}</span><img src="{{ block.settings.item-image | img_url }}"></div>
-             {% endfor %}
+                {% endcase %}
+            {% endfor %}
           </div>
       	</div>
+
+      <div sel="" class="variantSelector">
+
+
+        <div class="hoverimage">
+          <div class="scr-close"></div>
+          <img class="imgown" />
+        </div>
+
+
+
+        <div class="productLabel GT-500" style="display: flex; position: relative; align-items: center;">
+          <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.808 8.39083C17.808 4.3113 14.4967 1 10.4172 1C7.4105 1 4.82769 2.7881 3.66211 5.37092" stroke="#232323" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20.0202 6.27161L17.8082 8.48356L15.0532 6.27161" stroke="#232323" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.21191 9.60938C3.21191 13.6889 6.52322 17.0002 10.6027 17.0002C13.6094 17.0002 16.1922 15.2121 17.3578 12.6293" stroke="#232323" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1 11.7286L3.21195 9.5166L5.96696 11.7286" stroke="#232323" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Door Swing Options </div>
+        <div class="variantsFlex variantsHinge">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'hinge_image' %}
+                <div  imgsrc='{{ block.settings.item-image |img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if forloop.index == 1 %}selected   {% endif %}"><span>{{ block.settings.item-title | escape }}</span><img src="{{ block.settings.item-image | img_url }}"></div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
     {% endform %}
   </div>
@@ -1954,6 +2017,29 @@ $(".lite-four").click(function(){
                     "type": "image_picker",
                     "id": "item-image",
                     "label": "Glass Icon"
+                  },
+                  {
+                    "type": "text",
+                    "id": "item-title",
+                    "label": "Title",
+                    "default": "Title"
+                  },
+                  {
+                    "type": "text",
+                    "id": "item-value",
+                    "label": "Value",
+                    "default": "Value"
+                  }
+    			]
+    		},
+        {
+    			"type": "hinge_image",
+    			"name": "hinge-item",
+    			"settings": [
+                  {
+                    "type": "image_picker",
+                    "id": "item-image",
+                    "label": "Hinge Icon"
                   },
                   {
                     "type": "text",
