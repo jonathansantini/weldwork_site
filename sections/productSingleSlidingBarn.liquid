@@ -171,10 +171,11 @@
     display: flex;
     justify-content: space-between;
   }
-  .stickyPerks img {
+  .stickyPerks svg {
   	width: 1.11vw;
     height: 1.11vw;
     margin-right: 0.97vw;
+    transform: translateY(20%);
   }
   .stickyPerks p {
   	font-size: 0.97vw;
@@ -377,10 +378,11 @@
     display: none;
     justify-content: space-between;
   }
-  .stickyPerks img {
+  .stickyPerks svg {
   	width: 1.11vw;
     height: 1.11vw;
     margin-right: 0.97vw;
+    transform: translateY(20%);
   }
   .stickyPerks p {
   	font-size: 0.97vw;
@@ -574,7 +576,9 @@ p.view-glass-options:hover .moreinfo-popup {
 <div class="stickyCart">
   <div class="stickyPerks">
     <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <circle cx="5" cy="5" r="5" fill="#fff"/>
+      </svg>
       <p class="GT-400">
       	  {% if product.metafields.my_fields.product_perk_1 != blank %}
             {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
@@ -584,7 +588,9 @@ p.view-glass-options:hover .moreinfo-popup {
       </p>
     </div>
      <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+         <circle cx="5" cy="5" r="5" fill="#fff"/>
+       </svg>
       <p class="GT-400">
       	   {% if product.metafields.my_fields.product_perk_2 != blank %}
             {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
@@ -594,7 +600,9 @@ p.view-glass-options:hover .moreinfo-popup {
       </p>
     </div>
      <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+         <circle cx="5" cy="5" r="5" fill="#fff"/>
+       </svg>
       <p class="GT-400">
       	  {% if product.metafields.my_fields.product_perk_3 != blank %}
             {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
