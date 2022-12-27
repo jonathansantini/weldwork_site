@@ -545,44 +545,7 @@ p.view-glass-options:hover .moreinfo-popup {
 }
 </style>
 <div class="stickyCart">
-  <div class="stickyPerks">
-    <div class="stickyPerk">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <circle cx="5" cy="5" r="5" fill="#fff"/>
-      </svg>
-      <p class="GT-400">
-      	  {% if product.metafields.my_fields.product_perk_1 != blank %}
-            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
-          {% else %}
-            Made in the USA
-          {% endif %}
-      </p>
-    </div>
-     <div class="stickyPerk">
-       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-         <circle cx="5" cy="5" r="5" fill="#fff"/>
-       </svg>
-      <p class="GT-400">
-      	   {% if product.metafields.my_fields.product_perk_2 != blank %}
-            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
-          {% else %}
-            Delivers Nationwide
-          {% endif %}
-      </p>
-    </div>
-     <div class="stickyPerk">
-       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-         <circle cx="5" cy="5" r="5" fill="#fff"/>
-       </svg>
-      <p class="GT-400">
-      	  {% if product.metafields.my_fields.product_perk_3 != blank %}
-            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
-          {% else %}
-            Specialty Interior Doors
-          {% endif %}
-      </p>
-    </div>
-  </div>
+  <div class="stickyPerks"></div>
   <div class="stickyAdd">
     {% include 'product-price', variant: current_variant %}
    
