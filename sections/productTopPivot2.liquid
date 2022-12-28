@@ -1391,7 +1391,7 @@ Glass </div>
       <div class="productMain" title="{{ product.title }}" producthandle="{% for tag in product.tags %}{% if tag contains "height_" %}{{ tag | split: "_" | last }}_{% endif %}{% endfor %}{% for tag in product.tags %}{% if tag contains "hardware_" %}{{ tag | split: "_" | last }}{% endif %}{% endfor %}">
 		<ul>
           {% for variant in product.variants %}
-          <li variantid="{{ variant.id }}" price="{{ variant.price | money }}" varianthandle='{{ variant.option1 }}_{{ variant.option2 }}_{{ variant.option3 | replace: "  ", " " }}_{{ variant.option4 | replace: "  ", " " }}'></li>
+          <li variantid="{{ variant.id }}" price="{{ variant.price | money }}" varianthandle='{{ variant.option1 }}_{{ variant.option2 }}_{{ variant.option3 | replace: "  ", " " }}'></li>
           {% endfor %}
         </ul>
       </div>
