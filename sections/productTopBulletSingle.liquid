@@ -1144,7 +1144,10 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
       	margin-top: 24px;
       }
       .variantSelector {
-      	margin-top: 24px;
+        margin-top: 24px;
+      }
+      .optionSelector {
+        margin-top: 24px;
       }
       .productLabel {
       	font-size: 16px;
@@ -1249,6 +1252,10 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
         margin-bottom: 10px;
         max-width: 124px;
       }
+      .variantsHinge input[type="radio"] {
+        display: none;
+      }
+
       @media (max-width:1300px){
         .variantsHinge .variantMain {
           font-size: 12px;
@@ -1380,7 +1387,7 @@ Glass </div>
           </div>
       	</div>
 
-      <div sel="" class="variantSelector">
+      <div sel="" class="optionSelector">
 
         <div class="hoverimage">
           <div class="scr-close"></div>
@@ -1396,10 +1403,15 @@ Glass </div>
           </svg>
           Door Swing Options</div>
         <div class="variantsFlex variantsHinge">
+          {%- assign hinge_option_counter = 0 -%}
           {% for block in section.blocks %}
                 {% case block.type %}
                   {% when 'hinge_image' %}
-            <div  imgsrc='{{ block.settings.item-image |img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if forloop.index == 1 %}selected   {% endif %}"><span>{{ block.settings.item-title | escape }}</span><img src="{{ block.settings.item-image | img_url: "master" }}"></div>
+                  <div imgsrc='{{ block.settings.item-image |img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if hinge_option_counter == 0 %}selected   {% endif %}">
+                    <span>{{ block.settings.item-title | escape }}</span>
+                    <img src="{{ block.settings.item-image | img_url: "master" }}">
+                  </div>
+                  {%- assign hinge_option_counter = hinge_option_counter | plus: 1 -%}
                 {% endcase %}
           {% endfor %}
         </div>
@@ -1725,6 +1737,12 @@ $(".lite-four").click(function(){
       selected = $(this).attr("value");
       $(this).closest(".variantSelector").attr("sel",selected);
     });
+    $(".optionSelector .variantMain").click(function(){
+      $(this).parent().find(".variantMain").removeClass("selected");
+      $(this).addClass("selected");
+      selected = $(this).attr("value");
+      $(this).closest(".variantSelector").attr("sel",selected);
+    });
   });
 </script>
 <script>
@@ -1817,7 +1835,8 @@ $(".lite-four").click(function(){
         "id":$(".productMain.active li.active").attr("variantid"),
         "quantity": 1,
         "properties": {
-        	'_Image': $(".productThumbnail").first().attr("src")
+        	'_Image': $(".productThumbnail").first().attr("src"),
+          'Glass Swing Option': $(".variantsHinge .variantMain.selected").first().attr('value')
       	}
       } 
       jQuery.ajax({
