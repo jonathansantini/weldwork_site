@@ -1096,6 +1096,11 @@ console.log("isValid", isValid)
       jQuery("body").removeClass("modalopned");
     });
   }
+  jQuery(document).on("click", "#psm-cancel", function () {
+    jQuery('.dc-modal__params').text('');
+    const modal = document.querySelector('[data-modal]');
+    modal.classList.remove('dc-modal--active');
+  })
 
   // document.addEventListener("click", (e) => {
   //     if (e.target == document.querySelector(".custom-modal.is-visible")) {
@@ -1130,11 +1135,6 @@ console.log("isValid", isValid)
     jQuery(document).on("click", ".custom-modal .button-step-3", function () {
       document.querySelector(".custom-modal.is-visible").classList.remove(isVisible);
       jQuery("body").removeClass("modalopned");
-    })
-    jQuery(document).on("click", "#psm-cancel", function () {
-      jQuery('.dc-modal__params').text('');
-      const modal = document.querySelector('[data-modal]');
-      modal.classList.remove('dc-modal--active');
     })
 
     jQuery('.bullets a').click(function () {
