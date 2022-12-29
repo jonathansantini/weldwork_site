@@ -659,12 +659,16 @@ $( ".closePopupGlass" ).click(function() {
   
         <div class="productThumbnails my-slider" id="productThumbnails">
         {% for img in product.images %}
-
+          <div >
+            <div class="custom-width-slider">
           <img class="fullWidth productThumbnail {% if forloop.first %}active{% endif %}" 
             source="{{ img | img_url: '1200x' }}" 
             src="{{ img | img_url: '400x' }}"
             data-image="{{ img | img_url: '1200x' }}" 
             data-zoom-image="{{ img | img_url: '1200x' }}" data-image-id="img-{{ img.id }}">
+
+            </div>
+          </div>
           
         {% endfor %}
         <div class="img-thumb-video">
@@ -705,7 +709,6 @@ $( ".closePopupGlass" ).click(function() {
     </style>
  <script>
       $(document).ready(function() {
-        console.log('hi')
 //         const zoomConfig = {
 //           zoomType: 'inner',
 //           cursor: 'crosshair'
