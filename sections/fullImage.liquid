@@ -75,13 +75,25 @@
     
   </div>
   {%- if section.settings.enable_carousel_arrows -%}
+    {%- assign show_arrow_icon = false -%}
+    {%- if section.settings.arrow_icon != blank -%}
+      {%- assign show_arrow_icon = true -%}
+    {%- endif -%}
 
-    <div class="arrow-container">
+    <div class="arrow-container{% if show_arrow_icon %} arrow-icon{% endif %}">
       <button class="slick-prev" aria-label="{{ 'home_page.slideshow.previous_slide' | t }}" data-slide-previous>
-        <span class="icon icon-slide-prev" aria-hidden="true"></span>
+        {% if show_arrow_icon %}
+          <img class="iconBlock" src="{{ section.settings.arrow_icon | img_url: 'master' }}">
+        {% else %}
+          <span class="icon icon-slide-prev" aria-hidden="true"></span>
+        {% endif %}
       </button>
       <button class="slick-next" aria-label="{{ 'home_page.slideshow.next_slide' | t }}" data-slide-previous>
-        <span class="icon icon-slide-next" aria-hidden="true"></span>
+        {% if show_arrow_icon %}
+          <img class="iconBlock" src="{{ section.settings.arrow_icon | img_url: 'master' }}">
+        {% else %}
+          <span class="icon icon-slide-next" aria-hidden="true"></span>
+        {% endif %}
       </button>
     </div>
     <style>
@@ -93,12 +105,12 @@
 
       button.slick-prev,  button.slick-next  {
         top: 35%;
-        width: 100px;
-        height: 100px;
-        background-color: rgba(0,0,0,0.4);
+        width: 54px;
+        height: 54px;
         }
       button.slick-prev {
-        left:1%;
+        left:2%;
+        transform: rotate(180deg);
       }
       button.slick-next {
         right:10%;
@@ -210,7 +222,12 @@
       "type": "checkbox",
       "id": "enable_carousel_arrows",
       "label": "Enable Previous and Next slide arrows"
-        },  
+        },
+        {
+          "type": "image_picker",
+          "id": "arrow_icon",
+		  "label": "Arrow Icon"
+        },
 		{
           "type": "text",
           "id": "marTop",

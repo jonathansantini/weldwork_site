@@ -309,6 +309,7 @@
       ],
       "settings": {
         "enable_carousel_arrows": true,
+        "arrow_icon": "shopify:\/\/shop_images\/image_2022_10_05T13_01_40_054Z.png",
         "marTop": "",
         "marBottom": "",
         "marTopMob": "",
