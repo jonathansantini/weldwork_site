@@ -884,7 +884,11 @@ var imgId = "."+$(this).attr("data-image-id");
 $(document).ready(function () {
   update();
   $(window).resize(function() {
-    updateContainer();
+    try {
+      updateContainer();
+    } catch (e) {
+      
+    }
   });
 });
 
