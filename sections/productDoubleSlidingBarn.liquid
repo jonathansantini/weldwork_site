@@ -421,7 +421,7 @@
 max-height: 480px;  }
   .iframeVideoShow{
     visibility: unset;
-    display: block !important;
+    display: block;
     z-index: 99999;
   }
   @media(max-width:1008px){
@@ -775,8 +775,8 @@ $( ".closePopupGlass" ).click(function() {
           });
           
         }
-         
-  
+
+
         $(".productThumbnail").click(function(e){
 //           removeZoom();
           $(".productThumbnail").removeClass("active");
@@ -841,7 +841,7 @@ $( ".closePopupGlass" ).click(function() {
           }*/
 
 {% comment %}           $(".mainImgAn").fadeOut(); {% endcomment %}
-          setTimeout(function() { 
+          setTimeout(function() {
             $(".mainImg").attr("src",$(".productThumbnail.active").attr("src"));
             $(".mainImgAn").attr("src",$(".productThumbnail.active").attr("source"));
              $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
@@ -858,46 +858,51 @@ $( ".closePopupGlass" ).click(function() {
             }
           }, 400);
         });
-      
+
         $(".Image-V-One").click(function(){
-          $(this).parent("div").siblings().removeClass("active");
-          
+          $(".mainImgAn").fadeOut(1000, "linear", function() {
+            $(this).hide();
+            $(this).parent("div").siblings().removeClass("active");
+
 //           removeZoom();
-          $(this).addClass("active");
-          $(".mainImgAn").fadeOut();
-          setTimeout(function(){ 
-          // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
-          $(".iv-one").addClass('iframeVideoShow'); 
-          $(".iv-one-ex").attr("src", "");
-          $(".iv-one-ex").removeClass("iframeVideoShow");
-  
-          $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
-  
-          // $(".iframeVideo").addClass('mainImgAn'); 
-          $(".iv-one").fadeIn(); 
-          }, 400);
+            $(this).addClass("active");
+
+            $('.iframeVideoShow').addClass('custommainImgAn1');
+
+            // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+            $(".iv-one").addClass('iframeVideoShow');
+            $(".iv-one-ex").attr("src", "");
+            $(".iv-one-ex").removeClass("iframeVideoShow");
+
+            $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
+
+            // $(".iframeVideo").addClass('mainImgAn');
+            $(".iv-one").fadeIn();
+          });
         });
   
         // Extra Video ONE
         $(".Image-V-One-ex").click(function(){
-//           removeZoom();
-          $(".productThumbnail").removeClass("active");
-          $(".Image-V-One").removeClass("active");
-          $(this).addClass("active");
-          $(".mainImgAn").fadeOut();
-          setTimeout(function(){ 
-          // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
-          $(".iv-one").removeClass("iframeVideoShow");
-  
-          $(".iv-one-ex").addClass('iframeVideoShow'); 
-  
-          $(".iv-one").attr("src", "");
-  
-          $(".iv-one-ex").attr("src", "{{product.metafields.my_fields.video_two_lite_option_full}}");
-  
-          // $(".iframeVideo").addClass('mainImgAn'); 
-          $(".iv-one-ex").fadeIn(); 
-          }, 400);
+          $(".mainImgAn").fadeOut(1000, "linear", function() {
+  //           removeZoom();
+            $(".productThumbnail").removeClass("active");
+            $(".Image-V-One").removeClass("active");
+            $(this).addClass("active");
+
+            setTimeout(function(){
+            // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+            $(".iv-one").removeClass("iframeVideoShow");
+
+            $(".iv-one-ex").addClass('iframeVideoShow');
+
+            $(".iv-one").attr("src", "");
+
+            $(".iv-one-ex").attr("src", "{{product.metafields.my_fields.video_two_lite_option_full}}");
+
+            // $(".iframeVideo").addClass('mainImgAn');
+            $(".iv-one-ex").fadeIn();
+            }, 400);
+          });
         });
   
           
