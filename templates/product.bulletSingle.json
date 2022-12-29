@@ -51,7 +51,7 @@
         "98730853-2878-4061-aa73-9c7d7c698093": {
           "type": "hinge_image",
           "settings": {
-            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_2.jpg",
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_2.png",
             "item-title": "Right Hand",
             "item-value": "Right Hand"
           }
@@ -59,7 +59,7 @@
         "5ebd249e-d09c-4ce9-aa5e-a660adf8fbbb": {
           "type": "hinge_image",
           "settings": {
-            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_3.jpg",
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_3.png",
             "item-title": "Left Hand Reverse",
             "item-value": "Left Hand Reverse"
           }
@@ -67,7 +67,7 @@
         "3b350056-fa5f-4f28-a792-95b3564ffabe": {
           "type": "hinge_image",
           "settings": {
-            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_4.jpg",
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_4.png",
             "item-title": "Right Hand Reverse",
             "item-value": "Right Hand Reverse"
           }
