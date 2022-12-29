@@ -254,7 +254,7 @@ line-height: 120%;
       	
       }
       .logoContainer.trBG {
-background: #3c2e2e00!important; 
+/*background: #3c2e2e00 !important; */
       }
       .linecustom {
       /*  display:none */
@@ -884,7 +884,11 @@ var imgId = "."+$(this).attr("data-image-id");
 $(document).ready(function () {
   update();
   $(window).resize(function() {
-    updateContainer();
+    try {
+      updateContainer();
+    } catch (e) {
+      
+    }
   });
 });
 
