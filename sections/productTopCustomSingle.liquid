@@ -87,7 +87,7 @@
   	margin-bottom: 0.83vw;
   }
   .perkCheckmark {
-  	margin-right: 1.6vw;
+  	margin-right: 0.8vw;
     padding-top: 0.28vw;
   }
   .productPerkTitle  {
@@ -282,7 +282,7 @@
   	margin-bottom: 12px;
   }
   .perkCheckmark {
-  	margin-right: 23px;
+  	margin-right: 12px;
     padding-top: 5px;
   }
   .productPerkTitle  {
@@ -531,7 +531,7 @@ p.view-glass-options:hover .moreinfo-popup {
 .featureTitle {
   font-size: 20px;
   line-height: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 16.5px;
   letter-spacing: 0;
   text-transform: none;
   color: #000000;
@@ -541,7 +541,6 @@ p.view-glass-options:hover .moreinfo-popup {
   .featureTitle {
     font-size: 24px;
     line-height: 28.45px;
-    margin-bottom: 16.5px;
   }
 }
 </style>
@@ -660,12 +659,16 @@ $( ".closePopupGlass" ).click(function() {
   
         <div class="productThumbnails my-slider" id="productThumbnails">
         {% for img in product.images %}
-
+          <div >
+            <div class="custom-width-slider">
           <img class="fullWidth productThumbnail {% if forloop.first %}active{% endif %}" 
             source="{{ img | img_url: '1200x' }}" 
             src="{{ img | img_url: '400x' }}"
             data-image="{{ img | img_url: '1200x' }}" 
             data-zoom-image="{{ img | img_url: '1200x' }}" data-image-id="img-{{ img.id }}">
+
+            </div>
+          </div>
           
         {% endfor %}
         <div class="img-thumb-video">
@@ -706,7 +709,6 @@ $( ".closePopupGlass" ).click(function() {
     </style>
  <script>
       $(document).ready(function() {
-        console.log('hi')
 //         const zoomConfig = {
 //           zoomType: 'inner',
 //           cursor: 'crosshair'
