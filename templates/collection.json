@@ -8,7 +8,7 @@
     "a9fdabcc-ea6e-4c6f-8635-5f68db1c7298": {
       "type": "Homepage_main_section",
       "settings": {
-        "dark": false,
+        "dark": true,
         "sectionHeight": "75",
         "sectionHeightMobile": "75",
         "marTop": "",
