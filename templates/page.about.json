@@ -193,6 +193,7 @@
     },
     "163776318544540332": {
       "type": "aboutTabs",
+      "disabled": true,
       "blocks": {
         "c7570d0d-8c2b-4361-b978-17c9ca3d05c1": {
           "type": "Tab",
