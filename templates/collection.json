@@ -8,7 +8,7 @@
     "a9fdabcc-ea6e-4c6f-8635-5f68db1c7298": {
       "type": "Homepage_main_section",
       "settings": {
-        "dark": true,
+        "dark": false,
         "sectionHeight": "75",
         "sectionHeightMobile": "75",
         "marTop": "",
@@ -23,8 +23,8 @@
         "padBottomMob": "",
         "padLeftMob": "20",
         "padRightMob": "20",
-        "backgroundImage": "shopify:\/\/shop_images\/22revisedtv10.jpg",
-        "backgroundImageMob": "shopify:\/\/shop_images\/image_24_2_9ae98ad5-26eb-4511-9b5f-91138dbaac23.png",
+        "backgroundImage": "shopify:\/\/shop_images\/Weldwork_Website_Made_To_Measure_Hero.jpg",
+        "backgroundImageMob": "shopify:\/\/shop_images\/Weldwork_Website_Made_To_Measure_Hero.jpg",
         "title": "Turnkey. Literally.",
         "titleSize": "64",
         "titleLine": "99",
