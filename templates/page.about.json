@@ -508,7 +508,6 @@
     },
     "163785258867b6d8a5": {
       "type": "founders",
-      "disabled": true,
       "settings": {
         "anchor": "founders",
         "marTop": "0",
@@ -524,7 +523,7 @@
         "padLeftMob": "20",
         "padRightMob": "20",
         "backgroundColor": "#232323",
-        "mainTitle": "Meet the founders of<br> Weldwork",
+        "mainTitle": "Meet the founders of Weldwork",
         "mainTitleSize": "56",
         "mainTitleLine": "58.8",
         "mainTitleLetter": "",
