@@ -67,6 +67,7 @@
     },
     "cef51c13-ba7e-400f-8ebe-057c9702f8ac": {
       "type": "CareersImageSection",
+      "disabled": true,
       "settings": {
         "marTop": "",
         "marBottom": "",
@@ -180,7 +181,7 @@
         "subtextWeight": "400",
         "subtextLine": "24",
         "subtextLetter": "",
-        "subtextColor": "",
+        "subtextColor": "#1f2021",
         "subtextAlign": "left",
         "subtextMarBottom": "",
         "subtextSizeMob": "16",
