@@ -376,7 +376,6 @@
     },
     "16377671289a340f5f": {
       "type": "subtitle-title",
-      "disabled": true,
       "settings": {
         "anchor": "",
         "marTop": "0",
@@ -508,6 +507,7 @@
     },
     "163785258867b6d8a5": {
       "type": "founders",
+      "disabled": true,
       "settings": {
         "anchor": "founders",
         "marTop": "0",
