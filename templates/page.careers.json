@@ -59,6 +59,7 @@
     },
     "1637759478272e02f7": {
       "type": "aboutMainSection",
+      "disabled": true,
       "settings": {
         "dark": false,
         "marTop": "0",
@@ -106,6 +107,7 @@
     },
     "16377595427c9c2aa9": {
       "type": "emptyDiv",
+      "disabled": true,
       "settings": {
         "height": "35"
       }
