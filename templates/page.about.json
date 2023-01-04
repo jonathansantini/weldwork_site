@@ -305,13 +305,13 @@
         "padBottomMob": "62",
         "padLeftMob": "43",
         "padRightMob": "43",
-        "backgroundColor": "#c3c3c3",
+        "backgroundColor": "#000000",
         "subtext": "Our Michigan Facility",
         "subtextSize": "16",
         "subtextWeight": "400",
         "subtextLine": "20.8",
         "subtextLetter": "0",
-        "subtextColor": "#1f2021",
+        "subtextColor": "#ffffff",
         "subtextAlign": "center",
         "subtextMarBottom": "23",
         "subtextSizeMob": "12",
@@ -324,7 +324,7 @@
         "titleSize": "56",
         "titleLine": "58.8",
         "titleLetter": "",
-        "titleColor": "#1f2021",
+        "titleColor": "#ffffff",
         "titleAlign": "center",
         "titleMarBottom": "",
         "titleSizeMob": "36",
@@ -333,6 +333,12 @@
         "titleColorMob": "",
         "titleAlignMob": "center",
         "titleMarBottomMob": ""
+      }
+    },
+    "b5fef37e-50b6-4a31-aeeb-62a08fe01d09": {
+      "type": "featured-video",
+      "settings": {
+        "heading": "Video"
       }
     },
     "163776318544540332": {
@@ -1348,6 +1354,7 @@
     "97fdcb49-be8e-4788-ae05-ef89d1e7e415",
     "237b6e28-aad1-4a3a-9711-8344855e9edd",
     "474508a5-d846-4c99-8ac0-65ffc24790e4",
+    "b5fef37e-50b6-4a31-aeeb-62a08fe01d09",
     "163776318544540332",
     "1637767069df4de21a",
     "1637850766be663d02",
