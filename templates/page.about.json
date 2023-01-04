@@ -381,6 +381,7 @@
         "283975df-bdab-442a-acf5-9838f747fdc7": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Frame-5.png",
             "imgMarBottom": "33",
             "imgMobMarBottom": "33",
             "title1": "Architects",
