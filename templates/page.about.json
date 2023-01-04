@@ -377,10 +377,44 @@
             "subtextAlignMob": "center",
             "subtextMarBottomMob": ""
           }
+        },
+        "283975df-bdab-442a-acf5-9838f747fdc7": {
+          "type": "image",
+          "settings": {
+            "imgMarBottom": "33",
+            "imgMobMarBottom": "33",
+            "title1": "Architects",
+            "title1Size": "32",
+            "title1Line": "35.2",
+            "title1Letter": "0",
+            "title1Color": "#000000",
+            "title1Align": "center",
+            "title1MarBottom": "20",
+            "title1SizeMob": "32",
+            "title1LineMob": "35.2",
+            "title1LetterMob": "",
+            "title1ColorMob": "",
+            "title1AlignMob": "center",
+            "title1MarBottomMob": "16",
+            "subtext": "Our highly collaborative\nprocess allows architects\nto plug in with our team of\nengineers and designers to\nbring their visions to life.",
+            "subtextSize": "16",
+            "subtextLine": "24",
+            "subtextLetter": "",
+            "subtextColor": "#000000",
+            "subtextAlign": "center",
+            "subtextMarBottom": "",
+            "subtextSizeMob": "16",
+            "subtextLineMob": "24",
+            "subtextLetterMob": "",
+            "subtextColorMob": "",
+            "subtextAlignMob": "center",
+            "subtextMarBottomMob": ""
+          }
         }
       },
       "block_order": [
-        "d84f66ee-e36a-4d4a-9e06-75029e627ce8"
+        "d84f66ee-e36a-4d4a-9e06-75029e627ce8",
+        "283975df-bdab-442a-acf5-9838f747fdc7"
       ],
       "settings": {
         "marTop": "0",
