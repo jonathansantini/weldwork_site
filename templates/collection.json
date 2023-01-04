@@ -181,6 +181,7 @@
     },
     "1638723742f378daef": {
       "type": "backgroundMainFont",
+      "disabled": true,
       "settings": {
         "marTop": "",
         "marBottom": "",
@@ -398,7 +399,7 @@
         "boxTitleColorMob": "",
         "boxTitleAlignMob": "center",
         "boxTitleMarBottomMob": "",
-        "subtext": "Get started designing your door to your space and specifications with our easy 3D door builder. When you’re done, we’ll perfect the design with you.",
+        "subtext": "Custom-designed doors include your choice of grid patterns, glass, hardware,\nand a full spectrum of powder coated finishes.",
         "subtextSize": "24",
         "subtextLine": "31.2",
         "subtextLetter": "",
