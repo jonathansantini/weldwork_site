@@ -216,6 +216,7 @@
     },
     "163750857405134196": {
       "type": "subtitle-title",
+      "disabled": true,
       "settings": {
         "anchor": "",
         "marTop": "0",
@@ -353,7 +354,7 @@
         "textMargin": "20.8",
         "textWidthMob": "100",
         "textMarginMob": "",
-        "title": "Build Your Dream Door",
+        "title": "Want a custom door? We do that too.",
         "titleSize": "80",
         "titleLine": "78",
         "titleLetter": "",
