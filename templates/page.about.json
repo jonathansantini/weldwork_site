@@ -347,6 +347,7 @@
         "d84f66ee-e36a-4d4a-9e06-75029e627ce8": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Frame-2.png",
             "imgMarBottom": "33",
             "imgMobMarBottom": "33",
             "title1": "Home Owners",
@@ -362,7 +363,7 @@
             "title1ColorMob": "",
             "title1AlignMob": "center",
             "title1MarBottomMob": "",
-            "subtext": "Weldwork is proud to announce our quick ship product line.  Our ready made standard sizes are in stock and available for shipment in 6-8 weeks.",
+            "subtext": "Our interior door specialists will\nhelp you design the perfect doors\nto transform your space. We’re\nalso happy to connect with your\ndesigner, builder, or architect.",
             "subtextSize": "16",
             "subtextLine": "24",
             "subtextLetter": "",
