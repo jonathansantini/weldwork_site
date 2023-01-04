@@ -853,6 +853,7 @@
       },
       "1637168263f3ae631e": {
         "type": "twoBoxes",
+        "disabled": true,
         "blocks": {
           "c471a65e-0c74-4755-9ae0-9dbb91d03f25": {
             "type": "image",
