@@ -343,6 +343,44 @@
     },
     "6838d9c4-82dc-4d19-aa33-1c89d9ce474d": {
       "type": "twoBoxes",
+      "blocks": {
+        "d84f66ee-e36a-4d4a-9e06-75029e627ce8": {
+          "type": "image",
+          "settings": {
+            "imgMarBottom": "33",
+            "imgMobMarBottom": "33",
+            "title1": "Home Owners",
+            "title1Size": "32",
+            "title1Line": "35.2",
+            "title1Letter": "",
+            "title1Color": "#000000",
+            "title1Align": "center",
+            "title1MarBottom": "20",
+            "title1SizeMob": "32",
+            "title1LineMob": "35.2",
+            "title1LetterMob": "",
+            "title1ColorMob": "",
+            "title1AlignMob": "center",
+            "title1MarBottomMob": "",
+            "subtext": "Weldwork is proud to announce our quick ship product line.  Our ready made standard sizes are in stock and available for shipment in 6-8 weeks.",
+            "subtextSize": "16",
+            "subtextLine": "24",
+            "subtextLetter": "",
+            "subtextColor": "#000000",
+            "subtextAlign": "center",
+            "subtextMarBottom": "",
+            "subtextSizeMob": "16",
+            "subtextLineMob": "24",
+            "subtextLetterMob": "",
+            "subtextColorMob": "",
+            "subtextAlignMob": "center",
+            "subtextMarBottomMob": ""
+          }
+        }
+      },
+      "block_order": [
+        "d84f66ee-e36a-4d4a-9e06-75029e627ce8"
+      ],
       "settings": {
         "marTop": "0",
         "marBottom": "0",
