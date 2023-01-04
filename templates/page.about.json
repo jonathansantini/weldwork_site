@@ -341,6 +341,20 @@
         "heading": "Video"
       }
     },
+    "6838d9c4-82dc-4d19-aa33-1c89d9ce474d": {
+      "type": "twoBoxes",
+      "settings": {
+        "marTop": "0",
+        "marBottom": "0",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "0",
+        "padBottom": "0",
+        "padTopMob": "",
+        "padBottomMob": "68",
+        "backgroundColor": "#f4f0ea"
+      }
+    },
     "163776318544540332": {
       "type": "aboutTabs",
       "disabled": true,
@@ -1355,6 +1369,7 @@
     "237b6e28-aad1-4a3a-9711-8344855e9edd",
     "474508a5-d846-4c99-8ac0-65ffc24790e4",
     "b5fef37e-50b6-4a31-aeeb-62a08fe01d09",
+    "6838d9c4-82dc-4d19-aa33-1c89d9ce474d",
     "163776318544540332",
     "1637767069df4de21a",
     "1637850766be663d02",
