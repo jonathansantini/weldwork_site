@@ -151,7 +151,7 @@
         "78492063-3d0f-441d-b95e-6635f2913b8d": {
           "type": "Block",
           "settings": {
-            "heading": "Why we sa",
+            "heading": "Why we started",
             "headtextSize": "56",
             "headtextSizeMobile": "",
             "heading-weight": "",
@@ -160,8 +160,8 @@
             "heading-line-height-mobile": "",
             "heading-letter-spacing": "",
             "heading-letter-spacing-mobile": "",
-            "headtextColor": "",
-            "headtextColorMob": "",
+            "headtextColor": "#000000",
+            "headtextColorMob": "#000000",
             "heaindsubtextAlign": "center",
             "heaindsubtextAlign_mobile": "center",
             "subtext": "Slide title",
