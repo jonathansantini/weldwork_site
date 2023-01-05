@@ -104,8 +104,9 @@ display:block!important;
       margin-top: {{ section.settings.marTopMob }}px;
       margin-bottom: {{ section.settings.marBottomMob }}px;
     /*  background-image: url({{ section.settings.backgroundImageMob | img_url: "master" }}); */
-        background:linear-gradient(0deg, rgb(0 0 0 / 80%), rgb(0 0 0 / 80%)), url({{ section.settings.backgroundImageMob | img_url: "master" }});
-      background-size: 100% 100%;
+        background:linear-gradient(0deg, rgb(0 0 0 / 20%), rgb(0 0 0 / 20%)), url({{ section.settings.backgroundImageMob | img_url: "master" }});
+      background-size: contain;
+     background-position: center;
      {%- if section.settings.sectionHeightMobile -%}
        height: {{ section.settings.sectionHeightMobile }}vh;
      {%- endif -%}

@@ -282,7 +282,7 @@ line-height: 120%;
 {% comment %}
   Add the page template as a class for easy page or template specific styling.
 {% endcomment %}
-<body id="{{ page_title | handle }}" class="{% if template contains 'index' or template contains 'portfolio'   or template contains 'customizationtemplate'  %}header-blend-color {% endif %} {{ template.suffix }} {% if customer %}customer-logged-in {% endif %}template-{{ request.page_type | handle }}">
+<body id="{{ page_title | handle }}" class="{% if template contains 'index' or template contains 'portfolio' or template contains 'customizationtemplate' or template contains 'collection' or page.metafields.custom.blended_header %}header-blend-color {% endif %} {{ template.suffix }} {% if customer %}customer-logged-in {% endif %}template-{{ request.page_type | handle }}">
 <script>window.KlarnaThemeGlobals={};{%case template.name%} {%when"product"%} {% if product.first_available_variant.price %}window.KlarnaThemeGlobals.data_purchase_amount = {{ product.first_available_variant.price }};{% endif %}window.KlarnaThemeGlobals.productVariants={{product.variants|json}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%when"cart"%} window.KlarnaThemeGlobals.data_purchase_amount={{cart.total_price}};window.KlarnaThemeGlobals.documentCopy=document.cloneNode(true);{%endcase%}</script>
 
 
