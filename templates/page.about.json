@@ -406,13 +406,20 @@
         "fd9a888e-51dc-4825-ab96-98642ca0c1c0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Weldwork_Website_About_Us_Hero.jpg"
+            "image": "shopify:\/\/shop_images\/5_1500x_33d0b779-91ec-4990-bca6-5c0a21ed2759.png"
+          }
+        },
+        "123156c7-078a-43fa-af6a-258955d2a1b0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_1500x_fdb95e87-28a1-46e7-ac32-380a5db5e0b6.png"
           }
         }
       },
       "block_order": [
         "8130d4f1-6501-495f-8d64-86678f66b354",
-        "fd9a888e-51dc-4825-ab96-98642ca0c1c0"
+        "fd9a888e-51dc-4825-ab96-98642ca0c1c0",
+        "123156c7-078a-43fa-af6a-258955d2a1b0"
       ],
       "settings": {
         "marTop": "",
