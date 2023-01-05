@@ -199,7 +199,7 @@
         "padRightMob": "",
         "backgroundColor": "#f4f0ea",
         "image": "shopify:\/\/shop_images\/Weldwork_About_Us_why_we_started.jpg",
-        "textWidth": "50",
+        "textWidth": "25",
         "textMargin": "5",
         "textWidthMob": "100",
         "textMarginMob": "0",
@@ -209,6 +209,7 @@
     },
     "50b4ee99-4e26-4a1e-b51c-3bf294408596": {
       "type": "titleText",
+      "disabled": true,
       "settings": {
         "titleWidth": "42.37",
         "titleMargin": "8.92",
@@ -257,6 +258,7 @@
     },
     "97fdcb49-be8e-4788-ae05-ef89d1e7e415": {
       "type": "titleText",
+      "disabled": true,
       "settings": {
         "titleWidth": "42.37",
         "titleMargin": "8.92",
@@ -305,6 +307,7 @@
     },
     "237b6e28-aad1-4a3a-9711-8344855e9edd": {
       "type": "titleText",
+      "disabled": true,
       "settings": {
         "titleWidth": "42.37",
         "titleMargin": "8.92",
