@@ -29,7 +29,29 @@
     position: relative;
   }
 
-  .dc-modal {
+.dc-modal {
+    display: none;
+    position: absolute;
+    z-index: 99999;
+    max-width: 1206px;
+    max-height: 684px;
+    background: var(--color-body)
+    opacity: 0;
+    transition: 0.25s all ease-in-out;
+    font-family: GT Walsheim Pro;
+  }
+
+  .dc-modal--active {
+    display: block;
+    opacity: 1;
+  }
+
+  .rml-container--inactive {
+    display: none;
+  }
+
+  
+/*  .dc-modal { 
     position: fixed;
     z-index: 99999;
     left: -100%;
@@ -40,13 +62,13 @@
     opacity: 0;
     transition: 0.25s all ease-in-out;
     font-family: GT Walsheim Pro;
-  }
+  } 
 
   .dc-modal--active {
     opacity: 1;
     left: 0%;
     cursor: pointer;
-  }
+  } */
 
   .dc-modal__content form {
     position: relative;
@@ -607,6 +629,82 @@
         {% include 'custom_toolbar_modal' %}
       </div>
 
+      <div id="design-config" class="dc-form__inline dc-modal firstpop" data-modal>
+        <div class="dc-modal__content" data-modal-content>
+          <div  style="display:none" id="top-heading" class="top-heading">You’re about to build your dream door! Fill in the form to
+            continue.</div>
+          <div class="summary-head" id="summary-head" style="display:none">
+            <span>Door Builder Summary</span>
+          </div>
+          <div class="sub-head-section" id="contact-head">
+            <h3>Receive Your Specs</h3>
+            <span>In order to help us better assist you, please fill out the contact form below</span>
+          </div>
+
+
+          {% form 'contact'  %}
+
+            <div id="dc-modal__image" class="dc-modal__image" style="display:none;">
+              <img form-image src="" alt="">
+            </div>
+            <div style="display:none;" id="dc-modal__summary" class="dc-modal__params" form-params></div>
+
+            <div class="message" style="display:none;">
+              <label for="message">Message</label>
+              <textarea name="contact[body]" id="message"></textarea>
+            </div>
+
+            <div class="dc-modal__submit">
+              <div id="dc-modal__contact-info" class="dc-modal__submit-info" form-info>
+                <div class="form-group-row">
+                  <div class="form-floating">
+                    <input onkeyup="checkData()" id="fname" class="form-control" type="text"
+                          name="contact[first_name]" placeholder="First Name*">
+                    <label for="floatingInput">First Name <span class="required-txt">*</span></label>
+                    <p class="error" id="fnameerror"></p>
+
+                  </div>
+                  <div class="form-floating">
+                    <input onkeyup="checkData()" id="lname" class="form-control" type="text"
+                          name="contact[last_name]" placeholder="Last Name*">
+                    <label for="floatingInput">Last Name <span class="required-txt">*</span></label>
+                    <p class="error" id="lnameerror"></p>
+                  </div>
+                </div>
+                <div class="form-floating">
+                  <input onkeyup="checkData()" id="cemail" class="form-control" type="email" name="contact[email]"
+                        placeholder="Email Address*">
+                  <label for="floatingInput">Email address <span class="required-txt">*</span></label>
+                  <p class="error" id="emailerror"></p>
+                </div>
+                <div class="form-floating">
+                  <input onkeyup="checkData()" id="telnum" class="form-control" type="tel" name="contact[phone]"
+                        placeholder="Contact Number*">
+                  <label for="floatingInput">Phone Number <span class="required-txt">*</span></label>
+                  <p class="error" id="phoneerror"></p>
+                </div>
+
+                <div class="form-floating">
+                  <input onkeyup="checkData()" id="ProjectAddress" class="form-control" type="text"
+                        name="contact[Project_Address]" placeholder="ProjectAddress Address*">
+                  <label for="floatingInput">Project Address <span class="required-txt">*</span></label>
+                  <p class="error" id="ProjectAddresserror"></p>
+                </div>
+              </div>
+              <p form-errors></p>
+
+              <div class="button-holder-wrap">
+                <a id="psm-cancel" style="display:none;" class="cancel-link">Cancel</a>
+                <input type="submit" disabled id="dc-modal__final-submit" class="dc-modal__submit-button"
+                      value="Submit">
+                <input type="button" style="display:none;" id="dc-modal__popup-submit"
+                      class="dc-modal__submit-button" value="Continue">
+              </div>
+            </div>
+          {% endform %}
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>
@@ -668,7 +766,7 @@
     </div>
 {% endform %} -->
 
-<div id="design-config" class="dc-modal firstpop" data-modal>
+{% comment %} <div id="design-config" class="dc-modal firstpop" data-modal>
   <div class="dc-modal__container">
     <div class="dc-modal__close" data-modal-close>
       <svg class="dc-modal__close-icon" viewBox="0 0 24 24">
@@ -753,7 +851,7 @@
       {% endform %}
     </div>
   </div>
-</div>
+</div> {% endcomment %}
 
 
 
@@ -793,6 +891,8 @@
     const formSubmitButton = modalContent.querySelector("#dc-modal__final-submit");
     const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const phoneValidation = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+    const doorConfigFrame = document.querySelector('rml-container');
+    console.log(doorConfigFrame)
 
     const createForm = (image, partlist, configuration) => {
       imageElement.src = image.image;
