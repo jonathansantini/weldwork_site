@@ -1390,6 +1390,7 @@
       },
       "1637420153c17c9d11": {
         "type": "reviewSection",
+        "disabled": true,
         "blocks": {
           "0db567a5-4295-4b4b-acee-910d8b2c1d46": {
             "type": "Review",
@@ -2375,6 +2376,8 @@
         "type": "Homepage_main_section",
         "settings": {
           "dark": true,
+          "sectionHeight": "",
+          "sectionHeightMobile": "",
           "marTop": "",
           "marBottom": "",
           "marTopMob": "",
@@ -2974,6 +2977,7 @@
       },
       "166290078196e37e00": {
         "type": "SubtitleNewSection",
+        "disabled": true,
         "settings": {
           "anchor": "0",
           "marTop": "0",
