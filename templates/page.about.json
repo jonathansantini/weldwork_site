@@ -549,11 +549,45 @@
             "subtextAlignMob": "center",
             "subtextMarBottomMob": ""
           }
+        },
+        "c269e726-36e4-4241-838c-eea06acc42b2": {
+          "type": "image",
+          "settings": {
+            "imgMarBottom": "",
+            "imgMobMarBottom": "",
+            "title1": "",
+            "title1Size": "",
+            "title1Line": "",
+            "title1Letter": "",
+            "title1Color": "",
+            "title1Align": "center",
+            "title1MarBottom": "",
+            "title1SizeMob": "",
+            "title1LineMob": "",
+            "title1LetterMob": "",
+            "title1ColorMob": "",
+            "title1AlignMob": "center",
+            "title1MarBottomMob": "",
+            "subtext": "Slide title",
+            "subtextSize": "",
+            "subtextLine": "",
+            "subtextLetter": "",
+            "subtextColor": "",
+            "subtextAlign": "center",
+            "subtextMarBottom": "",
+            "subtextSizeMob": "",
+            "subtextLineMob": "",
+            "subtextLetterMob": "",
+            "subtextColorMob": "",
+            "subtextAlignMob": "center",
+            "subtextMarBottomMob": ""
+          }
         }
       },
       "block_order": [
         "d84f66ee-e36a-4d4a-9e06-75029e627ce8",
-        "283975df-bdab-442a-acf5-9838f747fdc7"
+        "283975df-bdab-442a-acf5-9838f747fdc7",
+        "c269e726-36e4-4241-838c-eea06acc42b2"
       ],
       "settings": {
         "marTop": "0",
