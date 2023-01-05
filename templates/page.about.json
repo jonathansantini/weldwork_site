@@ -338,7 +338,22 @@
     "b5fef37e-50b6-4a31-aeeb-62a08fe01d09": {
       "type": "featured-video",
       "settings": {
-        "heading": "Video"
+        "heading": "Video",
+        "video_url": ""
+      }
+    },
+    "6c4ef369-de06-46d1-a4bb-afa265ce6b58": {
+      "type": "Facility_slider",
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "0",
+        "padBottom": "100",
+        "padTopMob": "42",
+        "padBottomMob": "68",
+        "backgroundColor": ""
       }
     },
     "90644bab-7e6d-4525-be9b-ef40b57c549d": {
@@ -1489,6 +1504,7 @@
     "237b6e28-aad1-4a3a-9711-8344855e9edd",
     "474508a5-d846-4c99-8ac0-65ffc24790e4",
     "b5fef37e-50b6-4a31-aeeb-62a08fe01d09",
+    "6c4ef369-de06-46d1-a4bb-afa265ce6b58",
     "90644bab-7e6d-4525-be9b-ef40b57c549d",
     "6838d9c4-82dc-4d19-aa33-1c89d9ce474d",
     "163776318544540332",
