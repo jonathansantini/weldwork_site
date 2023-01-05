@@ -291,6 +291,7 @@
     },
     "4628da98-cd94-488d-aa30-7f00f416621c": {
       "type": "imageText",
+      "disabled": true,
       "settings": {
         "marTop": "",
         "marBottom": "",
@@ -399,7 +400,7 @@
         "8130d4f1-6501-495f-8d64-86678f66b354": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Weldwork_Website_Made_To_Measure_Hero_2.jpg"
+            "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker.jpg"
           }
         },
         "fd9a888e-51dc-4825-ab96-98642ca0c1c0": {
