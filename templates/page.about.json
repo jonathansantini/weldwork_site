@@ -147,6 +147,43 @@
     },
     "a2a1f1bf-ebd6-4286-b670-4d5a6d76272a": {
       "type": "SecondImagetext",
+      "blocks": {
+        "78492063-3d0f-441d-b95e-6635f2913b8d": {
+          "type": "Block",
+          "settings": {
+            "heading": "Slide title",
+            "headtextSize": "",
+            "headtextSizeMobile": "",
+            "heading-weight": "",
+            "heading-weight-mobile": "",
+            "heading-line-height": "",
+            "heading-line-height-mobile": "",
+            "heading-letter-spacing": "",
+            "heading-letter-spacing-mobile": "",
+            "headtextColor": "",
+            "headtextColorMob": "",
+            "heaindsubtextAlign": "center",
+            "heaindsubtextAlign_mobile": "center",
+            "subtext": "Slide title",
+            "weight": "",
+            "subtextSize": "",
+            "subtextLine": "",
+            "subtextLetter": "",
+            "subtextColor": "",
+            "subtextAlign": "center",
+            "subtextMarBottom": "",
+            "subtextSizeMob": "",
+            "subtextLineMob": "",
+            "subtextLetterMob": "",
+            "subtextColorMob": "",
+            "subtextAlignMob": "center",
+            "subtextMarBottomMob": ""
+          }
+        }
+      },
+      "block_order": [
+        "78492063-3d0f-441d-b95e-6635f2913b8d"
+      ],
       "settings": {
         "marTop": "",
         "marBottom": "",
