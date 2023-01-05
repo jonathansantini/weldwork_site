@@ -344,12 +344,30 @@
     },
     "6c4ef369-de06-46d1-a4bb-afa265ce6b58": {
       "type": "Facility_slider",
+      "blocks": {
+        "8130d4f1-6501-495f-8d64-86678f66b354": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Weldwork_Website_Made_To_Measure_Hero_2.jpg"
+          }
+        },
+        "fd9a888e-51dc-4825-ab96-98642ca0c1c0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Weldwork_Website_About_Us_Hero.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "8130d4f1-6501-495f-8d64-86678f66b354",
+        "fd9a888e-51dc-4825-ab96-98642ca0c1c0"
+      ],
       "settings": {
         "marTop": "",
         "marBottom": "",
         "marTopMob": "",
         "marBottomMob": "",
-        "padTop": "0",
+        "padTop": "100",
         "padBottom": "100",
         "padTopMob": "42",
         "padBottomMob": "68",
