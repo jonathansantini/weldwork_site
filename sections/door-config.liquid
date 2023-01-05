@@ -33,8 +33,8 @@
     display: none;
     position: absolute;
     z-index: 99999;
-    max-width: 1206px;
-    max-height: 684px;
+  /*  max-width: 1206px;
+    max-height: 684px; */
     background: var(--color-body)
     opacity: 0;
     transition: 0.25s all ease-in-out;
@@ -70,12 +70,19 @@
     cursor: pointer;
   } */
 
+  .dc-modal__content {
+    background-color: #F5F1EB;
+    border: 1px solid;
+    padding: 50px 10px;
+    max-height: 684px;
+  }
+
   .dc-modal__content form {
     position: relative;
   }
 
   .dc-modal__container {
-    cursor: default;
+  /*  cursor: default;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -87,7 +94,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, .5);
     max-height: 96%;
     overflow-y: auto;
-    text-align: center;
+    text-align: center; */
   }
 
   .product-summary-modal .dc-modal__container {
@@ -96,10 +103,19 @@
   }
 
   .summary-head {
-    background-color: #F4F0EA;
+    /* background-color: #F4F0EA;
     padding: 0.80rem;
     font-size: 16px;
-    margin: -24px -24px 24px -24px;
+    margin: -24px -24px 24px -24px; */
+
+    background-color: #F5F1EB;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 30px;
+    /* identical to box height, or 62% */
+    text-align: center;
+
+
   }
 
   .dc-modal__heading {
@@ -176,19 +192,24 @@
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-align: start;
+   /* -webkit-box-align: start;
     -ms-flex-align: start;
-    align-items: flex-start;
+     align-items: flex-start; */
+     align-items: center;
   }
 
   .dc-modal__image {
     background-color: #F7F7F7;
-    width: 41%;
+    /* width: 41%; */
+    width: 28%
   }
 
   .dc-modal__params {
+    flex-direction: column;
+    flex-wrap: wrap;
     width: 59%;
     padding-left: 50px;
+    max-height: 460px;
   }
 
   .dc-modal__param {
@@ -891,10 +912,13 @@
     const formSubmitButton = modalContent.querySelector("#dc-modal__final-submit");
     const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const phoneValidation = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+
     const doorConfigFrame = document.querySelector('rml-container');
-    console.log(doorConfigFrame)
+    console.log("here");
+    
 
     const createForm = (image, partlist, configuration) => {
+      console.log(partlist.fullList[0].parameters)
       imageElement.src = image.image;
       imageElement.alt = configuration.label;
 
@@ -990,7 +1014,7 @@
       const modalImage = document.getElementById("dc-modal__image");
       const fnameval = document.getElementById("fname").value;
       targetDiv.style.display = "block";
-      modalsummary.style.display = "block";
+      modalsummary.style.display = "flex";
       cancelDiv.style.display = "block";
       modalImage.style.display = "block";
       contactDiv.style.display = "none";
