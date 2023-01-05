@@ -23,7 +23,7 @@
         "padBottomMob": "",
         "padLeftMob": "20",
         "padRightMob": "20",
-        "backgroundImage": "shopify:\/\/shop_images\/22revisedtv10.jpg",
+        "backgroundImage": "shopify:\/\/shop_images\/Weldwork_Website_Careers_Hero.jpg",
         "backgroundImageMob": "shopify:\/\/shop_images\/image_24_2_9ae98ad5-26eb-4511-9b5f-91138dbaac23.png",
         "title": "Looking for a place to make an impact?",
         "titleSize": "64",
@@ -207,6 +207,7 @@
     },
     "1664360239ceb72962": {
       "type": "CareersImageSection",
+      "disabled": true,
       "settings": {
         "marTop": "",
         "marBottom": "",
