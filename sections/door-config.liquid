@@ -432,7 +432,7 @@
   }
 
   .container-door-config .jdgm-all-reviews-page__wrapper {
-    max-width: 90vw;
+    max-width: 95vw;
   }
 
   /**********************************/
@@ -565,7 +565,6 @@
     margin-bottom: 0;
   }
 
-
   @media(max-width:1366px){
     .dc-modal__container {
       padding:40px;
@@ -690,6 +689,18 @@
 
     .dc-modal__submit-info {
       padding: 0 10px;
+    }
+
+    .dc-modal--active {
+      align-items: center;
+    }
+
+    .config-modal-active #configurator-container {
+      height: 1300px;
+    }
+
+    .config-modal-active .dc-modal {
+      height: 1150px;
     }
 
   }
@@ -1143,6 +1154,10 @@
       document.getElementById("dc-modal__final-submit").disabled = false;
       document.getElementById("dc-modal__popup-submit").style.display = "block";
       document.getElementById("dc-modal__final-submit").style.display = "none";
+
+      if ( !document.querySelector('body').classList.contains('config-modal-active') ) {
+        document.querySelector('body').classList.add('config-modal-active');
+      }
     };
 
     modal.addEventListener('click', (e) => {
@@ -1351,6 +1366,10 @@ console.log("isValid", isValid)
     jQuery('.dc-modal__params').text('');
     const modal = document.querySelector('[data-modal]');
     modal.classList.remove('dc-modal--active');
+
+    if ( document.querySelector('body').classList.contains('config-modal-active') ) {
+      document.querySelector('body').classList.remove('config-modal-active');
+    }
   })
 
   // document.addEventListener("click", (e) => {
@@ -1434,6 +1453,10 @@ console.log("isValid", isValid)
     if(event.target === document.querySelector('.firstpop')) {
       const modal = document.querySelector('[data-modal]');
       modal.classList.add('dc-modal--active');
+
+      if ( !document.querySelector('body').classList.contains('config-modal-active') ) {
+        document.querySelector('body').classList.add('config-modal-active');
+      }
     }  };
   $(document).ready(function() {
     $(window).keydown(function(event){
