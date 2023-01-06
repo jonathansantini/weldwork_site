@@ -35,7 +35,9 @@
     z-index: 99999;
   /*  max-width: 1206px;
     max-height: 684px; */
-    background: var(--color-body)
+    width: 1200px;
+    height: 684px;
+    background: #F5F1EB;
     opacity: 0;
     transition: 0.25s all ease-in-out;
     font-family: GT Walsheim Pro;
@@ -45,6 +47,13 @@
     display: block;
     opacity: 1;
   }
+
+  . {
+    display: flex;
+    width: 1200px;
+    height: 684px;
+    border: solid 1px black;
+  } 
 
   .rml-container--inactive {
     display: none;
@@ -73,7 +82,7 @@
   .dc-modal__content {
     background-color: #F5F1EB;
     border: 1px solid;
-    padding: 50px 10px;
+    padding: 50px;
     max-height: 684px;
   }
 
@@ -196,6 +205,8 @@
     -ms-flex-align: start;
      align-items: flex-start; */
      align-items: center;
+     justify-content: space-evenly;
+     padding: 50px 0;
   }
 
   .dc-modal__image {
@@ -207,9 +218,10 @@
   .dc-modal__params {
     flex-direction: column;
     flex-wrap: wrap;
-    width: 59%;
+    width: 62%;
+    max-height: 350px;
+    margin-top: 25px;
     padding-left: 50px;
-    max-height: 460px;
   }
 
   .dc-modal__param {
@@ -223,9 +235,9 @@
 
   .dc-modal__param p {
     margin: 0;
-    font-size: 15px;
+    font-size: 18px;
+    line-height: 20px;
     color: #5E5E5E;
-    padding: 0.5rem;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -238,16 +250,13 @@
   }
 
   .product-summary-modal .dc-modal__submit {
-    border-top: 1px solid #C3C3C3;
-    padding-top: 24px;
+    padding-top: 50px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: flex-end;
-    margin-left: -24px;
-    margin-right: -24px;
+    justify-content: center;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -260,17 +269,18 @@
     cursor: pointer;
     font-style: normal;
     font-weight: 600;
-    border: 1px solid black;
-    background-color: black;
-    color: white;
+    border: 1px solid #484849;
+    background-color: #F5F1EB;
+    color: #484849;
     transition: 0.25s all ease-in-out;
     border-radius: 0;
     padding: 1rem;
     font-family: GT Walsheim Pro;
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 0;
-    min-width: 180px;
+    min-width: 240px;
     width: 100%;
+    line-height: 27px
   }
 
   .product-summary-modal .button-holder-wrap {
@@ -283,11 +293,10 @@
   }
 
   .product-summary-modal .button-holder-wrap .cancel-link {
-    font-size: 14px;
-    color: #000;
-    margin-right: 40px;
+    margin:4px 40px 0 0;
     display: inline-block;
     cursor: pointer;
+    text-align: center;
   }
 
 
@@ -563,7 +572,31 @@
 
   }
 
+  @media (max-width:1024px){
+    .dc-modal {
+      width: 100%;
+    }
+    .dc-modal__content {
+      max-height: unset;
+    }
+
+    .dc-modal__params{
+      padding-left: 0;
+    }
+
+    .dc-modal__param p {
+      font-size: 13px;
+    }
+
+    .dc-modal__submit .dc-modal__submit-button {
+      font-size: 14px;
+      min-width: 150px;
+    }
+  }
+
   @media (max-width:767px) {
+
+
     .dc-modal__image {
       width: 100%;
       margin-bottom: 24px;
@@ -576,11 +609,12 @@
     .dc-modal__params {
       width: 100%;
       padding-left: 0;
+      flex-wrap: nowrap;
     }
 
     .dc-modal .top-heading,
     .summary-head {
-      font-size: 14px;
+      font-size: 24px;
     }
 
     .dc-modal .sub-head-section h3 {
@@ -624,6 +658,11 @@
       margin-right: -20px;
       padding-left: 20px;
       padding-right: 20px;
+    }
+
+    .dc-modal__submit .dc-modal__submit-button {
+      font-size: 14px;
+      min-width: 100px;
     }
 
   }
@@ -715,7 +754,7 @@
               <p form-errors></p>
 
               <div class="button-holder-wrap">
-                <a id="psm-cancel" style="display:none;" class="cancel-link">Cancel</a>
+                <a id="psm-cancel" style="display:none;" class="cancel-link dc-modal__submit-button">Go Back</a>
                 <input type="submit" disabled id="dc-modal__final-submit" class="dc-modal__submit-button"
                       value="Submit">
                 <input type="button" style="display:none;" id="dc-modal__popup-submit"
