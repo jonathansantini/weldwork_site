@@ -29,7 +29,7 @@
     position: relative;
   }
 
-.dc-modal {
+  .dc-modal {
     display: none;
     position: absolute;
     z-index: 99999;
@@ -83,7 +83,6 @@
   .dc-modal__content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 
     background-color: #F5F1EB;
     
@@ -127,6 +126,7 @@
     margin: -24px -24px 24px -24px; */
 
     background-color: #F5F1EB;
+    font-family: Captain Cadet Display;
     font-weight: 400;
     font-size: 48px;
     line-height: 30px;
@@ -157,11 +157,14 @@
 
 
   .dc-modal .sub-head-section h3 {
-    font-family: GT Walsheim Pro;
+    font-family: Captain Cadet Display;
     text-transform: capitalize;
-    font-size: 1.7rem;
+    font-size: 48px;
+    line-height: 30px;
+    font-weight: 400;
     color: #000;
     letter-spacing: normal;
+
   }
   
   .dc-modal .sub-head-section span {
@@ -169,7 +172,9 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    font-weight: 350;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
     margin-bottom: 30px;
   }
 
@@ -205,9 +210,6 @@
     top: 10px;
   }
 
-  #dc-modal__popup-submit {
-    margin-top: 4px;
-  }
 
   .product-summary-modal .contact-form {
     display: -webkit-box;
@@ -293,11 +295,11 @@
     font-size: 18px;
     margin-bottom: 0;
     min-width: 240px;
-    width: 100%;
+    width: auto;
     line-height: 27px
   }
 
-  .product-summary-modal .button-holder-wrap {
+  .button-holder-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -306,17 +308,17 @@
     align-items: center;
   }
 
-  .product-summary-modal .button-holder-wrap .cancel-link {
-    margin:4px 40px 0 0;
+  .dc-modal:not(.product-summary-modal) .button-holder-wrap {
+    padding-top: 25px;
+  }
+
+  .button-holder-wrap .cancel-link {
+    margin: 0 40px 0 0;
     display: inline-block;
     cursor: pointer;
     text-align: center;
   }
 
-
-  .product-summary-modal .dc-modal__submit-button {
-    width: auto;
-  }
 
   .dc-modal__submit .dc-modal__submit-button:hover {
     background-color: white;
@@ -369,10 +371,7 @@
   .required-txt {
     color: #DC0000;
   }
-
-  .custom-modal-content-holder p:last-of-type {
-    margin-bottom: 0;
-  }
+  
 
   div:not([class="custom-modal-header"]) .close-modal {
     position: absolute;
@@ -381,7 +380,10 @@
   }
 
   body .modal-configuration .modal-title {
-    font-size: 32px;
+    font-family: Captain Cadet Display;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 30px;
   }
 
   .modal-button-black {
@@ -402,12 +404,10 @@
 
   .modal-configuration .custom-modal-action {
     margin-top: 24px;
-    justify-content: center;
+    justify-content: space-evenly;
+    width: 800px;
   }
 
-  .custom-modal-content-holder {
-    max-width: 393px;
-  }
 
   .modal-configuration .custom-modal-dialog {
     min-height: 40vh;
@@ -553,9 +553,6 @@
     color: #fff;
   }
 
-  #dc-modal__popup-submit:hover {
-    background: #C3C3C3;
-  }
 
   #emailerror,
   #lnameerror,
@@ -579,19 +576,16 @@
     }
   }
 
-  @media (max-width:991px) {
-    .dc-modal__param p {
-      font-size: 13px;
-    }
-
-  }
-
   @media (max-width:1024px){
     .dc-modal {
       width: 100%;
     }
     .dc-modal__content {
       max-height: unset;
+    }
+
+    .summary-head {
+      font-size: 36px;
     }
 
     .dc-modal__params{
@@ -604,8 +598,14 @@
 
     .dc-modal__submit .dc-modal__submit-button {
       font-size: 14px;
-      min-width: 150px;
     }
+  }
+
+  @media (max-width:991px) {
+    .dc-modal__param p {
+      font-size: 13px;
+    }
+
   }
 
   @media (max-width:767px) {
@@ -678,7 +678,14 @@
 
     .dc-modal__submit .dc-modal__submit-button {
       font-size: 14px;
-      min-width: 100px;
+    }
+
+    .button-holder-wrap {
+      flex-direction: column;
+    }
+
+    .button-holder-wrap .cancel-link {
+      margin: 0 0 25px 0;
     }
 
   }
@@ -703,6 +710,27 @@
 
       <div class="toolbar_modal">
         {% include 'custom_toolbar_modal' %}
+      </div>
+
+      <div class="custom-modal text-center modal-configuration" id="configuration-modal" data-animation="slideInOutLeft">
+        <div class="custom-modal-dialog arrow-box-left">
+          <div class="custom-modal-dialog-holder">
+            <button class="close-modal config-modal-close" aria-label="close modal" data-close>
+              ✕
+            </button>
+            <div class="custom-modal-content">
+              <div class="custom-modal-content-holder">
+                <h2 class="modal-title">Configuration Sent</h2>
+                <p>Thank you for choosing Weldwork.</p>
+                <p>One of our team members will reach out to you within 24 hours to discuss your project.</p>
+                <div class="custom-modal-action">
+                  <a href="https://www.roomle.com/t/cp/ar.html?id=weldwork%3Adoor_system%3A58E37EF3D84C8AA555D4132D8FC19947C3739B2A865A8EF8F52667F3A4EBCF60&configuratorId=demoConfigurator" target="_blank" class="modal-button">View your door in your space</a>
+                  <a href="https://www.weldwork.com/pages/door-configurator" target="_blank" class="modal-button" > Build another door or partition</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div id="design-config" class="dc-form__inline dc-modal firstpop" data-modal>
@@ -771,6 +799,7 @@
 
               <div class="button-holder-wrap">
                 <a id="psm-cancel" style="display:none;" class="cancel-link dc-modal__submit-button">Go Back</a>
+                <a id="final-cancel" style="display:none;" class="cancel-link dc-modal__submit-button">Go Back</a>
                 <input type="submit" disabled id="dc-modal__final-submit" class="dc-modal__submit-button"
                       value="Submit">
                 <input type="button" style="display:none;" id="dc-modal__popup-submit"
@@ -785,7 +814,7 @@
   </div>
 </div>
 
-<div class="custom-modal text-center modal-configuration" id="configuration-modal" data-animation="slideInOutLeft">
+{% comment %} <div class="custom-modal text-center modal-configuration" id="configuration-modal" data-animation="slideInOutLeft">
   <div class="custom-modal-dialog arrow-box-left">
     <div class="custom-modal-dialog-holder">
       <button class="close-modal config-modal-close" aria-label="close modal" data-close>
@@ -808,7 +837,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> {% endcomment %}
 
 
 
@@ -964,6 +993,7 @@
     const errorsElement = form.querySelector('[form-errors]');
     const inputs = infoElement.querySelectorAll('input');
     const continueButton = modalContent.querySelector("#dc-modal__popup-submit");
+    const finalCancel = document.getElementById("final-cancel");
     const formSubmitButton = modalContent.querySelector("#dc-modal__final-submit");
     const emailValidation = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const phoneValidation = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
@@ -1022,12 +1052,40 @@
       return validations;
     }
 
+    const returnSummary = () => {
+      var element = document.getElementById("design-config");
+      element.classList.add("product-summary-modal");
+      element.classList.remove("firstpop");
+      const targetDiv = document.getElementById("summary-head");
+      const cancelDiv = document.getElementById("psm-cancel");
+      const finalCancel = document.getElementById("final-cancel");
+      const contactHead = document.getElementById("contact-head");
+      const contactDiv = document.getElementById("top-heading");
+      const modalsummary = document.getElementById("dc-modal__summary");
+      const contactfrminfo = document.getElementById("dc-modal__contact-info");
+      const modalImage = document.getElementById("dc-modal__image");
+      const fnameval = document.getElementById("fname").value;
+      targetDiv.style.display = "block"
+      modalsummary.style.display = "flex";
+      cancelDiv.style.display = "block";
+      modalImage.style.display = "block";
+      contactDiv.style.display = "none";
+      finalCancel.style.display = "none"
+      contactfrminfo.style.display = "none";
+      contactHead.style.display = "none";
+
+      document.getElementById("dc-modal__popup-submit").style.display = "block";
+      document.getElementById("dc-modal__final-submit").style.display = "none";
+
+    }
+
     const showContactForm = () => {
       var element = document.getElementById("design-config");
       element.classList.remove("product-summary-modal");
       element.classList.add("firstpop");
       const targetDiv = document.getElementById("summary-head");
       const cancelDiv = document.getElementById("psm-cancel");
+      const finalCancel = document.getElementById("final-cancel");
       const contactHead = document.getElementById("contact-head");
       const contactDiv = document.getElementById("top-heading");
       const modalsummary = document.getElementById("dc-modal__summary");
@@ -1039,6 +1097,7 @@
       cancelDiv.style.display = "none";
       modalImage.style.display = "none";
       contactDiv.style.display = "none";
+      finalCancel.style.display = "block"
       contactfrminfo.style.display = "block";
       contactHead.style.display = "block";
 
@@ -1062,6 +1121,7 @@
       element.classList.remove("firstpop");
       const targetDiv = document.getElementById("summary-head");
       const cancelDiv = document.getElementById("psm-cancel");
+      const finalCancel = document.getElementById("final-cancel");
       const contactHead = document.getElementById("contact-head");
       const contactDiv = document.getElementById("top-heading");
       const modalsummary = document.getElementById("dc-modal__summary");
@@ -1072,6 +1132,7 @@
       modalsummary.style.display = "flex";
       cancelDiv.style.display = "block";
       modalImage.style.display = "block";
+      finalCancel.style.display = "none"
       contactDiv.style.display = "none";
       contactfrminfo.style.display = "none";
       contactHead.style.display = "none";
@@ -1106,6 +1167,13 @@
       console.log(continueButton)
       populateContactForm();
       showContactForm()
+    })
+
+    finalCancel.addEventListener('click', e => {
+      e.preventDefault();
+      console.log(finalCancel);
+      returnSummary()
+      
     })
 
     formSubmitButton.addEventListener('click', e => {

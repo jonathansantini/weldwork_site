@@ -30,11 +30,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
     .custom-modal {
         font-family: "GT Walsheim Pro";
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        position: absolute;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -45,14 +41,19 @@
         -ms-flex-pack: center;
         justify-content: center;
         padding: 1rem;
-        background: rgba(0, 0, 0, 0.5);
+        background: #F5F1EB;
         cursor: pointer;
         visibility: hidden;
         opacity: 0;
         -webkit-transition: all 0.35s ease-in;
         -o-transition: all 0.35s ease-in;
         transition: all 0.35s ease-in;
-        z-index: 999;
+        z-index: 9999;
+        max-width: 1200px;
+        max-height: 684px;
+        width: 1200px;
+        height: 684px;
+        border: 1px solid;
     }
 
     .modal-tutorial::after {
@@ -90,7 +91,7 @@
         max-width: 750px;
         max-height: 80vh;
         border-radius: 5px;
-        background: #fff;
+        background: #F5F1EB;
         cursor: default;
     }
 
@@ -134,7 +135,6 @@
     }
 
     .custom-modal-content-holder {
-        max-width: 310px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -187,9 +187,16 @@
     }
 
     .custom-modal p {
-        font-size: 16px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 27px;
         color: black;
-        line-height: 24px;
+        max-width: 384px;
+        margin: 50px auto;
+    }
+
+    .custom-modal-content-holder p:nth-child(2) {
+        color: #838484;
     }
 
     .text-center {
@@ -234,6 +241,51 @@
         -ms-flex-align: center;
         align-items: center;
         margin-top: 40px;
+    }
+
+    .modal-button {
+        cursor: pointer;
+        font-style: normal;
+        font-weight: 600;
+        border: 1px solid #484849;
+        background-color: #F5F1EB;
+        color: #484849;
+        transition: 0.25s all ease-in-out;
+        border-radius: 0;
+        padding: 1rem;
+        font-family: GT Walsheim Pro;
+        font-size: 18px;
+        margin-bottom: 0;
+        min-width: 240px;
+        width: 45%;
+        line-height: 27px
+    }
+
+    .modal-button:hover {
+        background-color: white;
+        color: black;
+    }
+
+    @media (max-width:1024px){
+        .custom-modal {
+            width: 100%;
+            max-width: unset;
+            max-height: unset;
+        }
+
+        .modal-configuration .custom-modal-action {
+            width: 100%;
+        }
+    }
+
+    @media (max-width:767px){
+        .modal-configuration .custom-modal-action {
+            width: 100%;
+            flex-direction: column;
+        }
+        .modal-configuration .custom-modal-action a:first-child{
+            margin-bottom: 25px;
+        }
     }
 
 
