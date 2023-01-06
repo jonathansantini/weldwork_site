@@ -598,6 +598,7 @@
         "c269e726-36e4-4241-838c-eea06acc42b2": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Frame-4.png",
             "imgMarBottom": "33",
             "imgMobMarBottom": "33",
             "title1": "Designers",
