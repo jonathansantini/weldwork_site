@@ -632,6 +632,7 @@
         "e536330d-ff47-44e9-886c-5bbc36c667ec": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Frame-3.png",
             "imgMarBottom": "33",
             "imgMobMarBottom": "33",
             "title1": "Builders",
