@@ -37,7 +37,7 @@
   
   }
 </style>
-<div class="flexDiv fullWidth applyAnimation">
+<div class="flexDiv fullWidth applyAnimation{% if section.settings.reverse_order %} reverseOrder{% endif %}">
     <div class="textDiv-{{ section.id }} come-in-1">
     <style>
       {% assign boxDiv = 100 | minus: section.settings.textWidth | minus: section.settings.textMargin %}
@@ -69,6 +69,9 @@
         	width: {{ boxDiv2 }}%;
         }
       {% endif %}
+      }
+      .reverseOrder {
+        flex-flow: row-reverse;
       }
     </style>
       {% if section.settings.image != blank %}
@@ -238,6 +241,11 @@
           "id": "image",
           "label": "Image"
         },
+      {
+        "type": "checkbox",
+        "id": "reverse_order",
+        "label": "Reverse Order"
+      },
 		{
           "type": "text",
           "id": "textWidth",

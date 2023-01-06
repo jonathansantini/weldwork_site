@@ -39,7 +39,7 @@
         "titleColorMob": "#ffffff",
         "titleAlignMob": "left",
         "titleMarBottomMob": "20",
-        "subtext": "Weldwork is the premier name in luxury steel interior doors and partitions.",
+        "subtext": "As an award-winning team of fabricators and engineers, we see every\nproject as a unique opportunity to blend art and function. Handcrafted\nand locally sourced right here in the U.S.A., we create luxury steel\nsolutions that stand the test of time.",
         "subtextSize": "20",
         "subtextLine": "150",
         "subtextLetter": "0",
@@ -145,8 +145,72 @@
         "buttonText": ""
       }
     },
+    "a2a1f1bf-ebd6-4286-b670-4d5a6d76272a": {
+      "type": "SecondImagetext",
+      "blocks": {
+        "78492063-3d0f-441d-b95e-6635f2913b8d": {
+          "type": "Block",
+          "settings": {
+            "heading": "Why we started",
+            "headtextSize": "56",
+            "headtextSizeMobile": "",
+            "heading-weight": "",
+            "heading-weight-mobile": "",
+            "heading-line-height": "",
+            "heading-line-height-mobile": "",
+            "heading-letter-spacing": "",
+            "heading-letter-spacing-mobile": "",
+            "headtextColor": "#000000",
+            "headtextColorMob": "#000000",
+            "heaindsubtextAlign": "left",
+            "heaindsubtextAlign_mobile": "center",
+            "subtext": "With roots in steel door manufacturing dating back to 1977, Weldwork was founded to bring innovative design, quality craftsmanship, and a customer-first mentality to the industry.",
+            "weight": "",
+            "subtextSize": "24",
+            "subtextLine": "",
+            "subtextLetter": "",
+            "subtextColor": "#000000",
+            "subtextAlign": "left",
+            "subtextMarBottom": "",
+            "subtextSizeMob": "",
+            "subtextLineMob": "",
+            "subtextLetterMob": "",
+            "subtextColorMob": "",
+            "subtextAlignMob": "center",
+            "subtextMarBottomMob": ""
+          }
+        }
+      },
+      "block_order": [
+        "78492063-3d0f-441d-b95e-6635f2913b8d"
+      ],
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "100",
+        "padBottom": "100",
+        "padLeft": "145",
+        "padRight": "145",
+        "padTopMob": "",
+        "padBottomMob": "",
+        "padLeftMob": "",
+        "padRightMob": "",
+        "backgroundColor": "#f4f0ea",
+        "image": "shopify:\/\/shop_images\/Weldwork_About_Us_why_we_started.jpg",
+        "reverse_order": true,
+        "textWidth": "25",
+        "textMargin": "5",
+        "textWidthMob": "100",
+        "textMarginMob": "0",
+        "link": "",
+        "linkText": ""
+      }
+    },
     "50b4ee99-4e26-4a1e-b51c-3bf294408596": {
       "type": "titleText",
+      "disabled": true,
       "settings": {
         "titleWidth": "42.37",
         "titleMargin": "8.92",
@@ -195,6 +259,7 @@
     },
     "97fdcb49-be8e-4788-ae05-ef89d1e7e415": {
       "type": "titleText",
+      "disabled": true,
       "settings": {
         "titleWidth": "42.37",
         "titleMargin": "8.92",
@@ -243,6 +308,7 @@
     },
     "237b6e28-aad1-4a3a-9711-8344855e9edd": {
       "type": "titleText",
+      "disabled": true,
       "settings": {
         "titleWidth": "42.37",
         "titleMargin": "8.92",
@@ -289,6 +355,58 @@
         "subtextMarBottomMob": ""
       }
     },
+    "4628da98-cd94-488d-aa30-7f00f416621c": {
+      "type": "imageText",
+      "disabled": true,
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "50",
+        "padBottom": "119",
+        "padLeft": "177",
+        "padRight": "186",
+        "padTopMob": "",
+        "padBottomMob": "",
+        "padLeftMob": "",
+        "padRightMob": "",
+        "backgroundColor": "",
+        "image": "shopify:\/\/shop_images\/Weldwork_About_Us_why_we_started.jpg",
+        "textWidth": "",
+        "textMargin": "",
+        "textWidthMob": "",
+        "textMarginMob": "",
+        "title": "Why we started",
+        "titleSize": "40",
+        "titleLine": "40",
+        "titleLetter": "0",
+        "titleColor": "#1f2021",
+        "titleAlign": "left",
+        "titleMarBottom": "",
+        "titleSizeMob": "",
+        "titleLineMob": "",
+        "titleLetterMob": "",
+        "titleColorMob": "",
+        "titleAlignMob": "center",
+        "titleMarBottomMob": "",
+        "subtext": "With roots in steel door manufacturing dating back to 1977,\nWeldwork was founded to bring innovative design, quality\ncraftsmanship, and a customer-first mentality to the industry.",
+        "subtextSize": "16",
+        "subtextLine": "",
+        "subtextLetter": "",
+        "subtextColor": "#1f2021",
+        "subtextAlign": "center",
+        "subtextMarBottom": "",
+        "subtextSizeMob": "",
+        "subtextLineMob": "",
+        "subtextLetterMob": "",
+        "subtextColorMob": "",
+        "subtextAlignMob": "center",
+        "subtextMarBottomMob": "",
+        "link": "",
+        "linkText": ""
+      }
+    },
     "474508a5-d846-4c99-8ac0-65ffc24790e4": {
       "type": "subtitle-title",
       "settings": {
@@ -307,7 +425,7 @@
         "padRightMob": "43",
         "backgroundColor": "#000000",
         "subtext": "Our Michigan Facility",
-        "subtextSize": "16",
+        "subtextSize": "20",
         "subtextWeight": "400",
         "subtextLine": "20.8",
         "subtextLetter": "0",
@@ -338,7 +456,47 @@
     "b5fef37e-50b6-4a31-aeeb-62a08fe01d09": {
       "type": "featured-video",
       "settings": {
-        "heading": "Video"
+        "heading": "Video",
+        "video_url": ""
+      }
+    },
+    "6c4ef369-de06-46d1-a4bb-afa265ce6b58": {
+      "type": "Facility_slider",
+      "blocks": {
+        "8130d4f1-6501-495f-8d64-86678f66b354": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ezgif.com-gif-maker.jpg"
+          }
+        },
+        "fd9a888e-51dc-4825-ab96-98642ca0c1c0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/5_1500x_33d0b779-91ec-4990-bca6-5c0a21ed2759.png"
+          }
+        },
+        "123156c7-078a-43fa-af6a-258955d2a1b0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2_1500x_fdb95e87-28a1-46e7-ac32-380a5db5e0b6.png"
+          }
+        }
+      },
+      "block_order": [
+        "8130d4f1-6501-495f-8d64-86678f66b354",
+        "fd9a888e-51dc-4825-ab96-98642ca0c1c0",
+        "123156c7-078a-43fa-af6a-258955d2a1b0"
+      ],
+      "settings": {
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "100",
+        "padBottom": "100",
+        "padTopMob": "42",
+        "padBottomMob": "68",
+        "backgroundColor": "#000000"
       }
     },
     "90644bab-7e6d-4525-be9b-ef40b57c549d": {
@@ -358,7 +516,7 @@
         "padLeftMob": "",
         "padRightMob": "",
         "backgroundColor": "#f4f0ea",
-        "subtext": "From design and materials to fabrication and installation, it hasbeen our pleasure to provide custom steel enclosures to a variety ofindustries including hotels, restaurants, retail, and high-end office space.",
+        "subtext": "",
         "subtextSize": "16",
         "subtextWeight": "400",
         "subtextLine": "24",
@@ -457,11 +615,79 @@
             "subtextAlignMob": "center",
             "subtextMarBottomMob": ""
           }
+        },
+        "c269e726-36e4-4241-838c-eea06acc42b2": {
+          "type": "image",
+          "settings": {
+            "imgMarBottom": "",
+            "imgMobMarBottom": "",
+            "title1": "",
+            "title1Size": "",
+            "title1Line": "",
+            "title1Letter": "",
+            "title1Color": "",
+            "title1Align": "center",
+            "title1MarBottom": "",
+            "title1SizeMob": "",
+            "title1LineMob": "",
+            "title1LetterMob": "",
+            "title1ColorMob": "",
+            "title1AlignMob": "center",
+            "title1MarBottomMob": "",
+            "subtext": "Slide title",
+            "subtextSize": "",
+            "subtextLine": "",
+            "subtextLetter": "",
+            "subtextColor": "",
+            "subtextAlign": "center",
+            "subtextMarBottom": "",
+            "subtextSizeMob": "",
+            "subtextLineMob": "",
+            "subtextLetterMob": "",
+            "subtextColorMob": "",
+            "subtextAlignMob": "center",
+            "subtextMarBottomMob": ""
+          }
+        },
+        "e536330d-ff47-44e9-886c-5bbc36c667ec": {
+          "type": "image",
+          "settings": {
+            "imgMarBottom": "",
+            "imgMobMarBottom": "",
+            "title1": "",
+            "title1Size": "",
+            "title1Line": "",
+            "title1Letter": "",
+            "title1Color": "",
+            "title1Align": "center",
+            "title1MarBottom": "",
+            "title1SizeMob": "",
+            "title1LineMob": "",
+            "title1LetterMob": "",
+            "title1ColorMob": "",
+            "title1AlignMob": "center",
+            "title1MarBottomMob": "",
+            "subtext": "Slide title",
+            "subtextSize": "",
+            "subtextLine": "",
+            "subtextLetter": "",
+            "subtextColor": "",
+            "subtextAlign": "center",
+            "subtextMarBottom": "",
+            "subtextSizeMob": "",
+            "subtextLineMob": "",
+            "subtextLetterMob": "",
+            "subtextColorMob": "",
+            "subtextAlignMob": "center",
+            "subtextMarBottomMob": ""
+          }
         }
       },
       "block_order": [
         "d84f66ee-e36a-4d4a-9e06-75029e627ce8",
-        "283975df-bdab-442a-acf5-9838f747fdc7"
+        "283975df-bdab-442a-acf5-9838f747fdc7",
+        "c269e726-36e4-4241-838c-eea06acc42b2",
+        "e536330d-ff47-44e9-886c-5bbc36c667ec"
       ],
       "settings": {
         "marTop": "0",
@@ -832,53 +1058,6 @@
         "subtext2ColorMob": "",
         "subtext2AlignMob": "left",
         "subtext2MarBottomMob": "0"
-      }
-    },
-    "163794385028381744": {
-      "type": "subtitle-title",
-      "disabled": true,
-      "settings": {
-        "anchor": "history",
-        "marTop": "",
-        "marBottom": "",
-        "marTopMob": "",
-        "marBottomMob": "",
-        "padTop": "120",
-        "padBottom": "",
-        "padLeft": "300",
-        "padRight": "265",
-        "padTopMob": "72",
-        "padBottomMob": "",
-        "padLeftMob": "20",
-        "padRightMob": "20",
-        "backgroundColor": "#232323",
-        "subtext": "Weldwork began with a love of the luxurious French door design often seen in European interiors.",
-        "subtextSize": "40",
-        "subtextWeight": "500",
-        "subtextLine": "44",
-        "subtextLetter": "",
-        "subtextColor": "#ffffff",
-        "subtextAlign": "left",
-        "subtextMarBottom": "",
-        "subtextSizeMob": "32",
-        "subtextLineMob": "35.2",
-        "subtextLetterMob": "",
-        "subtextColorMob": "",
-        "subtextAlignMob": "left",
-        "subtextMarBottomMob": "",
-        "title": "",
-        "titleSize": "",
-        "titleLine": "",
-        "titleLetter": "",
-        "titleColor": "",
-        "titleAlign": "center",
-        "titleMarBottom": "",
-        "titleSizeMob": "",
-        "titleLineMob": "",
-        "titleLetterMob": "",
-        "titleColorMob": "",
-        "titleAlignMob": "center",
-        "titleMarBottomMob": ""
       }
     },
     "1637944080dd0c9168": {
@@ -1484,18 +1663,20 @@
     "a9fdabcc-ea6e-4c6f-8635-5f68db1c7298",
     "16377595427c9c2aa9",
     "cef51c13-ba7e-400f-8ebe-057c9702f8ac",
+    "a2a1f1bf-ebd6-4286-b670-4d5a6d76272a",
     "50b4ee99-4e26-4a1e-b51c-3bf294408596",
     "97fdcb49-be8e-4788-ae05-ef89d1e7e415",
     "237b6e28-aad1-4a3a-9711-8344855e9edd",
+    "4628da98-cd94-488d-aa30-7f00f416621c",
     "474508a5-d846-4c99-8ac0-65ffc24790e4",
     "b5fef37e-50b6-4a31-aeeb-62a08fe01d09",
+    "6c4ef369-de06-46d1-a4bb-afa265ce6b58",
     "90644bab-7e6d-4525-be9b-ef40b57c549d",
     "6838d9c4-82dc-4d19-aa33-1c89d9ce474d",
     "163776318544540332",
     "1637767069df4de21a",
     "1637850766be663d02",
     "163785258867b6d8a5",
-    "163794385028381744",
     "1637944080dd0c9168",
     "1637945045968ea4af",
     "1637945523a7c6732f",
