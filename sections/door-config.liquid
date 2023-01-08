@@ -234,10 +234,10 @@
   .dc-modal__params {
     flex-direction: column;
     flex-wrap: wrap;
-    width: 62%;
-    max-height: 350px;
+    width: 65%;
+    max-height: 375px;
     margin-top: 25px;
-    padding-left: 50px;
+    padding-left: 0;
   }
 
   .dc-modal__param {
@@ -247,6 +247,8 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    min-height: 2.5rem;
+    margin-left: 2rem;
   }
 
   .dc-modal__param p {
@@ -258,6 +260,15 @@
     -ms-flex: 1;
     flex: 1;
     text-align: left;
+  }
+
+  .dc-modal__param-label {
+    text-transform: capitalize;
+  }
+
+  .dc-modal__param-value {
+    position: relative;
+    left: 10%;
   }
 
   .dc-modal__param p.dc-modal__param-value {
@@ -377,6 +388,7 @@
     position: absolute;
     right: 10px;
     top: 10px;
+    display: none;
   }
 
   body .modal-configuration .modal-title {
@@ -384,6 +396,30 @@
     font-weight: 400;
     font-size: 48px;
     line-height: 30px;
+  }
+
+  div.modal-configuration.custom-modal .modal-button {
+    padding: 0;
+    display: flex;
+    flex-flow: row;
+  }
+
+  div.modal-configuration.custom-modal .modal-button p {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+
+  div.modal-configuration.custom-modal p.modal-button__icon {
+    padding: 0.75rem;
+    line-height: 0;
+    border-right: 1px solid #484849;
+  }
+
+  div.modal-configuration.custom-modal p.modal-button__text {
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
   }
 
   .modal-button-black {
@@ -589,6 +625,11 @@
 
     .dc-modal__params{
       padding-left: 0;
+      max-height: 690px;
+    }
+
+    .dc-modal__param {
+      margin-left: 0;
     }
 
     .dc-modal__param p {
@@ -619,6 +660,8 @@
 
     .dc-modal__image img {
       max-width: 277px;
+      display: block;
+      margin: 0 auto;
     }
 
     .dc-modal__params {
@@ -652,6 +695,14 @@
 
     .dc-modal__container {
       padding: 50px 20px 20px 20px;
+    }
+
+    .custom-modal-content {
+      padding: 0 !important;
+    }
+
+    div.modal-configuration.custom-modal .modal-button {
+      width: 100%;
     }
 
     .dc-modal__close {
@@ -696,11 +747,19 @@
     }
 
     .config-modal-active #configurator-container {
-      height: 1300px;
+      height: 1600px;
+    }
+
+    .config-modal-active #configurator-container.firstpop {
+      height: 1200px;
     }
 
     .config-modal-active .dc-modal {
-      height: 1150px;
+      height: 1450px;
+    }
+
+    .config-modal-active .dc-modal.firstpop  {
+      height: 1000px;
     }
 
   }
@@ -739,8 +798,42 @@
                 <p>Thank you for choosing Weldwork.</p>
                 <p>One of our team members will reach out to you within 24 hours to discuss your project.</p>
                 <div class="custom-modal-action">
-                  <a href="https://www.roomle.com/t/cp/ar.html?id=weldwork%3Adoor_system%3A58E37EF3D84C8AA555D4132D8FC19947C3739B2A865A8EF8F52667F3A4EBCF60&configuratorId=demoConfigurator" target="_blank" class="modal-button">View your door in your space</a>
-                  <a href="https://www.weldwork.com/pages/door-configurator" target="_blank" class="modal-button" > Build another door or partition</a>
+                  <a href="https://www.roomle.com/t/cp/ar.html?id=weldwork%3Adoor_system%3A58E37EF3D84C8AA555D4132D8FC19947C3739B2A865A8EF8F52667F3A4EBCF60&configuratorId=demoConfigurator" target="_blank" class="modal-button">
+                    <p class="modal-button__icon">
+                      <svg width="36" height="36" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.35449 28.2499C5.27956 28.3937 4.49219 27.7775 4.49219 27.0244V3.05403C4.49219 2.3009 5.10839 1.68469 5.86153 1.68469H16.9464C17.6995 1.68469 18.3157 2.3009 18.3157 3.05403V27.0244C18.3157 27.7775 17.6995 28.3937 16.9464 28.3937H10.3187" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.16309 6.19666H18.1718" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.6406 23.9982H18.172" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.16309 23.9982H6.35441" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.6406 4.1427H12.01" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.4072 26.73C11.7551 26.73 12.0371 26.448 12.0371 26.1001C12.0371 25.7522 11.7551 25.4702 11.4072 25.4702C11.0594 25.4702 10.7773 25.7522 10.7773 26.1001C10.7773 26.448 11.0594 26.73 11.4072 26.73Z" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6.35449 28.0857V26.2987V20.6091C6.35449 19.5479 7.23087 18.692 8.31265 18.692C9.39443 18.692 10.2708 19.5547 10.2708 20.6091V28.0857" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.5381 28.3937C10.5381 28.3937 10.6682 29.229 11.2022 34.0354" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4.49954 17.3295L1.93887 24.8129C1.41852 25.9632 1.78139 27.935 2.34282 28.7977L4.63647 34.0354" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.749 34.2682V28.3937" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18.3162 19.8901H14.8586V9.62H7.90234V18.685" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </p>
+                    <p class="modal-button__text">View your door in your space</p>
+                  </a>
+                  <a href="https://www.weldwork.com/pages/door-configurator" target="_blank" class="modal-button" >
+                    <p class="modal-button__icon">
+                      <svg width="36" height="36" viewBox="0 0 36 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.3096 4.07617H31.6862" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M35.235 4.07617V26.4642C35.235 27.9928 34.0113 29.228 32.497 29.228H1.52947C1.10882 29.228 0.764648 28.8806 0.764648 28.456V4.84817C0.764648 4.42357 1.10882 4.07617 1.52947 4.07617H6.29428" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M35.2353 26.2867L34.5852 25.5456C33.8739 24.735 32.8108 24.2641 31.6865 24.2641V1.51318H32.4437C33.981 1.51318 35.2353 2.77155 35.2353 4.33099V26.2867Z" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M27.7863 22.998H6.82265C6.53202 22.998 6.29492 22.7586 6.29492 22.4653V1.30469C6.29492 0.833772 6.86089 0.594451 7.19741 0.926412L28.1611 22.087C28.49 22.4189 28.2605 22.998 27.7863 22.998Z" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.0406 17.4936H11.3504C11.2739 17.4936 11.2051 17.4318 11.2051 17.3469V11.6032C11.2051 11.4719 11.358 11.4102 11.4498 11.5028L17.1401 17.2465C17.2318 17.3392 17.163 17.4936 17.0406 17.4936V17.4936Z" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.76758 22.666V21.1219" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.0615 22.666V21.1219" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.1211 22.666V21.1219" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.415 22.666V21.1219" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20.4746 22.666V21.1219" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22.7695 22.666V21.1219" stroke="#484849" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </p>
+                    <p class="modal-button__text">Build another door or partition</p>
+                  </a>
                 </div>
               </div>
             </div>
@@ -836,7 +929,7 @@
         ✕
       </button>
       <div class="custom-modal-content">
-        <div class="custom-modal-content-holder">
+        <div class="custom-modal-content-holder">modal-button__icon
           <div class="icon-holder"><img
               src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/check-circle-icon.svg?v=1658235413">
           </div>
@@ -1028,7 +1121,7 @@
 
         const paraLabel = document.createElement('p');
         paraLabel.classList.add('dc-modal__param-label');
-        paraLabel.innerText = param.label;
+        paraLabel.innerText = param.label.toLowerCase();
         paraContainer.appendChild(paraLabel);
 
         const paraValue = document.createElement('p');
@@ -1069,8 +1162,11 @@
 
     const returnSummary = () => {
       var element = document.getElementById("design-config");
+      var wrapper = document.getElementById("configurator-container");
       element.classList.add("product-summary-modal");
       element.classList.remove("firstpop");
+      wrapper.classList.add("product-summary-modal");
+      wrapper.classList.remove("firstpop");
       const targetDiv = document.getElementById("summary-head");
       const cancelDiv = document.getElementById("psm-cancel");
       const finalCancel = document.getElementById("final-cancel");
@@ -1096,8 +1192,11 @@
 
     const showContactForm = () => {
       var element = document.getElementById("design-config");
+      var wrapper = document.getElementById("configurator-container");
       element.classList.remove("product-summary-modal");
       element.classList.add("firstpop");
+      wrapper.classList.remove("product-summary-modal");
+      wrapper.classList.add("firstpop");
       const targetDiv = document.getElementById("summary-head");
       const cancelDiv = document.getElementById("psm-cancel");
       const finalCancel = document.getElementById("final-cancel");
@@ -1132,8 +1231,11 @@
       modal.classList.add('dc-modal--active');
       createForm(image, partlist, configuration);
       var element = document.getElementById("design-config");
+      var wrapper = document.getElementById("configurator-container");
       element.classList.add("product-summary-modal");
       element.classList.remove("firstpop");
+      wrapper.classList.add("product-summary-modal");
+      wrapper.classList.remove("firstpop");
       const targetDiv = document.getElementById("summary-head");
       const cancelDiv = document.getElementById("psm-cancel");
       const finalCancel = document.getElementById("final-cancel");
