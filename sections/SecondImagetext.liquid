@@ -44,7 +44,11 @@
       {% assign boxDiv2 = 100 | minus: section.settings.textWidthMob | minus: section.settings.textMarginMob %}
       .textDiv-{{ section.id }} {
         width: {{ section.settings.textWidth }}%;
+      {%- if section.settings.reverse_order -%}
+        margin-left: {{ section.settings.textMargin }}%;
+      {%- else -%}
         margin-right: {{ section.settings.textMargin }}%;
+      {%- endif -%}
         {% if template contains "careers" %}
         margin-bottom: -5.48vw;
         {% endif %}
@@ -55,7 +59,11 @@
       @media only screen and (max-width: 1008px) {
       .textDiv-{{ section.id }} {
       	width: {{ section.settings.textWidthMob }}%;
+      {%- if section.settings.reverse_order -%}
+        margin-left: {{ section.settings.textMarginMob }}%;
+      {%- else -%}
         margin-right: {{ section.settings.textMarginMob }}%;
+      {%- endif -%}
       }
         .boxDiv-{{ section.id }} {
         	margin-top: 21px;
