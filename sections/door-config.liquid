@@ -1452,6 +1452,13 @@ console.log("isValid", isValid)
   if (myParam == 'true') {
     jQuery("#configuration-modal").addClass("is-visible");
     const modal = document.querySelector('[data-modal]');
+    const container = document.getElementById('configurator-container');
+    const offsetTop = jQuery(container)?.offset()?.top;
+    setTimeout(function () {
+      if (offsetTop) {
+        jQuery('html, body').scrollTop(offsetTop);
+      }
+    }, 250);
     //modal.classList.remove('dc-modal--active');
   } else {
     jQuery("#configuration-modal").removeClass("is-visible");
