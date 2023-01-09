@@ -472,12 +472,12 @@ line-height: 120%;
     );
     if ($(window).width() > 1009) {
     $(".aboutTabsDiv2").css("width", $(".aboutTabsDiv").css("width"));
-    $(".stickyAbout").css("height",($("#shopify-section-template--15274132668612__1637946785ea45696c").offset().top+$("#shopify-section-template--15274132668612__1637946785ea45696c").outerHeight() -$(".heading-c7570d0d-8c2b-4361-b978-17c9ca3d05c1").offset().top - 20)+"px");
-    $(".stickyAbout").css("top",($(".heading-c7570d0d-8c2b-4361-b978-17c9ca3d05c1").offset().top)+"px");
+    $(".stickyAbout").css("height",($("#shopify-section-template--15274132668612__1637946785ea45696c")?.offset()?.top+$("#shopify-section-template--15274132668612__1637946785ea45696c")?.outerHeight() -$(".heading-c7570d0d-8c2b-4361-b978-17c9ca3d05c1")?.offset()?.top - 20)+"px");
+    $(".stickyAbout").css("top",($(".heading-c7570d0d-8c2b-4361-b978-17c9ca3d05c1")?.offset()?.top)+"px");
     }else{
     $(".aboutTabsDiv2").css("width", $(".aboutTabsDiv").css("width"));
-    $(".stickyAbout").css("height",($("#shopify-section-template--15274132668612__1637946785ea45696c").offset().top-$(".heading-c7570d0d-8c2b-4361-b978-17c9ca3d05c1").offset().top +170)+"px");
-    $(".stickyAbout").css("top",($(".heading-c7570d0d-8c2b-4361-b978-17c9ca3d05c1").offset().top) - 100 +"px");
+    $(".stickyAbout").css("height",($("#shopify-section-template--15274132668612__1637946785ea45696c")?.offset()?.top-$(".heading-c7570d0d-8c2b-4361-b978-17c9ca3d05c1")?.offset()?.top +170)+"px");
+    $(".stickyAbout").css("top",($(".heading-c7570d0d-8c2b-4361-b978-17c9ca3d05c1")?.offset()?.top) - 100 +"px");
     } 
   </script>
   {% endif %}
