@@ -41,8 +41,9 @@
 {% comment %}      background-image: url({{ section.settings.backgroundImage | img_url: "master" }}); {% endcomment %}
        background:linear-gradient(0deg, rgb(0 0 0 / 65%), rgb(0 0 0 / 57%)),  url({{ section.settings.backgroundImage | img_url: "master" }})!important;
  position: relative;
-    background-size: cover!important;
- background-repeat: no-repeat!important;
+    background-size: cover !important;
+   background-position: center !important;
+ background-repeat: no-repeat !important;
  }
 
          {% else %}
@@ -51,7 +52,8 @@
 /*    background-image: url({{ section.settings.backgroundImage | img_url: "master" }}); */
     background: linear-gradient(0deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 0%)),  url({{ section.settings.backgroundImage | img_url: "master" }})!important;
     position: relative;
-    background-size: cover!important;
+    background-size: cover !important;
+       background-position: center !important;
       
   }
   {% endif %}
@@ -104,8 +106,8 @@ display:block!important;
       margin-top: {{ section.settings.marTopMob }}px;
       margin-bottom: {{ section.settings.marBottomMob }}px;
     /*  background-image: url({{ section.settings.backgroundImageMob | img_url: "master" }}); */
-        background:linear-gradient(0deg, rgb(0 0 0 / 20%), rgb(0 0 0 / 20%)), url({{ section.settings.backgroundImageMob | img_url: "master" }});
-      background-size: contain;
+        background:linear-gradient(0deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 0%)), url({{ section.settings.backgroundImageMob | img_url: "master" }}) no-repeat;
+      background-size: cover;
      background-position: center;
      {%- if section.settings.sectionHeightMobile -%}
        height: {{ section.settings.sectionHeightMobile }}vh;
