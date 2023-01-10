@@ -89,7 +89,7 @@
   	margin-bottom: 0.83vw;
   }
   .perkCheckmark {
-  	margin-right: 1.6vw;
+  	margin-right: 0.8vw;
     padding-top: 0.28vw;
   }
   .productPerkTitle  {
@@ -283,7 +283,7 @@
   	margin-bottom: 12px;
   }
   .perkCheckmark {
-  	margin-right: 23px;
+  	margin-right: 12px;
     padding-top: 5px;
   }
   .productPerkTitle  {
@@ -410,8 +410,10 @@
     left: 20%;
     visibility:hidden;
 max-height: 480px;  }
-  .iframeVideoShow{
+  .iframeVideoShow {
     visibility: unset;
+    display: block;
+    z-index: 99999;
    
   }
   @media(max-width:1008px){
@@ -529,38 +531,7 @@ p.view-glass-options:hover .moreinfo-popup {
 }
 </style>
 <div class="stickyCart">
-  <div class="stickyPerks">
-    <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	  {% if product.metafields.my_fields.product_perk_1 != blank %}
-            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
-          {% else %}
-            Made in the USA
-          {% endif %}
-      </p>
-    </div>
-     <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	   {% if product.metafields.my_fields.product_perk_2 != blank %}
-            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
-          {% else %}
-            Delivers Nationwide
-          {% endif %}
-      </p>
-    </div>
-     <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	  {% if product.metafields.my_fields.product_perk_3 != blank %}
-            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
-          {% else %}
-            Specialty Interior Doors
-          {% endif %}
-      </p>
-    </div>
-  </div>
+  <div class="stickyPerks"></div>
   <div class="stickyAdd">
     {% include 'product-price', variant: current_variant %}
    
@@ -852,24 +823,27 @@ $(".fancybox").attr("href",$(".productThumbnail.active").attr("src"));
             }
           }, 400);
         });
-      
+
         $(".Image-V-One").click(function(){
-          $(this).parent("div").siblings().removeClass("active");
-          
+          $(".mainImgAn").fadeOut(1000, "linear", function() {
+            $(this).hide();
+            $(this).parent("div").siblings().removeClass("active");
+
 //           removeZoom();
-          $(this).addClass("active");
-          $(".mainImgAn").fadeOut();
-          setTimeout(function(){ 
-          // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
-          $(".iv-one").addClass('iframeVideoShow'); 
-          $(".iv-one-ex").attr("src", "");
-          $(".iv-one-ex").removeClass("iframeVideoShow");
-  
-          $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
-  
-          // $(".iframeVideo").addClass('mainImgAn'); 
-          $(".iv-one").fadeIn(); 
-          }, 400);
+            $(this).addClass("active");
+
+            $('.iframeVideoShow').addClass('custommainImgAn1');
+
+            // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+            $(".iv-one").addClass('iframeVideoShow');
+            $(".iv-one-ex").attr("src", "");
+            $(".iv-one-ex").removeClass("iframeVideoShow");
+
+            $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
+
+            // $(".iframeVideo").addClass('mainImgAn');
+            $(".iv-one").fadeIn();
+          });
         });
   
         // Extra Video ONE

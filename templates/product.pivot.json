@@ -39,13 +39,49 @@
             "item-title": "Thin Reeded Glass",
             "item-value": "Thin Reeded Glass"
           }
+        },
+        "b9abc6da-4a20-4c43-b7a8-29f9ce7325cd": {
+          "type": "hinge_image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_1.jpg",
+            "item-title": "Left Hand",
+            "item-value": "Left Hand"
+          }
+        },
+        "4c47d649-832c-4c81-9dd3-5f4271be2d71": {
+          "type": "hinge_image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_2.jpg",
+            "item-title": "Right Hand",
+            "item-value": "Right Hand"
+          }
+        },
+        "4074a3e5-3662-46f5-aa30-0edc22bc62c1": {
+          "type": "hinge_image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_3.jpg",
+            "item-title": "Left Hand Reverse",
+            "item-value": "Left Hand Reverse"
+          }
+        },
+        "f5dc602b-b1d4-48a8-9582-29ac670eb7c6": {
+          "type": "hinge_image",
+          "settings": {
+            "item-image": "shopify:\/\/shop_images\/Weldwork_door_swings_Left_Hand_4.jpg",
+            "item-title": "Right Hand Reverse",
+            "item-value": "Right Hand Reverse"
+          }
         }
       },
       "block_order": [
         "ea396b7b-27d7-4971-be44-fa2d25a47da5",
         "741633cc-b4f9-4245-ba9b-0046434492bb",
         "8ef55864-2cc8-4649-8b29-830219dc24e3",
-        "ba59d7c0-1a0b-46c8-80e7-ff4cc2f0b2d0"
+        "ba59d7c0-1a0b-46c8-80e7-ff4cc2f0b2d0",
+        "b9abc6da-4a20-4c43-b7a8-29f9ce7325cd",
+        "4c47d649-832c-4c81-9dd3-5f4271be2d71",
+        "4074a3e5-3662-46f5-aa30-0edc22bc62c1",
+        "f5dc602b-b1d4-48a8-9582-29ac670eb7c6"
       ],
       "settings": {
       }
@@ -241,6 +277,96 @@
         "subtextMarBottomMob": "43"
       }
     },
+    "648eb8b4-f28d-4973-b95b-ccd05996e48f": {
+      "type": "subtitle-title",
+      "settings": {
+        "anchor": "",
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "75",
+        "padBottom": "30",
+        "padLeft": "390",
+        "padRight": "390",
+        "padTopMob": "30",
+        "padBottomMob": "30",
+        "padLeftMob": "20",
+        "padRightMob": "20",
+        "backgroundColor": "",
+        "subtext": "",
+        "subtextSize": "",
+        "subtextWeight": "400",
+        "subtextLine": "58.8",
+        "subtextLetter": "",
+        "subtextColor": "",
+        "subtextAlign": "center",
+        "subtextMarBottom": "",
+        "subtextSizeMob": "36",
+        "subtextLineMob": "37.8",
+        "subtextLetterMob": "",
+        "subtextColorMob": "",
+        "subtextAlignMob": "center",
+        "subtextMarBottomMob": "",
+        "title": "See some examples below",
+        "titleSize": "56",
+        "titleLine": "58.8",
+        "titleLetter": "-0.02",
+        "titleColor": "#1f2021",
+        "titleAlign": "center",
+        "titleMarBottom": "",
+        "titleSizeMob": "36",
+        "titleLineMob": "37.8",
+        "titleLetterMob": "-0.02",
+        "titleColorMob": "#1f2021",
+        "titleAlignMob": "center",
+        "titleMarBottomMob": ""
+      }
+    },
+    "16380435977ab875c5": {
+      "type": "fullImage",
+      "blocks": {
+        "06730b6f-b9d0-4111-bf6e-e1334d8b93bd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_308.png",
+            "title": ""
+          }
+        },
+        "9824911a-320f-4270-8d8c-20cb4de618af": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png",
+            "title": ""
+          }
+        },
+        "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design-38.png",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "06730b6f-b9d0-4111-bf6e-e1334d8b93bd",
+        "9824911a-320f-4270-8d8c-20cb4de618af",
+        "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a"
+      ],
+      "settings": {
+        "enable_carousel_arrows": true,
+        "arrow_icon": "shopify:\/\/shop_images\/image_2022_10_05T13_01_40_054Z.png",
+        "marTop": "",
+        "marBottom": "",
+        "marTopMob": "",
+        "marBottomMob": "",
+        "padTop": "0",
+        "padBottom": "50",
+        "padTopMob": "",
+        "padBottomMob": "",
+        "backgroundColor": "#ffffff"
+      }
+    },
     "1638981693dc0f567c": {
       "type": "titleText",
       "settings": {
@@ -358,49 +484,6 @@
         "tabTextColorMob": "",
         "tabTextAlignMob": "center",
         "tabTextMarBottomMob": ""
-      }
-    },
-    "16380435977ab875c5": {
-      "type": "fullImage",
-      "disabled": true,
-      "blocks": {
-        "06730b6f-b9d0-4111-bf6e-e1334d8b93bd": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_308.png",
-            "title": ""
-          }
-        },
-        "9824911a-320f-4270-8d8c-20cb4de618af": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_241-5.png",
-            "title": ""
-          }
-        },
-        "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Untitled_design-38.png",
-            "title": ""
-          }
-        }
-      },
-      "block_order": [
-        "06730b6f-b9d0-4111-bf6e-e1334d8b93bd",
-        "9824911a-320f-4270-8d8c-20cb4de618af",
-        "45c4da74-e0fd-4cde-b2e7-dc30c6ebaa5a"
-      ],
-      "settings": {
-        "marTop": "",
-        "marBottom": "",
-        "marTopMob": "",
-        "marBottomMob": "",
-        "padTop": "0",
-        "padBottom": "0",
-        "padTopMob": "",
-        "padBottomMob": "",
-        "backgroundColor": "#ffffff"
       }
     },
     "1638982282f427ce2f": {
@@ -578,9 +661,10 @@
     "16389816586b923fd0",
     "16390544621c083a39",
     "1639054846057d3f18",
+    "648eb8b4-f28d-4973-b95b-ccd05996e48f",
+    "16380435977ab875c5",
     "1638981693dc0f567c",
     "163898184780a6e9e9",
-    "16380435977ab875c5",
     "1638982282f427ce2f",
     "163750857405134196",
     "1637601312b8801fb9"

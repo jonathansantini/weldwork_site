@@ -86,7 +86,7 @@
   	margin-bottom: 0.83vw;
   }
   .perkCheckmark {
-  	margin-right: 1.6vw;
+  	margin-right: 0.8vw;
     padding-top: 0.28vw;
   }
   .productPerkTitle  {
@@ -152,10 +152,11 @@
     display: flex;
     justify-content: space-between;
   }
-  .stickyPerks img {
+  .stickyPerks svg {
   	width: 1.11vw;
     height: 1.11vw;
     margin-right: 0.97vw;
+    transform: translateY(20%);
   }
   .stickyPerks p {
   	font-size: 0.97vw;
@@ -280,7 +281,7 @@
   	margin-bottom: 12px;
   }
   .perkCheckmark {
-  	margin-right: 23px;
+  	margin-right: 12px;
     padding-top: 5px;
   }
   .productPerkTitle  {
@@ -348,10 +349,11 @@
     display: none;
     justify-content: space-between;
   }
-  .stickyPerks img {
+  .stickyPerks svg {
   	width: 1.11vw;
     height: 1.11vw;
     margin-right: 0.97vw;
+    transform: translateY(20%);
   }
   .stickyPerks p {
   	font-size: 0.97vw;
@@ -409,7 +411,8 @@
 max-height: 480px;  }
   .iframeVideoShow{
     visibility: unset;
-    
+    display: block;
+    z-index: 99999;
   }
   @media(max-width:1008px){
     .iframeVideo {
@@ -525,40 +528,25 @@ p.view-glass-options:hover .moreinfo-popup {
     top: -20px;
   }
 }
+
+.featureTitle {
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 16.5px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #000000;
+}
+
+@media screen and (min-width:768px ){
+  .featureTitle {
+    font-size: 24px;
+    line-height: 28.45px;
+  }
+}
 </style>
 <div class="stickyCart">
-  <div class="stickyPerks">
-    <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	  {% if product.metafields.my_fields.product_perk_1 != blank %}
-            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
-          {% else %}
-            Made in the USA
-          {% endif %}
-      </p>
-    </div>
-     <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	   {% if product.metafields.my_fields.product_perk_2 != blank %}
-            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
-          {% else %}
-            Delivers Nationwide
-          {% endif %}
-      </p>
-    </div>
-     <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	  {% if product.metafields.my_fields.product_perk_3 != blank %}
-            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
-          {% else %}
-            Specialty Interior Doors
-          {% endif %}
-      </p>
-    </div>
-  </div>
+  <div class="stickyPerks"></div>
   <div class="stickyAdd">
     {% include 'product-price', variant: current_variant %}
    
@@ -851,26 +839,29 @@ $( ".closePopupGlass" ).click(function() {
             }
           }, 400);
         });
-      
-        $(".Image-V-One").click(function(){
-          $(this).parent("div").siblings().removeClass("active");
-          
+
+         $(".Image-V-One").click(function(){
+           $(".mainImgAn").fadeOut(1000, "linear", function() {
+             $(this).hide();
+             $(this).parent("div").siblings().removeClass("active");
+
 //           removeZoom();
-          $(this).addClass("active");
-          $(".mainImgAn").fadeOut();
-          setTimeout(function(){ 
-          // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
-          $(".iv-one").addClass('iframeVideoShow'); 
-          $(".iv-one-ex").attr("src", "");
-          $(".iv-one-ex").removeClass("iframeVideoShow");
-  
-          $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
-  
-          // $(".iframeVideo").addClass('mainImgAn'); 
-          $(".iv-one").fadeIn(); 
-          }, 400);
-        });
-  
+             $(this).addClass("active");
+
+             $('.iframeVideoShow').addClass('custommainImgAn1');
+
+             // $(".iframeVideo").attr("src",$(".productThumbnailVideo.active").attr("source"));
+             $(".iv-one").addClass('iframeVideoShow');
+             $(".iv-one-ex").attr("src", "");
+             $(".iv-one-ex").removeClass("iframeVideoShow");
+
+             $(".iv-one").attr("src", "{{product.metafields.my_fields.product_video}}");
+
+             // $(".iframeVideo").addClass('mainImgAn');
+             $(".iv-one").fadeIn();
+           });
+         });
+
         // Extra Video ONE
         $(".Image-V-One-ex").click(function(){
 //           removeZoom();
@@ -1077,105 +1068,67 @@ $( ".closePopupGlass" ).click(function() {
               </div>
     </div>
     <div class="productTopPerks">
+    <h3 class="featureTitle GT-500">Features</h3>
+    {% if product.metafields.custom.features != blank %}
+      {% for feature in product.metafields.custom.features.value %}
+        <div class="productTopPerk flexDiv">
+          <div class="perkCheckmark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
+            </svg>
+          </div>
+          <div class="perkTextHolder">
+            <p class="productPerkTitle GT-500">{{ feature }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
       <div class="productTopPerk flexDiv">
         <div class="perkCheckmark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
-            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
           </svg>
         </div>
         <div class="perkTextHolder">
-          <p class="productPerkTitle GT-500">
-          {% if product.metafields.my_fields.product_perk_1 != blank %}
-            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
-          {% else %}
-            Made in the USA
-          {% endif %}
-          </p>
-          <p class="productPerkText GT-400">
-          {% if product.metafields.my_fields.product_perk_1 != blank %}
-            {{ product.metafields.my_fields.product_perk_1 | split: "/" | last }}
-          {% else %}
-            Quality & service you can rely on.
-          {% endif %}
-          </p>
+          <p class="productPerkTitle GT-500">Made in the USA</p>
+          <p class="productPerkText GT-400">Quality & service you can rely on.</p>
         </div>
       </div>
-      
       <div class="productTopPerk flexDiv">
         <div class="perkCheckmark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
-            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
           </svg>
         </div>
         <div class="perkTextHolder">
-          <p class="productPerkTitle GT-500">
-          {% if product.metafields.my_fields.product_perk_2 != blank %}
-            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
-          {% else %}
-            Delivers Nationwide
-          {% endif %}
-          </p>
-          <p class="productPerkText GT-400">
-          {% if product.metafields.my_fields.product_perk_2 != blank %}
-            {{ product.metafields.my_fields.product_perk_2 | split: "/" | last }}
-          {% else %}
-            Wherever you are, we’ll find a way to work with you.
-          {% endif %}
-          </p>
+          <p class="productPerkTitle GT-500">Delivers Nationwide</p>
+          <p class="productPerkText GT-400">Wherever you are, we’ll find a way to work with you.</p>
         </div>
       </div>
-      
       <div class="productTopPerk flexDiv">
         <div class="perkCheckmark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
-            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
           </svg>
         </div>
         <div class="perkTextHolder">
-          <p class="productPerkTitle GT-500">
-          {% if product.metafields.my_fields.product_perk_3 != blank %}
-            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
-          {% else %}
-            Specialty Interior Doors
-          {% endif %}
-          </p>
-          <p class="productPerkText GT-400">
-          {% if product.metafields.my_fields.product_perk_3 != blank %}
-            {{ product.metafields.my_fields.product_perk_3 | split: "/" | last }}
-          {% else %}
-            We do one thing – and we do it right every time.
-          {% endif %}
-          </p>
+          <p class="productPerkTitle GT-500">Specialty Interior Doors</p>
+          <p class="productPerkText GT-400">We do one thing – and we do it right every time.</p>
         </div>
       </div>
-      
-      <div style="margin-bottom: 0;" class="productTopPerk flexDiv">
+      <div class="productTopPerk flexDiv">
         <div class="perkCheckmark">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <circle cx="8" cy="8" r="8" fill="#F4F0EA"/>
-            <path d="M5.02881 8.0867L7.31452 9.82858L10.9717 5.48572" stroke="black" stroke-width="2"/>
+              <circle cx="5" cy="5" r="5" fill="#000000"/>
           </svg>
         </div>
         <div class="perkTextHolder">
-          <p class="productPerkTitle GT-500">
-          {% if product.metafields.my_fields.product_perk_4 != blank %}
-            {{ product.metafields.my_fields.product_perk_4 | split: "/" | first }}
-          {% else %}
-            More than a Door
-          {% endif %}
-          </p>
-          <p class="productPerkText GT-400">
-          {% if product.metafields.my_fields.product_perk_4 != blank %}
-            {{ product.metafields.my_fields.product_perk_4 | split: "/" | last }}
-          {% else %}
-            Functional art you'll enjoy every day.
-          {% endif %}
-          </p>
+          <p class="productPerkTitle GT-500">More than a Door</p>
+          <p class="productPerkText GT-400">Functional art you'll enjoy every day.</p>
         </div>
       </div>
+    {% endif %}
+      
     </div>
     <style>
       .view-glass-options {
@@ -1276,6 +1229,39 @@ $( ".closePopupGlass" ).click(function() {
     max-width: 47px;
 }
 }
+
+      .variantsHinge {
+        flex-wrap: wrap;
+      }
+      .variantsHinge .variantMain {
+        padding: 20px 10px;
+        width: calc(50% - 5px);
+        flex-grow: unset;
+        margin-bottom: 12px;
+        justify-content: space-between;
+        overflow-x: hidden;
+        flex-flow: column-reverse;
+        text-align: center;
+      }
+      .variantsHinge .variantMain:nth-child(2) {
+        margin-right: 0;
+      }
+      .variantsHinge .variantMain img {
+        mix-blend-mode: darken;
+        margin-bottom: 10px;
+        max-width: 144px;
+      }
+      @media (max-width:1300px){
+        .variantsHinge .variantMain {
+          font-size: 12px;
+          padding: 10px;
+        }
+        .variantsHinge .variantMain img {
+          mix-blend-mode: darken;
+          margin-left: 10px;
+          max-width: 144px;
+        }
+      }
     </style>
     <div class="variantPicker">
     	<!--<div sel="" class="productSelector">
@@ -1387,7 +1373,10 @@ Opening width</div>
 Glass </div>
           <div class="variantsFlex variantsGlass">
               {% for block in section.blocks %}
+                {% case block.type %}
+                  {% when 'image' %}
                <div  imgsrc='{{ block.settings.item-image | img_url:'master' }}' data-title='{{ block.settings.item-title | escape }}' value='{{ block.settings.item-value | escape }}' class="variantMain {% if forloop.index == 1 %}selected   {% endif %}"><span>{{ block.settings.item-title | escape }}</span><img src="{{ block.settings.item-image | img_url }}"></div>
+                  {% endcase %}
              {% endfor %}
           </div>
       	</div>
@@ -1868,7 +1857,30 @@ $(".lite-four").click(function(){
                     "default": "Value"
                   }
     			]
-    		}
+    		},
+        {
+          "type": "hinge_image",
+          "name": "Hinge Option",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "item-image",
+              "label": "Hinge Icon"
+            },
+            {
+              "type": "text",
+              "id": "item-title",
+              "label": "Title",
+              "default": "Title"
+            },
+            {
+              "type": "text",
+              "id": "item-value",
+              "label": "Value",
+              "default": "Value"
+            }
+          ]
+        }
 	]
 }
 {% endschema %}

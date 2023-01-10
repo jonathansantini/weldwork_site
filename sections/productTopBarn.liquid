@@ -81,7 +81,7 @@
   	margin-bottom: 0.83vw;
   }
   .perkCheckmark {
-  	margin-right: 1.6vw;
+  	margin-right: 0.8vw;
     padding-top: 0.28vw;
   }
   .productPerkTitle  {
@@ -182,38 +182,7 @@
   }
 </style>
 <div class="stickyCart">
-  <div class="stickyPerks">
-    <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	  {% if product.metafields.my_fields.product_perk_1 != blank %}
-            {{ product.metafields.my_fields.product_perk_1 | split: "/" | first }}
-          {% else %}
-            Made in the USA
-          {% endif %}
-      </p>
-    </div>
-     <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	   {% if product.metafields.my_fields.product_perk_2 != blank %}
-            {{ product.metafields.my_fields.product_perk_2 | split: "/" | first }}
-          {% else %}
-            Delivers Nationwide
-          {% endif %}
-      </p>
-    </div>
-     <div class="stickyPerk">
-      <img src="https://cdn.shopify.com/s/files/1/0580/5994/8228/files/Component_37.svg?v=1639484016">
-      <p class="GT-400">
-      	  {% if product.metafields.my_fields.product_perk_3 != blank %}
-            {{ product.metafields.my_fields.product_perk_3 | split: "/" | first }}
-          {% else %}
-            Specialty Interior Doors
-          {% endif %}
-      </p>
-    </div>
-  </div>
+  <div class="stickyPerks"></div>
   <div class="stickyAdd">
     {% include 'product-price', variant: current_variant %}
    

@@ -67,6 +67,9 @@ display:block!important;
   #shopify-section-{{ section.id }} {
     margin-top: {{ section.settings.marTop | times: 100 | divided_by: 1440.0 }}vw;
     margin-bottom: {{ section.settings.marBottom | times: 100 | divided_by: 1440.0 }}vw;
+    {%- if section.settings.sectionHeight -%}
+    height: {{ section.settings.sectionHeight }}vh;
+    {%- endif -%}
   }
   
   #shopify-section-{{ section.id }} .visibilityDiv {
@@ -103,6 +106,9 @@ display:block!important;
     /*  background-image: url({{ section.settings.backgroundImageMob | img_url: "master" }}); */
         background:linear-gradient(0deg, rgb(0 0 0 / 80%), rgb(0 0 0 / 80%)), url({{ section.settings.backgroundImageMob | img_url: "master" }});
       background-size: 100% 100%;
+     {%- if section.settings.sectionHeightMobile -%}
+       height: {{ section.settings.sectionHeightMobile }}vh;
+     {%- endif -%}
     }
    
   
@@ -303,11 +309,21 @@ display:block!important;
           "default": true,
           "label": "Dark background"
         },
-		{
-          "type": "text",
-          "id": "marTop",
-          "label": "Top margin (numbers only)"
-        },
+      {
+        "type": "text",
+        "id": "sectionHeight",
+        "label": "Section height (numbers only)"
+      },
+      {
+        "type": "text",
+        "id": "sectionHeightMobile",
+        "label": "Section height mobile (numbers only)"
+      },
+      {
+        "type": "text",
+        "id": "marTop",
+        "label": "Top margin (numbers only)"
+      },
 		{
           "type": "text",
           "id": "marBottom",

@@ -410,6 +410,7 @@
         "b069297c-4c4b-49da-93f1-9a1b8ff0e92b"
       ],
       "settings": {
+        "enable_carousel_arrows": false,
         "marTop": "",
         "marBottom": "",
         "marTopMob": "",
