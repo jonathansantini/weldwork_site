@@ -77,6 +77,13 @@
         	width: {{ boxDiv2 }}%;
         }
       {% endif %}
+      {% if section.settings.imageWidthMob != blank %}
+        .textDiv-{{ section.id }} .fullWidth {
+          width: {{ section.settings.imageWidthMob }}%;
+          margin: 0 auto;
+          display: block;
+        }
+      {% endif %}
       }
       .reverseOrder {
         flex-flow: row-reverse;
@@ -268,6 +275,11 @@
           "type": "text",
           "id": "textWidthMob",
           "label": "Image part mobile width (0-100)"
+        },
+		{
+          "type": "text",
+          "id": "imageWidthMob",
+          "label": "Image mobile width (0-100)"
         },
 		{
           "type": "text",
