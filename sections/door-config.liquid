@@ -1429,55 +1429,58 @@ console.log("isValid", isValid)
   jQuery(document).on("click", ".config-modal-close", function () {
     window.location.href="/pages/door-configurator";
   })
-  function parse_query_string(query) {
-    var vars = query.split("&");
-    var query_string = {};
-    for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split("=");
-      var key = decodeURIComponent(pair.shift());
-      var value = decodeURIComponent(pair.join("="));
-      // If first entry with this name
-      if (typeof query_string[key] === "undefined") {
-        query_string[key] = value;
-        // If second entry with this name
-      } else if (typeof query_string[key] === "string") {
-        var arr = [query_string[key], value];
-        query_string[key] = arr;
-        // If third or later entry with this name
-      } else {
-        query_string[key].push(value);
+  $(document).ready(function() {
+    function parse_query_string(query) {
+      var vars = query.split("&");
+      var query_string = {};
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        var key = decodeURIComponent(pair.shift());
+        var value = decodeURIComponent(pair.join("="));
+        // If first entry with this name
+        if (typeof query_string[key] === "undefined") {
+          query_string[key] = value;
+          // If second entry with this name
+        } else if (typeof query_string[key] === "string") {
+          var arr = [query_string[key], value];
+          query_string[key] = arr;
+          // If third or later entry with this name
+        } else {
+          query_string[key].push(value);
+        }
       }
+      return query_string;
     }
-    return query_string;
-  }
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const myParam = urlParams.get('contact_posted');
-  if (myParam == 'true') {
-    jQuery("#configuration-modal").addClass("is-visible");
-    const modal = document.querySelector('[data-modal]');
-    const container = document.getElementById('configurator-container');
-    const offsetTop = jQuery(container)?.offset()?.top;
-    setTimeout(function () {
-      if (offsetTop) {
-        jQuery('html, body').scrollTop(offsetTop);
-      }
-    }, 250);
-    //modal.classList.remove('dc-modal--active');
-  } else {
-    jQuery("#configuration-modal").removeClass("is-visible");
-    const modal = document.querySelector('[data-modal]');
-    //modal.classList.add('dc-modal--active');
-  }
-  window.onclick = function(event) {
-    if(event.target === document.querySelector('.firstpop')) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('contact_posted');
+    if (myParam == 'true') {
+      jQuery("#configuration-modal").addClass("is-visible");
       const modal = document.querySelector('[data-modal]');
-      modal.classList.add('dc-modal--active');
-
-      if ( !document.querySelector('body').classList.contains('config-modal-active') ) {
-        document.querySelector('body').classList.add('config-modal-active');
+      const container = document.getElementById('configurator-container');
+      const offsetTop = jQuery(container)?.offset()?.top;
+      if (offsetTop) {
+        //jQuery('html, body').scrollTop(offsetTop,);
+        //jQuery('html, body').animate({ scrollTop: offsetTop }, 'fast');
+        document.documentElement.scrollTop = document.body.scrollTop = offsetTop;
       }
-    }  };
+      //modal.classList.remove('dc-modal--active');
+    } else {
+      jQuery("#configuration-modal").removeClass("is-visible");
+      const modal = document.querySelector('[data-modal]');
+      //modal.classList.add('dc-modal--active');
+    }
+    window.onclick = function (event) {
+      if (event.target === document.querySelector('.firstpop')) {
+        const modal = document.querySelector('[data-modal]');
+        modal.classList.add('dc-modal--active');
+
+        if (!document.querySelector('body').classList.contains('config-modal-active')) {
+          document.querySelector('body').classList.add('config-modal-active');
+        }
+      }
+    };
+  });
   $(document).ready(function() {
     $(window).keydown(function(event){
       if(event.keyCode == 13) {
