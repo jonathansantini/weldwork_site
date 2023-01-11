@@ -47,9 +47,9 @@ background-color: {{ section.settings.backgroundColor }};
 <a anch="{{ section.settings.anchor }}" id="{{ section.settings.anchor }}-anch" class="allAnchors"></a>
 <div class="{% if template contains 'reviews' %}come-in{% else %}applyAnimation{% endif %} evenContainer">
   {% if section.settings.subtext != blank %}
-            <p class="{% if template contains 'reviews' %}come-in-3{% else %}come-in-1{% endif %} subtext-{{ section.id }} GT-{{ section.settings.subtextWeight }}">
+            <{% if section.settings.reverse_subtitle %}h1{% else %}p{% endif %} class="{% if template contains 'reviews' %}come-in-3{% else %}come-in-1{% endif %} subtext-{{ section.id }}{% if section.settings.reverse_subtitle %} CCD{% else %} GT-{{ section.settings.subtextWeight }}{% endif %}">
               {{ section.settings.subtext }}
-      		</p>
+      		</{% if section.settings.reverse_subtitle %}h1{% else %}p{% endif %}>
 
 
   
@@ -213,6 +213,12 @@ background-color: {{ section.settings.backgroundColor }};
           "id": "subtext",
           "label": "Subtitle",
           "default": "Slide title"
+        },
+		{
+          "type": "checkbox",
+          "id": "reverse_subtitle",
+          "default": false,
+          "label": "Convert subtitle to <h1>"
         },
 		{
           "type": "text",
